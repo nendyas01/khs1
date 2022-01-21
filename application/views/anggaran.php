@@ -47,13 +47,19 @@
 			</tr>
             <?php 
                  $no = 1;
-                    foreach ($anggaran as $a):?>
+                    foreach ($anggaran as $a){
+                    ?>
                       <tr>
-                        <td> <?php echo $no++ ?></td>
-                        <td> <?php echo $a-> SKKI_JENIS?></td>
-                        <td> <?php echo $a-> SKKI_NO ?></td>
-                        <td> <?php echo $a-> SKKI_NILAI?></td>
+                        <td> <?php echo $a->nama_area?></td>
+                        <td> <?php echo $a->SKKI_NO?></td>
+                        <td> <?php echo $a->SKKI_NILAI?></td>
+                        <td> <?php echo $a->sisa_skko?></td>
+                        <td> <?php echo $a->jml_spj?></td>
+                        <td> <?php echo $a->sisa_skko?></td>
+                        <td> <?php echo $a->total_spj?></td>
                       </tr>
-              <?php endforeach; ?>
+                    
+              <?php } ?>
+
         </table>
     </section>

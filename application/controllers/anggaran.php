@@ -8,11 +8,11 @@ class anggaran extends CI_Controller
         $this->load->model('m_anggaran'); 
     }
     function index(){ 
-        $data['anggaran'] = $this->m_anggaran->tampil_data()->result(); /* untuk sementara diset 0 dulu ya */
-        $this->load->view('templates/header');
+        $data['anggaran'] = $this->m_anggaran->tampil_data(); 
+       $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('anggaran',$data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer'); 
         //print_r($data);
     }
      function search(){
