@@ -86,21 +86,11 @@
           <li><a href="<?php echo base_url('progress') ?>"><i class="fa fa-circle-o"></i> Input Progress Kerja</a></li>
         </ul>
       </li>
-
-      <li class="active treeview">
-        <a href="#">
-          <i class="fa fa-book"></i> <span>Pengelolaan Anggaran</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> Input Tagihan</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Add/Edit SKKI/O</a></li>
-        </ul>
-      </li>
       <li class="active">
         <a href="<?php echo base_url('karyawan') ?>"><i class="fa fa-table"></i><span>Pengelolaan Data Master</span></a>
+      </li>
+      <li class="active">
+        <a href="<?php echo base_url('anggaran') ?>"><i class="fa fa-table"></i><span>Pengelolaan Anggaran</span></a>
       </li>
       <li class="active">
         <a href="<?php echo base_url('login/logout') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span>
