@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Financial Vendor
+            Progres Vendor
             <small>Control Panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -10,7 +10,8 @@
         </ol>
     </section>
     <section class="content">
-        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>Financial Vendor</button> -->
+        <!-- <button type="button" class=
+        "btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>Financial Vendor</button> -->
         <a class="btn btn-danger " style="float:right; margin:5px;" href="<?php echo base_url('progress/print') ?>"><i class="fa fa-print"> Print</i></a>
 
         <div class="dropdown inline" style="float:right; margin:5px;">
@@ -21,20 +22,24 @@
             </button>
         </div>
 
+
         <table class="table table-striped">
             <tr>
                 <th>Vendor ID</th>
-
             </tr>
-            <?php
-            $vendor_id = 1;
-            foreach ($progress as $k) : ?>
-                <tr>
-                    <td> <?php echo $spj_no ?></td>
-                    <td><?php echo anchor('progress/detail/' . $k->id, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
 
-                    <td><?php echo anchor('progress/edit/' . $k->id, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
-                </tr>
-            <?php endforeach; ?>
+
+
         </table>
-    </section>
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </>
