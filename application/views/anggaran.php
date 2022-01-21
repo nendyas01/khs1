@@ -19,8 +19,8 @@
             <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li>>PDF<</li>
-            <li>>Excel<</li>
+            <li>PDF</li>
+            <li>Excel</li>
             </ul>
       </div>
     
@@ -45,6 +45,7 @@
 				<th>Pembayaran SPJ (%)</th>
 			    <th>Pembayaran SKKO/I (%)</th>
 			</tr>
+
             <?php 
                  $no = 1;
                     foreach ($anggaran as $a){
@@ -57,6 +58,8 @@
                         <td> <?php echo $a->SKKI_NILAI-$a->SKKI_TERPAKAI?></td>
                         <td> <?php echo $a->jml_spj?></td>
                         <td> <?php echo $a->total_spj?></td>
+                        <td> <?php echo $a->total_spj/$a->jml_spj*100?>
+
                       </tr>
               <?php } ?>
         
