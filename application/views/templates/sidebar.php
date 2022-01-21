@@ -31,7 +31,6 @@
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i>Addendum</a></li>
           <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> Input SPJ</a></li>
-
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> List Amandemen</a></li>
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Kontrol Finansial</a></li>
         </ul>
@@ -89,8 +88,18 @@
       <li class="active">
         <a href="<?php echo base_url('karyawan') ?>"><i class="fa fa-table"></i><span>Pengelolaan Data Master</span></a>
       </li>
-      <li class="active">
-        <a href="<?php echo base_url('anggaran') ?>"><i class="fa fa-table"></i><span>Pengelolaan Anggaran</span></a>
+      <li class="active treeview">
+        <a href="#">
+          <i class="fa fa-book"></i> <span>Pengelolaan Anggaran</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="<?php echo base_url('anggaran') ?>"><i class="fa fa-circle-o"></i> Penyerapan Anggaran</a></li>
+          <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> Input Data Anggaran</a></li>
+          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Edit/Update SKKO_I</a></li>
+        </ul>
       </li>
       <li class="active">
         <a href="<?php echo base_url('login/logout') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span>

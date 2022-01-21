@@ -35,7 +35,7 @@
       <table class="table table-striped">
             <tr>
 				<th>No</th>
-				<th>Nama SKKO/I</th>
+				<th>Nama Area</th>
 				<th>No SKKO/SKKI</th>
 				<th>Nilai SKKO/I</th>
                 <th>Sisa SKKO/I</th>

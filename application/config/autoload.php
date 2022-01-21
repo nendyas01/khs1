@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database','session');
+$autoload['libraries'] = array('database','session', 'pagination');
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('m_karyawan','m_penugasan','m_timesheet','m_wbs','m_rkap_tahunan','m_rkap_pln');
+$autoload['model'] = array('m_anggaran', 'm_progress', 'm_fin_vendor');
