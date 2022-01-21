@@ -83,7 +83,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> Detail SPJ</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Input Progress Kerja</a></li>
+          <li><a href="<?php echo base_url('progress') ?>"><i class="fa fa-circle-o"></i> Input Progress Kerja</a></li>
         </ul>
       </li>
 
