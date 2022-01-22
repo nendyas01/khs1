@@ -38,27 +38,36 @@
 				<th>Nama Area</th>
 				<th>No SKKO/SKKI</th>
 				<th>Nilai SKKO/I</th>
-                <th>Sisa SKKO/I</th>
+        <th>Sisa SKKO/I</th>
 				<th>Jumlah SPJ Terbit</th>
 				<th>Total Nilai SPJ</th>
-			    <th>Penyerapan SKKO/I (%)</th>
+			  <th>Penyerapan SKKO/I (%)</th>
 				<th>Pembayaran SPJ (%)</th>
-			    <th>Pembayaran SKKO/I (%)</th>
+        <th>Pembayaran SKKO/I (%)</th>
 			</tr>
 
             <?php 
                  $no = 1;
                     foreach ($anggaran as $a){
+                      $sisa = $a->SKKI_NILAI - $a->SKKI_TERPAKAI;
+                      $pembayaran_spj = 0;
+                      if($a->total_spj*100 > 0) {
+                        $pembayaran_spj = floor($a->total_bayar/$a->total_spj*100);
+                      }
+
+                      // $total_spj_x_100 = $a->total_spj*100;
                     ?>
                       <tr>
                         <td> <?php echo $no++ ?></td>
                         <td> <?php echo $a->nama_area?></td>
                         <td> <?php echo $a->SKKI_NO?></td>
-                        <td> <?php echo $a->SKKI_NILAI?></td>
-                        <td> <?php echo $a->SKKI_NILAI-$a->SKKI_TERPAKAI?></td>
+                        <td> <?php echo 'Rp '.number_format($a->SKKI_NILAI, 0, ',', '.')?></td>
+                        <td> <?php echo 'Rp '.number_format($sisa,0,',','.') ?></td>
                         <td> <?php echo $a->jml_spj?></td>
-                        <td> <?php echo $a->total_spj?></td>
-                        <td> <?php echo $a->total_spj/$a->jml_spj*100?>
+                        <td> <?php echo 'Rp '.number_format($a->total_spj, 0, ',', '.')?></td>
+                        <td> <?php echo floor($a->total_spj/$a->SKKI_NILAI*100).'%'?>
+                        <td> <?php echo $pembayaran_spj.'%' ?>
+                        <td> <?php echo floor($a->total_bayar/$a->SKKI_NILAI*100).'%'?>
 
                       </tr>
               <?php } ?>

@@ -75,7 +75,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url() ?>assets/dist/js/demo.js"></script>
 </head>
-<body class="hold-transition skin-yellow sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -84,7 +84,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>IP</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>DASHBOARD</b></span>
+      <span class="logo-lg"><b>DASHBOARD KHS</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
