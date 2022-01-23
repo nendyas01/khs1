@@ -31,58 +31,53 @@
             <?php echo form_close() ?>
         </div>
 
-        <div style="overflow-x:auto;">
+        <table class="table table-striped">
+            <tr>
+                <th>Tahun</th>
+                <th>Vendor</th>
+                <th>Jenis Pekerjaan</th>
+                <th>Zona</th>
+                <th>Pagu Finansial</th>
+                <th>Sisa Finansial</th>
+                <th>% Pagu Finansial</th>
+                <th>Pagu Kontrak</th>
+                <th>% Kontrak</th>
+                <th>Total Area</th>
+                <th>Actions Pagu Kontrak</th>
+                <th>Actions Pagu Rating</th>
+            </tr>
 
-            <table class="table table-striped">
-                <tr>
-                    <th>Tahun</th>
-                    <th>Vendor</th>
-                    <th>Jenis Pekerjaan</th>
-                    <th>Zona</th>
-                    <th>Pagu Finansial</th>
-                    <th>Sisa Finansial</th>
-                    <th>% Pagu Finansial</th>
-                    <th>Pagu Kontrak</th>
-                    <th>% Kontrak</th>
-                    <th>Total Area</th>
-                    <th>Actions Pagu Kontrak</th>
-                    <th>Actions Pagu Rating</th>
-                </tr>
-                <?php
-                $no = 1;
-                foreach ($kontrol_fin as $kf) {
-                ?>
-                    <tr>
-                        <td> <?php echo $kf->tahun ?></td>
-                        <td> <?php echo $kf->nama_vendor ?></td>
-                        <td> <?php echo $kf->jenis_pekerjaan ?></td>
-                        <td> <?php echo $kf->ZONE ?></td>
-                        <td> <?php echo $kf->pagu_fin ?></td>
-                        <td> <?php echo $kf->sisa_fin ?></td>
-                    </tr>
-
-
-
-                <?php } ?>
+            <?php
+            $no = 1;
+            foreach ($kontrol_fin as $kf) {
+            ?>
                 <tr>
 
-                    <!-- <td><?php echo $current_rating; ?></td> -->
-                    <td align="right"><?php echo "Rp " . $pagu_fin; ?></td>
-                    <td align="right"><?php echo "Rp " . $sisa_fin; ?></td>
-                    <td align="right"><span class="<?php echo $class; ?>">
-                            <font size="1" face="Arial"><?php echo $b; ?>%</font>
+                    <td> <?php echo $kf->tahun ?></td>
+                    <td> <?php echo $kf->vendor_nama ?></td>
+                    <td> <?php echo $kf->paket_deskripsi ?></td>
+                    <td> <?php echo $kf->zone ?></td>
+                    <td> <?php echo 'Rp ' . number_format($kf->fin_limit, 0, ',', '.') ?></td>
+                    <td> <?php echo 'Rp ' . number_format($kf->fin_current, 0, ',', '.') ?></td>
+                    <td> <?php echo floor($kf->fin_current / $kf->fin_limit * 100) . '%' ?>
+                    <td> <?php echo 'Rp ' . number_format($kf->PAGU_KONTRAK, 0, ',', '.') ?></td>
+                    <td> <?php echo floor($kf->fin_limit / $kf->PAGU_KONTRAK * 100) . '%' ?>
+                    <td> <?php echo $kf->jumlah_area ?></td>
 
-                            <?php if ($_SESSION['role'] == 1) { ?>
-                    <td><a href="pagu_kontrak_edit.php?vendor_id=<?php echo $current_no_vendor ?>&paket_id=<?php echo $paket_jenis ?>">Edit</a></td>
-                    <td><a href="pagu_rating_edit.php?vendor_id=<?php echo $current_no_vendor ?>">Edit</a></td>
-                <?php } else if ($_SESSION['role'] == 9) { ?>
-                    <td><a href="pagu_kontrak_edit.php?vendor_id=<?php echo $current_no_vendor ?>&paket_id=<?php echo $paket_jenis ?>">Edit</a></td>
-                <?php } else if ($_SESSION['role'] == 10) { ?>
-                    <td><a href="pagu_rating_edit.php?vendor_id=<?php echo $current_no_vendor ?>">Edit</a></td>
-                <?php } ?>
                 </tr>
 
 
-            </table>
-        </div>
+
+            <?php } ?>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </table>
     </section>
