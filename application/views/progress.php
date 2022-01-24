@@ -50,7 +50,11 @@
                     <tr>
                         <td> <?php echo $pr->SPJ_NO ?></td>
                         <td> <?php echo $pr->ADDENDUM_NILAI ?></td>
-                        <td> <?php echo $pr->ADDENDUM_TANGGAL_AKHIR ?></td>
+                        <td> <?php echo $pr->SPJ_TANGGAL_AKHIR ?></td>
+                        <td> <?php echo $pr->SREA_NAMA ?></td>
+                        <td> <?php echo $pr->VENDOR_NAMA ?></td>
+                        <td> <?php echo $pr->PAKET_DESKRIPSI ?></td>
+                        <td> <?php echo $pr->SPJ_DESKRIPSI ?></td>
                     </tr>
 
 
