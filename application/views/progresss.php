@@ -27,9 +27,9 @@
                                         <th>Nama Vendor</th>
                                         <th>Jenis Pekerjaan</th>
                                         <th>Deskripsi Pekerjaan</th>
-                                        <!-- <th>Progress Pekerjaan</th>
+                                        <th>Progress Pekerjaan</th>
                                         <th>Target</th>
-                                        <th>Realisasi</th> -->
+                                        <th>Realisasi</th>
                                     </tr>
                                 </thead>
 
