@@ -22,7 +22,6 @@ class m_kontrol_fin extends CI_Model
         '
 
         );
-        /* $this->db->from('tb_mapping_vendor x'); */
         $query = $this->db->get();
         $result = $query->result();
         return $result;

@@ -11,26 +11,6 @@
     </section>
 
     <section class="content">
-        <a class="btn btn-danger " style="float:right; margin:5px;"><i class="fa fa-print"> Print</i></a>
-        <div class="dropdown inline" style="float:right; margin:5px;  ">
-            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <i class="fa fa-download"></i>
-                Export
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li>>PDF<< /li>
-                <li>>Excel<< /li>
-            </ul>
-        </div>
-
-        <div class="navbar-form navbar-right">
-            <?php echo form_open('kontrol_fin/search') ?>
-            <input type="text" name="keyword" class="form-control" placeholder="Search">
-            <button type="submit" class="btn btn-success">Cari</button>
-            <?php echo form_close() ?>
-        </div>
-
         <div style="overflow-x:auto;">
 
             <table class="table table-striped">
@@ -42,6 +22,9 @@
                     <th>Nama Vendor</th>
                     <th>Jenis Pekerjaan</th>
                     <th>Deskripsi Pekerjaan</th>
+                    <th>Progress Pekerjaan</th>
+                    <th>Target</th>
+                    <th>Realisasi</th>
                 </tr>
                 <?php
                 $no = 1;
@@ -51,7 +34,7 @@
                         <td> <?php echo $pr->SPJ_NO ?></td>
                         <td> <?php echo $pr->ADDENDUM_NILAI ?></td>
                         <td> <?php echo $pr->SPJ_TANGGAL_AKHIR ?></td>
-                        <td> <?php echo $pr->SREA_NAMA ?></td>
+                        <td> <?php echo $pr->AREA_NAMA ?></td>
                         <td> <?php echo $pr->VENDOR_NAMA ?></td>
                         <td> <?php echo $pr->PAKET_DESKRIPSI ?></td>
                         <td> <?php echo $pr->SPJ_DESKRIPSI ?></td>
