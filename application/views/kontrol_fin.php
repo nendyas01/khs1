@@ -17,7 +17,7 @@
 
                     <div class="panel-body table-responsive">
                         <font size="2" face="Arial">
-                            <table id="example" class="table table-striped table-borderedtable-responsive" cellspacing="0">
+                            <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Tahun</th>
@@ -71,20 +71,7 @@
                                             $('#example').DataTable();
                                         });
                                     </script>
-                                    <!-- <script>
-                                       /*  scrollY : '250px', */
-                                        dom : 'Bfrtip',
-                                        button : [
-                                            {
-                                                extend : 'pdf',
-                                                oriented : 'potrait',
-                                                pageSize : 'Legal',
-                                                title : 'Data Pasien',
-                                                download : 'open'
-                                            },
-                                            'csv', 'excel', 'print', 'copy'
-                                        ]
-                                    </script> -->
+
 
                                     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
                                     <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
