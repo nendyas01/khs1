@@ -40,6 +40,10 @@ class m_kontrol_fin extends CI_Model
         $this->db->or_like('VENDOR_ID', $keyword);
         return $this->db->get->result();
     }
+    function edit_data($where, $edit)
+    {
+        return $this->db->get_where($edit, $where);
+    }
 }
 
 

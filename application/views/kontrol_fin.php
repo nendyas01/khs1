@@ -24,60 +24,66 @@
             </ul>
         </div>
 
-        <div class="navbar-form navbar-right">
-            <?php echo form_open('kontrol_fin/search') ?>
-            <input type="text" name="keyword" class="form-control" placeholder="Search">
-            <button type="submit" class="btn btn-success">Cari</button>
-            <?php echo form_close() ?>
+
+
+        <div class="scroll">
+            <table id="example" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Vendor</th>
+                        <th>Jenis Pekerjaan</th>
+                        <th>Zona</th>
+                        <th>Pagu Finansial</th>
+                        <th>Sisa Finansial</th>
+                        <th>% Pagu Finansial</th>
+                        <th>Pagu Kontrak</th>
+                        <th>% Kontrak</th>
+                        <th>Total Area</th>
+                        <th>Actions Pagu Kontrak</th>
+                        <th>Actions Pagu Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($kontrol_fin as $kf) {
+                        $sisa = $kf->fin_limit - $kf->fin_current;
+                        $terpakai = 0;
+                    ?>
+                        <tr>
+
+                            <td> <?php echo $kf->tahun ?></td>
+                            <td> <?php echo $kf->vendor_nama ?></td>
+                            <td> <?php echo $kf->paket_deskripsi ?></td>
+                            <td> <?php echo $kf->zone ?></td>
+                            <td> <?php echo 'Rp ' . number_format($kf->fin_limit, 0, ',', '.') ?></td>
+                            <td> <?php echo 'Rp ' . number_format($sisa, 0, ',', '.') ?></td>
+                            <td> <?php echo floor($sisa / $kf->fin_limit * 100) . '%' ?>
+                            <td> <?php echo 'Rp ' . number_format($kf->PAGU_KONTRAK, 0, ',', '.') ?></td>
+                            <td> <?php echo floor($kf->PERSEN_KONTRAK) . '%' ?>
+                            <td> <?php echo $kf->jumlah_area ?></td>
+                            <td> <?php echo "edit" ?></td>
+                            <td> <?php echo "edit" ?></td>
+
+
+
+                        </tr>
+
+
+
+                    <?php } ?>
+                    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+                    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+                    <script>
+                        $(document).ready(function() {
+                            $('#example').DataTable();
+                        });
+                    </script>
+
+                </tbody>
+            </table>
+
         </div>
-
-        <table class="table table-striped">
-            <tr>
-                <th>Tahun</th>
-                <th>Vendor</th>
-                <th>Jenis Pekerjaan</th>
-                <th>Zona</th>
-                <th>Pagu Finansial</th>
-                <th>Sisa Finansial</th>
-                <th>% Pagu Finansial</th>
-                <th>Pagu Kontrak</th>
-                <th>% Kontrak</th>
-                <th>Total Area</th>
-                <th>Actions Pagu Kontrak</th>
-                <th>Actions Pagu Rating</th>
-            </tr>
-
-            <?php
-            $no = 1;
-            foreach ($kontrol_fin as $kf) {
-            ?>
-                <tr>
-
-                    <td> <?php echo $kf->tahun ?></td>
-                    <td> <?php echo $kf->vendor_nama ?></td>
-                    <td> <?php echo $kf->paket_deskripsi ?></td>
-                    <td> <?php echo $kf->zone ?></td>
-                    <td> <?php echo 'Rp ' . number_format($kf->fin_limit, 0, ',', '.') ?></td>
-                    <td> <?php echo 'Rp ' . number_format($kf->fin_current, 0, ',', '.') ?></td>
-                    <td> <?php echo floor($kf->fin_current / $kf->fin_limit * 100) . '%' ?>
-                    <td> <?php echo 'Rp ' . number_format($kf->PAGU_KONTRAK, 0, ',', '.') ?></td>
-                    <td> <?php echo floor($kf->fin_limit / $kf->PAGU_KONTRAK * 100) . '%' ?>
-                    <td> <?php echo $kf->jumlah_area ?></td>
-
-                </tr>
-
-
-
-            <?php } ?>
-
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </table>
     </section>
