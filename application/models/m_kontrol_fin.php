@@ -19,7 +19,6 @@ class m_kontrol_fin extends CI_Model
             inner join tb_vendor e on e.vendor_id = x.vendor_id
             AND c.STATUS = 1
             ORDER BY e.vendor_nama DESC
-        
         '
 
         );
@@ -31,7 +30,6 @@ class m_kontrol_fin extends CI_Model
 
     public function get_keyword($keyword)
     {
-
         $kontrol_fin = $this->db->get('tb_mapping_vendor');
         //$data=$kontrol_fin->result(); 
         $this->db->select('*');
@@ -40,26 +38,9 @@ class m_kontrol_fin extends CI_Model
         $this->db->or_like('VENDOR_ID', $keyword);
         return $this->db->get->result();
     }
+
     function edit_data($where, $edit)
     {
         return $this->db->get_where($edit, $where);
     }
 }
-
-
-/* x.ZONE,
-        x.VENDOR_ID,
-        (SELECT VENDOR_NAMA FROM tb_vendor WHERE VENDOR_ID = x.VENDOR_ID) AS nama_vendor,
-        (SELECT TAHUN FROM tb_vendor WHERE VENDOR_ID = x.VENDOR_ID) AS tahun,
-        (SELECT pk.pagu_kontrak FROM tb_pagu_kontrak pk WHERE pk.vendor_id = x.vendor_id and pk.paket_jenis = x.paket_jenis) as pagu_kontrak,
-        (SELECT PAKET_DESKRIPSI FROM tb_paket WHERE PAKET_JENIS = x.PAKET_JENIS) AS jenis_pekerjaan,
-        (SELECT FIN_LIMIT FROM tb_fin_vendor WHERE VENDOR_ID = x.VENDOR_ID) AS pagu_fin,
-        (SELECT FIN_CURRENT FROM tb_fin_vendor WHERE VENDOR_ID = x.VENDOR_ID) AS sisa_fin
-        FROM
-        (SELECT DISTINCT b.paket_jenis, b.zone, a.vendor_id, fin_limit, fin_current, (select COUNT(x.AREA_KODE) from tb_mapping_vendor x where x.VENDOR_ID = a.vendor_id and x.PAKET_JENIS = b.paket_jenis) as jumlah_area
-        from
-        tb_fin_vendor a left join tb_mapping_vendor b on a.vendor_id = b.vendor_id) as x 
-        left join tb_paket c on c.paket_jenis = x.paket_jenis 
-        inner join tb_vendor e on e.vendor_id = x.vendor_id
-        AND c.STATUS = 1
-        ORDER BY e.vendor_nama DESC */
