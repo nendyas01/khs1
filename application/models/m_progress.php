@@ -40,6 +40,10 @@ class m_progress extends CI_Model
         $this->db->like('SPJ_NO', $keyword);
         return $this->db->get->result();
     }
+
+    public function tambah()
+    {
+    }
 }
 
 /* a.SPJ_NO, 

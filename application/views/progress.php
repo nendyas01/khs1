@@ -48,7 +48,7 @@
                                             <td> <?php echo $pr->SPJ_DESKRIPSI ?></td>
                                             <td> <?php echo 0, '%' ?></td>
                                             <td> <?php echo 0.0000, ' kms' ?></td>
-                                            <td> <?php echo 0, 'kms' ?></td>
+                                            <td> <?php echo 0, ' kms' ?></td>
 
                                         </tr>
 
@@ -80,7 +80,7 @@
 
                                     <script type="text/javascript">
                                         $('#example').DataTable({
-                                            dom: 'lBfrtip',
+                                            dom: 'Bfrtip',
                                             buttons: [{
                                                     extend: 'copy',
                                                     oriented: 'potrait',
