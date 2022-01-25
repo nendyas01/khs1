@@ -14,6 +14,7 @@ class progress extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('progress', $data);
+        $this->load->view('form_progress', $data);
         $this->load->view('templates/footer');
         //print_r($data);
     }
@@ -24,6 +25,15 @@ class progress extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('progress', $data);
+        $this->load->view('templates/footer');
+    }
+    function tambah()
+    {
+        $keyword = $this->input->post('keyword');
+        $data['progress'] = $this->m_progress->get_keyword($keyword);
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('form_progress', $data);
         $this->load->view('templates/footer');
     }
 }

@@ -27,9 +27,9 @@
                                         <th>Nama Vendor</th>
                                         <th>Jenis Pekerjaan</th>
                                         <th>Deskripsi Pekerjaan</th>
-                                        <!-- <th>Progress Pekerjaan</th>
+                                        <th>Progress Pekerjaan</th>
                                         <th>Target</th>
-                                        <th>Realisasi</th> -->
+                                        <th>Realisasi</th>
                                     </tr>
                                 </thead>
 
@@ -46,9 +46,14 @@
                                             <td> <?php echo $pr->VENDOR_NAMA ?></td>
                                             <td> <?php echo $pr->PAKET_DESKRIPSI ?></td>
                                             <td> <?php echo $pr->SPJ_DESKRIPSI ?></td>
+                                            <td> <?php echo 0, '%' ?></td>
+                                            <td> <?php echo 0.0000, ' kms' ?></td>
+                                            <td> <?php echo 0, 'kms' ?></td>
+
                                         </tr>
 
                                     <?php } ?>
+
                                     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
                                     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                                     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
@@ -63,7 +68,6 @@
                                         });
                                     </script>
 
-
                                     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
                                     <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
                                     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
@@ -72,6 +76,7 @@
                                     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
                                     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
                                     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
 
                                     <script type="text/javascript">
                                         $('#example').DataTable({
