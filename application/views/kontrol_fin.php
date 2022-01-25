@@ -14,10 +14,13 @@
             <div class="col-md-12">
                 <section class="panel">
                     <header class="panel-heading">DATA FINANSIAL VENDOR</header>
+                    <!--  <a class="btn btn-danger" href=" <?php echo base_url('kontrol_fin/print') ?>"> <i></i>
+                </a> -->
+
 
                     <div class="panel-body table-responsive">
                         <font size="2" face="Arial">
-                            <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
+                            <table id="example" class=" table-striped table-bordered " cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Tahun</th>
@@ -58,9 +61,6 @@
                                         </tr>
 
                                     <?php } ?>
-                                    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-                                    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-                                    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 
                                     <!--  Button untuk copy, csv, excel -->
                                     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
@@ -84,7 +84,7 @@
 
                                     <script type="text/javascript">
                                         $('#example').DataTable({
-                                            dom: 'Bfrtip',
+                                            dom: 'lBfrtip',
                                             buttons: [{
                                                     extend: 'copy',
                                                     oriented: 'potrait',
@@ -95,6 +95,7 @@
                                             ]
                                         });
                                     </script>
+
                                 </tbody>
                             </table>
                     </div>
