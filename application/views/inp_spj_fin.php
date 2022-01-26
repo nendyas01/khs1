@@ -62,12 +62,12 @@
                             <!-- Textbox Jenis Pekerjaan -->
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Jenis Pekerjaan</label>
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <label class="radio-inline">
-                                        <input type="radio" name="gangguan" value="0" checked="checked">Non Gangguan
+                                        <input type="radio" name="gangguan" value="0"> Non Gangguan
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="gangguan" value="1">Gangguan
+                                        <input type="radio" name="gangguan" value="1"> Gangguan
                                     </label>
                                 </div>
                             </div>
