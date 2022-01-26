@@ -44,6 +44,10 @@ class m_progress extends CI_Model
     public function tambah()
     {
     }
+
+    public function tambah1()
+    {
+    }
 }
 
 /* a.SPJ_NO, 
