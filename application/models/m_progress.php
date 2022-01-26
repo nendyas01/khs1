@@ -41,10 +41,6 @@ class m_progress extends CI_Model
         return $this->db->get->result();
     }
 
-    public function tambah()
-    {
-    }
-
     public function tambah1()
     {
     }

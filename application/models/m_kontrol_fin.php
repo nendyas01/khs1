@@ -42,4 +42,8 @@ class m_kontrol_fin extends CI_Model
     {
         return $this->db->get_where($edit, $where);
     }
+
+    public function tambah()
+    {
+    }
 }
