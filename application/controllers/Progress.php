@@ -27,14 +27,6 @@ class progress extends CI_Controller
         $this->load->view('progress', $data);
         $this->load->view('templates/footer');
     }
-    function tambah()
-    {
-        //$data['progress'] = $this->m_progress->tambah;
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('form_progress');
-        $this->load->view('templates/footer');
-    }
 
     function tambah1()
     {

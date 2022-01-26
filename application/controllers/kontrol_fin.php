@@ -33,4 +33,13 @@ class kontrol_fin extends CI_Controller
         $data['user'] = $this->m_data->edit_data($where, 'user')->result();
         $this->load->view('kontrol_fin', $data);
     }
+
+    function tambah()
+    {
+        //$data['progress'] = $this->m_progress->tambah;
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('inp_spj_fin');
+        $this->load->view('templates/footer');
+    }
 }
