@@ -73,7 +73,7 @@
                       <td> <?php echo $a->SKKI_NO ?></td>
                       <td> <?php echo 'Rp ' . number_format($a->SKKI_NILAI, 0, ',', '.') ?></td>
                       <td> <?php echo 'Rp ' . number_format($sisa, 0, ',', '.') ?></td>
-        
+
                       <td> <?php echo $a->jml_spj ?></td>
                       <td> <?php echo 'Rp ' . number_format($a->total_spj, 0, ',', '.') ?></td>
                       <td> <?php echo floor($a->total_spj / $a->SKKI_NILAI * 100) . '%' ?>
