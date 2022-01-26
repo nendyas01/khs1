@@ -23,4 +23,12 @@ class anggaran extends CI_Controller
         $this->load->view('anggaran',$data);
         $this->load->view('templates/footer');
     }
+    function v_input_tagihan(){
+        //$data['anggaran']=$this->m_input_tagihan->v_input_tagihan();
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('v_input_tagihan');
+        $this->load->view('templates/footer');
+
+    }
 }

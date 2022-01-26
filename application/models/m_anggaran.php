@@ -50,6 +50,10 @@ class m_anggaran extends CI_Model
     $this->db->or_like('tb_area.AREA_NAMA', $keyword);
     return $this->db->get()->result();
   }
+
+  public function v_input_tagihan(){
+    
+  }
 }
 ?>
 
