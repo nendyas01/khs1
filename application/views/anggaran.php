@@ -109,7 +109,7 @@
 
                   <script type="text/javascript">
                     $('#example').DataTable({
-                      dom: 'Bfrtip',
+                      dom: 'lBfrtip',
                       buttons: [{
                           extend: 'copy',
                           oriented: 'potrait',
