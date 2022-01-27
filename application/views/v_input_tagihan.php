@@ -23,11 +23,13 @@
 							<label class="col-sm-2 col-sm-2 control-label">Nomor SPJ</label>
 									<div class="col-sm-10">
 									<select class="form-control m-b-10" name="var_no_spj" id="spj_no" onChange="nilai_spj_add(this.value)" >
-										<?php foreach($var_no_spj as $spj){ ?>
-										<option value="<?php echo $spj ['spj_no']; ?>"><?php echo $spj['spj_no'];?> </option>
-										} ?>
+										<?php foreach($var_no_spj as $spj): ?>
 										
-
+											<option value="<?php echo $spj->SPJ_NO?>"><?php echo $spj->SPJ_NO ?></option>
+										<!-- <option value="//<?php echo $spj ['spj_no']; ?>"><?php echo $spj['spj_no'];?> </option>
+										 ?>
+										 -->
+										<?php endforeach?>
 									</select>
 									</div>
                             </div>
