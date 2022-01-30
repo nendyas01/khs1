@@ -17,4 +17,13 @@ class Pelanggaran extends CI_Controller
         $this->load->view('inp_pel_khs');
         $this->load->view('templates/footer');
     }
+
+    function inp_sanksi_spj()
+    {
+        //$data['progress'] = $this->m_progress->tambah;
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('inp_sanksi_spj');
+        $this->load->view('templates/footer');
+    }
 }
