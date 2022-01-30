@@ -69,8 +69,8 @@
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> List Sanksi</a></li>
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> List Sanksi SPJ</a></li>
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Sanksi Siap Cetak</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi KHS</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi SPJ</a></li>
+          <li><a href="<?php echo base_url('pelanggaran/upl_sanksi_khs') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi KHS</a></li>
+          <li><a href="<?php echo base_url('pelanggaran/upl_sanksi_spj') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi SPJ</a></li>
         </ul>
       </li>
 
