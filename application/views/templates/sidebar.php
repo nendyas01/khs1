@@ -62,7 +62,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> Input Pelanggaran KHS</a></li>
+          <li><a href="<?php echo base_url('pelanggaran/inp_pel_khs') ?>"><i class="fa fa-circle-o"></i> Input Pelanggaran KHS</a></li>
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Input Sanksi SPJ</a></li>
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Approve Pelanggaran</a></li>
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> List Pelanggaran</a></li>
