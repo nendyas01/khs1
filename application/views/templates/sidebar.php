@@ -31,6 +31,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url('crud_paket') ?>"><i class="fa fa-circle-o"></i> Add/Edit Paket</a></li>
+          <li><a href="<?php echo base_url('crud_vendor') ?>"><i class="fa fa-circle-o"></i> Add/Edit Vendor</a></li>
         </ul>
       </li>
 
