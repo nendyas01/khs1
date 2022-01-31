@@ -1,12 +1,12 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Pengelolaan Data Anggaran
+            Pengelolaan Data
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Input Data SKKI/O</li>
+            <li class="active">Input Data Area</li>
         </ol>
     </section>
 
@@ -24,12 +24,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>SKKI JENIS</th>
-                                        <th>SKKI NO</th>
-                                        <th>AREA KODE</th>
-                                        <th>SKKI NILAI</th>
-                                        <th>SKKI TERPAKAI</th>
-                                        <th>SKKI TANGGAL</th>
+                                        <th>Area Kode</th>
+                                        <th>Area Nama</th>
+                                        <th>Area Zone</th>
                                         <th colspan="2">Aksi</th>
 
                                     </tr>
@@ -39,19 +36,16 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($crud_skkio as $cs) {
+                                    foreach ($crud_area as $car) {
                                     ?>
                                         <tr>
                                             <td> <?php echo $no++ ?></td>
-                                            <td> <?php echo $cs->SKKI_JENIS ?></td>
-                                            <td> <?php echo $cs->SKKI_NO ?></td>
-                                            <td> <?php echo $cs->AREA_KODE ?></td>
-                                            <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
-                                            <td> <?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?></td>
-                                            <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
-                                            <td><?php echo anchor('crud_skkio/detail_crud_skkio/' . $cs->SKKI_NO, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                                            <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_skkio/hapus/' . $cs->SKKI_NO, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                                            <td><?php echo anchor('crud_skkio/edit_crud_skkio/' . $cs->SKKI_NO, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                                            <td> <?php echo $car->AREA_KODE ?></td>
+                                            <td> <?php echo $car->AREA_NAMA ?></td>
+                                            <td> <?php echo $car->AREA_ZONE ?></td>
+                                            <td><?php echo anchor('crud_area/detail_crud_area/' . $car->AREA_KODE, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                            <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_area/hapus/' . $car->AREA_KODE, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                            <td><?php echo anchor('crud_area/edit_crud_area/' . $car->AREA_KODE, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
 
                                         </tr>
                                     <?php } ?>
@@ -103,33 +97,21 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"> Tambah Data SKKI/O</h4>
+                    <h4 class="modal-title" id="myModalLabel"> Tambah Data Area</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="<?php echo base_url() . 'crud_skkio/tambah_aksi'; ?>">
+                    <form method="post" action="<?php echo base_url() . 'crud_area/tambah_aksi'; ?>">
                         <div class="form-group">
-                            <label>SKKI JENIS</label>
+                            <label>AREA KODE</label>
                             <input type="text" name="id_anggaran" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>SKKI NO</label>
+                            <label>AREA NAMA</label>
                             <input type="text" name="no_surat" class="form-control">
 
                             <div class="form-group">
-                                <label>AREA KODE </label>
+                                <label>AREA ZONE</label>
                                 <input type="text" name="nama_pekerjaan" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>SKKI NILAI</label>
-                                <input type="text" name="pemberi_kerja" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>SKKI TERPAKAI</label>
-                                <input type="text" name="pic" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>SKKI TANGGAL</label>
-                                <input type="date" name="tanggal" class="form-control">
                             </div>
 
                             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>

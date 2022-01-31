@@ -23,7 +23,7 @@ class m_crud_kontrak extends CI_Model
                         tgl_akhir,
                         punishment,
                         BLOCKED');
-        $this->db->from('tb_skko_i ');
+        $this->db->from('tb_pagu_kontrak');
         $query = $this->db->get();
         $result = $query->result();
         return $result;

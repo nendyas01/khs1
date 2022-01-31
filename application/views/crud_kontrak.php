@@ -1,12 +1,12 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Pengelolaan Data Anggaran
+            Pengelolaan Data
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Input Data SKKI/O</li>
+            <li class="active">Input Data Pagu Kontrak</li>
         </ol>
     </section>
 
@@ -24,12 +24,25 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>SKKI JENIS</th>
-                                        <th>SKKI NO</th>
-                                        <th>AREA KODE</th>
-                                        <th>SKKI NILAI</th>
-                                        <th>SKKI TERPAKAI</th>
-                                        <th>SKKI TANGGAL</th>
+                                        <th>ID VENDOR</th>
+                                        <th>PAKET JENIS</th>
+                                        <th>PAGU KONTRAK</th>
+                                        <th>TERPAKAI</th>
+                                        <th>RANKING</th>
+                                        <th>NO PJN</th>
+                                        <th>TANGGAL PJN</th>
+                                        <th>NO RKS</th>
+                                        <th>TANGGAL RKS</th>
+                                        <th>NO SPP</th>
+                                        <th>TANGGAL SPP</th>
+                                        <th>NO PENAWARAN</th>
+                                        <th>TANGGAL PENAWARAN</th>
+                                        <th>SANKSI TERAKHIR</th>
+                                        <th>ID SANKSI</th>
+                                        <th>TANGGAL SANKSI</th>
+                                        <th>TANGGAL AKHIR</th>
+                                        <th>PUNISHMENT</th>
+                                        <th>BLOCKED</th>
                                         <th colspan="2">Aksi</th>
 
                                     </tr>
@@ -39,19 +52,33 @@
                                 <tbody>
                                     <?php
                                     $no = 1;
-                                    foreach ($crud_skkio as $cs) {
+                                    foreach ($crud_kontrak as $cpk) {
                                     ?>
                                         <tr>
                                             <td> <?php echo $no++ ?></td>
-                                            <td> <?php echo $cs->SKKI_JENIS ?></td>
-                                            <td> <?php echo $cs->SKKI_NO ?></td>
-                                            <td> <?php echo $cs->AREA_KODE ?></td>
-                                            <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
-                                            <td> <?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?></td>
-                                            <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
-                                            <td><?php echo anchor('crud_skkio/detail_crud_skkio/' . $cs->SKKI_NO, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                                            <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_skkio/hapus/' . $cs->SKKI_NO, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                                            <td><?php echo anchor('crud_skkio/edit_crud_skkio/' . $cs->SKKI_NO, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                                            <td> <?php echo $cpk->VENDOR_ID ?></td>
+                                            <td> <?php echo $cpk->PAKET_JENIS ?></td>
+                                            <td> <?php echo 'Rp ' . number_format($cpk->PAGU_KONTRAK, 0, ',', '.') ?></td>
+                                            <td> <?php echo 'Rp ' . number_format($cpk->TERPAKAI, 0, ',', '.') ?></td>
+                                            <td> <?php echo $cpk->RANKING ?></td>
+                                            <td> <?php echo $cpk->NO_PJN ?></td>
+                                            <td> <?php echo $cpk->TGL_PJN ?></td>
+                                            <td> <?php echo $cpk->NO_RKS ?></td>
+                                            <td> <?php echo $cpk->TGL_RKS ?></td>
+                                            <td> <?php echo $cpk->NO_SPP ?></td>
+                                            <td> <?php echo $cpk->TGL_SPP ?></td>
+                                            <td> <?php echo $cpk->NO_PENAWARAN ?></td>
+                                            <td> <?php echo $cpk->TGL_PENAWARAN ?></td>
+                                            <td> <?php echo $cpk->sanksi_terakhir ?></td>
+                                            <td> <?php echo $cpk->id_sanksi ?></td>
+                                            <td> <?php echo $cpk->tgl_sanksi ?></td>
+                                            <td> <?php echo $cpk->tgl_akhir ?></td>
+                                            <td> <?php echo $cpk->punishment ?></td>
+                                            <td> <?php echo $cpk->BLOCKED ?></td>
+
+                                            <td><?php echo anchor('crud_kontrak/detail_crud_kontrak/' . $cpk->VENDOR_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                            <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_kontrak/hapus/' . $cpk->VENDOR_ID, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                            <td><?php echo anchor('crud_kontrak/edit_crud_kontrak/' . $cpk->VENDOR_ID, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
 
                                         </tr>
                                     <?php } ?>
@@ -103,33 +130,93 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"> Tambah Data SKKI/O</h4>
+                    <h4 class="modal-title" id="myModalLabel"> Tambah Data Pagu Kontrak</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="<?php echo base_url() . 'crud_skkio/tambah_aksi'; ?>">
+                    <form method="post" action="<?php echo base_url() . 'crud_kontrak/tambah_aksi'; ?>">
                         <div class="form-group">
-                            <label>SKKI JENIS</label>
-                            <input type="text" name="id_anggaran" class="form-control">
+                            <label>ID VENDOR</label>
+                            <input type="text" name="id_vendor" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>SKKI NO</label>
-                            <input type="text" name="no_surat" class="form-control">
+                            <label>PAKET JENIS</label>
+                            <input type="text" name="jenis_paket" class="form-control">
 
                             <div class="form-group">
-                                <label>AREA KODE </label>
-                                <input type="text" name="nama_pekerjaan" class="form-control">
+                                <label>PAGU KONTRAK</label>
+                                <input type="text" name="pagu_kontrak" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>SKKI NILAI</label>
-                                <input type="text" name="pemberi_kerja" class="form-control">
+                                <label>TERPAKAI</label>
+                                <input type="text" name="telah_terpakai" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>SKKI TERPAKAI</label>
-                                <input type="text" name="pic" class="form-control">
+                                <label>RANKING</label>
+                                <input type="text" name="ranking_aja class=" form-control">
                             </div>
                             <div class="form-group">
-                                <label>SKKI TANGGAL</label>
-                                <input type="date" name="tanggal" class="form-control">
+                                <label>NO_PJN</label>
+                                <input type="date" name="no_satu" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>TGL_PJN</label>
+                                <input type="date" name="tanggal_satu" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>NO_PJN</label>
+                                <input type="date" name="no_satu" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>TGL_PJN</label>
+                                <input type="date" name="tanggal_satu" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>NO_RKS</label>
+                                <input type="date" name="no_dua" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>TGL_RKS</label>
+                                <input type="date" name="tanggal_dua" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>NO_SPP</label>
+                                <input type="date" name="no_tiga" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>TGL_SPP</label>
+                                <input type="date" name="tanggal_tiga" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>NO_PENAWARAN</label>
+                                <input type="date" name="no_empat" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>TGL_PENAWARAN</label>
+                                <input type="date" name="tanggal_empat" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>SANKSI TERAKHIR</label>
+                                <input type="date" name="sanksi_terakhir" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>ID SANKSI</label>
+                                <input type="date" name="identitas" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>TANGGAL SANKSI</label>
+                                <input type="date" name="TANGGAL KELIMA" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>TANGGAL AKHIR</label>
+                                <input type="date" name="tanggal ke class=" form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>PUNISHMENT</label>
+                                <input type="date" name="hukuman" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>BLOCKED</label>
+                                <input type="date" name="dilarang" class="form-control">
                             </div>
 
                             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
