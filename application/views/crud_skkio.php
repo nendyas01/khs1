@@ -26,7 +26,7 @@
                     <th>No</th>
                     <th>SKKI JENIS</th>
                     <th>SKKI NO</th>
-                    <th>AREA KODE</th>
+                    <th>NAMA AREA</th>
                     <th>SKKI NILAI</th>
                     <th>SKKI TERPAKAI</th>
                     <th>SKKI TANGGAL</th>
@@ -45,7 +45,7 @@
                       <td> <?php echo $no++ ?></td>
                       <td> <?php echo $cs->SKKI_JENIS ?></td>
                       <td> <?php echo $cs->SKKI_NO ?></td>
-                      <td> <?php echo $cs->AREA_KODE ?></td>
+                      <td> <?php echo $cs->nama_area ?></td>
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?></td>
                       <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
@@ -105,32 +105,45 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel"> Tambah Data SKKI/O</h4>
       </div>
+
       <div class="modal-body">
         <form method="post" action="<?php echo base_url().'crud_skkio/tambah_aksi'; ?>">
             <div class="form-group">
                 <label>SKKI JENIS</label>
-                <input type="text" name="id_anggaran" class="form-control">       
+                <input type="text" name="SKKI_JENIS" class="form-control">       
             </div>
+
             <div class="form-group">
                 <label>SKKI NO</label>
-                <input type="text" name="no_surat" class="form-control">       
+                <input type="text" name="SKKI_NO" class="form-control">
+            </div>    
            
             <div class="form-group">
-                <label>AREA KODE </label>
-                <input type="text" name="nama_pekerjaan" class="form-control">       
+                <label>NAMA AREA</label>
+                    <select class="form-control" id="AREA_NAMA" name="AREA_NAMA">
+                        <option selected="0">- Pilih Nama Area -</option>
+                        <?php foreach($area_list as $area) : ?>
+                        <option value="<?php echo $area->AREA_KODE;?>"> <?php echo $area->AREA_NAMA; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    </div>
             </div>
+
             <div class="form-group">
                 <label>SKKI NILAI</label>
-                <input type="text" name="pemberi_kerja" class="form-control">       
+                <input type="number_format" name="SKKI_NILAI" class="form-control">
             </div>
+
             <div class="form-group">
                 <label>SKKI TERPAKAI</label>
-                <input type="text" name="pic" class="form-control">       
+                <input type="" name="SKKI_TERPAKAI" class="form-control">
             </div>
+
             <div class="form-group">
                 <label>SKKI TANGGAL</label>
-                <input type="date" name="tanggal" class="form-control">  </div>
-            
+                <input type="date" name="tanggal" class="form-control"> 
+            </div>  
+
         <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
         <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
