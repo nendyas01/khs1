@@ -21,6 +21,19 @@
           <i class="fa fa-bar-chart"></i> <span>Chart</span>
         </a>
       </li>
+
+      <li class="active treeview">
+        <a href="#">
+          <i class="fa fa-book"></i> <span>Pengelolaan Data Master</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="<?php echo base_url('crud_paket') ?>"><i class="fa fa-circle-o"></i> Add/Edit Paket</a></li>
+        </ul>
+      </li>
+
       <li class="active treeview">
         <a href="#">
           <i class="fa fa-calendar-check-o"></i> <span>Pengelolaan Vendor</span>
@@ -36,6 +49,7 @@
 
         </ul>
       </li>
+
       <li class="active treeview">
         <a href="#">
           <i class="fa fa-calendar-check-o"></i> <span>Pengelolaan Perijinan</span>
@@ -86,9 +100,7 @@
           <li><a href="<?php echo base_url('progress/tambah1') ?>"><i class="fa fa-circle-o"></i> Input Progress Kerja</a></li>
         </ul>
       </li>
-      <li class="active">
-        <a href="<?php echo base_url('karyawan') ?>"><i class="fa fa-table"></i><span>Pengelolaan Data Master</span></a>
-      </li>
+
       <li class="active treeview">
         <a href="#">
           <i class="fa fa-book"></i> <span>Pengelolaan Anggaran</span>
