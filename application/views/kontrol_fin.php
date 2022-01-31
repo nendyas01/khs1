@@ -59,7 +59,6 @@
                                             <td> <?php echo "edit" ?></td>
                                             <td> <?php echo "edit" ?></td>
                                         </tr>
-
                                     <?php } ?>
 
                                     <!--  Button untuk copy, csv, excel -->
