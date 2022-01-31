@@ -19,6 +19,7 @@ class m_kontrol_fin extends CI_Model
             inner join tb_vendor e on e.vendor_id = x.vendor_id
             AND c.STATUS = 1
             ORDER BY e.vendor_nama DESC
+            
         '
 
         );
@@ -45,5 +46,20 @@ class m_kontrol_fin extends CI_Model
 
     public function tambah()
     {
+    }
+
+    function select_area_by_code()
+    {
+        $query = $this->db->query("SELECT * FROM tb_paket ORDER BY PAKET_DESKRIPSI ASC");
+
+        return $query->result();
+    }
+
+    function select_skkio_no($area)
+    {
+        $query = $this->db->query("SELECT skki_no FROM tb_skko_i a,tb_area b WHERE a.area_kode = b.area_kode AND b.area_kode = $area AND flag=0");
+
+        $result = $query->result();
+        return $result;
     }
 }

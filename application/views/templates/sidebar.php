@@ -29,7 +29,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> Addendum</a></li>
+          <li><a href="<?php echo base_url('kontrol_fin/tambah_addendum') ?>"><i class="fa fa-circle-o"></i> Addendum</a></li>
           <li><a href="<?php echo base_url('kontrol_fin/tambah') ?>"><i class="fa fa-circle-o"></i> Input SPJ</a></li>
           <li><a href="<?php echo base_url('kontrol_fin') ?>"><i class="fa fa-circle-o"></i> Kontrol Finansial</a></li>
           <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> List Amandemen</a></li>

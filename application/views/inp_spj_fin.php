@@ -93,15 +93,11 @@
                                     <div class="col-sm-10">
                                         <select class="form-control m-b-10" id="paket" name="var_paket_pekerjaan">
                                             <option value="0">Pilih Paket</option>
-                                            <?php
-                                            $query  = "SELECT PAKET_JENIS,PAKET_DESKRIPSI FROM tb_paket where STATUS = 1 ";
-                                            $result = mysqli_query($query);
-                                            $output = '';
-                                            while ($hasil = mysqli_fetch_assoc($result)) {
-                                                $output .= "<option value='" . $hasil['PAKET_JENIS'] . "'>" . $hasil['PAKET_DESKRIPSI'] . "</option> \n";
-                                            }
-                                            echo $output;
-                                            ?>
+                                            <?php foreach ($kontrol_fin as $key) { ?>
+                                                <select name="PAKET_DESKRIPSI" class="form-control">
+
+                                                </select>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
