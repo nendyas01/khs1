@@ -53,10 +53,12 @@ class m_anggaran extends CI_Model
     return $this->db->get()->result();
   }
 
-  public function v_input_tagihan(){
-    
+  public function v_input_tagihan()
+  {
   }
 }
 ?>
+
+
 
 <!-- (a.SKKI_NO - (select sum(b.SPJ_ADD_NILAI) from tb_spj b where b.skki_no = a.skki_no)) as sisa_skko' -->
