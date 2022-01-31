@@ -77,7 +77,7 @@
   <script src="<?php echo base_url() ?>assets/dist/js/demo.js"></script>
 </head>
 
-<body class="hold-transition skin-green sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
 
     <header class="main-header">

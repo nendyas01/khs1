@@ -99,7 +99,7 @@
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url('anggaran') ?>"><i class="fa fa-circle-o"></i> Penyerapan Anggaran</a></li>
           <li><a href="<?php echo base_url('anggaran/v_input_tagihan') ?>"><i class="fa fa-circle-o"></i> Input Tagihan</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Add/Edit SKKO_I</a></li>
+          <li><a href="<?php echo base_url('crud_skkio') ?>"><i class="fa fa-circle-o"></i> Add/Edit SKKO_I</a></li>
         </ul>
       </li>
       <li class="active">
