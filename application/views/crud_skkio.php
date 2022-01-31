@@ -55,6 +55,7 @@
 
                     </tr>
                   <?php } ?>
+
                   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
                   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                   <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
@@ -120,13 +121,13 @@
            
             <div class="form-group">
                 <label>NAMA AREA</label>
-                    <select class="form-control" id="AREA_NAMA" name="AREA_NAMA">
+                    <select class="form-control" id="AREA_KODE" name="AREA_KODE">
                         <option selected="0">- Pilih Nama Area -</option>
-                        <?php foreach($area_list as $area) : ?>
+                        <?php foreach($nama_area as $area) : ?>
                         <option value="<?php echo $area->AREA_KODE;?>"> <?php echo $area->AREA_NAMA; ?></option>
                         <?php endforeach; ?>
                     </select>
-                    </div>
+                   
             </div>
 
             <div class="form-group">
@@ -136,12 +137,12 @@
 
             <div class="form-group">
                 <label>SKKI TERPAKAI</label>
-                <input type="" name="SKKI_TERPAKAI" class="form-control">
+                <input type="number_format" name="SKKI_TERPAKAI" class="form-control">
             </div>
 
             <div class="form-group">
                 <label>SKKI TANGGAL</label>
-                <input type="date" name="tanggal" class="form-control"> 
+                <input type="date" name="SKKI_TANGGAL" class="form-control"> 
             </div>  
 
         <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>

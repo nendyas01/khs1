@@ -15,13 +15,9 @@ class m_crud_skkio extends CI_Model{
         $result = $query->result();
         return $result;
     }
-    public function list_area(){
-        $this->db->select('AREA_NAMA');
-        $this->db->from('tb_area');
-        $query = $this->db->get();
-        $result = $query->result();
-        return $result;
-
+    public function getdata(){
+        $query=$this->db->query("SELECT * FROM tb_area ORDER BY AREA_NAMA ASC");
+        return $query->result();
     }
     public function input_data($data, $table)
     {
