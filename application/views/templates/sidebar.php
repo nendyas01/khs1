@@ -31,6 +31,8 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url('crud_paket') ?>"><i class="fa fa-circle-o"></i> Add/Edit Paket</a></li>
+          <li><a href="<?php echo base_url('#') ?>"><i class="fa fa-circle-o"></i> Add/Edit Area</a></li>
+          <li><a href="<?php echo base_url('#') ?>"><i class="fa fa-circle-o"></i> Add/Edit Pagu Kontrak</a></li>
         </ul>
       </li>
 
