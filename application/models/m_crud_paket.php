@@ -25,9 +25,13 @@ class m_crud_paket extends CI_Model
         return $this->db->get_where($edit, $where);
     }
 
-    function deleteDataProduk($PAKET_JENIS)
+    function hapus($PAKET_JENIS)
     {
         $this->db->where('PAKET_JENIS', $PAKET_JENIS);
-        $this->db->delete('data_produk');
+        $this->db->delete('crud_paket');
+    }
+
+    function detail_crud_paket()
+    {
     }
 }
