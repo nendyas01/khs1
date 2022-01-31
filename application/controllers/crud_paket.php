@@ -36,4 +36,30 @@ class crud_paket extends CI_Controller
         $this->m_crud_paket->input_data($data, 'crud_paket');
         redirect('crud_paket/index');
     }
+
+    public function fungsiEdit()
+    {
+        $PAKET_JENIS = $this->input->post('PAKET_JENIS');
+        $PAKET_DESKRIPSI = $this->input->post('PAKET_DESKRIPSI');
+        $SATUAN = $this->input->post('SATUAN');
+        $PAKET_DESKRIPSI2 = $this->input->post('PAKET_DESKRIPSI2');
+        $STATUS = $this->input->post('STATUS');
+
+        $ArrUpdate = array(
+            'PAKET_JENIS'               => $PAKET_JENIS,
+            'PAKET_DESKRIPSI'           => $PAKET_DESKRIPSI,
+            'SATUAN'                    => $SATUAN,
+            'PAKET_DESKRIPSI2'          => $PAKET_DESKRIPSI2,
+            'STATUS'                    => $STATUS,
+        );
+
+        $this->model_produk->updateDataProduk($PAKET_JENIS, $ArrUpdate);
+        redirect(base_url(''));
+    }
+
+    public function fungsiDelete($PAKET_JENIS)
+    {
+        $this->model_produk->deleteDataProduk($PAKET_JENIS);
+        redirect(base_url(''));
+    }
 }

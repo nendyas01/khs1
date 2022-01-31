@@ -19,4 +19,15 @@ class m_crud_paket extends CI_Model
     {
         $this->db->insert($table, $data);
     }
+
+    function edit_data($where, $edit)
+    {
+        return $this->db->get_where($edit, $where);
+    }
+
+    function deleteDataProduk($PAKET_JENIS)
+    {
+        $this->db->where('PAKET_JENIS', $PAKET_JENIS);
+        $this->db->delete('data_produk');
+    }
 }

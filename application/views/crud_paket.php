@@ -95,7 +95,7 @@
                     <h4 class="modal-title" id="myModalLabel"> Tambah Data Paket</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="<?php echo base_url() . 'crud_skkio/tambah_aksi'; ?>">
+                    <form method="post" action="<?php echo base_url() . 'crud_paket/tambah_aksi'; ?>">
                         <div class="form-group">
                             <label>Paket Jenis</label>
                             <input type="text" name="id_anggaran" class="form-control">
