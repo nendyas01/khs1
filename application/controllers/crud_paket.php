@@ -33,7 +33,7 @@ class crud_paket extends CI_Controller
             'STATUS'                    => $STATUS,
         );
 
-        $this->m_rkap_pln->input_data($data, 'crud_paket');
+        $this->m_crud_paket->input_data($data, 'crud_paket');
         redirect('crud_paket/index');
     }
 }
