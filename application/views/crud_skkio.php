@@ -30,7 +30,7 @@
                     <th>SKKI NILAI</th>
                     <th>SKKI TERPAKAI</th>
                     <th>SKKI TANGGAL</th>
-                    <th colspan="2">Aksi</th>
+                    <th colspan="3">Aksi</th>
        
                   </tr>
 
@@ -109,11 +109,15 @@
 
       <div class="modal-body">
         <form method="post" action="<?php echo base_url().'crud_skkio/tambah_aksi'; ?>">
+
             <div class="form-group">
                 <label>SKKI JENIS</label>
-                <input type="text" name="SKKI_JENIS" class="form-control">       
+                      <option selected="0" name="SKKI_JENIS" class="form-control">-Pilih Jenis-</option>
+                      <select>
+                        <option value="skki">SKKI </option>
+                        <option value="skko">SKKO </option>
+                      </select>
             </div>
-
             <div class="form-group">
                 <label>SKKI NO</label>
                 <input type="text" name="SKKI_NO" class="form-control">
@@ -127,7 +131,6 @@
                         <option value="<?php echo $area->AREA_KODE;?>"> <?php echo $area->AREA_NAMA; ?></option>
                         <?php endforeach; ?>
                     </select>
-                   
             </div>
 
             <div class="form-group">
