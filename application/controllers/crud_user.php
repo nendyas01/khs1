@@ -30,7 +30,56 @@ class crud_user extends CI_Controller
             'AREA_KODE'          => $AREA_KODE,
         );
 
-        $this->m_crud_user->input_data($data, 'crud_user');
+        $this->m_crud_user->input_data($data, 'tb_user');
         redirect('crud_user/index');
     }
+    
+    public function hapus ($USERNAME)
+    {
+        $where = array ('USERNAME' => $USERNAME);
+        $this->m_crud_user->hapus_data($where, 'tb_user');
+        redirect ('crud_user/index');
+    }
+
+    public function edit_crud_user ($USERNAME)
+    {
+        $where = array('USERNAME' =>$USERNAME);
+        $data['crud_user'] = $this->m_crud_user->edit_data($where, 'tb_user')->result();
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('edit_crud_user', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function update(){
+        $USERNAME = $this->input->post('USERNAME');
+        $role_id = $this->input->post('role_id');
+        $AREA_KODE = $this->input->post('AREA_KODE');
+
+        $data = array(
+            'USERNAME'      => $USERNAME,
+            'role_id'       => $role_id,
+            'AREA_KODE'     => $AREA_KODE,
+        );
+        print_r($data);
+
+       /*  $where = array('USERNAME' => $USERNAME);
+
+        $this->m_crud_user->update_data($where,$data,'tb_user');
+        redirect('crud_user/index'); */
+
+    }
+
+    public function detail_crud_user($USERNAME){
+        $this->load->model('m_crud_user');
+         $detail_crud_user = $this->m_crud_user->detail_data($USERNAME);
+         $data['detail_crud_user'] = $detail_crud_user;
+         $this->load->view('templates/header');
+         $this->load->view('templates/sidebar');
+         $this->load->view('detail_crud_user', $data);
+         $this->load->view('templates/footer'); 
+         
+     }
+ 
+
 }
