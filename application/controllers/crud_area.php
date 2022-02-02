@@ -32,4 +32,22 @@ class crud_area extends CI_Controller
         $this->m_crud_area->input_data($data, 'crud_area');
         redirect('crud_area/index');
     }
+
+    public function hapus($AREA_KODE)
+    {
+        $Where = array('AREA_KODE' => $AREA_KODE);
+        $this->m_crud_area->hapus_data($Where, 'tb_area');
+        redirect('crud_area/index');
+    }
+
+    public function edit_crud_area($AREA_KODE)
+    {
+        $where = array('AREA_KODE' => $AREA_KODE);
+        $data['crud_area'] = $this->m_crud_area->edit_data($where, 'tb_area')->result();
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/footer');
+        $this->load->view('edit_crud_area', $data);
+        $this->load->view('templates/footer');
+    }
 }
