@@ -16,7 +16,7 @@ class m_progress extends CI_Model
             f.nama_kel_pelanggaran, 
             a.evidence1, 
             a.evidence2 
-        '
+            '
         );
 
         $this->db->from('tb_spj a');
@@ -40,7 +40,6 @@ class m_progress extends CI_Model
 
     public function get_keyword($keyword)
     {
-
         $progress = $this->db->get('tb_pelanggaran_khs');
         $this->db->select('*');
         $this->db->from('tb_pelanggaran_khs');

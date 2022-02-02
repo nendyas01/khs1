@@ -8,6 +8,7 @@ class crud_user extends CI_Controller
         parent::__construct();
         $this->load->model('m_crud_user');
     }
+
     public function index()
     {
         $data['crud_user'] = $this->m_crud_user->tampil_data();
