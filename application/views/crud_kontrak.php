@@ -19,8 +19,10 @@
 
                     <div class="panel-body table-responsive">
                         <font size="2" face="Arial">
+
                             <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data Pagu Kontrak</button>
+                                </hr>
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -152,11 +154,11 @@
                             </div>
                             <div class="form-group">
                                 <label>RANKING</label>
-                                <input type="text" name="ranking_aja class=" form-control">
+                                <input type="text" name="ranking_aja" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>NO_PJN</label>
-                                <input type="date" name="no_satu" class="form-control">
+                                <input type="text" name="no_satu" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_PJN</label>
@@ -164,7 +166,7 @@
                             </div>
                             <div class="form-group">
                                 <label>NO_PJN</label>
-                                <input type="date" name="no_satu" class="form-control">
+                                <input type="text" name="no_satu" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_PJN</label>
@@ -172,7 +174,7 @@
                             </div>
                             <div class="form-group">
                                 <label>NO_RKS</label>
-                                <input type="date" name="no_dua" class="form-control">
+                                <input type="text" name="no_dua" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_RKS</label>
@@ -180,7 +182,7 @@
                             </div>
                             <div class="form-group">
                                 <label>NO_SPP</label>
-                                <input type="date" name="no_tiga" class="form-control">
+                                <input type="text" name="no_tiga" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_SPP</label>
@@ -188,7 +190,7 @@
                             </div>
                             <div class="form-group">
                                 <label>NO_PENAWARAN</label>
-                                <input type="date" name="no_empat" class="form-control">
+                                <input type="text" name="no_empat" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_PENAWARAN</label>
@@ -196,11 +198,11 @@
                             </div>
                             <div class="form-group">
                                 <label>SANKSI TERAKHIR</label>
-                                <input type="date" name="sanksi_terakhir" class="form-control">
+                                <input type="text" name="sanksi_terakhir" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>ID SANKSI</label>
-                                <input type="date" name="identitas" class="form-control">
+                                <input type="text" name="identitas" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TANGGAL SANKSI</label>
@@ -208,15 +210,15 @@
                             </div>
                             <div class="form-group">
                                 <label>TANGGAL AKHIR</label>
-                                <input type="date" name="tanggal ke class=" form-control">
+                                <input type="date" name="tanggal ke" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>PUNISHMENT</label>
-                                <input type="date" name="hukuman" class="form-control">
+                                <input type="text" name="hukuman" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>BLOCKED</label>
-                                <input type="date" name="dilarang" class="form-control">
+                                <input type="text" name="dilarang" class="form-control">
                             </div>
 
                             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
