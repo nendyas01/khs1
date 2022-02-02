@@ -39,9 +39,9 @@
                                             <td> <?php echo $cu->USERNAME ?></td>
                                             <td> <?php echo $cu->role_id ?></td>
                                             <td> <?php echo $cu->AREA_KODE ?></td>
-                                            <td><?php echo anchor('crud_vendor/crud_vendor/' . $cu->USERNAME, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                                            <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_vendor/hapus/' . $cu->USERNAME, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                                            <td><?php echo anchor('crud_vendor/crud_vendor/' . $cu->USERNAME, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                                            <td><?php echo anchor('crud_user/detail_crud_user/' . $cu->USERNAME, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                            <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_user/hapus/' . $cu->USERNAME, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                                            <td><?php echo anchor('crud_user/edit_crud_user/' . $cu->USERNAME, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
                                         </tr>
                                     <?php } ?>
 
@@ -75,16 +75,17 @@
                     <form method="post" action="<?php echo base_url() . 'crud_user/tambah_aksi'; ?>">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" name="id_anggaran" class="form-control">
+                            <input type="text" name="USERNAME" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>ID Role</label>
-                            <input type="text" name="no_surat" class="form-control">
+                            <input type="number_format" name="role_id" class="form-control">
+                        </div>
 
-                            <div class="form-group">
-                                <label>Kode Area </label>
-                                <input type="text" name="nama_pekerjaan" class="form-control">
-                            </div>
+                        <div class="form-group">
+                            <label>Kode Area </label>
+                            <input type="number_format" name="AREA_KODE" class="form-control">
+                        </div>
 
                             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
