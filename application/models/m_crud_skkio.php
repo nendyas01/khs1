@@ -4,6 +4,7 @@ class m_crud_skkio extends CI_Model{
     public function tampil_data()
     {
         $this->db->select('a.SKKI_JENIS,
+                        a.SKKI_ID,
                         a.SKKI_NO,
                         a.AREA_KODE,
                         a.SKKI_NILAI,
@@ -44,7 +45,8 @@ class m_crud_skkio extends CI_Model{
         $this->db->update($table,$data);
     }
     
-    public function detail_data($SKKI_NO = NULL){
+    public function detail_data($SKKI_NO=NULL){
+    
         $query = $this->db->get_where('tb_skko_i', array('SKKI_NO' => $SKKI_NO))->row();
         return $query;
     }

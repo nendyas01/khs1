@@ -2,16 +2,19 @@
     <section class="content">
     <?php foreach($crud_skkio as $cs) { ?>
         <form action="<?php echo base_url().'crud_skkio/update'; ?>">
-            <div class="form_group">
-                <label>SKKI JENIS</label>
-                <input type="text" name="SKKI_JENIS" class="form-control" value="<?php echo $cs->SKKI_JENIS ?>">
-            </div>
-            
             <div class="form-group">
                 <label>SKKI NO</label>
-                <input type="text" name="SKKI_NO" class="form-control" value="<?php echo $cs->SKKI_NO ?>">
+                <input type="text" name="SKKI_ID" class="form-control" value="<?php echo $cs->SKKI_ID ?>">
+        </div>
+            <div class="form_group">
+                <label>SKKI JENIS</label>
+                <select class="form-control"name="SKKI_JENIS" id="SKKI_JENIS">
+                      <option selected="0" >-Pilih Jenis-</option>
+                        <option value="SKKI">SKKI </option>
+                        <option value="SKKO">SKKO </option>
+                </select>
             </div>
-
+            
             <div class="form-group">
                 <label>SKKI NO</label>
                 <input type="text" name="SKKI_NO" class="form-control" value="<?php echo $cs->SKKI_NO ?>">
@@ -34,7 +37,7 @@
 
             <div class="form-group">
                 <label>SKKI_TERPAKAI</label>
-                <input type="number_format" name="SKKI_NILAI" class="form-control" value="<?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?>">
+                <input type="number_format" name="SKKI_TERPAKAI" class="form-control" value="<?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?>">
             </div>
 
             <div class="form-group">

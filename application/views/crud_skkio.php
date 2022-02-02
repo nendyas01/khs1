@@ -23,7 +23,7 @@
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button>
                 <thead>
                 <tr>
-                    <th>No</th>
+                    <th>SKKI ID</th>
                     <th>SKKI JENIS</th>
                     <th>SKKI NO</th>
                     <th>NAMA AREA</th>
@@ -38,20 +38,21 @@
 
                 <tbody>
                 <?php
-                  $no = 1;
+                  //$no = 1;
                   foreach ($crud_skkio as $cs){
                 ?>
                     <tr>
-                      <td> <?php echo $no++ ?></td>
+                      <td> <?php echo $cs->SKKI_ID ?></td>
                       <td> <?php echo $cs->SKKI_JENIS ?></td>
                       <td> <?php echo $cs->SKKI_NO ?></td>
                       <td> <?php echo $cs->nama_area ?></td>
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?></td>
                       <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
-                      <td><?php echo anchor('crud_skkio/detail_crud_skkio/'.$cs->SKKI_NO, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_skkio/hapus/'.$cs->SKKI_NO, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>        
-                <td><?php echo anchor('crud_skkio/edit_crud_skkio/'.$cs->SKKI_NO, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                      <!-- <td><?php echo anchor('crud_skkio/detail_crud_skkio/'.$cs->SKKI_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td> --> 
+                      <td><?php echo ('crud_skkio/detail_crud_skkio/'.$cs->SKKI_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_skkio/hapus/'.$cs->SKKI_ID, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>        
+                <td><?php echo anchor('crud_skkio/edit_crud_skkio/'.$cs->SKKI_ID, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
 
                     </tr>
                   <?php } ?>
@@ -110,12 +111,18 @@
       <div class="modal-body">
         <form method="post" action="<?php echo base_url().'crud_skkio/tambah_aksi'; ?>">
 
+        <div class="form-group">
+                <label>SKKI ID</label>
+                <input type="number_format" name="SKKI_ID" class="form-control">
+            </div>  
+
             <div class="form-group">
                 <label>SKKI JENIS</label>
-                      <option selected="0" name="SKKI_JENIS" class="form-control">-Pilih Jenis-</option>
-                      <select>
-                        <option value="skki">SKKI </option>
-                        <option value="skko">SKKO </option>
+                    <select class="form-control"name="SKKI_JENIS" id="SKKI_JENIS">
+                      <option selected="0" >- Pilih Jenis -</option>
+                      
+                        <option value="SKKI">SKKI </option>
+                        <option value="SKKO">SKKO </option>
                       </select>
             </div>
             <div class="form-group">

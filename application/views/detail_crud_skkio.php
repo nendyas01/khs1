@@ -3,6 +3,12 @@
         <h4><strong>Detail Data SKKI/O</strong></h4>
         
         <table class="table">
+
+            <tr>
+                <th>SKKI ID</th>
+                <td><?php echo $detail_crud_skkio['SKKI_ID'] ?></td>
+            </tr>
+
             <tr>
                 <th>SKKI JENIS</th>
                 <td><?php echo $detail_crud_skkio['SKKI_JENIS'] ?></td>
