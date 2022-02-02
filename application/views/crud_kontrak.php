@@ -45,7 +45,7 @@
                                         <th>TANGGAL AKHIR</th>
                                         <th>PUNISHMENT</th>
                                         <th>BLOCKED</th>
-                                        <th colspan="2">Aksi</th>
+                                        <th colspan="3">Aksi</th>
 
                                     </tr>
 
