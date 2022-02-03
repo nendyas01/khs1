@@ -23,16 +23,16 @@ class m_crud_user extends CI_Model
         $this->db->delete($table);
     }
 
+
     public function edit_data($where,$table){
         return $this->db->get_where($table,$where);
     }
 
     public function update_data($where,$data,$table){
+        
         $this->db->where($where);
         $this->db->update($table,$data);
     } 
-
-    
 
     public function detail_data($USERNAME=NULL){
     

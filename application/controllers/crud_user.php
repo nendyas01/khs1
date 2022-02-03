@@ -7,6 +7,8 @@ class crud_user extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_crud_user');
+       
+        
     }
 
     public function index()
@@ -44,31 +46,31 @@ class crud_user extends CI_Controller
     public function edit_crud_user ($USERNAME)
     {
         $where = array('USERNAME' =>$USERNAME);
+    
         $data['crud_user'] = $this->m_crud_user->edit_data($where, 'tb_user')->result();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('edit_crud_user', $data);
         $this->load->view('templates/footer');
+     
     }
 
     public function update(){
-        $USERNAME = $this->input->post('USERNAME');
-        $role_id = $this->input->post('role_id');
-        $AREA_KODE = $this->input->post('AREA_KODE');
+        
+        $USERNAME = $this->input->post('USERNAME', true );
+        $ROLE_ID = $this->input->post('ROLE_ID', true);
+        $AREA_KODE = $this->input->post('AREA_KODE', true);
 
         $data = array(
             'USERNAME'      => $USERNAME,
-            'role_id'       => $role_id,
+            'ROLE_ID'       => $ROLE_ID,
             'AREA_KODE'     => $AREA_KODE,
         );
-        print_r($data);
-
-       /*  $where = array('USERNAME' => $USERNAME);
-
+        
+         $where = array('USERNAME' => $USERNAME);
         $this->m_crud_user->update_data($where,$data,'tb_user');
-        redirect('crud_user/index'); */
-
-    }
+        redirect('crud_user/index');  
+    } 
 
     public function detail_crud_user($USERNAME){
         $this->load->model('m_crud_user');

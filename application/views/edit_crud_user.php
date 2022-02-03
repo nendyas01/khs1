@@ -1,7 +1,8 @@
 <div class="content-wrapper">
     <section class="content">
     <?php foreach($crud_user as $cu) { ?>
-        <form action="<?php echo base_url().'crud_user/update'; ?>">
+        <form action="<?php echo base_url().'crud_user/update' ; ?>" method="post">
+    
             <div class="form-group">
                 <label>USERNAME</label>
                 <input type="text" name="USERNAME" class="form-control" value="<?php echo $cu->USERNAME ?>">
@@ -9,7 +10,7 @@
 
             <div class="form-group">
                 <label>ID Role</label>
-                <input type="number_format" name="role_id" class="form-control" value="<?php echo $cu->role_id ?>">
+                <input type="number_format" name="ROLE_ID" class="form-control" value="<?php echo $cu->role_id ?>">
             </div>
 
             <div class="form-group">
