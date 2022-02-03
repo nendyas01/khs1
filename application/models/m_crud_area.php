@@ -12,11 +12,12 @@ class m_crud_skkio extends CI_Model
         $result = $query->result();
         return $result;
     }
-    public function getdata()
+
+    /* public function getdata()
     {
         $query = $this->db->query("SELECT * FROM tb_area ORDER BY AREA_NAMA ASC");
         return $query->result();
-    }
+    } */
 
     /*  public function getjenis(){
         $query=$this->db->query("SELECT * FROM tb_skko_i ORDER BY SKKI_JENIS ASC");
