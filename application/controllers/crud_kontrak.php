@@ -46,14 +46,14 @@ class crud_kontrak extends CI_Controller
             'VENDOR_ID'               => $VENDOR_ID,
             'PAKET_JENIS'                  => $PAKET_JENIS,
             'PAGU_KONTRAK'                   => $PAGU_KONTRAK,
-            'TERPAKAI'            => $TERPAKAI,
+            'TERPAKAI'                 => $TERPAKAI,
             'RANKING'                        => $RANKING,
             'NO_PJN'                   => $NO_PJN,
             'TGL_PJN'               => $TGL_PJN,
             'NO_RKS'                  => $NO_RKS,
             'TGL_RKS'                   => $TGL_RKS,
-            'NO_SPP'            => $NO_SPP,
-            'TGL_SPP'                        => $TGL_SPP,
+            'NO_SPP'                => $NO_SPP,
+            'TGL_SPP'                       => $TGL_SPP,
             'NO_PENAWARAN'                   => $NO_PENAWARAN,
             'TGL_PENAWARAN'               => $TGL_PENAWARAN,
             'sanksi_terakhir'                  => $sanksi_terakhir,
@@ -64,7 +64,7 @@ class crud_kontrak extends CI_Controller
             'BLOCKED'                   => $BLOCKED,
         );
 
-        $this->m_crud_kontrak->input_data($data, 'crud_kontrak');
+        $this->m_crud_kontrak->input_data($data, 'tb_pagu_kontrak');
         redirect('crud_kontrak/index');
     }
 

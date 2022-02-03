@@ -15,7 +15,7 @@
                 <th>Kode Area</th>
                 <td><?php echo $detail_crud_user->AREA_KODE ?></td>
             </tr>
-            
+
         </table>
     </section>
 </div>
