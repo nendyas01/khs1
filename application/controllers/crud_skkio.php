@@ -5,7 +5,6 @@ class crud_skkio extends CI_Controller{
     public function __construct(){ 
         parent::__construct(); 
         $this->load->model('m_crud_skkio'); 
-        $this->load->library('encrypt');
     }
     public function index()
     { 
@@ -41,16 +40,16 @@ class crud_skkio extends CI_Controller{
         redirect('crud_skkio/index'); 
     }
 
-    public function hapus ($SKKI_NO)
+    public function hapus ($SKKI_ID)
     {
-        $where = array ('SKKI_NO' => $SKKI_NO);
+        $where = array ('SKKI_ID' => $SKKI_ID);
         $this->m_crud_skkio->hapus_data($where, 'tb_skko_i');
         redirect ('crud_skkio/index');
     }
 
-    public function edit_crud_skkio ($SKKI_NO)
+    public function edit_crud_skkio ($SKKI_ID)
     {
-        $where = array('SKKI_NO' =>$SKKI_NO);
+        $where = array('SKKI_ID' =>$SKKI_ID);
         $data['crud_skkio'] = $this->m_crud_skkio->edit_data($where, 'tb_skko_i')->result();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
@@ -60,16 +59,17 @@ class crud_skkio extends CI_Controller{
 
     public function update ()
     {
-       
+        $SKKI_ID = $this->input->post('SKKI_ID');
         $SKKI_JENIS = $this->input->post('SKKI_JENIS');
         $SKKI_NO = $this->input->post('SKKI_NO');
         $AREA_KODE = $this->input->post('AREA_KODE');
+        
         $SKKI_NILAI = $this->input->post('SKKI_NILAI');
         $SKKI_TERPAKAI = $this->input->post('SKKI_TERPAKAI');
         $SKKI_TANGGAL = $this->input->post('SKKI_TANGGAL');
      
         $data = array(
-         
+            'SKKI_ID'                  => $SKKI_ID,
             'SKKI_JENIS'               => $SKKI_JENIS,
             'SKKI_NO'                  => $SKKI_NO,
             'AREA_KODE'                => $AREA_KODE,
@@ -78,7 +78,7 @@ class crud_skkio extends CI_Controller{
             'SKKI_TANGGAL'             => $SKKI_TANGGAL,
         );
         
-        $where = array('SKKI_NO' => $SKKI_NO);
+        $where = array('SKKI_ID' => $SKKI_ID);
         $this->m_crud_skkio->update_data($where,$data,'tb_skko_i');
         redirect('crud_skkio/index');
     }

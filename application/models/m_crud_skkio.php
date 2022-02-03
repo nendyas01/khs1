@@ -45,9 +45,9 @@ class m_crud_skkio extends CI_Model{
         $this->db->update($table,$data);
     }
     
-    public function detail_data($SKKI_NO=NULL){
+    public function detail_data($SKKI_ID=NULL){
     
-        $query = $this->db->get_where('tb_skko_i', array('SKKI_NO' => $SKKI_NO))->row();
+        $query = $this->db->get_where('tb_skko_i', array('SKKI_ID' => $SKKI_ID))->row();
         return $query;
     }
 }

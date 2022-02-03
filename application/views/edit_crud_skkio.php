@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content">
     <?php foreach($crud_skkio as $cs) { ?>
-        <form action="<?php echo base_url().'crud_skkio/update'; ?>">
+        <form action="<?php echo base_url().'crud_skkio/update'; ?>" method="post">
             <div class="form-group">
-                <label>SKKI NO</label>
+                <label>No</label>
                 <input type="text" name="SKKI_ID" class="form-control" value="<?php echo $cs->SKKI_ID ?>">
         </div>
             <div class="form_group">
