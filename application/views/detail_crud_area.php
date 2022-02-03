@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <section class="content">
-        <h4><strong>Detail Data SKKI/O</strong></h4>
+        <h4><strong>Detail Data Area</strong></h4>
 
         <table class="table">
 
