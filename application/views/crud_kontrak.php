@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Pengelolaan Data
+            DATA MASTER KONTRAK
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -138,63 +138,55 @@
                     <form method="post" action="<?php echo base_url() . 'crud_kontrak/tambah_aksi'; ?>">
                         <div class="form-group">
                             <label>ID VENDOR</label>
-                            <input type="text" name="id_vendor" class="form-control">
+                            <input type="text" name="VENDOR_ID" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>PAKET JENIS</label>
-                            <input type="text" name="jenis_paket" class="form-control">
+                            <input type="text" name="PAKET_JENIS" class="form-control">
 
                             <div class="form-group">
                                 <label>PAGU KONTRAK</label>
-                                <input type="text" name="pagu_kontrak" class="form-control">
+                                <input type="text" name="PAGU_KONTRAK" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TERPAKAI</label>
-                                <input type="text" name="telah_terpakai" class="form-control">
+                                <input type="text" name="TERPAKAI" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>RANKING</label>
-                                <input type="text" name="ranking_aja" class="form-control">
+                                <input type="text" name="RANKING" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>NO_PJN</label>
-                                <input type="text" name="no_satu" class="form-control">
+                                <input type="text" name="NO_PJN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_PJN</label>
-                                <input type="date" name="tanggal_satu" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>NO_PJN</label>
-                                <input type="text" name="no_satu" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>TGL_PJN</label>
-                                <input type="date" name="tanggal_satu" class="form-control">
+                                <input type="date" name="TGL_PJN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>NO_RKS</label>
-                                <input type="text" name="no_dua" class="form-control">
+                                <input type="text" name="NO_RKS" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_RKS</label>
-                                <input type="date" name="tanggal_dua" class="form-control">
+                                <input type="date" name="TGL_RKS" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>NO_SPP</label>
-                                <input type="text" name="no_tiga" class="form-control">
+                                <input type="text" name="NO_SPP" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_SPP</label>
-                                <input type="date" name="tanggal_tiga" class="form-control">
+                                <input type="date" name="TGL_SPP" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>NO_PENAWARAN</label>
-                                <input type="text" name="no_empat" class="form-control">
+                                <input type="text" name="NO_PENAWARAN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TGL_PENAWARAN</label>
-                                <input type="date" name="tanggal_empat" class="form-control">
+                                <input type="date" name="TGL_PENAWARAN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>SANKSI TERAKHIR</label>
@@ -202,23 +194,23 @@
                             </div>
                             <div class="form-group">
                                 <label>ID SANKSI</label>
-                                <input type="text" name="identitas" class="form-control">
+                                <input type="text" name="id_sanksi" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TANGGAL SANKSI</label>
-                                <input type="date" name="TANGGAL KELIMA" class="form-control">
+                                <input type="date" name="tgl_sanksi" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>TANGGAL AKHIR</label>
-                                <input type="date" name="tanggal ke" class="form-control">
+                                <input type="date" name="tgl_akhir" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>PUNISHMENT</label>
-                                <input type="text" name="hukuman" class="form-control">
+                                <input type="text" name="punishment" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>BLOCKED</label>
-                                <input type="text" name="dilarang" class="form-control">
+                                <input type="text" name="BLOCKED" class="form-control">
                             </div>
 
                             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>

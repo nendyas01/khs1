@@ -103,17 +103,12 @@
                     <form method="post" action="<?php echo base_url() . 'crud_area/tambah_aksi'; ?>">
                         <div class="form-group">
                             <label>AREA KODE</label>
-                            <input type="text" name="id_anggaran" class="form-control">
+                            <input type="text" name="AREA_KODE" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>AREA NAMA</label>
-                            <input type="text" name="no_surat" class="form-control">
+                            <input type="text" name="AREA_NAMA" class="form-control">
                         </div>
-
-                        <!--  <div class="form-group">
-                                <label>AREA ZONE</label>
-                                <input type="text" name="nama_pekerjaan" class="form-control">
-                            </div> -->
 
                         <div class="form-group">
                             <label>AREA ZONE</label>

@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content">
         <?php foreach ($crud_area as $car) { ?>
-            <form action="<?php echo base_url() . 'crud_area/update'; ?>">
+            <form action="<?php echo base_url() . 'crud_area/update'; ?>" method="post">
 
                 <div class="form-group">
                     <label>AREA KODE</label>

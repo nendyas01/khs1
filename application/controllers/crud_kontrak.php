@@ -7,8 +7,8 @@ class crud_kontrak extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_crud_kontrak');
-        $this->load->library('encrypt');
     }
+
     public function index()
     {
         $data['crud_kontrak'] = $this->m_crud_kontrak->tampil_data();

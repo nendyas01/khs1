@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content">
         <?php foreach ($crud_kontrak as $cpk) { ?>
-            <form action="<?php echo base_url() . 'crud_kontrak/update'; ?>">
+            <form action="<?php echo base_url() . 'crud_kontrak/update'; ?>" method="post">
 
                 <div class="form-group">
                     <label>VENDOR ID</label>
@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <label>TANGGAL PJN</label>
-                    <input type="date" name="TANGGAL_PJN" class="form-control" value="<?php echo $cpk->TANGGAL_PJN ?>">
+                    <input type="date" name="TGL_PJN" class="form-control" value="<?php echo $cpk->TGL_PJN ?>">
                 </div>
 
                 <div class="form-group">
@@ -45,7 +45,7 @@
 
                 <div class="form-group">
                     <label>TANGGAL RKS</label>
-                    <input type="date" name="TANGGAL_RKS" class="form-control" value="<?php echo $cpk->TANGGAL_RKS ?>">
+                    <input type="date" name="TGL_RKS" class="form-control" value="<?php echo $cpk->TGL_RKS ?>">
                 </div>
 
                 <div class="form-group">

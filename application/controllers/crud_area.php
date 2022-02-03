@@ -49,7 +49,7 @@ class crud_area extends CI_Controller
         $data['crud_area'] = $this->m_crud_area->edit_data($where, 'tb_area')->result();
 
         $this->load->view('templates/header');
-        $this->load->view('templates/footer');
+        $this->load->view('templates/sidebar');
         $this->load->view('edit_crud_area', $data);
         $this->load->view('templates/footer');
     }
@@ -71,7 +71,7 @@ class crud_area extends CI_Controller
         redirect('crud_area/index');
     }
 
-    public function detail_crud_kontrak($AREA_KODE)
+    public function detail_crud_area($AREA_KODE)
     {
         $this->load->model('m_crud_area');
         $detail_crud_area = $this->m_crud_area->detail_data($AREA_KODE);
