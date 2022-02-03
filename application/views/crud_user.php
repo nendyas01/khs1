@@ -87,8 +87,8 @@
                             <input type="number_format" name="AREA_KODE" class="form-control">
                         </div>
 
-                            <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>
