@@ -48,6 +48,7 @@
 
                                         </tr>
                                     <?php } ?>
+
                                     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
                                     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                                     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
@@ -107,14 +108,29 @@
                         <div class="form-group">
                             <label>AREA NAMA</label>
                             <input type="text" name="no_surat" class="form-control">
+                        </div>
 
-                            <div class="form-group">
+                        <!--  <div class="form-group">
                                 <label>AREA ZONE</label>
                                 <input type="text" name="nama_pekerjaan" class="form-control">
-                            </div>
+                            </div> -->
 
-                            <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
-                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        <div class="form-group">
+                            <label>AREA ZONE</label>
+                            <select name="AREA_ZONE" id="AREA_ZONE" class="form-control">
+                                <option selected="0">- Pilih Zona Area -</option>
+
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+
+                            </select>
+                        </div>
+
+                        <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>

@@ -7,8 +7,8 @@ class crud_area extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_crud_area');
-        $this->load->library('encrypt');
     }
+
     public function index()
     {
         $data['crud_area'] = $this->m_crud_area->tampil_data();
@@ -28,11 +28,11 @@ class crud_area extends CI_Controller
 
         $data = array(
             'AREA_KODE'               => $AREA_KODE,
-            'AREA_NAMA'                  => $AREA_NAMA,
-            'AREA_ZONE'                   => $AREA_ZONE,
+            'AREA_NAMA'               => $AREA_NAMA,
+            'AREA_ZONE'               => $AREA_ZONE,
         );
 
-        $this->m_crud_area->input_data($data, 'crud_area');
+        $this->m_crud_area->input_data($data, 'tb_area');
         redirect('crud_area/index');
     }
 
@@ -56,9 +56,9 @@ class crud_area extends CI_Controller
 
     public function update()
     {
-        $AREA_KODE = $this->input->post('AREA_KODE');
-        $AREA_NAMA = $this->input->post('AREA_NAMA');
-        $AREA_ZONE = $this->input->post('AREA_ZONE');
+        $AREA_KODE = $this->input->post('AREA_KODE', true);
+        $AREA_NAMA = $this->input->post('AREA_NAMA', true);
+        $AREA_ZONE = $this->input->post('AREA_ZONE', true);
 
         $data = array(
             'AREA_KODE'               => $AREA_KODE,
