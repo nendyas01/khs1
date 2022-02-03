@@ -51,6 +51,8 @@ class crud_skkio extends CI_Controller{
     {
         $where = array('SKKI_ID' =>$SKKI_ID);
         $data['crud_skkio'] = $this->m_crud_skkio->edit_data($where, 'tb_skko_i')->result();
+        $data['area'] = $this->m_crud_skkio->getdata($where, 'tb_skko_i');
+       
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('edit_crud_skkio', $data);
@@ -87,6 +89,7 @@ class crud_skkio extends CI_Controller{
        $this->load->model('m_crud_skkio');
         $detail_crud_skkio = $this->m_crud_skkio->detail_data($SKKI_ID);
         $data['detail_crud_skkio'] = $detail_crud_skkio;
+        $data['area'] = $detail_crud_skkio;
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('detail_crud_skkio', $data);

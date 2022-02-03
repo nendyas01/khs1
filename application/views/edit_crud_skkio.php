@@ -24,7 +24,7 @@
                 <label>NAMA AREA</label>
                     <select class="form-control" id="AREA_KODE" name="AREA_KODE">
                         <option selected="0">- Pilih Nama Area -</option>
-                        <?php foreach($nama_area as $area) : ?>
+                        <?php foreach($area as $area) : ?>
                         <option value="<?php echo $area->AREA_KODE;?>"> <?php echo $area->AREA_NAMA; ?></option>
                         <?php endforeach; ?>
                     </select>
