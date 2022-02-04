@@ -10,46 +10,47 @@
         </ol>
     </section>
 
-    <section class="content">
-        <div class="row">
-            <div class="col-md-12">
-                <section class="panel">
-                    <header class="panel-heading">Input SKRD</header>
-                    <div class="panel-body">
-                        <form class="form-horizontal tasi-form" method="post" action="skrd_input_submit.php">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">No. Surat Ke PTSP</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="var_no_surat_ptsp">
-                                        <option>- Pilih No Surat Ke PTSP -</option>
+    <font size="2" face="Arial">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="panel">
+                        <header class="panel-heading">Input SKRD</header>
+                        <div class="panel-body">
+                            <form class="form-horizontal tasi-form" method="post" action="skrd_input_submit.php">
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">No. Surat Ke PTSP</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="var_no_surat_ptsp">
+                                            <option>- Pilih No Surat Ke PTSP -</option>
 
-                                    </select>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class=" col-sm-2 col-sm-2 control-label">Tanggal Terbit SKRD</label>
-                                <div class="col-md-2">
-                                    <input type="date" class="form-control" name="var_tgl_terbit_skrd" id="datepick">
+                                <div class="form-group">
+                                    <label class=" col-sm-2 col-sm-2 control-label">Tanggal Terbit SKRD</label>
+                                    <div class="col-md-2">
+                                        <input type="date" class="form-control" name="var_tgl_terbit_skrd" id="datepick">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Biaya Retribusi</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="var_biaya_retribusi" placeholder="Biaya Retribusi"></input>
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Biaya Retribusi</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="var_biaya_retribusi" placeholder="Biaya Retribusi"></input>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
-                                    <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </form>
-                    </div>
-                </section>
+                            </form>
+                        </div>
+                    </section>
+                </div>
             </div>
-        </div>
-    </section><!-- /.content -->
+        </section><!-- /.content -->
