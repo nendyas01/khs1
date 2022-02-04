@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Input SPJ KHS
+            BA Survey
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -18,7 +18,7 @@
 
                             <form class="form-horizontal tasi-form" method="post" action="ba_survey_submit.php" id="ba_survey">
                                 <section class="panel">
-                                    <header class="panel-heading">Persetujuan Survey</header>
+                                    <header class="panel-heading">PERSETUJUAN SURVEY</header>
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <div class="col-lg-10">
@@ -38,8 +38,7 @@
                                             <div class="col-sm-10">
                                                 <select class="form-control" name="var_no_surat_ptsp" id="var_no_surat_ptsp">
                                                     <option>- Pilih No Surat Ke PTSP -</option>
-
-                                                    ?>
+                                                    <!--  <input type="text" name="AREA_KODE" class="form-control"> -->
                                                 </select>
                                             </div>
                                         </div>
