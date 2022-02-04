@@ -17,13 +17,25 @@
                     <div class="panel-body">
                         <form class="form-horizontal tasi-form" method="post">
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">Nomor Sanksi</label>
                                 <div class="col-lg-10">
                                     <select class="form-control m-b-10" name="var_no_skkio">
                                         <option value>-- Nomor Sanksi --</option>
 
 
+                                    </select>
+                                </div>
+                            </div> -->
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label col-lg-2">NOMOR SANKSI</label>
+                                <div class="col-lg-10">
+                                    <select class="form-control m-b-10" id="tgl_upload" name="tgl_upload">
+                                        <option selected="0">-- Nomor Sanksi --</option>
+                                        <?php foreach ($nomor_sanksi as $ns) : ?>
+                                            <option value="<?php echo $ns->id_sanksi; ?>"> <?php echo $ns->tgl_upload; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
