@@ -20,16 +20,18 @@
                             <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Nomor SPJ</th>
-                                        <th>Nilai Addendum</th>
-                                        <th>Tanggal Akhir</th>
-                                        <th>Nama Area</th>
-                                        <th>Nama Vendor</th>
-                                        <th>Jenis Pekerjaan</th>
-                                        <th>Deskripsi Pekerjaan</th>
-                                        <th>Progress Pekerjaan</th>
-                                        <th>Target</th>
-                                        <th>Realisasi</th>
+                                        <th>No</th>
+                                        <th>No Pelanggaran</th>
+                                        <th>Vendor</th>
+                                        <th>Tanggal</th>
+                                        <th>Area</th>
+                                        <th>No SPJ</th>
+                                        <th>No KHS</th>
+                                        <th>Paket</th>
+                                        <th>Jenis Pelanggaran</th>
+                                        <th>Evidence 1</th>
+                                        <th>Evidence 2</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
 
