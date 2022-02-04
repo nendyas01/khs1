@@ -14,65 +14,66 @@
             <div class="col-md-12">
                 <section class="panel">
                     <div class="panel-body">
-                        <form class="form-horizontal tasi-form" method="post">
+                        <font size="2" face="Arial">
+                            <form class="form-horizontal tasi-form" method="post">
 
-                            <form class="form-horizontal tasi-form" method="post" action="ba_survey_submit.php" id="ba_survey">
-                                <section class="panel">
-                                    <header class="panel-heading">PERSETUJUAN SURVEY</header>
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <div class="col-lg-10">
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="option_persetujuan" id="radio_rev" value="1" onchange="disable();">
-                                                    Perlu Revisi
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="option_persetujuan" id="radio_ba" value="0" onchange="enable();">
-                                                    BA Survey
-                                                </label>
+                                <form class="form-horizontal tasi-form" method="post" action="ba_survey_submit.php" id="ba_survey">
+                                    <section class="panel">
+                                        <header class="panel-heading">PERSETUJUAN SURVEY</header>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <div class="col-lg-10">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="option_persetujuan" id="radio_rev" value="1" onchange="disable();">
+                                                        Perlu Revisi
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="option_persetujuan" id="radio_ba" value="0" onchange="enable();">
+                                                        BA Survey
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-2 col-sm-2 control-label">No. Surat Ke PTSP</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" name="var_no_surat_ptsp" id="var_no_surat_ptsp">
+                                                        <option>- Pilih No Surat Ke PTSP -</option>
+                                                        <!--  <input type="text" name="AREA_KODE" class="form-control"> -->
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
+                                    </section>
+                                    <section class="panel">
+                                        <header class="panel-heading">BA Survey</header>
+                                        <div class="panel-body">
 
-                                        <div class="form-group">
-                                            <label class="col-sm-2 col-sm-2 control-label">No. Surat Ke PTSP</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-control" name="var_no_surat_ptsp" id="var_no_surat_ptsp">
-                                                    <option>- Pilih No Surat Ke PTSP -</option>
-                                                    <!--  <input type="text" name="AREA_KODE" class="form-control"> -->
-                                                </select>
+
+
+                                            <div class="form-group">
+                                                <label class=" col-sm-2 col-sm-2 control-label">Tanggal Survey</label>
+                                                <div class="col-md-2">
+                                                    <input type="date" class="form-control" name="var_tgl_survey" id="datepick">
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </section>
-                                <section class="panel">
-                                    <header class="panel-heading">BA Survey</header>
-                                    <div class="panel-body">
 
-
-
-                                        <div class="form-group">
-                                            <label class=" col-sm-2 col-sm-2 control-label">Tanggal Survey</label>
-                                            <div class="col-md-2">
-                                                <input type="date" class="form-control" name="var_tgl_survey" id="datepick">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 col-sm-2 control-label">Hasil Survey</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="var_hasil_survey" id="var_hasil_survey" placeholder="Hasil Survey"></textarea>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <label class="col-sm-2 col-sm-2 control-label">Hasil Survey</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" name="var_hasil_survey" id="var_hasil_survey" placeholder="Hasil Survey"></textarea>
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <div class="col-lg-offset-2 col-lg-10">
-                                                <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
-                                            </div>
                                         </div>
-
-                                    </div>
-                                </section>
-                            </form>
+                                    </section>
+                                </form>
                     </div>
                 </section>
             </div>
