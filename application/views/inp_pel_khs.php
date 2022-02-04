@@ -28,6 +28,16 @@
                                 </div>
                             </div>
 
+                            <!-- <div class="form-group">
+                                <label>NAMA AREA</label>
+                                <select class="form-control" id="AREA_KODE" name="AREA_KODE">
+                                    <option selected="0">- Pilih Nama Area -</option>
+                                    <?php foreach ($nama_area as $area) : ?>
+                                        <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div> -->
+
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">SPJ</label>
                                 <div class="col-lg-10">
@@ -111,3 +121,10 @@
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>

@@ -53,3 +53,10 @@
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>

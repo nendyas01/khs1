@@ -48,10 +48,17 @@
           </span>
         </a>
         <ul class="treeview-menu">
+<<<<<<< HEAD
           <li <?=$this->uri->segment(1) == 'kontrol_fin/tambah_addendum' ? 'class="active"' : ''?>><a href="<?php echo base_url('kontrol_fin/tambah_addendum') ?>"><i class="fa fa-circle-o"></i> Addendum</a></li>
           <li <?=$this->uri->segment(1) == 'kontrol_fin/tambah' ? 'class="active"' : ''?>><a href="<?php echo base_url('kontrol_fin/tambah') ?>"><i class="fa fa-circle-o"></i> Input SPJ</a></li>
           <li <?=$this->uri->segment(1) == 'kontrol_fin' ? 'class="active"' : ''?>><a href="<?php echo base_url('kontrol_fin') ?>"><i class="fa fa-circle-o"></i> Kontrol Finansial</a></li>
           <li <?=$this->uri->segment(1) == 'list_amandemen' ? 'class="active"' : ''?>><a href="<?php echo base_url('list_amandemen') ?>"><i class="fa fa-circle-o"></i> List Amandemen</a></li>
+=======
+          <li><a href="<?php echo base_url('kontrol_fin/tambah_addendum') ?>"><i class="fa fa-circle-o"></i> Addendum</a></li>
+          <li><a href="<?php echo base_url('kontrol_fin/tambah') ?>"><i class="fa fa-circle-o"></i> Input SPJ</a></li>
+          <li><a href="<?php echo base_url('kontrol_fin') ?>"><i class="fa fa-circle-o"></i> Kontrol Finansial</a></li>
+          <li><a href="<?php echo base_url('kontrol_fin/tambah_list') ?>"><i class="fa fa-circle-o"></i> List Amandemen</a></li>
+>>>>>>> a6ef8c2d21266c81a8020f2e8af171e31f98b992
 
         </ul>
       </li>
@@ -64,12 +71,11 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> BA Survey</a></li>
-          <li><a href="<?php echo base_url('rkap_tahunan') ?>"><i class="fa fa-circle-o"></i> SKRD</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Retribusi</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Monitoring Perijinan</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> Pengajuan Perijinan Baru</a></li>
-          <li><a href="<?php echo base_url('rkap_pln') ?>"><i class="fa fa-circle-o"></i> List Sanksi</a></li>
+          <li><a href="<?php echo base_url('perijinan') ?>"><i class="fa fa-circle-o"></i> BA Survey</a></li>
+          <li><a href="<?php echo base_url('perijinan/monitoring') ?>"><i class="fa fa-circle-o"></i> Monitoring Perijinan</a></li>
+          <li><a href="<?php echo base_url('perijinan/pengajuan') ?>"><i class="fa fa-circle-o"></i> Pengajuan Perijinan Baru</a></li>
+          <li><a href="<?php echo base_url('perijinan/retribusi') ?>"><i class="fa fa-circle-o"></i> Retribusi</a></li>
+          <li><a href="<?php echo base_url('perijinan/skrd') ?>"><i class="fa fa-circle-o"></i> SKRD</a></li>
         </ul>
       </li>
 
