@@ -25,7 +25,7 @@
                                 </hr>
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <!-- <th>No</th> -->
                                         <th>ID VENDOR</th>
                                         <th>PAKET JENIS</th>
                                         <th>PAGU KONTRAK</th>
@@ -53,11 +53,12 @@
 
                                 <tbody>
                                     <?php
-                                    $no = 1;
+                                    //$no = 1;
                                     foreach ($crud_kontrak as $cpk) {
                                     ?>
                                         <tr>
-                                            <td> <?php echo $no++ ?></td>
+                                            <!--  <td> //echo $no++ 
+                                                        </td> -->
                                             <td> <?php echo $cpk->VENDOR_ID ?></td>
                                             <td> <?php echo $cpk->PAKET_JENIS ?></td>
                                             <td> <?php echo 'Rp ' . number_format($cpk->PAGU_KONTRAK, 0, ',', '.') ?></td>
