@@ -48,18 +48,38 @@ class m_kontrol_fin extends CI_Model
     {
     }
 
-    function select_area_by_code()
+    public function getData()
     {
-        $query = $this->db->query("SELECT * FROM tb_paket ORDER BY PAKET_DESKRIPSI ASC");
-
+        $query = $this->db->query("SELECT * FROM tb_addendum ORDER BY SPJ_NO ASC");
         return $query->result();
     }
 
-    function select_skkio_no($area)
+    public function getjenis()
     {
-        $query = $this->db->query("SELECT skki_no FROM tb_skko_i a,tb_area b WHERE a.area_kode = b.area_kode AND b.area_kode = $area AND flag=0");
+        $query = $this->db->query("SELECT * FROM tb_skko_i ORDER BY SKKI_NO ASC");
+        return $query->result();
+    }
 
-        $result = $query->result();
-        return $result;
+    public function input_data($data, $table)
+    {
+        $this->db->insert($table, $data);
+    }
+
+    public function hapus_data($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
+    }
+
+    public function update_data($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->update($table, $data);
+    }
+
+
+
+    public function tambah_list()
+    {
     }
 }
