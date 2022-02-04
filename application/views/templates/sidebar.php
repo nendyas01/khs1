@@ -62,7 +62,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<?php echo base_url('perijinan/survey') ?>"><i class="fa fa-circle-o"></i> BA Survey</a></li>
+          <li><a href="<?php echo base_url('perijinan') ?>"><i class="fa fa-circle-o"></i> BA Survey</a></li>
           <li><a href="<?php echo base_url('perijinan/monitoring') ?>"><i class="fa fa-circle-o"></i> Monitoring Perijinan</a></li>
           <li><a href="<?php echo base_url('perijinan/pengajuan') ?>"><i class="fa fa-circle-o"></i> Pengajuan Perijinan Baru</a></li>
           <li><a href="<?php echo base_url('perijinan/retribusi') ?>"><i class="fa fa-circle-o"></i> Retribusi</a></li>
