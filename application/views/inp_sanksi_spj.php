@@ -20,7 +20,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">Area</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control m-b-10" name="var_no_skkio">
+                                    <select class="form-control m-b-10" name="AREA">
                                         <option value>-- Area --</option>
 
 
@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">SPJ</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control m-b-10" name="var_no_skkio">
+                                    <select class="form-control m-b-10" name="SPJ">
                                         <option value>-- SPJ --</option>
 
 
@@ -74,12 +74,14 @@
                                     <input type="text" class="form-control" name="var_keterangan" id="var_keterangan">
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Evidence</label>
                                 <div class="col-sm-10">
                                     <input type="file" name="var_eviden" id="var_eviden">
                                 </div>
                             </div>
+
                             <input type="hidden" name="var_paket" id="var_paket" />
                             <input type="hidden" name="var_nama_vendor" id="var_nama_vendor" />
                             <div class="form-group">
@@ -87,3 +89,10 @@
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>
