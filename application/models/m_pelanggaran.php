@@ -72,4 +72,20 @@ class m_pelanggaran extends CI_Model
         $query = $this->db->query("SELECT * from tb_trans_sanksi_khs where tgl_upload = '0000-00-00'");
         return $query->result();
     }
+
+    public function list_pelanggaran()
+    {
+    }
+
+    public function list_sanksi_spj()
+    {
+    }
+
+    public function list_sanksi()
+    {
+    }
+
+    public function sanksi_siap_cetak()
+    {
+    }
 }

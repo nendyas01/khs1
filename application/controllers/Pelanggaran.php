@@ -45,4 +45,44 @@ class Pelanggaran extends CI_Controller
         $this->load->view('upl_sanksi_spj', $this->data);
         $this->load->view('templates/footer');
     }
+
+    function sanksi_siap_cetak()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('sanksi_siap_cetak');
+        $this->load->view('templates/footer');
+    }
+
+    function list_sanksi()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('list_sanksi');
+        $this->load->view('templates/footer');
+    }
+
+    function list_sanksi_spj()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('list_sanksi_spj');
+        $this->load->view('templates/footer');
+    }
+
+    function list_pelanggaran()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('list_sanksi_spj');
+        $this->load->view('templates/footer');
+    }
+
+    function app_pel()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('list_sanksi_spj');
+        $this->load->view('templates/footer');
+    }
 }
