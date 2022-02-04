@@ -38,10 +38,11 @@ class Pelanggaran extends CI_Controller
 
     function upl_sanksi_spj()
     {
+        $this->data['nomor_sanksi'] = $this->m_pelanggaran->get_data();
         //$data['progress'] = $this->m_progress->tambah;
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('upl_sanksi_spj');
+        $this->load->view('upl_sanksi_spj', $this->data);
         $this->load->view('templates/footer');
     }
 }

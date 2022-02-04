@@ -1,6 +1,6 @@
 <?php
 
-class m_progress extends CI_Model
+class m_pelanggaran extends CI_Model
 {
     public function tampil_data()
     {
@@ -65,5 +65,11 @@ class m_progress extends CI_Model
 
     public function app_pel()
     {
+    }
+
+    public function getdata()
+    {
+        $query = $this->db->query("SELECT * from tb_trans_sanksi_khs where tgl_upload = '0000-00-00'");
+        return $query->result();
     }
 }
