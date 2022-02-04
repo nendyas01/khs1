@@ -50,4 +50,12 @@ class kontrol_fin extends CI_Controller
         $this->load->view('inp_addendum');
         $this->load->view('templates/footer');
     }
+
+    function tambah_list()
+    {
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('list_amandemen');
+        $this->load->view('templates/footer');
+    }
 }

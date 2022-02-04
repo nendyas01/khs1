@@ -24,7 +24,9 @@
                                         <div class="col-lg-10">
                                             <select class="form-control m-b-10" name="var_no_spj" id="spj">
                                                 <option value="">-- SPJ --</option>
-
+                                                <?php foreach ($no_spj as $ns) : ?>
+                                                    <option value="<?php echo $ns->SPJ_NO; ?>"> <?php echo $ns->SPJ_NO; ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>

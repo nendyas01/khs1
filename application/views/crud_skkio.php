@@ -10,7 +10,7 @@
     </ol>
   </section>
 
-  
+
   <section class="content">
     <div class="row">
       <div class="col-md-12">
@@ -20,9 +20,9 @@
           <div class="panel-body table-responsive">
             <font size="2" face="Arial">
               <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button>
                 <thead>
-                <tr>
+                  <tr>
                     <th>No</th>
                     <th>SKKI JENIS</th>
                     <th>SKKI NO</th>
@@ -31,16 +31,16 @@
                     <th>SKKI TERPAKAI</th>
                     <th>SKKI TANGGAL</th>
                     <th colspan="3">Aksi</th>
-       
+
                   </tr>
 
                 </thead>
 
                 <tbody>
-                <?php
+                  <?php
                   //$no = 1;
-                  foreach ($crud_skkio as $cs){
-                ?>
+                  foreach ($crud_skkio as $cs) {
+                  ?>
                     <tr>
                       <td> <?php echo $cs->SKKI_ID ?></td>
                       <td> <?php echo $cs->SKKI_JENIS ?></td>
@@ -49,9 +49,9 @@
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?></td>
                       <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
-                      <td><?php echo anchor('crud_skkio/detail_crud_skkio/'.$cs->SKKI_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_skkio/hapus/'.$cs->SKKI_ID, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>        
-                <td><?php echo anchor('crud_skkio/edit_crud_skkio/'.$cs->SKKI_ID, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                      <td><?php echo anchor('crud_skkio/detail_crud_skkio/' . $cs->SKKI_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_skkio/hapus/' . $cs->SKKI_ID, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                      <td><?php echo anchor('crud_skkio/edit_crud_skkio/' . $cs->SKKI_ID, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
 
                     </tr>
                   <?php } ?>
@@ -97,68 +97,68 @@
               </table>
           </div>
         </section>
-    </div>
-</section>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> Tambah Data SKKI/O</h4>
       </div>
+  </section>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"> Tambah Data SKKI/O</h4>
+        </div>
 
-      <div class="modal-body">
-        <form method="post" action="<?php echo base_url().'crud_skkio/tambah_aksi'; ?>">
-
-        <div class="form-group">
-                <label>No</label>
-                <input type="number_format" name="SKKI_ID" class="form-control">
-            </div>  
+        <div class="modal-body">
+          <form method="post" action="<?php echo base_url() . 'crud_skkio/tambah_aksi'; ?>">
 
             <div class="form-group">
-                <label>SKKI JENIS</label>
-                    <select class="form-control"name="SKKI_JENIS" id="SKKI_JENIS">
-                      <option selected="0" >- Pilih Jenis -</option>
-                      
-                        <option value="SKKI">SKKI </option>
-                        <option value="SKKO">SKKO </option>
-                      </select>
-            </div>
-            <div class="form-group">
-                <label>SKKI NO</label>
-                <input type="text" name="SKKI_NO" class="form-control">
-            </div>    
-           
-            <div class="form-group">
-                <label>NAMA AREA</label>
-                    <select class="form-control" id="AREA_KODE" name="AREA_KODE">
-                        <option selected="0">- Pilih Nama Area -</option>
-                        <?php foreach($nama_area as $area) : ?>
-                        <option value="<?php echo $area->AREA_KODE;?>"> <?php echo $area->AREA_NAMA; ?></option>
-                        <?php endforeach; ?>
-                    </select>
+              <label>No</label>
+              <input type="number_format" name="SKKI_ID" class="form-control">
             </div>
 
             <div class="form-group">
-                <label>SKKI NILAI</label>
-                <input type="number_format" name="SKKI_NILAI" class="form-control">
+              <label>SKKI JENIS</label>
+              <select class="form-control" name="SKKI_JENIS" id="SKKI_JENIS">
+                <option selected="0">- Pilih Jenis -</option>
+
+                <option value="SKKI">SKKI </option>
+                <option value="SKKO">SKKO </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>SKKI NO</label>
+              <input type="text" name="SKKI_NO" class="form-control">
             </div>
 
             <div class="form-group">
-                <label>SKKI TERPAKAI</label>
-                <input type="number_format" name="SKKI_TERPAKAI" class="form-control">
+              <label>NAMA AREA</label>
+              <select class="form-control" id="AREA_KODE" name="AREA_KODE">
+                <option selected="0">- Pilih Nama Area -</option>
+                <?php foreach ($nama_area as $area) : ?>
+                  <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
+                <?php endforeach; ?>
+              </select>
             </div>
 
             <div class="form-group">
-                <label>SKKI TANGGAL</label>
-                <input type="date" name="SKKI_TANGGAL" class="form-control"> 
-            </div>  
+              <label>SKKI NILAI</label>
+              <input type="number_format" name="SKKI_NILAI" class="form-control">
+            </div>
 
-        <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
-        <button type="submit" class="btn btn-primary">Simpan</button>
-        </form>
+            <div class="form-group">
+              <label>SKKI TERPAKAI</label>
+              <input type="number_format" name="SKKI_TERPAKAI" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label>SKKI TANGGAL</label>
+              <input type="date" name="SKKI_TANGGAL" class="form-control">
+            </div>
+
+            <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>      
