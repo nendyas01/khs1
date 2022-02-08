@@ -41,7 +41,7 @@ class crud_vendor extends CI_Controller
             'JABATAN'               => $JABATAN,
         );
 
-        $this->m_crud_vendor->input_data($data, 'crud_vendor');
+        $this->m_crud_vendor->input_data($data, 'tb_vendor');
         redirect('crud_vendor/index');
     }
 

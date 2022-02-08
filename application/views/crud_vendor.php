@@ -90,39 +90,39 @@
                     <form method="post" action="<?php echo base_url() . 'crud_vendor/tambah_aksi'; ?>">
                         <div class="form-group">
                             <label>ID</label>
-                            <input type="text" name="id_anggaran" class="form-control">
+                            <input type="text" name="VENDOR_ID" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Nama Vendor</label>
-                            <input type="text" name="no_surat" class="form-control">
+                            <input type="text" name="VENDOR_NAMA" class="form-control">
 
                             <div class="form-group">
                                 <label>Tahun </label>
-                                <input type="text" name="nama_pekerjaan" class="form-control">
+                                <input type="text" name="TAHUN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Direksi Vendor</label>
-                                <input type="text" name="pemberi_kerja" class="form-control">
+                                <input type="text" name="DIREKSI_VENDOR" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" name="pic" class="form-control">
+                                <input type="text" name="EMAIL" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Telepon</label>
-                                <input type="text" name="pic" class="form-control">
+                                <input type="text" name="TELEPON" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
-                                <input type="text" name="pic" class="form-control">
+                                <input type="text" name="STATUS" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Email_2</label>
-                                <input type="text" name="pic" class="form-control">
+                                <input type="text" name="EMAIL_2" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Jabatan</label>
-                                <input type="text" name="pic" class="form-control">
+                                <input type="text" name="JABATAN" class="form-control">
                             </div>
 
 

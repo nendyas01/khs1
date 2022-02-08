@@ -98,23 +98,23 @@
                     <form method="post" action="<?php echo base_url() . 'crud_paket/tambah_aksi'; ?>">
                         <div class="form-group">
                             <label>Paket Jenis</label>
-                            <input type="text" name="id_anggaran" class="form-control">
+                            <input type="text" name="PAKET_JENIS" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Paket Deskripsi</label>
-                            <input type="text" name="no_surat" class="form-control">
+                            <input type="text" name="PAKET_DESKRIPSI" class="form-control">
 
                             <div class="form-group">
                                 <label>Satuan </label>
-                                <input type="text" name="nama_pekerjaan" class="form-control">
+                                <input type="text" name="SATUAN" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Paket Deskripsi 2</label>
-                                <input type="text" name="pemberi_kerja" class="form-control">
+                                <input type="text" name="PAKET_DESKRIPSI2" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Status</label>
-                                <input type="text" name="pic" class="form-control">
+                                <input type="text" name="STATUS" class="form-control">
                             </div>
 
                             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
@@ -125,46 +125,5 @@
             </div>
         </div>
     </div>
-
-
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <title>Tambah data</title>
-    </head>
-
-    <body>
-        <h1>Tambah produk</h1>
-        <form action="<?php echo base_url('crud_paket/detail_crud_paket') ?>" method="post">
-            <table>
-                <tr>
-                    <td>Id</td>
-                    <td>:</td>
-                    <td><input type="text" name="id_product"></td>
-                </tr>
-                <tr>
-                    <td>Nama</td>
-                    <td>:</td>
-                    <td><input type="text" name="nama_product"></td>
-                </tr>
-                <tr>
-                    <td>Harga</td>
-                    <td>:</td>
-                    <td><input type="text" name="harga"></td>
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>:</td>
-                    <td><input type="file" name="foto_product"></td>
-                </tr>
-                <tr>
-                    <td colspan="3"><button type="submit">Tambah Data</button></td>
-                </tr>
-            </table>
-        </form>
-    </body>
-
-    </html>
 
 </div>

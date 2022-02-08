@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Input SPJ KHS
+            Addendum
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -24,8 +24,8 @@
                                         <div class="col-lg-10">
                                             <select class="form-control m-b-10" name="var_no_spj" id="spj">
                                                 <option value="">-- SPJ --</option>
-                                                <?php foreach ($no_spj as $ns) : ?>
-                                                    <option value="<?php echo $ns->SPJ_NO; ?>"> <?php echo $ns->SPJ_NO; ?></option>
+                                                <?php foreach ($SPJ_NO as $sn) : ?>
+                                                    <option value="<?php echo $sn->SPJ_NO; ?>"> <?php echo $sn->SPJ_NO; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>

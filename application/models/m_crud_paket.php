@@ -20,9 +20,9 @@ class m_crud_paket extends CI_Model
         $this->db->insert($table, $data);
     }
 
-    function edit_data($where, $edit)
+    function edit_data($where, $table)
     {
-        return $this->db->get_where($edit, $where);
+        return $this->db->get_where($table, $where);
     }
 
     public function hapus_data($where, $table)
@@ -40,7 +40,7 @@ class m_crud_paket extends CI_Model
 
     function detail_crud_paket($PAKET_JENIS = NULL)
     {
-        $query = $this->db->get_where('tb_user', array('PAKET_JENIS' => $PAKET_JENIS))->row();
+        $query = $this->db->get_where('tb_paket', array('PAKET_JENIS' => $PAKET_JENIS))->row();
         return $query;
     }
 }
