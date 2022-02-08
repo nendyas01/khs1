@@ -22,11 +22,9 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-2">Nomor SPJ</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control m-b-10" name="var_no_spj" id="spj">
+                                            <select class="form-control m-b-10" name="SPJ_NO">
                                                 <option value="">-- SPJ --</option>
-                                                <?php foreach ($SPJ_NO as $sn) : ?>
-                                                    <option value="<?php echo $sn->SPJ_NO; ?>"> <?php echo $sn->SPJ_NO; ?></option>
-                                                <?php endforeach; ?>
+
                                             </select>
                                         </div>
                                     </div>

@@ -45,6 +45,7 @@ class kontrol_fin extends CI_Controller
 
     function tambah_addendum()
     {
+        $data['SPJ_NO'] = $this->m_kontrol_fin->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('inp_addendum');

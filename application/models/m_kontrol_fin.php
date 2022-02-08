@@ -48,7 +48,7 @@ class m_kontrol_fin extends CI_Model
     {
     }
 
-    public function getData()
+    public function getdata()
     {
         $query = $this->db->query("SELECT * FROM tb_addendum ORDER BY SPJ_NO ASC");
         return $query->result();
