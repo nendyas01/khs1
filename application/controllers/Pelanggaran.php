@@ -74,7 +74,7 @@ class Pelanggaran extends CI_Controller
     {
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('list_sanksi_spj');
+        $this->load->view('list_pelanggaran');
         $this->load->view('templates/footer');
     }
 
@@ -82,7 +82,7 @@ class Pelanggaran extends CI_Controller
     {
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('list_sanksi_spj');
+        $this->load->view('approve_pelanggaran');
         $this->load->view('templates/footer');
     }
 }

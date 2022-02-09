@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Pengelolaan Pelanggarab
+            Pengelolaan Pelanggaran
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -72,8 +72,10 @@
                                     </script>
                                 </tbody>
                             </table>
+                        </font>
                     </div>
                 </section>
             </div>
         </div>
     </section>
+</div>
