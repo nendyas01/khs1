@@ -123,6 +123,9 @@
           <li <?= $this->uri->segment(1) == 'crud_skkio' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_skkio') ?>"><i class="fa fa-circle-o"></i> Add/Edit SKKO_I</a></li>
         </ul>
       </li>
+
+      
+
       <li <?= $this->uri->segment(1) == 'login/logout' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
         <a href="<?php echo base_url('login/logout') ?>"><i class="fa fa-sign-out"></i> <span>Logout</span>
         </a>
