@@ -1,4 +1,22 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<<<<<<< HEAD
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> Tambah Data Mapping Vendor</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="<?php echo base_url() . 'mapping_vendor/tambah_aksi'; ?>">
+                        <div class="form-group">
+                            <label>Tahun</label>
+                            <input type="number_format" name="USERNAME" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Paket</label>
+                            <input type="text" name="role_id" class="form-control">
+                        </div>
+=======
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,6 +33,7 @@
                         <label>Paket</label>
                         <input type="text" name="role_id" class="form-control">
                     </div>
+>>>>>>> c80bb28e3a949ab76cfe1ad020122fc657e07dd3
 
                     <div class="form-group">
                         <label>Vendor </label>
