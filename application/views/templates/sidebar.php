@@ -36,6 +36,7 @@
           <li <?= $this->uri->segment(1) == 'crud_paket' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_paket') ?>"><i class="fa fa-circle-o"></i> Add/Edit Paket</a></li>
           <li <?= $this->uri->segment(1) == 'crud_user' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_user') ?>"><i class="fa fa-circle-o"></i> Add/Edit User</a></li>
           <li <?= $this->uri->segment(1) == 'crud_vendor' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_vendor') ?>"><i class="fa fa-circle-o"></i> Add/Edit Vendor</a></li>
+          <li <?= $this->uri->segment(1) == 'crud_vendor' ? 'class="active"' : '' ?>><a href="<?php echo base_url('v_add_mapping_vendor') ?>"><i class="fa fa-circle-o"></i> Add/Edit Mapping Vendor</a></li>
         </ul>
       </li>
 
