@@ -15,17 +15,15 @@ class mapping_vendor extends CI_Controller
 
     public function index()
     {
-        $data['mapping_vendor'] = $this->m_mapping_vendor->tampil_data();
+        $data['mapping_vendor'] = $this->m_mapping_vendor->tambah_aksi();
         $data['nama_area'] = $this->m_mapping_vendor->getdata();
-       
-
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('mapping_vendor', $data);
         $this->load->view('templates/footer');
     }
 
-    public function tambah_aksi()
+    /* public function tambah_aksi()
     {
         $VENDOR_ID = $this->input->post('VENDOR_ID');
         $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
@@ -46,5 +44,5 @@ class mapping_vendor extends CI_Controller
         $this->m_crud_skkio->input_data($data, 'tb_mapping_vendor');
         redirect('mapping_vendor/index');
     }
-
+ */
 }

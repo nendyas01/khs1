@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 <?php 
 class m_mapping_vendor extends CI_Model{
     
-    public function tampil_data()
+    public function tambah_aksi()
 
     {
         $this->db->select('PAKET_JENIS, 
