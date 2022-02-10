@@ -7,7 +7,7 @@
                 <h4 class="modal-title" id="myModalLabel"> Edit Data Mapping Vendor</h4>
             </div>
             <div class="modal-body">
-                <form method="post" action="<?php echo base_url() . 'crud_user/tambah_aksi'; ?>">
+                <form method="post" action="<?php echo base_url() . 'mapping_vendor/tambah_aksi'; ?>">
                     <div class="form-group">
                         <label>Tahun</label>
                         <select name="TAHUN" id="TAHUN" class="form-control">
