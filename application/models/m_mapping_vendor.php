@@ -1,19 +1,21 @@
 <?php 
 class m_mapping_vendor extends CI_Model{
     
-    public function getpaket()
+    public function tampil_data()
     {
-        $this->db->select('a.PAKET_JENIS, 
-        b.VENDOR_ID, c.AREA_KODE');
-        $this->db->from('tb_paket a');
-        $this->db->from('tb_pagu_kontrak b');
-        $this->db->from('tb_area c');
-        $this->db->where('a.status = 1');
-
+        $this->db->select('PAKET_JENIS, 
+        VENDOR_ID, AREA_KODE, MAPPING_TAHUN, ZONE');
+        $this->db->from('tb_mapping_vendor');
+       
         $query = $this->db->get();
         $result = $query->result();
         return $result;
-       
-
+    
 } 
+
+public function getdata()
+    {
+        $query = $this->db->query("SELECT * FROM tb_area ORDER BY AREA_NAMA ASC");
+        return $query->result();
+    }
 }?>
