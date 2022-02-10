@@ -42,10 +42,10 @@
                   <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Paket</label>
                     <div class="col-sm-10">
-                      <select class="form-control" id="PAKET" name="PAKET">
+                      <select class="form-control" id="PAKET_JENIS">
                         <option selected="0">-- Paket Deskripsi --</option>
                         <?php foreach ($jenis_paket as $jp) : ?>
-                          <option value="<?php echo $jp->PAKET_JENIS; ?>"> <?php echo $jp->PAKET_DESKRIPSI; ?></option>
+                          <option value="<?php echo $jp->PAKET_DESKRIPSI; ?>"> <?php echo $jp->PAKET_DESKRIPSI; ?></option>
                         <?php endforeach; ?>
                       </select>
                     </div>
