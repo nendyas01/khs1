@@ -41,8 +41,13 @@
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Paket</label>
-                    <div class="col-sm-10" id="no_add">
-                      <input type="text" class="form-control" name="var_no_addendum">
+                    <div class="col-sm-10">
+                      <select class="form-control" id="PAKET" name="PAKET">
+                        <option selected="0">-- Paket Deskripsi --</option>
+                        <?php foreach ($nama_area as $area) : ?>
+                          <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
+                        <?php endforeach; ?>
+                      </select>
                     </div>
                   </div>
 
@@ -66,49 +71,49 @@
                     </div>
                   </div>
 
-                  
-                           
-                            <div class="form-group">
-                              <label class="col-sm-2 control-label col-lg-2">ZONA</label>
-                              <div class="col-lg-10">
-                                <select class="form-control m-b-10" name="TAHUN">
-                                  <option value="">-- Pilih Zona --</option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                  <option value="7">7</option>
-                                  <option value="8">8</option>
-                                  <option value="9">9</option>
-                                  <option value="10">10</option>
-
-                                </select>
-                              </div>
-                            </div>
 
 
-                            <div class="form-group">
-                              <div class="col-lg-offset-2 col-lg-10">
-                                <button type="submit" id="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
-                              </div>
-                            </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label col-lg-2">ZONA</label>
+                    <div class="col-lg-10">
+                      <select class="form-control m-b-10" name="TAHUN">
+                        <option value="">-- Pilih Zona --</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+
+                      </select>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button type="submit" id="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                    </div>
+                  </div>
+
+
+              </div>
+          </div>
+        </section><!-- /.content -->
+        </aside><!-- /.right-side -->
 
 
       </div>
     </div>
-  </section><!-- /.content -->
-  </aside><!-- /.right-side -->
 
 
-</div>
-</div>
-
- 
     </form>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
