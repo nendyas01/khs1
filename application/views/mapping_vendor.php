@@ -44,8 +44,8 @@
                     <div class="col-sm-10">
                       <select class="form-control" id="PAKET" name="PAKET">
                         <option selected="0">-- Paket Deskripsi --</option>
-                        <?php foreach ($nama_area as $area) : ?>
-                          <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
+                        <?php foreach ($jenis_paket as $jp) : ?>
+                          <option value="<?php echo $jp->PAKET_JENIS; ?>"> <?php echo $jp->PAKET_DESKRIPSI; ?></option>
                         <?php endforeach; ?>
                       </select>
                     </div>

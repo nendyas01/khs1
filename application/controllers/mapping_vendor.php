@@ -16,8 +16,8 @@ class mapping_vendor extends CI_Controller
     public function index()
     {
         $data['mapping_vendor'] = $this->m_mapping_vendor->tambah_aksi();
-        $data['nama_area'] = $this->m_mapping_vendor->getdata();
-
+        $data['nama_area'] = $this->m_mapping_vendor->getarea();
+        $data['jenis_paket'] = $this->m_mapping_vendor->getpaket();
 
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
