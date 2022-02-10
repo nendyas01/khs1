@@ -70,9 +70,9 @@
                                     <div class="col-lg-10">
                                         <select class="form-control m-b-10" name="var_no_skkio">
                                             <option value>-- SKKI/SKKO --</option>
-                                            <?php foreach ($SPJ_NO as $sn) : ?>
+                                            <!-- <?php foreach ($SPJ_NO as $sn) : ?>
                                                 <option value="<?php echo $sn->SPJ_NO; ?>"> <?php echo $sn->SPJ_NO; ?></option>
-                                            <?php endforeach; ?>
+                                            <?php endforeach; ?> -->
 
                                         </select>
                                     </div>

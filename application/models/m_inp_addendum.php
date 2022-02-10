@@ -12,7 +12,7 @@ class m_inp_addendum extends CI_Model
                         a.ADDENDUM_DESKRIPSI,
                         a.ADDENDUM_INPUT_DATE,
                         a.ADDENDUM_INPUT_USER
-                        (SELECT SPJ_NO FROM tb_adddendum WHERE SPJ_NO = a.SPJ_NO) AS no_spj,');
+                        ');
         $this->db->from('tb_addendum a');
         $query = $this->db->get();
         $result = $query->result();
@@ -24,11 +24,6 @@ class m_inp_addendum extends CI_Model
         return $query->result();
     }
 
-    public function getjenis()
-    {
-        $query = $this->db->query("SELECT * FROM tb_skko_i ORDER BY SKKI_JENIS ASC");
-        return $query->result();
-    }
 
     public function input_data($data, $table)
     {
@@ -52,10 +47,10 @@ class m_inp_addendum extends CI_Model
         $this->db->update($table, $data);
     }
 
-    public function detail_data($SKKI_ID = NULL)
+    public function detail_data($SPJ_NO = NULL)
     {
 
-        $query = $this->db->get_where('tb_skko_i', array('SKKI_ID' => $SKKI_ID))->row();
+        $query = $this->db->get_where('tb_addendum', array('SPJ_NO' => $SPJ_NO))->row();
         return $query;
     }
 }

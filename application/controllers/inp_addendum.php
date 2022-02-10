@@ -10,7 +10,8 @@ class inp_addendum extends CI_Controller
     }
     function index()
     {
-        $data['no_spj'] = $this->m_inp_addendum->getdata();
+        /* $data['SPJ_NO'] = $this->m_inp_addendum->tampil_data(); */
+        $data['SPJ_NO'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('inp_addendum');
