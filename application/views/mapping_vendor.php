@@ -107,37 +107,7 @@
 
 
 
-            <div class="form-group">
-              <label>Paket Desc</label>
-              <input type="text" name="PAKET_JENIS" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label>VENDOR</label>
-              <input type="text" name="VENDOR_ID" class="form-control">
-            </div>
-
-            <div class="form-group">
-              <label>AREA</label>
-              <select class="form-control" id="AREA_KODE" name="AREA_KODE">
-                <option selected="0">- Pilih Nama Area -</option>
-                <?php foreach ($nama_area as $area) : ?>
-                  <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>Zona</label>
-              <input type="number_format" name="ZONE" class="form-control">
-            </div>
-
-
-
-            <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
-            <button type="submit" class="btn btn-primary">Simpan</button>
-          </form>
-        </div>
+           
       </div>
     </div>
   </div>
