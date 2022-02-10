@@ -17,6 +17,10 @@ class mapping_vendor extends CI_Controller
     {
         $data['mapping_vendor'] = $this->m_mapping_vendor->tambah_aksi();
         $data['nama_area'] = $this->m_mapping_vendor->getdata();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9f549d379b831068ba59d6cd6f72520bd0e80892
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('mapping_vendor', $data);
@@ -30,7 +34,7 @@ class mapping_vendor extends CI_Controller
         $PAKET_JENIS = $this->input->post('PAKET_JENIS');
         $ZONE = $this->input->post('ZONE');
         $AREA_KODE = $this->input->post('SKKI_NILAI');
-       
+
 
         $data = array(
             'VENDOR_ID'                  => $VENDOR_ID,
@@ -38,11 +42,14 @@ class mapping_vendor extends CI_Controller
             '  PAKET_JENIS'                  =>   $PAKET_JENIS,
             'ZONE '                => $ZONE,
             ' AREA_KODE'               =>  $AREA_KODE
-          
+
 
         );
         $this->m_crud_skkio->input_data($data, 'tb_mapping_vendor');
         redirect('mapping_vendor/index');
     }
+<<<<<<< HEAD
  */
+=======
+>>>>>>> 9f549d379b831068ba59d6cd6f72520bd0e80892
 }
