@@ -1,6 +1,7 @@
-<?php 
-class m_mapping_vendor extends CI_Model{
-    
+<?php
+class m_mapping_vendor extends CI_Model
+{
+
     public function getpaket()
     {
         $this->db->select('a.PAKET_JENIS, 
@@ -13,7 +14,5 @@ class m_mapping_vendor extends CI_Model{
         $query = $this->db->get();
         $result = $query->result();
         return $result;
-       
-
-} 
+    }
 }
