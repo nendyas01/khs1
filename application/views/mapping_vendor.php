@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Addendum
+            Tambah Mapping Vendor
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -53,7 +53,6 @@
                                         </div>
                                     </div>
 
-<<<<<<< HEAD
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">NAMA AREA</label>
                                         <div class="col-sm-10" >
@@ -65,21 +64,7 @@
                                             </select>
                                         </div>
                                                     </div>
-=======
-          <div class="panel-body table-responsive">
-            <font size="2" face="Arial">
-              <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button>
-                <thead>
-                  <tr>
-                    <th>Tahun</th>
-                    <th>Deskripsi Paket</th>
-                    <th>Nama Vendor</th>
-                    <th>Areaa</th>
-                    <th>Zona</th>
 
-                    <th colspan="3">Aksi</th>
->>>>>>> 9f549d379b831068ba59d6cd6f72520bd0e80892
 
                                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-2">ZONA</label>
@@ -104,7 +89,7 @@
                                     		
 								<div class="form-group">
 									<div class="col-lg-offset-2 col-lg-10">
-									<button type="submit" id="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+									<button type="submit" id="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Tambah Data</button>
 									</div>
 								</div>
                                     
@@ -120,8 +105,7 @@
 </div>
 </div>
 
-<<<<<<< HEAD
-=======
+
 
             <div class="form-group">
               <label>Paket Desc</label>
@@ -158,4 +142,4 @@
     </div>
   </div>
 </div>
->>>>>>> 9f549d379b831068ba59d6cd6f72520bd0e80892
+
