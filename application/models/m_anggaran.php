@@ -21,9 +21,7 @@ class m_anggaran extends CI_Model
 
     );
     $this->db->from('tb_skko_i a');
-    $query = $this->db->get();
-    $result = $query->result();
-    return $result;
+    return $this->db->get->result();
   }
 
   public function get_keyword($keyword)
@@ -61,4 +59,3 @@ class m_anggaran extends CI_Model
 
 
 
-<!-- (a.SKKI_NO - (select sum(b.SPJ_ADD_NILAI) from tb_spj b where b.skki_no = a.skki_no)) as sisa_skko' -->
