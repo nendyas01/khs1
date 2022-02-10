@@ -12,11 +12,13 @@ class mapping_vendor extends CI_Controller
         parent::__construct();
         $this->load->model('m_mapping_vendor');
     }
+
     public function index()
     {
         $data['mapping_vendor'] = $this->m_mapping_vendor->tampil_data();
         $data['nama_area'] = $this->m_mapping_vendor->getdata();
        
+
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('mapping_vendor', $data);
@@ -46,4 +48,3 @@ class mapping_vendor extends CI_Controller
     }
 
 }
-
