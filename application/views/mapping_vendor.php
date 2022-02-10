@@ -1,19 +1,19 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Addendum
+      Tambah Data Mapping Vendor
       <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Pengelolaan Progress</li>
+      <li class="active"></li>
     </ol>
   </section>
   <section class="content">
     <div class="row">
       <div class="col-md-12">
         <section class="panel">
-          <header class="panel-heading">SELEKSI VENDOR</header>
+          <header class="panel-heading">MAPPING VENDOR</header>
           <div class="panel-body">
             <form class="form-horizontal tasi-form" method="post">
 
@@ -66,21 +66,8 @@
                     </div>
                   </div>
 
-                  <div class="panel-body table-responsive">
-                    <font size="2" face="Arial">
-                      <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button>
-                        <thead>
-                          <tr>
-                            <th>Tahun</th>
-                            <th>Deskripsi Paket</th>
-                            <th>Nama Vendor</th>
-                            <th>Areaa</th>
-                            <th>Zona</th>
-
-                            <th colspan="3">Aksi</th>
-                            >>>>>>> 9f549d379b831068ba59d6cd6f72520bd0e80892
-
+                  
+                           
                             <div class="form-group">
                               <label class="col-sm-2 control-label col-lg-2">ZONA</label>
                               <div class="col-lg-10">
@@ -108,15 +95,7 @@
                               </div>
                             </div>
 
-<<<<<<< HEAD
 
-
-           
-=======
-                </form>
-              </div>
-        </section>
->>>>>>> 4426e7d6626be4f763c562b300b56ef4f9fb2335
       </div>
     </div>
   </section><!-- /.content -->
@@ -124,37 +103,9 @@
 
 
 </div>
-<<<<<<< HEAD </div>
+</div>
 
-  <<<<<<< HEAD=======<div class="form-group">
-    <label>Paket Desc</label>
-    <input type="text" name="PAKET_JENIS" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>VENDOR</label>
-      <input type="text" name="VENDOR_ID" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>AREA</label>
-      <select class="form-control" id="AREA_KODE" name="AREA_KODE">
-        <option selected="0">- Pilih Nama Area -</option>
-        <?php foreach ($nama_area as $area) : ?>
-          <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
-        <?php endforeach; ?>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Zona</label>
-      <input type="number_format" name="ZONE" class="form-control">
-    </div>
-
-
-
-    <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
-    <button type="submit" class="btn btn-primary">Simpan</button>
+ 
     </form>
     </div>
     </div>
