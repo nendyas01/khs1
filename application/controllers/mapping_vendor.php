@@ -17,6 +17,8 @@ class mapping_vendor extends CI_Controller
     {
         $data['mapping_vendor'] = $this->m_mapping_vendor->tambah_aksi();
         $data['nama_area'] = $this->m_mapping_vendor->getdata();
+
+
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('mapping_vendor', $data);
@@ -45,5 +47,4 @@ class mapping_vendor extends CI_Controller
         redirect('mapping_vendor/index');
     }
  */
-
 }
