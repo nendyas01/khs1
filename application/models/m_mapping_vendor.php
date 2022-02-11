@@ -11,18 +11,16 @@ class m_mapping_vendor extends CI_Model
             (SELECT VENDOR_NAMA FROM tb_vendor WHERE VENDOR_ID = a.VENDOR_ID) AS nama_vendor,
             (SELECT PAKET_DESKRIPSI FROM tb_paket WHERE PAKET_JENIS = a.PAKET_JENIS) AS desc_paket,'
         );
-         $this->db->from('tb_mapping_vendor a');
+        $this->db->from('tb_mapping_vendor a');
         $query = $this->db->get();
         $result = $query->result();
-        return $result; 
-
+        return $result;
     }
 
-     function get_vendor($jns_paket){
-        $hasil=$this->db->query("SELECT v.VENDOR_ID as VENDOR_ID, v.VENDOR_NAMA as VENDOR_NAMA from tb_vendor v join tb_pagu_kontrak pg on pg.VENDOR_ID=v.VENDOR_ID join tb_paket p on p.PAKET_JENIS=pg.PAKET_JENIS where p.PAKET_JENIS ='$jns_paket' group by v.VENDOR_NAMA ");
+    function get_vendor($jns_paket)
+    {
+        $hasil = $this->db->query("SELECT v.VENDOR_ID as VENDOR_ID, v.VENDOR_NAMA as VENDOR_NAMA from tb_vendor v join tb_pagu_kontrak pg on pg.VENDOR_ID=v.VENDOR_ID join tb_paket p on p.PAKET_JENIS=pg.PAKET_JENIS where p.PAKET_JENIS ='$jns_paket' group by v.VENDOR_NAMA ");
         return $hasil->result();
-
-
     }
 
     public function input_data($data, $table)
@@ -42,6 +40,4 @@ class m_mapping_vendor extends CI_Model
         $query = $this->db->query("SELECT PAKET_JENIS, PAKET_DESKRIPSI FROM tb_paket  WHERE STATUS=1");
         return $query->result();
     }
-
-    
 }

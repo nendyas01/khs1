@@ -12,7 +12,7 @@ class crud_skkio extends CI_Controller
     {
         $data['crud_skkio'] = $this->m_crud_skkio->tampil_data();
         $data['nama_area'] = $this->m_crud_skkio->getdata();
-       
+
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('crud_skkio', $data);
