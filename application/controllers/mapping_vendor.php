@@ -36,9 +36,11 @@ class mapping_vendor extends CI_Controller
         $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
         $VENDOR_ID = $this->input->post('vendor');
 
-        $list_detail = array();
+        $data = array();
+
+
         foreach ($VENDOR_ID as $key => $nb) {
-            array_push($list_detail, array(
+            array_push($data, array(
                
                 'AREA_KODE' => $AREA_KODE,
                 'PAKET_JENIS' => $PAKET_JENIS,
@@ -48,13 +50,11 @@ class mapping_vendor extends CI_Controller
 
             ));
         }
-        $this->db->insert_batch('tb_mapping_vendor', $list_detail);
+        $this->db->insert_batch('tb_mapping_vendor', $data);
         redirect('mapping_vendor/index');
     }
 
     public function get_vendor(){
-
-
       $jns_paket= $this->input->post('id');
       $data=$this->m_mapping_vendor->get_vendor($jns_paket);
       echo json_encode($data);
@@ -63,26 +63,5 @@ class mapping_vendor extends CI_Controller
     }
 
 
-    /* public function tambah_aksi()
-    {
-        $VENDOR_ID = $this->input->post('VENDOR_ID');
-        $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
-        $PAKET_JENIS = $this->input->post('PAKET_JENIS');
-        $ZONE = $this->input->post('ZONE');
-        $AREA_KODE = $this->input->post('SKKI_NILAI');
-
-
-        $data = array(
-            'VENDOR_ID'                  => $VENDOR_ID,
-            '$MAPPING_TAHUN'               => $MAPPING_TAHUN,
-            '  PAKET_JENIS'                  =>   $PAKET_JENIS,
-            'ZONE '                => $ZONE,
-            ' AREA_KODE'               =>  $AREA_KODE
-
-
-        );
-        $this->m_crud_skkio->input_data($data, 'tb_mapping_vendor');
-        redirect('mapping_vendor/index');
-    }
- */
+    
 }
