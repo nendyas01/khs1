@@ -28,7 +28,7 @@ class mapping_vendor extends CI_Controller
 
     public function tambah_aksi()
     {
-       
+
 
         $AREA_KODE = $this->input->post('AREA_KODE');
         $PAKET_JENIS = $this->input->post('jns_paket');
@@ -40,8 +40,13 @@ class mapping_vendor extends CI_Controller
 
 
         foreach ($VENDOR_ID as $key => $nb) {
+<<<<<<< HEAD
             array_push($data, array(
                
+=======
+            array_push($list_detail, array(
+
+>>>>>>> a741145069b0a0aa0df1869c622df0c521e1a72e
                 'AREA_KODE' => $AREA_KODE,
                 'PAKET_JENIS' => $PAKET_JENIS,
                 'ZONE' => $ZONE,
@@ -54,12 +59,26 @@ class mapping_vendor extends CI_Controller
         redirect('mapping_vendor/index');
     }
 
+<<<<<<< HEAD
     public function get_vendor(){
       $jns_paket= $this->input->post('id');
       $data=$this->m_mapping_vendor->get_vendor($jns_paket);
       echo json_encode($data);
+=======
+    public function get_vendor()
+    {
+>>>>>>> a741145069b0a0aa0df1869c622df0c521e1a72e
 
+        $jns_paket = $this->input->post('id');
+        $data = $this->m_mapping_vendor->get_vendor($jns_paket);
+        echo json_encode($data);
+    }
 
+    public function get_area()
+    {
+        $nama_area = $this->input->post('id');
+        $data = $this->m_mapping_vendor->get_area($nama_area);
+        echo json_encode($data);
     }
 
 

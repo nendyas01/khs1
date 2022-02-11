@@ -139,7 +139,8 @@
             <div class="form-group">
               <label>VENDOR</label><br />
               <select class="vendor form-control m-b-10" style="width:100%;" name="vendor[]" multiple>
-                <option> -- Pilih Nama Vendor -- </option>
+                <option selected="0"> -- Pilih Nama Vendor -- </option>
+
               </select>
 
             </div>
@@ -148,8 +149,8 @@
               <label>NAMA AREA</label>
               <select class="area form-control m-b-10" style="width:100%;" name="area[]" multiple>
 
-                <?php foreach ($nama_area as $area) : ?>
-                  <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
+                <?php foreach ($nama_area as $na) : ?>
+                  <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
                 <?php endforeach; ?>
               </select>
             </div>
