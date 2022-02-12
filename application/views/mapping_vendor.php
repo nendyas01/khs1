@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Pengelolaan Data Anggaran
+      Pengelolaan Data Master
       <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
@@ -29,7 +29,7 @@
                     <th>Area</th>
                     <th>Zona</th>
 
-                    <th colspan="3">Aksi</th>
+                    <th colspan="1">Aksi</th>
 
                   </tr>
 
@@ -48,9 +48,9 @@
                       <td> <?php echo $mv->nama_vendor ?></td>
                       <td> <?php echo $mv->nama_area ?></td>
                       <td> <?php echo $mv->ZONE  ?></td>
-                      <td><?php echo anchor('crud_skkio/detail_crud_skkio/' . $mv->desc_paket, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('crud_skkio/hapus/' . $mv->desc_paket, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                      <td><?php echo anchor('crud_skkio/edit_crud_skkio/' . $mv->desc_paket, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                     
+                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->desc_paket, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                      
 
                     </tr>
                   <?php } ?>
@@ -134,21 +134,16 @@
 
             </div>
 
-
-
             <div class="form-group">
               <label>VENDOR</label><br />
               <select class="vendor form-control m-b-10" style="width:100%;" name="vendor[]" multiple>
-                <option selected="0"> -- Pilih Nama Vendor -- </option>
-
+                <option selected="0"></option>
               </select>
-
             </div>
 
             <div class="form-group">
               <label>NAMA AREA</label>
-              <select class="area form-control m-b-10" style="width:100%;" name="area[]" multiple>
-
+              <select class="area form-control m-b-10" style="width:100%;" name="nama_area[]" multiple>
                 <?php foreach ($nama_area as $na) : ?>
                   <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
                 <?php endforeach; ?>

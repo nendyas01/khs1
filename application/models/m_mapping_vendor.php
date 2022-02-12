@@ -19,7 +19,9 @@ class m_mapping_vendor extends CI_Model
 
     function get_vendor($jns_paket)
     {
-        $hasil = $this->db->query("SELECT v.VENDOR_ID as VENDOR_ID, v.VENDOR_NAMA as VENDOR_NAMA from tb_vendor v join tb_pagu_kontrak pg on pg.VENDOR_ID=v.VENDOR_ID join tb_paket p on p.PAKET_JENIS=pg.PAKET_JENIS where p.PAKET_JENIS ='$jns_paket' group by v.VENDOR_NAMA ");
+        $hasil = $this->db->query("SELECT v.VENDOR_ID as VENDOR_ID, v.VENDOR_NAMA as VENDOR_NAMA from tb_vendor v 
+        join tb_pagu_kontrak pg on pg.VENDOR_ID=v.VENDOR_ID join tb_paket p on p.PAKET_JENIS=pg.PAKET_JENIS 
+        where p.PAKET_JENIS ='$jns_paket' group by v.VENDOR_NAMA ");
         return $hasil->result();
     }
 
@@ -39,5 +41,22 @@ class m_mapping_vendor extends CI_Model
     {
         $query = $this->db->query("SELECT PAKET_JENIS, PAKET_DESKRIPSI FROM tb_paket  WHERE STATUS=1");
         return $query->result();
+    }
+
+    // public function edit_data($where, $table)
+    // {
+    //     return $this->db->get_where($table, $where);
+    // }
+
+    // public function update_data($where, $data, $table)
+    // {
+    //     $this->db->where($where);
+    //     $this->db->update($table, $data);
+    // }
+
+    public function hapus_data($where, $table)
+    {
+        $this->db->where($where);
+        $this->db->delete($table);
     }
 }

@@ -28,59 +28,65 @@ class mapping_vendor extends CI_Controller
 
     public function tambah_aksi()
     {
-
-
-        $AREA_KODE = $this->input->post('AREA_KODE');
+        $AREA_KODE = $this->input->post('nama_area');
         $PAKET_JENIS = $this->input->post('jns_paket');
         $ZONE = $this->input->post('ZONA');
         $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
         $VENDOR_ID = $this->input->post('vendor');
+        // $nama_area = $this->input->post('AREA_NAMA');
 
         $data = array();
-
-
         foreach ($VENDOR_ID as $key => $nb) {
-<<<<<<< HEAD
-            array_push($data, array(
+            foreach ($AREA_KODE as $ak => $a){
+             array_push($data, array(
                
-=======
-            array_push($list_detail, array(
-
->>>>>>> a741145069b0a0aa0df1869c622df0c521e1a72e
-                'AREA_KODE' => $AREA_KODE,
+                'AREA_KODE' => $AREA_KODE[$ak],
+                // 'AREA_NAMA' => $nama_area,
                 'PAKET_JENIS' => $PAKET_JENIS,
                 'ZONE' => $ZONE,
                 'MAPPING_TAHUN' => $MAPPING_TAHUN,
                 'VENDOR_ID' => $VENDOR_ID[$key],
 
             ));
+            }
         }
-        $this->db->insert_batch('tb_mapping_vendor', $data);
-        redirect('mapping_vendor/index');
+        // print_r($data);
+       
+         $this->db->insert_batch('tb_mapping_vendor', $data);
+         redirect('mapping_vendor/index');
     }
 
-<<<<<<< HEAD
     public function get_vendor(){
       $jns_paket= $this->input->post('id');
       $data=$this->m_mapping_vendor->get_vendor($jns_paket);
       echo json_encode($data);
-=======
-    public function get_vendor()
-    {
->>>>>>> a741145069b0a0aa0df1869c622df0c521e1a72e
-
-        $jns_paket = $this->input->post('id');
-        $data = $this->m_mapping_vendor->get_vendor($jns_paket);
-        echo json_encode($data);
+    
     }
 
-    public function get_area()
+    public function getarea()
     {
         $nama_area = $this->input->post('id');
-        $data = $this->m_mapping_vendor->get_area($nama_area);
+        $data = $this->m_mapping_vendor->getarea->result();
+        // area($nama_area);
         echo json_encode($data);
     }
 
+    public function hapus($VENDOR_ID)
+    {
+        $where = array('VENDOR_ID' => $VENDOR_ID);
+        $this->m_mapping_vendor->hapus_data($where, 'tb_mapping_vendor');
+        redirect('mapping_vendor/index');
+    }
 
+    // public function edit_mapping_vendor($AREA_KODE)
+    // {
+    //     $where = array('AREA_KODE' => $AREA_KODE);
+    //     $data['mapping_vendor'] = $this->m_mapping_vendor->edit_data($where, 'tb_mapping_vendor');
+    //     $data['area'] = $this->m_mapping_vendor->get_area($where, 'tb_mapping_vendor');
+    //     $this->load->view('templates/header');
+    //     $this->load->view('templates/sidebar');
+    //     $this->load->view('edit_mapping_vendor', $data);
+    //     $this->load->view('templates/footer');
+    // }
     
 }
