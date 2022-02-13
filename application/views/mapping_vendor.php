@@ -20,7 +20,7 @@
           <div class="panel-body table-responsive">
             <font size="2" face="Arial">
               <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data Mapping Vendor</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data Mapping Vendor</button>
                 <thead>
                   <tr>
                     <th>Tahun</th>
@@ -35,7 +35,7 @@
 
                 </thead>
 
-                <tbody>
+                <tbody id="body-table-mapping">
                   <?php
                   //$no = 1;
                   foreach ($mapping_vendor as $mv) {
@@ -44,14 +44,11 @@
                     <tr>
                       <td> <?php echo $mv->MAPPING_TAHUN ?></td>
                       <td> <?php echo $mv->desc_paket ?></td>
-                      <td> <?php echo $mv->total_area ?></td>
-                      <td> <?php echo $mv->total_vendor ?></td>
+                      <td> <button class="btn btn-link btn-total-area" data-mapping="<?= $mv->MAPPING_ID ?>"><?= $mv->total_area ?></button></td>
+                      <td> <button class="btn btn-link btn-total-vendor" data-mapping="<?= $mv->MAPPING_ID ?>"><?php echo $mv->total_vendor ?></span></td>
                       <td> <?php echo $mv->ZONE  ?></td>
-                     
                       <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->desc_paket, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                      
-
-                    </tr>
+                  </tr>
                   <?php } ?>
 
                   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
@@ -59,15 +56,21 @@
                   <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 
                   <!--  Button untuk copy, csv, excel -->
+            
                   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
                   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+                
+                  
 
                   <script>
                     $(document).ready(function() {
                       $('#example').DataTable();
+
+                      $('#body-table-mapping').on('click', '.btn-total-area', function () {
+                        $('#mapping-detail').modal('show');
+                      });
                     });
                   </script>
-
 
                   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
                   <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
@@ -86,6 +89,7 @@
                           oriented: 'potrait',
                           download: 'open',
                           widthX: '90px'
+                          
                         },
                         'csv', 'excel', 'pdf', 'print'
                       ]
@@ -164,7 +168,7 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
-              <input type="text" name="mapping_id">
+              <!-- <input type="text" name="mapping_id"> -->
             </div>
             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -242,6 +246,21 @@
               });
             </script>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="mapping-detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"> Data Mapping Vendor</h4>
+        </div>
+
+        <div class="panel-body">
+            
         </div>
       </div>
     </div>

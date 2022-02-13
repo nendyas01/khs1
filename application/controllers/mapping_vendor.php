@@ -32,7 +32,7 @@ class mapping_vendor extends CI_Controller
         $ZONE = $this->input->post('ZONA');
         $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
         $VENDOR_ID = $this->input->post('vendor');
-        $mapping_id = $this->input->post('mapping_id');
+        $mapping_id = $this->m_mapping_vendor->getID()->row()->total_mapping + 1;
         // $nama_area = $this->input->post('AREA_NAMA');
 
         $data = array();
@@ -73,8 +73,14 @@ class mapping_vendor extends CI_Controller
 
     public function getmapping()
     {
-        $get = $this->m_mapping_vendor->tampil_data_dua();
-        echo json_encode($get->result());
+        $get = $this->m_mapping_vendor->tampil_data_dua()->result();
+        echo json_encode($get);
+    }
+
+    public function getmappingbymappingid($id)
+    {
+        $get = $this->m_mapping_vendor->tampil_data_by_mapping($id)->result();
+        echo json_encode($get);
     }
 
     public function hapus($VENDOR_ID)
