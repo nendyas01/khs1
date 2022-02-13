@@ -25,8 +25,8 @@
                   <tr>
                     <th>Tahun</th>
                     <th>Deskripsi Paket</th>
-                    <th>Nama Vendor</th>
-                    <th>Area</th>
+                    <th>Total Area</th>
+                    <th>Total Vendor</th>
                     <th>Zona</th>
 
                     <th colspan="1">Aksi</th>
@@ -40,13 +40,12 @@
                   //$no = 1;
                   foreach ($mapping_vendor as $mv) {
 
-
                   ?>
                     <tr>
                       <td> <?php echo $mv->MAPPING_TAHUN ?></td>
                       <td> <?php echo $mv->desc_paket ?></td>
-                      <td> <?php echo $mv->nama_vendor ?></td>
-                      <td> <?php echo $mv->nama_area ?></td>
+                      <td> <?php echo $mv->total_area ?></td>
+                      <td> <?php echo $mv->total_vendor ?></td>
                       <td> <?php echo $mv->ZONE  ?></td>
                      
                       <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->desc_paket, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
@@ -165,6 +164,7 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
+              <input type="text" name="mapping_id">
             </div>
             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
             <button type="submit" class="btn btn-primary">Simpan</button>

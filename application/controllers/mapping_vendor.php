@@ -15,11 +15,10 @@ class mapping_vendor extends CI_Controller
 
     public function index()
     {
-        $data['mapping_vendor'] = $this->m_mapping_vendor->tampil_data();
+        $data['mapping_vendor'] = $this->m_mapping_vendor->tampil_data_dua()->result();
         $data['nama_area'] = $this->m_mapping_vendor->getarea();
         $data['jenis_paket'] = $this->m_mapping_vendor->getpaket();
         // $data['nama_vendor'] = $this->m_mapping_vendor->getvendor();
-
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('mapping_vendor', $data);
@@ -33,6 +32,7 @@ class mapping_vendor extends CI_Controller
         $ZONE = $this->input->post('ZONA');
         $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
         $VENDOR_ID = $this->input->post('vendor');
+        $mapping_id = $this->input->post('mapping_id');
         // $nama_area = $this->input->post('AREA_NAMA');
 
         $data = array();
@@ -45,8 +45,8 @@ class mapping_vendor extends CI_Controller
                 'PAKET_JENIS' => $PAKET_JENIS,
                 'ZONE' => $ZONE,
                 'MAPPING_TAHUN' => $MAPPING_TAHUN,
-                'VENDOR_ID' => $VENDOR_ID[$key],
-
+                'VENDOR_ID' => $VENDOR_ID[$key],        
+                'mapping_id' => $mapping_id,
             ));
             }
         }
@@ -69,6 +69,12 @@ class mapping_vendor extends CI_Controller
         $data = $this->m_mapping_vendor->getarea->result();
         // area($nama_area);
         echo json_encode($data);
+    }
+
+    public function getmapping()
+    {
+        $get = $this->m_mapping_vendor->tampil_data_dua();
+        echo json_encode($get->result());
     }
 
     public function hapus($VENDOR_ID)

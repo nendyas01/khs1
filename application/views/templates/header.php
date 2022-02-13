@@ -254,7 +254,7 @@
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="<?php echo base_url() ?>assets/dist/img/avatar5.png" class="user-image" alt="User Image">
-                <span class="hidden-xs">Admin UID Jaya</span>
+                <span class="hidden-xs">Admin </span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
@@ -262,7 +262,7 @@
                   <img src="<?php echo base_url() ?>assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                   <p>
-                    Admin UID Jaya
+                    Admin 
                     <small>Member since Nov. 2012</small>
                   </p>
                 </li>

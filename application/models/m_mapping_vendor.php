@@ -17,6 +17,17 @@ class m_mapping_vendor extends CI_Model
         return $result;
     }
 
+    function tampil_data_dua()
+    {
+        $this->db->select('tmv.*, ta.area_nama, tp.status, tp.paket_deskripsi as desc_paket, COUNT( DISTINCT tmv.area_kode) as total_area, COUNT( DISTINCT tmv.vendor_id) as total_vendor');
+        $this->db->from('tb_mapping_vendor as tmv');
+        $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
+        $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
+        $this->db->group_by('tmv.mapping_id');
+        $this->db->where('tp.status', 1);
+        return $this->db->get();
+    }
+
     function get_vendor($jns_paket)
     {
         $hasil = $this->db->query("SELECT v.VENDOR_ID as VENDOR_ID, v.VENDOR_NAMA as VENDOR_NAMA from tb_vendor v 
