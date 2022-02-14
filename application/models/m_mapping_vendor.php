@@ -2,20 +2,20 @@
 class m_mapping_vendor extends CI_Model
 {
 
-    public function tampil_data()
-    {
-        $this->db->select(
-            'a.VENDOR_ID,
-            a.AREA_KODE, a.PAKET_JENIS, a.MAPPING_TAHUN, a.ZONE,
-            (SELECT AREA_NAMA FROM tb_area WHERE AREA_KODE = a.AREA_KODE ) AS nama_area,
-            (SELECT VENDOR_NAMA FROM tb_vendor WHERE VENDOR_ID = a.VENDOR_ID) AS nama_vendor,
-            (SELECT PAKET_DESKRIPSI FROM tb_paket WHERE PAKET_JENIS = a.PAKET_JENIS) AS desc_paket,'
-        );
-        $this->db->from('tb_mapping_vendor a');
-        $query = $this->db->get();
-        $result = $query->result();
-        return $result;
-    }
+    // public function tampil_data()
+    // {
+    //     $this->db->select(
+    //         'a.VENDOR_ID,
+    //         a.AREA_KODE, a.PAKET_JENIS, a.MAPPING_TAHUN, a.ZONE,
+    //         (SELECT AREA_NAMA FROM tb_area WHERE AREA_KODE = a.AREA_KODE ) AS nama_area,
+    //         (SELECT VENDOR_NAMA FROM tb_vendor WHERE VENDOR_ID = a.VENDOR_ID) AS nama_vendor,
+    //         (SELECT PAKET_DESKRIPSI FROM tb_paket WHERE PAKET_JENIS = a.PAKET_JENIS) AS desc_paket,'
+    //     );
+    //     $this->db->from('tb_mapping_vendor a');
+    //     $query = $this->db->get();
+    //     $result = $query->result();
+    //     return $result;
+    // }
 
     function tampil_data_dua()
     {
@@ -23,7 +23,7 @@ class m_mapping_vendor extends CI_Model
         $this->db->from('tb_mapping_vendor as tmv');
         $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
         $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
-        $this->db->group_by('tmv.mapping_id');
+        $this->db->group_by('tmv.zone');
         $this->db->where('tp.status', 1);
         return $this->db->get();
     }
@@ -35,7 +35,6 @@ class m_mapping_vendor extends CI_Model
         $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
         $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
         $this->db->join('tb_vendor as tv', 'tv.vendor_id = tmv.vendor_id', 'LEFT');
-
         $this->db->where('tmv.mapping_id', $id);
         return $this->db->get();
     }

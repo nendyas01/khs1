@@ -28,7 +28,7 @@
                     <th>Total Area</th>
                     <th>Total Vendor</th>
                     <th>Zona</th>
-
+                    <th> Detail </th>
                     <th colspan="1">Aksi</th>
 
                   </tr>
@@ -44,10 +44,11 @@
                     <tr>
                       <td> <?php echo $mv->MAPPING_TAHUN ?></td>
                       <td> <?php echo $mv->desc_paket ?></td>
-                      <td> <button class="btn btn-link btn-total-area" data-mapping="<?= $mv->MAPPING_ID ?>"><?= $mv->total_area ?></button></td>
-                      <td> <button class="btn btn-link btn-total-vendor" data-mapping="<?= $mv->MAPPING_ID ?>"><?php echo $mv->total_vendor ?></span></td>
+                      <td> <button class="btn btn-link btn-total-area" data-mapping="<?= $mv->MAPPING_TAHUN ?>"><?= $mv->total_area ?></button></td>
+                      <td> <button class="btn btn-link btn-total-vendor" data-mapping="<?= $mv->MAPPING_TAHUN ?>"><?php echo $mv->total_vendor ?></span></td>
                       <td> <?php echo $mv->ZONE  ?></td>
-                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->desc_paket, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                      <td> <?php echo anchor('mapping_vendor/getmappingbymappingid/' . $mv->MAPPING_TAHUN, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->MAPPING_TAHUN, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
                   </tr>
                   <?php } ?>
 
@@ -251,7 +252,7 @@
     </div>
   </div>
 
-  <div class="modal fade" id="mapping-detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <!-- <div class="modal fade" id="mapping-detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -263,6 +264,6 @@
             
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

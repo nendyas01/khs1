@@ -32,7 +32,7 @@ class mapping_vendor extends CI_Controller
         $ZONE = $this->input->post('ZONA');
         $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
         $VENDOR_ID = $this->input->post('vendor');
-        $mapping_id = $this->m_mapping_vendor->getID()->row()->total_mapping + 1;
+        // $mapping_id = $this->m_mapping_vendor->getID()->row()->total_mapping + 1;
         // $nama_area = $this->input->post('AREA_NAMA');
 
         $data = array();
@@ -45,8 +45,11 @@ class mapping_vendor extends CI_Controller
                 'PAKET_JENIS' => $PAKET_JENIS,
                 'ZONE' => $ZONE,
                 'MAPPING_TAHUN' => $MAPPING_TAHUN,
-                'VENDOR_ID' => $VENDOR_ID[$key],        
-                'mapping_id' => $mapping_id,
+                'VENDOR_ID' => $VENDOR_ID[$key],    
+                
+                
+
+                
             ));
             }
         }
@@ -80,15 +83,24 @@ class mapping_vendor extends CI_Controller
     public function getmappingbymappingid($id)
     {
         $get = $this->m_mapping_vendor->tampil_data_by_mapping($id)->result();
-        echo json_encode($get);
+        //echo json_encode($get);
+        //echo $this->db->last_query($get);
+        $data['get'] = $get;
+        $this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+        $this->load->view('detail_mapping_vendor', $data);
+        $this->load->view('templates/footer');
+
     }
 
-    public function hapus($VENDOR_ID)
+    public function hapus($MAPPING_TAHUN)
     {
-        $where = array('VENDOR_ID' => $VENDOR_ID);
+        $where = array('MAPPING_TAHUN' => $MAPPING_TAHUN);
         $this->m_mapping_vendor->hapus_data($where, 'tb_mapping_vendor');
         redirect('mapping_vendor/index');
     }
+
+
 
     // public function edit_mapping_vendor($AREA_KODE)
     // {
