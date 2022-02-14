@@ -23,28 +23,38 @@ class m_mapping_vendor extends CI_Model
         $this->db->from('tb_mapping_vendor as tmv');
         $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
         $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
-        $this->db->group_by('tmv.zone');
+        $this->db->group_by('tmv.ZONE');
         $this->db->where('tp.status', 1);
         return $this->db->get();
     }
 
-    function tampil_data_by_mapping($id)
+    function tampil_data_by_mapping($MAPPING_TAHUN)
     {
         $this->db->select('tmv.*, ta.area_nama, tp.status, tp.paket_deskripsi as desc_paket, tv.vendor_nama');
         $this->db->from('tb_mapping_vendor as tmv');
         $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
         $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
         $this->db->join('tb_vendor as tv', 'tv.vendor_id = tmv.vendor_id', 'LEFT');
-        $this->db->where('tmv.mapping_id', $id);
+        // $this->db->where('tmv.mapping_id', $id);
+        $this->db->where('tmv.MAPPING_TAHUN', $MAPPING_TAHUN);
         return $this->db->get();
     }
 
-    function getID()
+    // function getID()
+    // {
+    //     $this->db->select('MAX(mapping_id) as total_mapping');
+    //     // $this->db->group_by('mapping_id');
+    //     return $this->db->get('tb_mapping_vendor');
+    // }
+
+    function getMAPPINGTAHUN()
     {
-        $this->db->select('MAX(mapping_id) as total_mapping');
+        $this->db->select('MAX(MAPPING_TAHUN) as total_mapping');
         // $this->db->group_by('mapping_id');
         return $this->db->get('tb_mapping_vendor');
     }
+
+
 
     function get_vendor($jns_paket)
     {

@@ -30,6 +30,7 @@ class mapping_vendor extends CI_Controller
         $AREA_KODE = $this->input->post('nama_area');
         $PAKET_JENIS = $this->input->post('jns_paket');
         $ZONE = $this->input->post('ZONA');
+        // $MAPPING_TAHUN = $this->m_mapping_vendor->getMAPPINGTAHUN->result();
         $MAPPING_TAHUN = $this->input->post('MAPPING_TAHUN');
         $VENDOR_ID = $this->input->post('vendor');
         // $mapping_id = $this->m_mapping_vendor->getID()->row()->total_mapping + 1;
@@ -45,10 +46,9 @@ class mapping_vendor extends CI_Controller
                 'PAKET_JENIS' => $PAKET_JENIS,
                 'ZONE' => $ZONE,
                 'MAPPING_TAHUN' => $MAPPING_TAHUN,
-                'VENDOR_ID' => $VENDOR_ID[$key],    
+                'VENDOR_ID' => $VENDOR_ID[$key],   
+                // 'MAPPING_ID' => $MAPPING_ID, 
                 
-                
-
                 
             ));
             }
@@ -80,9 +80,22 @@ class mapping_vendor extends CI_Controller
         echo json_encode($get);
     }
 
-    public function getmappingbymappingid($id)
+    // public function getmappingbymappingid($id)
+    // {
+    //     $get = $this->m_mapping_vendor->tampil_data_by_mapping($id)->result();
+    //     //echo json_encode($get);
+    //     //echo $this->db->last_query($get);
+    //     $data['get'] = $get;
+    //     $this->load->view('templates/header');
+    //     $this->load->view('templates/sidebar');
+    //     $this->load->view('detail_mapping_vendor', $data);
+    //     $this->load->view('templates/footer');
+
+    // }
+
+    public function getmappingbymappingid($MAPPING_TAHUN)
     {
-        $get = $this->m_mapping_vendor->tampil_data_by_mapping($id)->result();
+        $get = $this->m_mapping_vendor->tampil_data_by_mapping($MAPPING_TAHUN)->result();
         //echo json_encode($get);
         //echo $this->db->last_query($get);
         $data['get'] = $get;
