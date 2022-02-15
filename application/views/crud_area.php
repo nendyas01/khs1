@@ -26,7 +26,9 @@
                                         <th>Area Kode</th>
                                         <th>Area Nama</th>
                                         <th>Area Zone</th>
-                                        <th colspan="3">Aksi</th>
+                                        <th colspan="1">Detail</th>
+                                        <th>Hapus</th>
+                                        <th>Edit</th>
 
                                     </tr>
 

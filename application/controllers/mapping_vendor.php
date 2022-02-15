@@ -77,6 +77,7 @@ class mapping_vendor extends CI_Controller
     public function getmapping()
     {
         $get = $this->m_mapping_vendor->tampil_data_dua()->result();
+        echo $this->db->last_query($get);
         echo json_encode($get);
     }
 
@@ -93,11 +94,16 @@ class mapping_vendor extends CI_Controller
 
     // }
 
-    public function getmappingbymappingid($MAPPING_TAHUN)
+    public function getmappingbymappingid()
     {
-        $get = $this->m_mapping_vendor->tampil_data_by_mapping($MAPPING_TAHUN)->result();
-        //echo json_encode($get);
-        //echo $this->db->last_query($get);
+
+        $VENDOR_ID = $this->input->GET('VENDOR_ID');
+        $MAPPING_TAHUN = $this->input->GET('MAPPING_TAHUN');
+        $PAKET_JENIS = $this->input->GET('PAKET_JENIS');
+
+        $get = $this->m_mapping_vendor->tampil_data_by_mapping($VENDOR_ID, $MAPPING_TAHUN, $PAKET_JENIS)->result();
+        // echo json_encode($get);
+        // echo $this->db->last_query($get);
         $data['get'] = $get;
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');

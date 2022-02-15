@@ -55,4 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['getmapping'] = 'mapping_vendor/getmapping';
-$route['getmappingbymappingid/(:any)'] = 'mapping_vendor/getmappingbymappingid/$1';
+$route['getmappingbymappingid'] = 'mapping_vendor/getmappingbymappingid';
