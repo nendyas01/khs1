@@ -37,14 +37,21 @@ class m_mapping_vendor extends CI_Model
 
 
 
-    function tampil_data_by_mapping($VENDOR_ID)
+    function tampil_data_by_mapping($VENDOR_ID, $MAPPING_TAHUN, $PAKET_JENIS)
     {
         $this->db->select('tmv.*, ta.area_nama, tp.status, tp.paket_deskripsi as desc_paket, tv.vendor_nama');
         $this->db->from('tb_mapping_vendor as tmv');
         $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
         $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
         $this->db->join('tb_vendor as tv', 'tv.vendor_id = tmv.vendor_id', 'LEFT');
-        $this->db->where('tmv.VENDOR_ID', $VENDOR_ID);
+
+        // $this->db->group_start();
+        //     $this->db->where('tmv.ZONE', $VENDOR_ID);
+        //     $this->db->where('tmv.MAPPING_TAHUN', $MAPPING_TAHUN);
+        //     $this->db->where('tmv.PAKET_JENIS', $PAKET_JENIS);
+        // $this->db->group_end();
+
+        // $this->db->group_by('tmv.ZONE, tmv.MAPPING_TAHUN, tmv.PAKET_JENIS');
         return $this->db->get();
     }
 

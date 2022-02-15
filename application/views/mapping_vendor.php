@@ -46,7 +46,7 @@
                       <td> <button class="btn btn-default btn x-s" data-mapping="<?= $mv->VENDOR_ID ?>"><?php echo $mv->total_vendor ?></span></td>
                       <td> <a class="btn btn-default btn x-s" data-toggle="modal" data-target="#modal-detail"
                       data-mapping="<?=$mv->AREA_KODE?>"><?php echo $mv-> ZONE?></td>
-                      <td> <?php echo anchor('mapping_vendor/getmappingbymappingid/' . $mv->VENDOR_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                      <td> <?php echo anchor('mapping_vendor/getmappingbymappingid?VENDOR_ID=' . $mv->VENDOR_ID.'&MAPPING_TAHUN='.$mv->MAPPING_TAHUN.'&PAKET_JENIS='.$mv->PAKET_JENIS, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
                       <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->VENDOR_ID, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
                   </tr>
                   <?php } ?>
