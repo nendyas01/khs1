@@ -76,8 +76,9 @@
       </li>
 
 
-      <li class="treeview <?= $this->uri->segment(1) == 'pelanggaran/inp_pel_khs' || $this->uri->segment(1) == 'pelanggaran/inp_sanksi_spj' || $this->uri->segment(1) == 'crud_paket'
-                            || $this->uri->segment(1) == 'pelanggaran/upl_sanksi_khs' || $this->uri->segment(1) == 'pelanggaran/upl/sanksi_spj' ? 'active' : '' ?>">
+      <li class="treeview <?= $this->uri->segment(2) == 'pelanggaran/inp_pel_khs' || $this->uri->segment(2) == 'pelanggaran/inp_sanksi_spj' || $this->uri->segment(1) == 'approve_pelanggaran'
+                            || $this->uri->segment(2) == 'pelanggaran/upl_sanksi_khs' || $this->uri->segment(2) == 'pelanggaran/upl/sanksi_spj' || $this->uri->segment(2) == 'pelanggaran/list_pelanggaran'
+                            || $this->uri->segment(2) == 'pelanggaran/list_sanksi' || $this->uri->segment(2) == 'pelanggaran/list_sanksi_spj' || $this->uri->segment(2) == 'pelanggaran/sanksi_siap_cetak' ? 'active' : '' ?>">
         <a href="#">
           <i class="fa fa-book"></i> <span>Pengelolaan Pelanggaran</span>
           <span class="pull-right-container">
@@ -85,15 +86,15 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li <?= $this->uri->segment(1) == 'pelanggaran/inp_pel_khs' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/inp_pel_khs') ?>"><i class="fa fa-circle-o"></i> Input Pelanggaran KHS</a></li>
-          <li <?= $this->uri->segment(1) == 'pelanggaran/inp_sanksi_spj' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/inp_sanksi_spj') ?>"><i class="fa fa-circle-o"></i> Input Sanksi SPJ</a></li>
-          <li><a href="<?php echo base_url('pelanggaran/app_pel') ?>"><i class="fa fa-circle-o"></i> Approve Pelanggaran</a></li>
-          <li><a href="<?php echo base_url('pelanggaran/list_pelanggaran') ?>"><i class="fa fa-circle-o"></i> List Pelanggaran</a></li>
-          <li><a href="<?php echo base_url('pelanggaran/list_sanksi') ?>"><i class="fa fa-circle-o"></i> List Sanksi</a></li>
-          <li><a href="<?php echo base_url('pelanggaran/list_sanksi_spj') ?>"><i class="fa fa-circle-o"></i> List Sanksi SPJ</a></li>
-          <li><a href="<?php echo base_url('pelanggaran/sanksi_siap_cetak') ?>"><i class="fa fa-circle-o"></i> Sanksi Siap Cetak</a></li>
-          <li <?= $this->uri->segment(1) == 'pelanggaran/upl_sanksi_khs' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/upl_sanksi_khs') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi KHS</a></li>
-          <li <?= $this->uri->segment(1) == 'pelanggaran/upl/sanksi_spj' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/upl_sanksi_spj') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi SPJ</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/inp_pel_khs' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/inp_pel_khs') ?>"><i class="fa fa-circle-o"></i> Input Pelanggaran KHS</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/inp_sanksi_spj' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/inp_sanksi_spj') ?>"><i class="fa fa-circle-o"></i> Input Sanksi SPJ</a></li>
+          <li <?= $this->uri->segment(1) == 'approve_pelanggaran' ? 'class="active"' : '' ?>><a href="<?php echo base_url('approve_pelanggaran') ?>"><i class="fa fa-circle-o"></i> Approve Pelanggaran</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/list_pelanggaran' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/list_pelanggaran') ?>"><i class="fa fa-circle-o"></i> List Pelanggaran</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/list_sanksi' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/list_sanksi') ?>"><i class="fa fa-circle-o"></i> List Sanksi</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/list_sanksi_spj' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/list_sanksi_spj') ?>"><i class="fa fa-circle-o"></i> List Sanksi SPJ</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/sanksi_siap_cetak' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/sanksi_siap_cetak') ?>"><i class="fa fa-circle-o"></i> Sanksi Siap Cetak</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/upl_sanksi_khs' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/upl_sanksi_khs') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi KHS</a></li>
+          <li <?= $this->uri->segment(2) == 'pelanggaran/upl_sanksi_spj' ? 'class="active"' : '' ?>><a href="<?php echo base_url('pelanggaran/upl_sanksi_spj') ?>"><i class="fa fa-circle-o"></i> Upload Sanksi SPJ</a></li>
         </ul>
       </li>
 

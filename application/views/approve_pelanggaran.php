@@ -29,13 +29,32 @@
                                         <th>No KHS</th>
                                         <th>Paket</th>
                                         <th>Jenis Pelanggaran</th>
-                                        <th>Evidence 1</th>
-                                        <th>Evidence 2</th>
-                                        <th>Aksi</th>
+                                        <th>Status</th>
+                                        <th>REF</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($approve_pelanggaran as $ap) {
+                                    ?>
+                                        <tr>
+                                            <td> <?php echo $no++ ?></td>
+                                            <td> <?php echo $ap->no_pelanggaran ?></td>
+                                            <td> <?php echo $ap->VENDOR_NAMA ?></td>
+                                            <td> <?php echo $ap->tgl_kejadian ?></td>
+                                            <td> <?php echo $ap->AREA_NAMA ?></td>
+                                            <td> <?php echo $ap->no_spj ?></td>
+                                            <td> <?php echo $ap->no_KHS ?></td>
+                                            <td> <?php echo $ap->paket ?></td>
+                                            <td> <?php echo $ap->jenis ?></td>
+                                            <td> <?php echo $ap->status ?></td>
+                                            <td> <?php echo $ap->REF ?></td>
+
+                                        </tr>
+
+                                    <?php } ?>
 
 
                                     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
