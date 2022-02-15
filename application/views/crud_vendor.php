@@ -30,7 +30,9 @@
                                         <th>Status</th>
                                         <th>Email_2</th>
                                         <th>Jabatan</th>
-                                        <th colspan="3">Aksi</th>
+                                        <th colspan="1">Detail</th>
+                                        <th>Hapus</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
 

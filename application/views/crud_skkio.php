@@ -30,7 +30,9 @@
                     <th>SKKI NILAI</th>
                     <th>SKKI TERPAKAI</th>
                     <th>SKKI TANGGAL</th>
-                    <th colspan="3">Aksi</th>
+                    <th colspan="1">Detail</th>
+                    <th>Hapus</th>
+                    <th>Edit</th>
 
                   </tr>
 

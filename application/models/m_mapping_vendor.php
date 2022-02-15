@@ -2,41 +2,49 @@
 class m_mapping_vendor extends CI_Model
 {
 
-    // public function tampil_data()
-    // {
-    //     $this->db->select(
-    //         'a.VENDOR_ID,
-    //         a.AREA_KODE, a.PAKET_JENIS, a.MAPPING_TAHUN, a.ZONE,
-    //         (SELECT AREA_NAMA FROM tb_area WHERE AREA_KODE = a.AREA_KODE ) AS nama_area,
-    //         (SELECT VENDOR_NAMA FROM tb_vendor WHERE VENDOR_ID = a.VENDOR_ID) AS nama_vendor,
-    //         (SELECT PAKET_DESKRIPSI FROM tb_paket WHERE PAKET_JENIS = a.PAKET_JENIS) AS desc_paket,'
-    //     );
-    //     $this->db->from('tb_mapping_vendor a');
-    //     $query = $this->db->get();
-    //     $result = $query->result();
-    //     return $result;
-    // }
-
     function tampil_data_dua()
     {
-        $this->db->select('tmv.*, ta.area_nama, tp.status, tp.paket_deskripsi as desc_paket, COUNT( DISTINCT tmv.area_kode) as total_area, COUNT( DISTINCT tmv.vendor_id) as total_vendor');
+        $this->db->select('tmv.*, tp.status, ta.area_kode, tp.paket_deskripsi as desc_paket, COUNT( tmv.vendor_id) as total_vendor');
         $this->db->from('tb_mapping_vendor as tmv');
-        $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
-        $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
-        $this->db->group_by('tmv.ZONE');
+        $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'INNER');
+        $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode');
+        $this->db->group_by('tmv.ZONE, tmv.MAPPING_TAHUN, tmv.PAKET_JENIS');
+        $this->db->order_by('tmv.MAPPING_TAHUN, tmv.PAKET_JENIS');
         $this->db->where('tp.status', 1);
         return $this->db->get();
     }
+   
 
-    function tampil_data_by_mapping($MAPPING_TAHUN)
+    // function tampil_data_dua()
+    // {
+    //     $this->db->select('a.PAKET_JENIS,
+    //         b.PAKET_DESKRIPSI,
+    //        a.MAPPING_TAHUN,
+    //        a.ZONE,
+    //        COUNT(a.VENDOR_ID)
+    //         from tb_mapping_vendor a  INNER JOIN tb_paket b ON b.PAKET_JENIS = a.PAKET_JENIS
+    //         WHERE b.STATUS = 1
+    //         GROUP BY a.MAPPING_TAHUN,a.PAKET_JENIS,a.ZONE
+    //         ORDER BY a.MAPPING_TAHUN, a.PAKET_JENIS');
+    //     $this->db->from('tb_mapping_vendor a');
+    //     // $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT') COUNT( DISTINCT tmv.area_kode) as total_area, ;
+    //     // $this->db->join('tb_paket b', 'tb_paket b.paket_jenis = tb_paket b.paket_jenis= a.PAKET_JENIS');
+    //     // $this->db->group_by('a.MAPPING_TAHUN, a.PAKET_JENIS, a.ZONE');
+    //     // $this->db->order_by('a.MAPPING_TAHUN, a.PAKET_JENIS');
+    //     // $this->db->where('tb_paket b.status', 1);
+    //     return $this->db->get();
+    // }
+
+
+
+    function tampil_data_by_mapping($VENDOR_ID)
     {
         $this->db->select('tmv.*, ta.area_nama, tp.status, tp.paket_deskripsi as desc_paket, tv.vendor_nama');
         $this->db->from('tb_mapping_vendor as tmv');
         $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT');
         $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'LEFT');
         $this->db->join('tb_vendor as tv', 'tv.vendor_id = tmv.vendor_id', 'LEFT');
-        // $this->db->where('tmv.mapping_id', $id);
-        $this->db->where('tmv.MAPPING_TAHUN', $MAPPING_TAHUN);
+        $this->db->where('tmv.VENDOR_ID', $VENDOR_ID);
         return $this->db->get();
     }
 

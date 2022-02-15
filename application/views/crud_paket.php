@@ -26,7 +26,9 @@
                                         <th>Satuan</th>
                                         <th>Paket Deskripsi 2</th>
                                         <th>Status</th>
-                                        <th colspan="3">Aksi</th>
+                                        <th colspan="1">Detail</th>
+                                        <th>Hapus</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
 

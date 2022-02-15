@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Pengelolaan Data Master
+      DATA MAPPING VENDOR
       <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
@@ -20,12 +20,11 @@
           <div class="panel-body table-responsive">
             <font size="2" face="Arial">
               <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data Mapping Vendor</button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data</button>
                 <thead>
                   <tr>
                     <th>Tahun</th>
                     <th>Deskripsi Paket</th>
-                    <th>Total Area</th>
                     <th>Total Vendor</th>
                     <th>Zona</th>
                     <th> Detail </th>
@@ -44,11 +43,11 @@
                     <tr>
                       <td> <?php echo $mv->MAPPING_TAHUN ?></td>
                       <td> <?php echo $mv->desc_paket ?></td>
-                      <td> <button class="btn btn-link btn-total-area" data-mapping="<?= $mv->MAPPING_TAHUN ?>"><?= $mv->total_area ?></button></td>
-                      <td> <button class="btn btn-link btn-total-vendor" data-mapping="<?= $mv->MAPPING_TAHUN ?>"><?php echo $mv->total_vendor ?></span></td>
-                      <td> <?php echo $mv->ZONE  ?></td>
-                      <td> <?php echo anchor('mapping_vendor/getmappingbymappingid/' . $mv->MAPPING_TAHUN, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->MAPPING_TAHUN, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                      <td> <button class="btn btn-default btn x-s" data-mapping="<?= $mv->VENDOR_ID ?>"><?php echo $mv->total_vendor ?></span></td>
+                      <td> <a class="btn btn-default btn x-s" data-toggle="modal" data-target="#modal-detail"
+                      data-mapping="<?=$mv->AREA_KODE?>"><?php echo $mv-> ZONE?></td>
+                      <td> <?php echo anchor('mapping_vendor/getmappingbymappingid/' . $mv->VENDOR_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->VENDOR_ID, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
                   </tr>
                   <?php } ?>
 
@@ -216,8 +215,7 @@
 
               });
             </script>
-
-
+              
             <script>
               $(document).ready(function() {
                 $('#AREA_KODE').change(function() {
@@ -246,24 +244,31 @@
 
               });
             </script>
+
+            <script>
+                 $(document).on('click', '#select', function() {
+                   var nama_area = $(this).data('NAMA_AREA');
+                   $('#nama_area').val(nama_area);
+                   $('#modal-detail').modal('hide');
+                 });
+            </script>
           </form>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- <div class="modal fade" id="mapping-detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="modal_detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel"> Data Mapping Vendor</h4>
         </div>
 
         <div class="panel-body">
             
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>

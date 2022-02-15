@@ -93,9 +93,9 @@ class mapping_vendor extends CI_Controller
 
     // }
 
-    public function getmappingbymappingid($MAPPING_TAHUN)
+    public function getmappingbymappingid($VENDOR_ID)
     {
-        $get = $this->m_mapping_vendor->tampil_data_by_mapping($MAPPING_TAHUN)->result();
+        $get = $this->m_mapping_vendor->tampil_data_by_mapping($VENDOR_ID)->result();
         //echo json_encode($get);
         //echo $this->db->last_query($get);
         $data['get'] = $get;
