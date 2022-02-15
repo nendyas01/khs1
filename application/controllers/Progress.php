@@ -14,7 +14,7 @@ class progress extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('progress', $data);
-        $this->load->view('form_progress', $data);
+        //$this->load->view('form_progress', $data);
         $this->load->view('templates/footer');
         //print_r($data);
     }

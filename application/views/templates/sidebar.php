@@ -16,7 +16,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li <?= $this->uri->segment(1) == 'chart' || $this->uri->segment(1) == '' ? 'class="active"' : '' ?>>
+      <li <?= $this->uri->segment(1) == 'chart' || $this->uri->segment(1) == '' || $this->uri->segment(2) == '' ? 'class="active"' : '' ?>>
         <a href="<?php echo base_url('chart') ?>">
           <i class="fa fa-bar-chart"></i> <span>Chart</span>
         </a>
@@ -97,16 +97,17 @@
         </ul>
       </li>
 
-      <li class="treeview<?= $this->uri->segment(1) == 'progress' || $this->uri->segment(1) == 'progress/tambah1' ? 'active' : '' ?>">
+      <li class="treeview <?= $this->uri->segment(1) == 'progress' || $this->uri->segment(1) == 'inp_progres_kerja' ? 'active' : '' ?>">
+
         <a href="#">
-          <i class="fa fa-clock-o"></i> <span>Pengelolaan Progress</span>
+          <i class="fa fa-book"></i> <span>Pengelolaan Progress</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li <?= $this->uri->segment(1) == 'progress' ? 'class="active"' : '' ?>><a href="<?php echo base_url('progress') ?>"><i class="fa fa-circle-o"></i> Detail SPJ</a></li>
-          <li <?= $this->uri->segment(1) == 'progress/tambah1' ? 'class="active"' : '' ?>><a href="<?php echo base_url('progress/tambah1') ?>"><i class="fa fa-circle-o"></i> Input Progress Kerja</a></li>
+          <li <?= $this->uri->segment(1) == 'progress' ? 'class="active"' : '' ?>><a href="<?php echo base_url('progress') ?>"><i class="fa fa-circle-o"></i> Detail SPJ </a></li>
+          <li <?= $this->uri->segment(1) == 'inp_progres_kerja' ? 'class="active"' : '' ?>><a href="<?php echo base_url('inp_progres_kerja') ?>"><i class="fa fa-circle-o"></i> Input Progress</a></li>
         </ul>
       </li>
 
