@@ -25,7 +25,7 @@
       <li class="treeview <?= $this->uri->segment(1) == 'crud_area' || $this->uri->segment(1) == 'crud_kontrak' || $this->uri->segment(1) == 'crud_paket'
                             || $this->uri->segment(1) == 'crud_user' || $this->uri->segment(1) == 'crud_vendor' ? 'active' : '' ?>">
         <a href="#">
-          <i class="fa fa-book"></i> <span>Pengelolaan Data Master</span>
+          <i class=" fa fa-edit"></i> <span>Pengelolaan Data Master</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -43,7 +43,7 @@
       <li class="treeview <?= $this->uri->segment(1) == 'kontrol_fin/tambah_addendum' || $this->uri->segment(1) == 'kontrol_fin/tambah'
                             || $this->uri->segment(1) == 'kontrol_fin' || $this->uri->segment(1) == 'list_amandemen' ? 'active' : '' ?>">
         <a href="#">
-          <i class="fa fa-calendar-check-o"></i> <span>Pengelolaan Vendor</span>
+          <i class="fa fa-table"></i> <span>Pengelolaan Vendor</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -61,7 +61,7 @@
 
       <li class="treeview<?= $this->uri->segment(1) == '' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
         <a href="#">
-          <i class="fa fa-calendar-check-o"></i> <span>Pengelolaan Perijinan</span>
+          <i class="fa fa-copy"></i> <span>Pengelolaan Perijinan</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -115,7 +115,7 @@
       <li class="treeview <?= $this->uri->segment(1) == 'anggaran' || $this->uri->segment(1) == 'anggaran/v_input_tagihan'
                             || $this->uri->segment(1) == 'crud_skkio' ? 'active' : '' ?>">
         <a href="#">
-          <i class="fa fa-book"></i> <span>Pengelolaan Anggaran</span>
+          <i class="fa fa-money"></i> <span>Pengelolaan Anggaran</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>

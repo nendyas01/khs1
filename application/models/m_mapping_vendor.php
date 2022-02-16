@@ -2,42 +2,38 @@
 class m_mapping_vendor extends CI_Model
 {
 
+    // function tampil_data_dua()
+    // {
+    //     $this->db->select('tmv.*, tp.status, ta.area_kode, tp.paket_deskripsi as desc_paket, COUNT( tmv.vendor_id) as total_vendor');
+    //     $this->db->from('tb_mapping_vendor as tmv');
+    //     $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'INNER');
+    //     $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode');
+    //     $this->db->group_by(array('tmv.mapping_id'));
+    //     // $this->db->group_by('tmv.ZONE, tmv.MAPPING_TAHUN, tmv.PAKET_JENIS, tmv.MAPPING_ID');
+    //     $this->db->order_by('tmv.zone');
+    //     $this->db->where('tp.status', 1);
+    //     return $this->db->get();
+    // }
+
     function tampil_data_dua()
     {
-        $this->db->select('tmv.*, tp.status, ta.area_kode, tp.paket_deskripsi as desc_paket, COUNT( tmv.vendor_id) as total_vendor');
+        $this->db->select('tmv.*, tp.status, ta.area_kode, tp.paket_deskripsi as desc_paket, COUNT(DISTINCT tmv.vendor_id) as total_vendor');
         $this->db->from('tb_mapping_vendor as tmv');
         $this->db->join('tb_paket as tp', 'tp.paket_jenis = tmv.paket_jenis', 'INNER');
         $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode');
-        $this->db->group_by('tmv.ZONE, tmv.MAPPING_TAHUN, tmv.PAKET_JENIS');
-        $this->db->order_by('tmv.MAPPING_TAHUN, tmv.PAKET_JENIS');
+        $this->db->group_by('tmv.mapping_id');
+        // $this->db->group_by('tmv.ZONE, tmv.MAPPING_TAHUN, tmv.PAKET_JENIS, tmv.MAPPING_ID');
+        // $this->db->order_by('tmv.zone');
         $this->db->where('tp.status', 1);
         return $this->db->get();
     }
    
 
-    // function tampil_data_dua()
-    // {
-    //     $this->db->select('a.PAKET_JENIS,
-    //         b.PAKET_DESKRIPSI,
-    //        a.MAPPING_TAHUN,
-    //        a.ZONE,
-    //        COUNT(a.VENDOR_ID)
-    //         from tb_mapping_vendor a  INNER JOIN tb_paket b ON b.PAKET_JENIS = a.PAKET_JENIS
-    //         WHERE b.STATUS = 1
-    //         GROUP BY a.MAPPING_TAHUN,a.PAKET_JENIS,a.ZONE
-    //         ORDER BY a.MAPPING_TAHUN, a.PAKET_JENIS');
-    //     $this->db->from('tb_mapping_vendor a');
-    //     // $this->db->join('tb_area as ta', 'ta.area_kode = tmv.area_kode', 'LEFT') COUNT( DISTINCT tmv.area_kode) as total_area, ;
-    //     // $this->db->join('tb_paket b', 'tb_paket b.paket_jenis = tb_paket b.paket_jenis= a.PAKET_JENIS');
-    //     // $this->db->group_by('a.MAPPING_TAHUN, a.PAKET_JENIS, a.ZONE');
-    //     // $this->db->order_by('a.MAPPING_TAHUN, a.PAKET_JENIS');
-    //     // $this->db->where('tb_paket b.status', 1);
-    //     return $this->db->get();
-    // }
+    
 
 
 
-    function tampil_data_by_mapping($VENDOR_ID, $MAPPING_TAHUN, $PAKET_JENIS)
+    function tampil_data_by_mapping($id)
     {
         $this->db->select('tmv.*, ta.area_nama, tp.status, tp.paket_deskripsi as desc_paket, tv.vendor_nama');
         $this->db->from('tb_mapping_vendor as tmv');
@@ -51,23 +47,23 @@ class m_mapping_vendor extends CI_Model
         //     $this->db->where('tmv.PAKET_JENIS', $PAKET_JENIS);
         // $this->db->group_end();
 
-        // $this->db->group_by('tmv.ZONE, tmv.MAPPING_TAHUN, tmv.PAKET_JENIS');
+        $this->db->where('tmv.mapping_id', $id);
         return $this->db->get();
     }
 
-    // function getID()
-    // {
-    //     $this->db->select('MAX(mapping_id) as total_mapping');
-    //     // $this->db->group_by('mapping_id');
-    //     return $this->db->get('tb_mapping_vendor');
-    // }
-
-    function getMAPPINGTAHUN()
+    function getID()
     {
-        $this->db->select('MAX(MAPPING_TAHUN) as total_mapping');
+        $this->db->select('MAX(mapping_id) as total_mapping');
         // $this->db->group_by('mapping_id');
         return $this->db->get('tb_mapping_vendor');
     }
+
+    // function getMAPPINGTAHUN()
+    // {
+    //     $this->db->select('MAX(MAPPING_TAHUN) as total_mapping');
+    //     // $this->db->group_by('mapping_id');
+    //     return $this->db->get('tb_mapping_vendor');
+    // }
 
 
 
