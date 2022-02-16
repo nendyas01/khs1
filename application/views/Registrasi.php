@@ -1,11 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-	<base href="<?php echo base_url(); ?>">
+  <base href="<?php echo base_url(); ?>">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Registrasi User</title>
@@ -27,80 +28,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]--><script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="assets/plugins/iCheck/icheck.min.js"></script>
+  <![endif]-->
+  <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- iCheck -->
+  <script src="assets/plugins/iCheck/icheck.min.js"></script>
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body class="hold-transition register-page">
-<div class="login-box">
-  <div class="login-logo">
-   <a href=""><strong>Form</strong> Registrasi User</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg ">Silahkan mengisi form registrasi!</p>
+  <div class="login-box">
+    <div class="login-logo">
+      <a href=""><strong>Form</strong> Registrasi User</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg ">Silahkan mengisi form registrasi!</p>
 
-    <form action="<?= base_url('registrasi/cekuser') ?>" id="daftar" method="post">
-      <div class="form-group has-feedback">
-        <label> Username</label>
-        <!-- <input type="text" name="nama" class="form-control" placeholder="username"> saya komen ya biar buat dibandingkan , ini code yang lama -->
-        <input type="text" name="USERNAME" class="form-control" placeholder=""> 
-        <!-- jadi name itu harus sama , sama yang dikirim ke controllernya -->
-        <!-- di sini kamu menset usernamenya , namenya = nama , harusnya itu USERNAME -->
-        <!-- jadi harus diganti , disamain sama parameter yang kamu kirim ke controllernya , kita ubah jadi USERNAME-->
-        <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> -->
-      </div>
-      <div class="form-group has-feedback">
-        <label>Email</label>
-        <input type="email" name="email" class="form-control" placeholder="">
-        <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
-      </div>
-      <div class="form-group has-feedback">
-      <label>Password</label>
-        <!-- input type="password" name="id" class="form-control" placeholder="Password"> ini juga sama harus disamain kayak parameter yang kamu kirim -->
-        <input type="password" name="PASSWORD" class="form-control" placeholder="minimal 4 karakter">
-        <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-      </div>
-
-      <div class="form-group has-feedback">
-        <label>Role ID</label>
-        <input type="number_format" name="role_id" class="form-control" placeholder="">
-        <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-      </div>
-
-      <div class="form-group has-feedback">
-        <label>Jabatan</label>
-        <input type="text" name="jabatan" class="form-control" placeholder="">
-        <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
-      </div>
-
-      <div class="form-group has-feedback">
-        <label>Kode Area</label>
-        <input type="email" name="AREA_KODE" class="form-control" placeholder="Kode Area">
-        <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
-      </div>
-
-
-
-
-      <div class="row">
-        <div class="col-xs-8">
-          
+      <form action="<?= base_url('registrasi/cekuser') ?>" id="daftar" name="daftar" method="post">
+        <div class="form-group has-feedback">
+          <label> Username</label>
+          <!-- <input type="text" name="nama" class="form-control" placeholder="username"> saya komen ya biar buat dibandingkan , ini code yang lama -->
+          <input type="text" name="USERNAME" class="form-control" placeholder="">
+          <!-- jadi name itu harus sama , sama yang dikirim ke controllernya -->
+          <!-- di sini kamu menset usernamenya , namenya = nama , harusnya itu USERNAME -->
+          <!-- jadi harus diganti , disamain sama parameter yang kamu kirim ke controllernya , kita ubah jadi USERNAME-->
+          <!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> -->
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+        <div class="form-group has-feedback">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" placeholder="">
+          <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
         </div>
-        <!-- /.col -->
-      </div>
-    </form>
-	<!-- <script type="text/javascript">
+        <div class="form-group has-feedback">
+          <label>Password</label>
+          <!-- input type="password" name="id" class="form-control" placeholder="Password"> ini juga sama harus disamain kayak parameter yang kamu kirim -->
+          <input type="password" name="PASSWORD" class="form-control" placeholder="minimal 4 karakter">
+          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+        </div>
+
+        <div class="form-group has-feedback">
+          <label>Role ID</label>
+          <input type="number_format" name="role_id" class="form-control" placeholder="">
+          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+        </div>
+
+        <div class="form-group has-feedback">
+          <label>Jabatan</label>
+          <input type="text" name="jabatan" class="form-control" placeholder="">
+          <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+        </div>
+
+        <div class="form-group has-feedback">
+          <label>Kode Area</label>
+          <input type="email" name="AREA_KODE" class="form-control" placeholder="Kode Area">
+          <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
+        </div>
+
+
+
+
+        <div class="row">
+          <div class="col-xs-8">
+
+          </div>
+          <!-- /.col -->
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+      <!-- <script type="text/javascript">
 	$(document).ready(function()
 	{
 		$("#masuker").on('submit',function(e){
@@ -125,24 +128,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 		});
 	</script> -->
- 
-    
 
+
+
+    </div>
+    <!-- /.login-box-body -->
   </div>
-  <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
+  <!-- /.login-box -->
 
-<!-- jQuery 3 -->
+  <!-- jQuery 3 -->
 
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
+  <script>
+    $(function() {
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' /* optional */
+      });
     });
-  });
-</script>
+  </script>
 </body>
+
 </html>
