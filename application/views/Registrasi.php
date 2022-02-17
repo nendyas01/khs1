@@ -83,14 +83,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         </div>
 
-        <div class="form-group has-feedback">
-          <label>Kode Area</label>
-          <input type="email" name="AREA_KODE" class="form-control" placeholder="Kode Area">
-          <!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
+        <div class="form-group">
+              <label>NAMA AREA</label>
+              <select class="form-control" id="AREA_KODE" name="AREA_KODE">
+                <option selected="0">- Pilih Nama Area -</option>
+                <?php foreach ($nama_area as $area) : ?>
+                  <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
+                <?php endforeach; ?>
+              </select>
         </div>
-
-
-
 
         <div class="row">
           <div class="col-xs-8">

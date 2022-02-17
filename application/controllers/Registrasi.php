@@ -1,23 +1,24 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
-class Auth extends CI_Controller
+class registrasi extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('m_regitrasi');
         $this->load->library('form_validation');
+        
     }
 
-    /* public function index()
-    {
-        //$data['title'] = 'Login Page';
-        $this->load->view('templates/auth_header');
-        $this->load->view('login');
-        $this->load->view('templates/auth_footer');
-    } */
-
+    
     public function index()
+    {   
+        $data['role'] = $this->m_registrasi->getrole();
+        $data['nama_area'] = $this->m_registrasi->getarea();
+        $this->load->view('Registrasi',$data);
+    }
+
+    public function daftar()
     {
         $this->form_validation->set_rules('USERNAME', 'username', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
@@ -44,8 +45,9 @@ class Auth extends CI_Controller
                 'area_kode' => $this->input->post('area_kode'),
             ];
 
-            $this->db->insert('', $data);
+            $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your accout has been created. Please Login</div>');
+          
             redirect('Login');
         }
     }
