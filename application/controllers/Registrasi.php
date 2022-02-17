@@ -9,14 +9,14 @@ class registrasi extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index()
+    /* public function index()
     {
         $data['role'] = $this->m_registrasi->getrole();
         $data['nama_area'] = $this->m_registrasi->getarea();
         $this->load->view('Registrasi', $data);
-    }
+    } */
 
-    public function daftar()
+    public function index()
     {
         $this->form_validation->set_rules('USERNAME', 'username', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
@@ -28,11 +28,9 @@ class registrasi extends CI_Controller
         //$this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'User Registration';
-            $this->load->view('templates/header', $data);
-            $this->load->view('Registrasi');
-            $this->load->view('templates/footer');
-            $this->load->view('templates/sidebar');
+            $data['role'] = $this->m_registrasi->getrole();
+            $data['nama_area'] = $this->m_registrasi->getarea();
+            $this->load->view('Registrasi', $data);
         } else {
             $data = [
                 'USERNAME' => $this->input->post('USERNAME'),

@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="login-box-body">
       <p class="login-box-msg ">Silahkan mengisi form registrasi!</p>
 
-      <form action="<?= base_url('registrasi') ?>" id="daftar" name="daftar" method="post">
+      <form class="user" action="<?= base_url('registrasi') ?>" id="daftar" name="daftar" method="post">
         <div class="form-group has-feedback">
           <label> Username</label>
           <!-- <input type="text" name="nama" class="form-control" placeholder="username"> saya komen ya biar buat dibandingkan , ini code yang lama -->
@@ -88,7 +88,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         </div>
 
-        <div class="form-grou has-feedback">
+        <div class="form-group has-feedback">
           <label>Nama Area</label>
           <select class="form-control" id="AREA_KODE" name="AREA_KODE">
             <option selected="0">- Pilih Nama Area -</option>
@@ -97,17 +97,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <?php endforeach; ?>
           </select>
         </div>
-      </form>
-      <div class="row">
-        <div class="col-xs-8">
 
+        <div class="row">
+          <div class="col-xs-8">
+
+          </div>
+          <!-- /.col -->
+          <div class="col-xs-4">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary">Register</button>
-        </div>
-        <!-- /.col -->
-      </div>
       </form>
       <!-- <script type="text/javascript">
 	$(document).ready(function()
