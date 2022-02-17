@@ -21,7 +21,7 @@ class registrasi extends CI_Controller
         $this->form_validation->set_rules('USERNAME', 'username', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('PASSWORD', 'password', 'required|trim|min_length[3]');
-        $this->form_validation->set_rules('role_id', 'Role_id', 'required|trim');
+        $this->form_validation->set_rules('role_nama', 'Role_nama', 'required|trim');
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required|trim');
         $this->form_validation->set_rules('AREA_KODE', 'area_kode', 'required|trim');
 
@@ -36,14 +36,13 @@ class registrasi extends CI_Controller
                 'USERNAME' => $this->input->post('USERNAME'),
                 'email' => $this->input->post('email'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'role_id' => $this->input->post('role_id'),
+                'role_id' => $this->input->post('role_nama'),
                 'jabatan' => $this->input->post('jabatan'),
                 'AREA_KODE' => $this->input->post('AREA_KODE'),
             ];
 
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your accout has been created. Please Login</div>');
-
             redirect('Login');
         }
     }
