@@ -11,7 +11,7 @@ class m_registrasi extends CI_Model
     }
 
         public function getrole(){
-            $query = $this->db->query("SELECT * FROM tb_role ORDER BY role_id ASC");
+            $query = $this->db->query("SELECT * FROM tb_role ORDER BY role_nama ASC");
             return $query->result();
     }
 }

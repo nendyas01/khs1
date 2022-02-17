@@ -67,13 +67,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="form-group has-feedback">
           <label>Password</label>
           <!-- input type="password" name="id" class="form-control" placeholder="Password"> ini juga sama harus disamain kayak parameter yang kamu kirim -->
-          <input type="password" name="PASSWORD" class="form-control" placeholder="minimal 4 karakter">
+          <input type="password" name="PASSWORD" class="form-control" placeholder="">
           <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         </div>
 
         <div class="form-group has-feedback">
-          <label>Role ID</label>
-          <input type="number_format" name="role_id" class="form-control" placeholder="">
+          <label>Akses Role</label>
+          <select class="form-control" id="role_nama" name="role_nama">
+                <option selected="0">- Pilih Akses Role -</option>
+                <?php foreach ($role as $r) : ?>
+                  <option value="<?php echo $r->role_id; ?>"> <?php echo $r->role_nama; ?></option>
+                <?php endforeach; ?>
+              </select>
           <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         </div>
 
@@ -83,8 +88,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
           <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         </div>
 
-        <div class="form-group">
-              <label>NAMA AREA</label>
+        <div class="form-grou has-feedback">
+              <label>Nama Area</label>
               <select class="form-control" id="AREA_KODE" name="AREA_KODE">
                 <option selected="0">- Pilih Nama Area -</option>
                 <?php foreach ($nama_area as $area) : ?>
@@ -92,14 +97,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <?php endforeach; ?>
               </select>
         </div>
-
+        </form>
         <div class="row">
           <div class="col-xs-8">
 
           </div>
           <!-- /.col -->
           <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            <button type="submit" class="btn btn-primary">Register</button>
           </div>
           <!-- /.col -->
         </div>
