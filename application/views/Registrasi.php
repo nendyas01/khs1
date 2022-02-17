@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="login-box-body">
       <p class="login-box-msg ">Silahkan mengisi form registrasi!</p>
 
-      <form action="<?= base_url('registrasi/cekuser') ?>" id="daftar" name="daftar" method="post">
+      <form action="<?= base_url('registrasi') ?>" id="daftar" name="daftar" method="post">
         <div class="form-group has-feedback">
           <label> Username</label>
           <!-- <input type="text" name="nama" class="form-control" placeholder="username"> saya komen ya biar buat dibandingkan , ini code yang lama -->
@@ -74,11 +74,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="form-group has-feedback">
           <label>Akses Role</label>
           <select class="form-control" id="role_nama" name="role_nama">
-                <option selected="0">- Pilih Akses Role -</option>
-                <?php foreach ($role as $r) : ?>
-                  <option value="<?php echo $r->role_id; ?>"> <?php echo $r->role_nama; ?></option>
-                <?php endforeach; ?>
-              </select>
+            <option selected="0">- Pilih Akses Role -</option>
+            <?php foreach ($role as $r) : ?>
+              <option value="<?php echo $r->role_id; ?>"> <?php echo $r->role_nama; ?></option>
+            <?php endforeach; ?>
+          </select>
           <!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
         </div>
 
@@ -89,25 +89,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
 
         <div class="form-grou has-feedback">
-              <label>Nama Area</label>
-              <select class="form-control" id="AREA_KODE" name="AREA_KODE">
-                <option selected="0">- Pilih Nama Area -</option>
-                <?php foreach ($nama_area as $area) : ?>
-                  <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
-                <?php endforeach; ?>
-              </select>
+          <label>Nama Area</label>
+          <select class="form-control" id="AREA_KODE" name="AREA_KODE">
+            <option selected="0">- Pilih Nama Area -</option>
+            <?php foreach ($nama_area as $area) : ?>
+              <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
+            <?php endforeach; ?>
+          </select>
         </div>
-        </form>
-        <div class="row">
-          <div class="col-xs-8">
+      </form>
+      <div class="row">
+        <div class="col-xs-8">
 
-          </div>
-          <!-- /.col -->
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary">Register</button>
-          </div>
-          <!-- /.col -->
         </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+        <!-- /.col -->
+      </div>
       </form>
       <!-- <script type="text/javascript">
 	$(document).ready(function()

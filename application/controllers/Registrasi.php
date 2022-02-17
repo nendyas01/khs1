@@ -7,15 +7,13 @@ class registrasi extends CI_Controller
         parent::__construct();
         $this->load->model('m_registrasi');
         $this->load->library('form_validation');
-        
     }
 
-    
     public function index()
-    {   
+    {
         $data['role'] = $this->m_registrasi->getrole();
         $data['nama_area'] = $this->m_registrasi->getarea();
-        $this->load->view('Registrasi',$data);
+        $this->load->view('Registrasi', $data);
     }
 
     public function daftar()
@@ -37,17 +35,17 @@ class registrasi extends CI_Controller
             $this->load->view('templates/sidebar');
         } else {
             $data = [
-                'Username' => $this->input->post('Username'),
+                'USERNAME' => $this->input->post('USERNAME'),
                 'email' => $this->input->post('email'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'role_id' => 2,
+                'role_id' => $this->input->post('role_id'),
                 'jabatan' => $this->input->post('jabatan'),
-                'area_kode' => $this->input->post('area_kode'),
+                'AREA_KODE' => $this->input->post('AREA_KODE'),
             ];
 
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your accout has been created. Please Login</div>');
-          
+
             redirect('Login');
         }
     }
