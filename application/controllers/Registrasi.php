@@ -43,7 +43,7 @@ class registrasi extends CI_Controller
 
             $this->db->insert('tb_user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Congratulation! your accout has been created. Please Login</div>');
-            redirect('Login');
+            redirect('login');
         }
     }
 }
