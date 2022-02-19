@@ -108,12 +108,11 @@
 }
 </style>
 <?php
-  /* $keuangan = $this->db->query("select * from karyawan where divisi='Keuangan'")->num_rows();
-  $sdm = $this->db->query("select * from karyawan where divisi='SDM'")->num_rows();
-  $rencana = $this->db->query("select * from karyawan where divisi='Perencaan dan Operasi'")->num_rows();
-  $niaga = $this->db->query("select * from karyawan where divisi='Niaga'")->num_rows();
+  $gangguan = $this->db->query("select * from tb_spj where gangguan='1'")->num_rows();
+  $nongangguan = $this->db->query("select * from tb_spj where gangguan='0'")->num_rows();
+  
 
-  ini nanti disesuaikan ya mau diisi apa aja */
+  // ini nanti disesuaikan ya mau diisi apa aja */
 
   $keuangan = 0;
   $sdm = 0;
@@ -136,7 +135,7 @@
         <!-- general form elements -->
         <div class="box box-dark">
             <div class="box-header with-border">
-              <h3 class="box-title">Grafik pekerjaan (divisi)</h3>
+              <h3 class="box-title">Grafik Data Gangguan dan Non Gangguan</h3>
             </div>
             <!-- /.box-header -->
             <div id="container"></div>
@@ -170,7 +169,7 @@ chart: {
 },
 
 title: {
-  text: 'Data Grafik Karyawan Perdivisi'
+  text: 'Data Grafik Pencapaian'
 },
 
 
@@ -181,10 +180,9 @@ series: [{
   keys: ['name', 'y', 'selected'],
   name: "Total",
   data: [
-    ['Perencaan dan Operasi',<?php echo $rencana ?>, false],
-    ['Keuangan', <?php echo $keuangan ?>, false],
-    ['SDM',<?php echo $sdm ?>, false],
-    ['Niaga',<?php echo $niaga ?>, false],
+    ['gangguan',<?php echo $gangguan ?>, false],
+    ['non gangguan', <?php echo $nongangguan ?>, false],
+   
   ],
   showInLegend: true
 }]
