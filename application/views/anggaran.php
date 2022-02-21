@@ -10,27 +10,6 @@
     </ol>
   </section>
 
-  <!-- <section class="content">
-        <a class="btn btn-danger " style="float:right; margin:5px;"><i class="fa fa-print"> Print</i></a>
-        <div class="dropdown inline" style="float:right; margin:5px;  ">
-            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <i class="fa fa-download"></i>
-                Export
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li>>PDF<< /li>
-                <li>>Excel<< /li>
-            </ul>
-        </div> -->
-
-  <!-- <div class="navbar-form navbar-right">
-           echo form_open('kontrol_fin/search')
-            <input type="text" name="keyword" class="form-control" placeholder="Search">
-            <button type="submit" class="btn btn-success">Cari</button>
-             echo form_close() 
-        </div> -->
-
   <section class="content">
     <div class="row">
       <div class="col-md-12">
@@ -121,6 +100,8 @@
                     });
                   </script>
                 </tbody>
-              </table>
-          </div>
+              </table>      
         </section>
+      </div>
+    </div>
+  </section>

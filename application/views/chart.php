@@ -110,16 +110,8 @@
 <?php
   $gangguan = $this->db->query("select * from tb_spj where gangguan='1'")->num_rows();
   $nongangguan = $this->db->query("select * from tb_spj where gangguan='0'")->num_rows();
-  
-
-  // ini nanti disesuaikan ya mau diisi apa aja */
-
-  $keuangan = 0;
-  $sdm = 0;
-  $rencana = 0;
-  $niaga = 0;
-
 ?>
+
 <div class="content-wrapper">
 <section class="content-header">
       <h1>
@@ -131,35 +123,40 @@
         <li class="active">Data Chart</li>
       </ol>
     </section>
-    <section class="content">
+    <!-- <div class="row">
+      <div class="col-md-8"> -->
+       <section class="content">
         <!-- general form elements -->
         <div class="box box-dark">
+        
             <div class="box-header with-border">
+              <!-- <div class="row"> -->
+          <!-- <div class="col-md-8"> -->
               <h3 class="box-title">Grafik Data Gangguan dan Non Gangguan</h3>
             </div>
             <!-- /.box-header -->
             <div id="container"></div>
-
           </div>
           <!-- /.box -->
 
      
         <!-- general form elements -->
+        
         <div class="box box-dark">
             <div class="box-header with-border">
-              <h3 class="box-title">Grafik pekerjaan (perbulan)</h3>
+              <h3 class="box-title">....</h3>
             </div>
             <!-- /.box-header -->
             <div id="bulan"></div>
 
           </div>
-          <!-- /.box -->
 
-     
+          <!-- /.box -->  
     </section>
-
 </div>
 
+
+<!-- Create pie chart -->
 <script>
  
 Highcharts.chart('container', {
@@ -194,7 +191,7 @@ Highcharts.chart('bulan', {
     type: 'column'
   },
   title: {
-    text: 'Data Penugasan Perbulan'
+    text: 'Data Mapping Vendor'
   },
   accessibility: {
     announceNewData: {
@@ -230,7 +227,7 @@ Highcharts.chart('bulan', {
         colorByPoint: true,
         data: [
           <?php
-      // $getjenis = $this->db->query("select *,count(*) as jml,DATE_FORMAT(tgl_surat,'%Y/%m/%d') AS tanggal from penugasan group by DATE_FORMAT(tanggal,'%m/%')");
+      //$getjenis = $this->db->query("select *,count(*) as jml,DATE_FORMAT(tgl_surat,'%Y/%m/%d') AS tanggal from penugasan group by DATE_FORMAT(tanggal,'%m/%')");
 
       $getjenis = [
         ['tanggal' => '2022-01-18','jml' => 0]
@@ -247,4 +244,5 @@ Highcharts.chart('bulan', {
       }
     ],
 });
+
 </script>
