@@ -27,9 +27,9 @@ class m_mapping_vendor extends CI_Model
         $this->db->where('tp.status', 1);
         return $this->db->get();
     }
-   
 
-    
+
+
 
 
 

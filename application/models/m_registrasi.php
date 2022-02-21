@@ -15,4 +15,3 @@ class m_registrasi extends CI_Model
             return $query->result();
     }
 }
-?>
