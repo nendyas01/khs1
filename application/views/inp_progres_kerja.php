@@ -21,10 +21,11 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control m-b-10" name="var_no_spj" id="spj_no">
-                                        <option value="0">- NO SPJ -</option>
-
-
+                                    <select class="form-control m-b-10" name="spj_no" id="spj_no">
+                                        <option selected="0">- NO SPJ -</option>
+                                        <?php foreach ($no_spj as $ns) : ?>
+                                            <option value="<?php echo $ns->SPJ_NO; ?>"> <?php echo $ns->SPJ_DESKRIPSI; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
@@ -34,7 +35,7 @@
                                 <div class="col-sm-10">
 
                                     <div class="col-md-6 form-group">
-                                        <div class="alert alert-info" id="spjdata">
+                                        <div class="alert alert-info" id="spj_data" name="spj_data">
                                             <strong>Silahkan Memilih No SPJ!</strong>
                                         </div>
                                     </div>
@@ -46,7 +47,8 @@
                                 <label class="col-sm-2 col-sm-2 control-label">Progress Pekerjaan</label>
                                 <div class="col-sm-10">
                                     <!--<input type="text" class="form-control" name="var_progress">-->
-                                    <select class="form-control m-b-10" name="var_progress">
+                                    <select class="form-control m-b-10" name="var_progress" id="var_progress">
+                                        <option selected="0">-- Progres Pekerjaan --</option>
                                         <?php
                                         for ($i = 5; $i <= 100; $i += 5) {
                                             echo "<option value='$i'>$i%</option>";
@@ -60,7 +62,7 @@
                                 <label class="col-sm-2 col-sm-2 control-label">Realisasi</label>
                                 <div class="col-sm-2">
                                     <div class="input-group m-b-10">
-                                        <input type="text" class="form-control" name="var_realisasi" id="realisasi">
+                                        <input type="text" class="form-control" name="var_realisasi" id="var_realisasi">
                                         <span class="input-group-addon" id="satuan"></span>
                                     </div>
                                 </div>
@@ -69,21 +71,21 @@
                             <div class="form-group">
                                 <label class=" col-sm-2 col-sm-2 control-label">Tanggal</label>
                                 <div class="col-md-2">
-                                    <input type="date" class="form-control" name="var_tanggal" id="tgl_progress">
+                                    <input type="date" class="form-control" name="var_tanggal" id="var_tanggal">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Nama Pengawas</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="var_nama_pengawas">
+                                    <input type="text" class="form-control" name="var_nama_pengawas" id="var_nama_pengawas">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Komentar</label>
                                 <div class="col-sm-3">
-                                    <textarea rows="2" cols="123" name="var_deskripsi"></textarea>
+                                    <textarea rows="2" cols="123" name="var_deskripsi" id="var_deskripsi"></textarea>
                                 </div>
                             </div>
 

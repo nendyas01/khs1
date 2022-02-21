@@ -38,17 +38,16 @@
                   <?php
                   //$no = 1;
                   foreach ($mapping_vendor as $mv) {
-                    
+
                   ?>
                     <tr>
                       <td> <?php echo $mv->MAPPING_TAHUN ?></td>
                       <td> <?php echo $mv->desc_paket ?></td>
-                      <td> <button class="btn btn-default btn x-s" ><?php echo $mv->total_vendor ?></span></td>
-                      <td> <a class="btn btn-default btn x-s" data-toggle="modal" data-target="#modal-detail"
-                      data-mapping="<?=$mv->AREA_KODE?>"><?php echo $mv-> ZONE?></td>
+                      <td> <button class="btn btn-default btn x-s"><?php echo $mv->total_vendor ?></span></td>
+                      <td> <a class="btn btn-default btn x-s" data-toggle="modal" data-target="#modal-detail" data-mapping="<?= $mv->AREA_KODE ?>"><?php echo $mv->ZONE ?></td>
                       <td> <?php echo anchor('mapping_vendor/getmappingbymappingid/' . $mv->MAPPING_ID, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->MAPPING_ID , '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-                  </tr>
+                      <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mapping_vendor/hapus/' . $mv->MAPPING_ID, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
+                    </tr>
                   <?php } ?>
 
                   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
@@ -56,17 +55,17 @@
                   <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 
                   <!--  Button untuk copy, csv, excel -->
-            
+
                   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
                   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-                
-                  
+
+
 
                   <script>
                     $(document).ready(function() {
                       $('#example').DataTable();
 
-                      $('#body-table-mapping').on('click', '.btn-total-area', function () {
+                      $('#body-table-mapping').on('click', '.btn-total-area', function() {
                         $('#mapping-detail').modal('show');
                       });
                     });
@@ -89,7 +88,7 @@
                           oriented: 'potrait',
                           download: 'open',
                           widthX: '90px'
-                          
+
                         },
                         'csv', 'excel', 'pdf', 'print'
                       ]
@@ -215,7 +214,7 @@
 
               });
             </script>
-              
+
             <script>
               $(document).ready(function() {
                 $('#AREA_KODE').change(function() {
@@ -246,11 +245,11 @@
             </script>
 
             <script>
-                 $(document).on('click', '#select', function() {
-                   var nama_area = $(this).data('NAMA_AREA');
-                   $('#nama_area').val(nama_area);
-                   $('#modal-detail').modal('hide');
-                 });
+              $(document).on('click', '#select', function() {
+                var nama_area = $(this).data('NAMA_AREA');
+                $('#nama_area').val(nama_area);
+                $('#modal-detail').modal('hide');
+              });
             </script>
           </form>
         </div>
@@ -266,7 +265,7 @@
         </div>
 
         <div class="panel-body">
-            
+
         </div>
       </div>
     </div>

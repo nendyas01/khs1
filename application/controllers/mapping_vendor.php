@@ -38,32 +38,32 @@ class mapping_vendor extends CI_Controller
 
         $data = array();
         foreach ($VENDOR_ID as $key => $nb) {
-            foreach ($AREA_KODE as $ak => $a){
-             array_push($data, array(
-               
-                'AREA_KODE' => $AREA_KODE[$ak],
-                // 'AREA_NAMA' => $nama_area,
-                'PAKET_JENIS' => $PAKET_JENIS,
-                'ZONE' => $ZONE,
-                'MAPPING_TAHUN' => $MAPPING_TAHUN,
-                'VENDOR_ID' => $VENDOR_ID[$key],   
-                'mapping_id' => $mapping_id, 
-                
-                
-            ));
+            foreach ($AREA_KODE as $ak => $a) {
+                array_push($data, array(
+
+                    'AREA_KODE' => $AREA_KODE[$ak],
+                    // 'AREA_NAMA' => $nama_area,
+                    'PAKET_JENIS' => $PAKET_JENIS,
+                    'ZONE' => $ZONE,
+                    'MAPPING_TAHUN' => $MAPPING_TAHUN,
+                    'VENDOR_ID' => $VENDOR_ID[$key],
+                    'mapping_id' => $mapping_id,
+
+
+                ));
             }
         }
         // print_r($data);
-       
-         $this->db->insert_batch('tb_mapping_vendor', $data);
-         redirect('mapping_vendor/index');
+
+        $this->db->insert_batch('tb_mapping_vendor', $data);
+        redirect('mapping_vendor/index');
     }
 
-    public function get_vendor(){
-      $jns_paket= $this->input->post('id');
-      $data=$this->m_mapping_vendor->get_vendor($jns_paket);
-      echo json_encode($data);
-    
+    public function get_vendor()
+    {
+        $jns_paket = $this->input->post('id');
+        $data = $this->m_mapping_vendor->get_vendor($jns_paket);
+        echo json_encode($data);
     }
 
     public function getarea()
@@ -91,7 +91,6 @@ class mapping_vendor extends CI_Controller
         $this->load->view('templates/sidebar');
         $this->load->view('detail_mapping_vendor', $data);
         $this->load->view('templates/footer');
-
     }
 
     // public function getmappingbymappingid($id)
@@ -132,5 +131,5 @@ class mapping_vendor extends CI_Controller
     //     $this->load->view('edit_mapping_vendor', $data);
     //     $this->load->view('templates/footer');
     // }
-    
+
 }
