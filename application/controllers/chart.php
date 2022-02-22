@@ -16,5 +16,25 @@ class chart extends CI_Controller
         $this->load->view('chart', $data);
         $this->load->view('templates/footer');
     }
+
+    function getChart()
+    {
+        $area_kode=$this->input->post('area_kode');
+        $tahun=$this->input->post('tahun');
+
+        $get = $this->m_chart->jumlah_gangguan($area_kode, $tahun);
+        echo json_encode($get);
+    }
+
+    function getArea()
+    {
+        $get = $this->m_chart->getarea();
+        echo json_encode($get);
+    }
+
+    function getTahun(){
+        $get = $this->m_chart->tahun();
+        echo json_encode($get);
+    }
 }
 ?>
