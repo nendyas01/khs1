@@ -43,4 +43,11 @@ class inp_progres_kerja extends CI_Controller
             redirect('inp_progress_kerja');
         }
     }
+
+    public function select_spj_no()
+    {
+        $spj = $this->input->post('id');
+        $data = $this->m_inp_progres_kerja->select_spj_no->result();
+        echo json_encode($data);
+    }
 }
