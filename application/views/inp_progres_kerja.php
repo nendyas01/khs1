@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control m-b-10" name="spj_no" id="spj_no">
+                                    <select class="form-control m-b-10" name="SPJ_NO" id="SPJ_NO">
                                         <option selected="0">- NO SPJ -</option>
                                         <?php foreach ($no_spj as $ns) : ?>
                                             <option value="<?php echo $ns->SPJ_NO; ?>"> <?php echo $ns->SPJ_DESKRIPSI; ?></option>
@@ -94,6 +94,35 @@
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+
+                            <script>
+                                $(document).ready(function() {
+                                    $('#SPJ_NO').change(function() {
+                                        var id = $(this).val();
+                                        $.ajax({
+                                            url: "<?php echo base_url(); ?>/inp_progres_kerja/select_spj_no",
+                                            method: "POST",
+                                            data: {
+                                                id: id
+                                            },
+                                            async: false,
+                                            dataType: 'json',
+                                            success: function(data) {
+                                                var html = '';
+                                                var i;
+                                                for (i = 0; i < data.length; i++) {
+                                                    html += '<option value="' + data[i].SPJ_NO + '">' + data[i].SPJ_DESKRIPSI + '</option>';
+                                                }
+                                                $('.spj').html(html);
+
+                                            }
+                                        });
+                                    });
+
+                                    $('.spj').select2();
+
+                                });
+                            </script>
                         </form>
                     </div>
                 </section>
