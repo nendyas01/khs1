@@ -22,29 +22,21 @@
                                 <div class="col-lg-10">
                                     <select class="form-control m-b-10" name="var_no_skkio">
                                         <option value>-- Area --</option>
-
-
+                                        <?php foreach ($nama_area as $na) : ?>
+                                            <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
-
-                            <!-- <div class="form-group">
-                                <label>NAMA AREA</label>
-                                <select class="form-control" id="AREA_KODE" name="AREA_KODE">
-                                    <option selected="0">- Pilih Nama Area -</option>
-                                    <?php foreach ($nama_area as $area) : ?>
-                                        <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div> -->
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">SPJ</label>
                                 <div class="col-lg-10">
                                     <select class="form-control m-b-10" name="var_no_skkio">
                                         <option value>-- SPJ --</option>
-
-
+                                        <?php foreach ($no_spj as $ns) : ?>
+                                            <option value="<?php echo $ns->SPJ_NO; ?>"> <?php echo $ns->SPJ_DESKRIPSI; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
@@ -121,6 +113,64 @@
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+
+                            <script>
+                                $(document).ready(function() {
+                                    $('#PAKET_JENIS').change(function() {
+                                        var id = $(this).val();
+                                        $.ajax({
+                                            url: "<?php echo base_url(); ?>/mapping_vendor/get_vendor",
+                                            method: "POST",
+                                            data: {
+                                                id: id
+                                            },
+                                            async: false,
+                                            dataType: 'json',
+                                            success: function(data) {
+                                                var html = '';
+                                                var i;
+                                                for (i = 0; i < data.length; i++) {
+                                                    html += '<option value="' + data[i].VENDOR_ID + '">' + data[i].VENDOR_NAMA + '</option>';
+                                                }
+                                                $('.vendor').html(html);
+
+                                            }
+                                        });
+                                    });
+
+                                    $('.vendor').select2();
+
+                                });
+                            </script>
+
+                            <script>
+                                $(document).ready(function() {
+                                    $('#AREA_KODE').change(function() {
+                                        var id = $(this).val();
+                                        $.ajax({
+                                            url: "<?php echo base_url(); ?>/mapping_vendor/getarea",
+                                            method: "POST",
+                                            data: {
+                                                id: id
+                                            },
+                                            async: false,
+                                            dataType: 'json',
+                                            success: function(data) {
+                                                var html = '';
+                                                var i;
+                                                for (i = 0; i < data.length; i++) {
+                                                    html += '<option value="' + data[i].AREA_KODE + '">' + data[i].AREA_NAMA + '</option>';
+                                                }
+                                                $('.area').html(html);
+
+                                            }
+                                        });
+                                    });
+
+                                    $('.area').select2();
+
+                                });
+                            </script>
                         </form>
                     </div>
                 </section>

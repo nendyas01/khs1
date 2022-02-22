@@ -77,7 +77,6 @@
                                     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
                                     <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
 
-
                                     <script type="text/javascript">
                                         $('#example').DataTable({
                                             dom: 'Bfrtip',
