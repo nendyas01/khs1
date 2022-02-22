@@ -1,17 +1,13 @@
 <?php
 Class M_chart extends CI_Model
  { 
-// function gangguan (){
-//     $gangguan = $this->db->query("select * from tb_spj where gangguan='1'")->num_rows();
-//     $nongangguan = $this->db->query("select * from tb_spj where gangguan='0'")->num_rows();
-
-
-function jumlah(){
-    
-    $this->db->select('SPJ_NO');
-    $this->db->select('gangguan'); 
-    $this->db->select("count(*) as total"); 
-    return $this->db->from('tb_spj')->get()->result(); 
+function jml_total_spj(){
+    $this->db->select('a.AREA_KODE, COUNT(DISTINCT SPJ_NO) AS total');
+    $this->db->from('tb_spj a');
+    $this->db->group_by('a.AREA_KODE');
+    $total_spj = $this->db->get();
+    $result = $total_spj->result();
+    return $result;
 }
 
 function getarea(){

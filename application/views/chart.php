@@ -1,248 +1,97 @@
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-<style>
- @import "https://code.highcharts.com/css/highcharts.css";
-
-.highcharts-pie-series .highcharts-point {
-  stroke: #ede;
-  stroke-width: 2px;
-}
-
-.highcharts-pie-series .highcharts-data-label-connector {
-  stroke: silver;
-  stroke-dasharray: 2, 2;
-  stroke-width: 2px;
-}
-
-.highcharts-figure,
-.highcharts-data-table table {
-  min-width: 320px;
-  max-width: 600px;
-  margin: 1em auto;
-}
-
-.highcharts-data-table table {
-  font-family: Verdana, sans-serif;
-  border-collapse: collapse;
-  border: 1px solid #ebebeb;
-  margin: 10px auto;
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
-}
-
-.highcharts-data-table caption {
-  padding: 1em 0;
-  font-size: 1.2em;
-  color: #555;
-}
-
-.highcharts-data-table th {
-  font-weight: 600;
-  padding: 0.5em;
-}
-
-.highcharts-data-table td,
-.highcharts-data-table th,
-.highcharts-data-table caption {
-  padding: 0.5em;
-}
-
-.highcharts-data-table thead tr,
-.highcharts-data-table tr:nth-child(even) {
-  background: #f8f8f8;
-}
-
-.highcharts-data-table tr:hover {
-  background: #f1f7ff;
-}
-.highcharts-figure,
-.highcharts-data-table table {
-  min-width: 310px;
-  max-width: 800px;
-  margin: 1em auto;
-}
-
-#container {
-  height: 400px;
-}
-
-.highcharts-data-table table {
-  font-family: Verdana, sans-serif;
-  border-collapse: collapse;
-  border: 1px solid #ebebeb;
-  margin: 10px auto;
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
-}
-
-.highcharts-data-table caption {
-  padding: 1em 0;
-  font-size: 1.2em;
-  color: #555;
-}
-
-.highcharts-data-table th {
-  font-weight: 600;
-  padding: 0.5em;
-}
-
-.highcharts-data-table td,
-.highcharts-data-table th,
-.highcharts-data-table caption {
-  padding: 0.5em;
-}
-
-.highcharts-data-table thead tr,
-.highcharts-data-table tr:nth-child(even) {
-  background: #f8f8f8;
-}
-
-.highcharts-data-table tr:hover {
-  background: #f1f7ff;
-}
-</style>
-<?php
-  $gangguan = $this->db->query("select * from tb_spj where gangguan='1'")->num_rows();
-  $nongangguan = $this->db->query("select * from tb_spj where gangguan='0'")->num_rows();
-?>
-
 <div class="content-wrapper">
-<section class="content-header">
-      <h1>
-        Data Chart
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Data Chart</li>
-      </ol>
+    <section class="content-header">
+        <h1>
+            Chart
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Chart</li>
+        </ol>
     </section>
-    <!-- <div class="row">
-      <div class="col-md-8"> -->
-       <section class="content">
-        <!-- general form elements -->
-        <div class="box box-dark">
-        
-            <div class="box-header with-border">
-              <!-- <div class="row"> -->
-          <!-- <div class="col-md-8"> -->
-              <h3 class="box-title">Grafik Data Gangguan dan Non Gangguan</h3>
-            </div>
-            <!-- /.box-header -->
-            <div id="container"></div>
-          </div>
-          <!-- /.box -->
 
-     
-        <!-- general form elements -->
-        
-        <div class="box box-dark">
-            <div class="box-header with-border">
-              <h3 class="box-title">....</h3>
-            </div>
-            <!-- /.box-header -->
-            <div id="bulan"></div>
+<section class="content">
+  
+  <div class="col-lg-3 col-xs-6">
 
-          </div>
+<div class="small-box bg-red">
+<div class="inner">
+  <?php foreach ($total_spj as $ts) {
+    ?>
+<h3><?php echo number_format($ts->total )?></h3>
+<p>Total SPJ</p>
+</div>
+<div class="icon">
+<i class="ion ion-pie-graph"></i>
+</div>
+<a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+</div>
+</div>
+<?php } ?>
 
-          <!-- /.box -->  
-    </section>
+<div class="col-lg-3 col-xs-6">
+
+<div class="small-box bg-green">
+<div class="inner">
+<h3>53<sup style="font-size: 20px">%</sup></h3>
+<p>Bounce Rate</p>
+</div>
+<div class="icon">
+<i class="ion ion-stats-bars"></i>
+</div>
+<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+</div>
 </div>
 
 
-<!-- Create pie chart -->
+
+
+</div>
+
+
+
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+</div>
+
+</section>
+
 <script>
- 
-Highcharts.chart('container', {
+              $(document).ready(function() {
+                $('#AREA_KODE').change(function() {
+                  var id = $(this).val();
+                  $.ajax({
+                    url: "<?php echo base_url(); ?>/chart/getarea",
+                    method: "POST",
+                    data: {
+                      id: id
+                    },
+                    async: false,
+                    dataType: 'json',
+                    success: function(data) {
+                      var html = '';
+                      var i;
+                      for (i = 0; i < data.length; i++) {
+                        html += '<option value="' + data[i].AREA_KODE + '">' + data[i].AREA_NAMA + '</option>';
+                      }
+                      $('.area').html(html);
+                      $('.area').select2();
 
-chart: {
-  styledMode: true
-},
-
-title: {
-  text: 'Data Grafik Pencapaian'
-},
-
-
-
-series: [{
-  type: 'pie',
-  allowPointSelect: true,
-  keys: ['name', 'y', 'selected'],
-  name: "Total",
-  data: [
-    ['gangguan',<?php echo $gangguan ?>, false],
-    ['non gangguan', <?php echo $nongangguan ?>, false],
-   
-  ],
-  showInLegend: true
-}]
-});
-
-// Create the chart
-Highcharts.chart('bulan', {
-  chart: {
-    type: 'column'
-  },
-  title: {
-    text: 'Data Mapping Vendor'
-  },
-  accessibility: {
-    announceNewData: {
-      enabled: true
-    }
-  },
-  xAxis: {
-    type: 'category'
-  },
-  yAxis: {
-    title: {
-      text: 'Total percent market share'
-    }
-
-  },
-  legend: {
-    enabled: false
-  },
-  plotOptions: {
-    series: {
-      borderWidth: 0,
-      dataLabels: {
-        enabled: true,
-        // format: '{point.y:.1f}'
-      }
-    }
-  },
-
-  series: [
-      
-      {
-        name: "Total",
-        colorByPoint: true,
-        data: [
-          <?php
-      //$getjenis = $this->db->query("select *,count(*) as jml,DATE_FORMAT(tgl_surat,'%Y/%m/%d') AS tanggal from penugasan group by DATE_FORMAT(tanggal,'%m/%')");
-
-      $getjenis = [
-        ['tanggal' => '2022-01-18','jml' => 0]
-      ];
-
-      foreach($getjenis as $key => $row){
-      ?>
-          {
-            name: "<?php echo date('F',strtotime($row['tanggal'])) ?>",
-            y: <?php echo $row['jml'] ?>,
-          },
-        <?php } ?>
-        ]
-      }
-    ],
-});
-
+                    }
+                  });
+                });
+              });
 </script>
+<script>
+              $(document).on('click', '#select', function() {
+                var nama_area = $(this).data('NAMA_AREA');
+                $('#nama_area').val(nama_area);
+                $('#modal-detail').modal('hide');
+              });
+  </script>
