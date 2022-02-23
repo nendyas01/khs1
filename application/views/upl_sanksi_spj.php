@@ -20,7 +20,12 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">Area</label>
                                 <div class="col-lg-10">
-                                    <input type="text" name="var_area" class="form-control" value="<?php echo $current_area_nama; ?>" readonly>
+                                    <select class="form-control m-b-10" name="KODEAREA">
+                                        <option value>-- Area --</option>
+                                        <?php foreach ($areaspj as $na) : ?>
+                                            <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
 
