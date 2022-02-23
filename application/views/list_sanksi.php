@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12">
                 <section class="panel">
-                    <header class="panel-heading">Approve Pelanggaran</header>
+                    <header class="panel-heading">List Sanksi</header>
 
                     <div class="panel-body table-responsive">
                         <font size="2" face="Arial">
