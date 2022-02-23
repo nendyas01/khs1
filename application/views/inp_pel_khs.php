@@ -30,10 +30,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label col-lg-2">SPJ</label>
+                                <label class="col-sm-2 control-label col-lg-2">Nomor SPJ</label>
                                 <div class="col-lg-10">
                                     <select class="form-control m-b-10" name="spj_no">
-                                        <option value>-- SPJ --</option>
+                                        <option value>-- NO SPJ --</option>
                                         <?php foreach ($nomorspj as $ns) : ?>
                                             <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
                                         <?php endforeach; ?>

@@ -21,10 +21,10 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control m-b-10" name="SPJ_NO" id="SPJ_NO">
-                                        <option selected="0">- NO SPJ -</option>
-                                        <?php foreach ($no_spj as $ns) : ?>
-                                            <option value="<?php echo $ns->SPJ_NO; ?>"> <?php echo $ns->SPJ_DESKRIPSI; ?></option>
+                                    <select class="form-control m-b-10" name="spj_no" id="spj_no">
+                                        <option selected="0">-- NO SPJ --</option>
+                                        <?php foreach ($nomorspj as $ns) : ?>
+                                            <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -85,7 +85,8 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Komentar</label>
                                 <div class="col-sm-10">
-                                    <textarea rows="2" cols="123" name="var_deskripsi" id="var_deskripsi"></textarea>
+                                    <textarea class="form-control" name="var_keterangan" id="var_keterangan"></textarea>
+                                    <!-- <textarea rows="2" cols="123" name="var_deskripsi" id="var_deskripsi"></textarea> -->
                                 </div>
                             </div>
 
@@ -95,7 +96,7 @@
                                 </div>
                             </div>
 
-                            <script>
+                            <!-- <script>
                                 $(document).ready(function() {
                                     $('#SPJ_NO').change(function() {
                                         var id = $(this).val();
@@ -122,7 +123,7 @@
                                     $('.spj').select2();
 
                                 });
-                            </script>
+                            </script> -->
                         </form>
                     </div>
                 </section>
