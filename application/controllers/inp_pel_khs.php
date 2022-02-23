@@ -11,14 +11,12 @@ class inp_pel_khs extends CI_Controller
 
     function index()
     {
-        //$data['spj_no'] = $this->m_inp_pel_khs->select_spj_no();
-        //$data['spj_no'] = $this->m_inp_pel_khs->select_spj_no();
+        $data['nomorspj'] = $this->m_inp_pel_khs->getdata();
+        $data['areaspj'] = $this->m_inp_pel_khs->getarea();
         //$data['SPJ_NO'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view(
-            'inp_pel_khs', //$data
-        );
+        $this->load->view('inp_pel_khs', $data);
         $this->load->view('templates/footer');
     }
 
@@ -45,12 +43,5 @@ class inp_pel_khs extends CI_Controller
             $this->db->insert_batch('tb_progress', $data);
             redirect('inp_progress_kerja');
         }
-    }
-
-    public function select_spj_no()
-    {
-        $spj = $this->input->post('id');
-        $data = $this->m_inp_progres_kerja->select_spj_no->result();
-        echo json_encode($data);
     }
 }

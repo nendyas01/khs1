@@ -20,9 +20,9 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">Area</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control m-b-10" name="var_no_skkio">
+                                    <select class="form-control m-b-10" name="KODEAREA">
                                         <option value>-- Area --</option>
-                                        <?php foreach ($nama_area as $na) : ?>
+                                        <?php foreach ($areaspj as $na) : ?>
                                             <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
                                         <?php endforeach; ?>
                                     </select>
@@ -32,10 +32,10 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">SPJ</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control m-b-10" name="var_no_skkio">
+                                    <select class="form-control m-b-10" name="spj_no">
                                         <option value>-- SPJ --</option>
-                                        <?php foreach ($no_spj as $ns) : ?>
-                                            <option value="<?php echo $ns->SPJ_NO; ?>"> <?php echo $ns->SPJ_DESKRIPSI; ?></option>
+                                        <?php foreach ($nomorspj as $ns) : ?>
+                                            <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -114,12 +114,12 @@
                                 </div>
                             </div>
 
-                            <script>
+                            <!-- <script>
                                 $(document).ready(function() {
                                     $('#PAKET_JENIS').change(function() {
                                         var id = $(this).val();
                                         $.ajax({
-                                            url: "<?php echo base_url(); ?>/mapping_vendor/get_vendor",
+                                            url: " <?php echo base_url(); ?>/mapping_vendor/get_vendor",
                                             method: "POST",
                                             data: {
                                                 id: id
@@ -170,7 +170,7 @@
                                     $('.area').select2();
 
                                 });
-                            </script>
+                            </script> -->
                         </form>
                     </div>
                 </section>

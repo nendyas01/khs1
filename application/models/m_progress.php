@@ -40,22 +40,4 @@ class m_progress extends CI_Model
         $this->db->like('SPJ_NO', $keyword);
         return $this->db->get->result();
     }
-
-    public function tambah1()
-    {
-    }
 }
-
-/* a.SPJ_NO, 
-g.ADDENDUM_NILAI,
-a.SPJ_TANGGAL_AKHIR, 
-f.AREA_NAMA, 
-b.VENDOR_NAMA, 
-c.PAKET_DESKRIPSI,  
-a.SPJ_DESKRIPSI 
-FROM tb_spj a left join tb_vendor b on a.VENDOR_ID = b.VENDOR_ID
-LEFT JOIN tb_paket c on a.PAKET_JENIS = c.PAKET_JENIS
-LEFT JOIN tb_skko_i e on a.SKKI_NO = e.SKKI_NO
-LEFT JOIN tb_area f  ON e.AREA_KODE = f.AREA_KODE	
-LEFT JOIN tb_addendum g ON a.SPJ_NO = g.SPJ_NO
-where a.vendor_id != 106 and a.PAKET_JENIS != 0	 */

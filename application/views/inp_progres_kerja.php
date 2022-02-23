@@ -84,7 +84,7 @@
 
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">Komentar</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-10">
                                     <textarea rows="2" cols="123" name="var_deskripsi" id="var_deskripsi"></textarea>
                                 </div>
                             </div>

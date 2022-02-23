@@ -49,7 +49,6 @@
                                             <td> <?php echo 0, '%' ?></td>
                                             <td> <?php echo 0.0000, ' kms' ?></td>
                                             <td> <?php echo 0, ' kms' ?></td>
-
                                         </tr>
 
                                     <?php } ?>
