@@ -20,21 +20,23 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">Area</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control m-b-10" name="AREA">
+                                    <select class="form-control m-b-10" name="KODEAREA">
                                         <option value>-- Area --</option>
-
-
+                                        <?php foreach ($areaspj as $na) : ?>
+                                            <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label col-lg-2">SPJ</label>
+                                <label class="col-sm-2 control-label col-lg-2">Nomor SPJ</label>
                                 <div class="col-lg-10">
-                                    <select class="form-control m-b-10" name="SPJ">
-                                        <option value>-- SPJ --</option>
-
-
+                                    <select class="form-control m-b-10" name="spj_no">
+                                        <option value>-- NO SPJ --</option>
+                                        <?php foreach ($nomorspj as $ns) : ?>
+                                            <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
