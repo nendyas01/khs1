@@ -1,5 +1,6 @@
 <div class="content-wrapper">
     <section class="content-header">
+
         <h1>
             BA Survey
             <small>Control panel</small>
@@ -17,7 +18,7 @@
                         <font size="2" face="Arial">
                             <form class="form-horizontal tasi-form" method="post">
 
-                                <form class="form-horizontal tasi-form" method="post" action="ba_survey_submit.php" id="ba_survey">
+                                <form class="form-horizontal tasi-form" method="post" action="ba_survey_submit.php">
                                     <section class="panel">
                                         <header class="panel-heading">PERSETUJUAN SURVEY</header>
                                         <div class="panel-body">
