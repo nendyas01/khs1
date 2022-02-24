@@ -70,9 +70,9 @@
                                     <div class="col-lg-10">
                                         <select class="form-control m-b-10" name="var_no_skkio">
                                             <option value>-- SKKI/SKKO --</option>
-                                            <!-- <?php foreach ($SPJ_NO as $sn) : ?>
-                                                <option value="<?php echo $sn->SPJ_NO; ?>"> <?php echo $sn->SPJ_NO; ?></option>
-                                            <?php endforeach; ?> -->
+                                            <?php foreach ($skk as $sk) : ?>
+                                                <option value="<?php echo $sk->SKKI_ID; ?>"> <?php echo $sk->SKKI_NO; ?></option>
+                                            <?php endforeach; ?>
 
                                         </select>
                                     </div>
@@ -96,9 +96,7 @@
                                 <div class="col-sm-10">
                                     <select class="form-control m-b-10" id="paket" name="var_paket_pekerjaan">
                                         <option value="0">Pilih Paket</option>
-                                        <?php foreach ($kontrol_fin as $area) : ?>
-                                            <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
-                                            "<option value='" . $hasil[' PAKET_JENIS'] . "'>" . $hasil['PAKET_DESKRIPSI'] . "</option>" <?php endforeach; ?> </select>
+
                                 </div>
                             </div>
 
