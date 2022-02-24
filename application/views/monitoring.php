@@ -58,3 +58,10 @@
                                         <th>Izin Terbit</th>
                                     </tr>
                                 </thead>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+</div>

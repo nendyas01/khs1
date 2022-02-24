@@ -51,9 +51,6 @@
                                     <section class="panel">
                                         <header class="panel-heading">BA Survey</header>
                                         <div class="panel-body">
-
-
-
                                             <div class="form-group">
                                                 <label class=" col-sm-2 col-sm-2 control-label">Tanggal Survey</label>
                                                 <div class="col-md-2">
@@ -77,8 +74,10 @@
                                         </div>
                                     </section>
                                 </form>
+                            </form>
                     </div>
                 </section>
             </div>
         </div>
     </section>
+</div>
