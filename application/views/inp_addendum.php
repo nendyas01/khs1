@@ -22,10 +22,10 @@
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label col-lg-2">Nomor SPJ</label>
                                         <div class="col-lg-10">
-                                            <select class="form-control m-b-10" name="SPJ_NO">
-                                                <option value="">-- SPJ --</option>
-                                                <?php foreach ($SPJ_NO as $spj_no) : ?>
-                                                    <option value="<?php echo $spj_no->ADDENDUM_NO; ?>"> <?php echo $spj_no->SPJ_NO; ?></option>
+                                            <select class="form-control m-b-10" name="spj_no" id="spj_no">
+                                                <option selected="0">-- NO SPJ --</option>
+                                                <?php foreach ($nomorspj as $ns) : ?>
+                                                    <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -88,6 +88,9 @@
                                             <select class="form-control m-b-10" name="var_skki_tujuan" id="skki_tujuan">
 
                                                 <option value="-">- (Pilih Jika SKKI/O Tidak Berubah)</option>
+                                        </div>
+                                    </div>
+
 
                                 </form>
                             </div>
@@ -97,17 +100,13 @@
     </section><!-- /.content -->
     </aside><!-- /.right-side -->
 
-</div> $current_skki = $data[$i]['SKKI_NO'];
-?>
-<option value='<?php echo $current_skki ?>'><?php echo $current_skki; ?></option><?php
+</div>
 
-                                                                                    ?>
 </select>
 </div>
 </div>
-
 <div class="form-group">
-    <label class="col-sm-2 col-sm-2 control-label" name="var_deskripsi">Deskripsi</label>
+    <label class="col-sm-2 col-sm-2 control-label">Deskripsi</label>
     <div class="col-sm-3">
         <textarea></textarea>
     </div>
