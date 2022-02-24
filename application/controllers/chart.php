@@ -21,9 +21,28 @@ class chart extends CI_Controller
     {
         $area_kode=$this->input->post('area_kode');
         $tahun=$this->input->post('tahun');
-
+        // $area_kode=54110;
+        // $tahun=2019;
         $get = $this->m_chart->jumlah_gangguan($area_kode, $tahun);
         echo json_encode($get);
+        // print_r($get);
+    }
+
+    function getBarChart(){
+        $area_kode=$this->input->post('area_kode');
+        $tahun=$this->input->post('tahun');
+        $get = $this->m_chart->jml_paket($area_kode, $tahun);
+        echo json_encode($get);
+        // print_r($get);
+
+    }
+
+    function getLineChart2(){
+        $paket_jenis=$this->input->post('paket_jenis');
+        $tahun=$this->input->post('tahun');
+        $get = $this->m_chart->jml_pagu_spj($paket_jenis, $tahun);
+        print_r($get);
+        // echo json_encode($get);
     }
 
     function getArea()
@@ -36,5 +55,12 @@ class chart extends CI_Controller
         $get = $this->m_chart->tahun();
         echo json_encode($get);
     }
+
+    function getPaket(){
+        $get = $this->m_chart->getpaket();
+        echo json_encode($get);
+    }
+
+    
 }
 ?>

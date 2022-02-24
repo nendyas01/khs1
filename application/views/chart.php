@@ -48,12 +48,106 @@
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
 }
+
+
+/* membuat bar chart */
+#container2 {
+    height: 400px;
+}
+
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+
+/* membuat line chart pagu kontrak  */
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 360px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
 </style>
 
 <div class="content-wrapper">
   <section class="content-header">
-<<<<<<< HEAD
-    
+
       <h1>
         Data Chart
         <small>Control panel</small>
@@ -62,23 +156,25 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Data Chart</li>
       </ol>
-    </section>
+  </section>
     <section class="content">
         
         <!-- general form elements -->
         <div class="box box-dark">
             <div class="box-header with-border">
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                   <h3 class="box-title">Grafik Pencapaian</h3>
                 </div>
+                
               </div>
+            </div>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <select name="area_kode" class="form-control"></select>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-2">
                   <select name="tahun" class="form-control"></select>
                 </div>
 
@@ -86,22 +182,61 @@
                   <button class="btn btn-success" name="btn-filter">Filter</button>
                 </div>
               </div>
-
+    
             <!-- /.box-header -->
             <div class="row">
               <div class="col-md-6">
                 <div id="container"></div>
               </div>
-
-              <div class="col-md-6">
-                <div id="container-2"></div>
-              </div>
             </div>
 
-          </div>
-          <!-- /.box -->
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-6">
+        
+                      <select name="area_kode" class="form-control"></select>
+                    </div>
+
+                    <div class="col-md-4">
+                      <select name="tahun" class="form-control"></select>
+                    </div>
+
+                    <div class="col-md-1">
+                      <button class="btn btn-success" name="btn-filter">Filter</button>
+                    </div>
+                  </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="container2"></div>
+                  </div>
+               </div>
+
+               <div class="row">
+              <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <select name="tahun" class="form-control"></select>
+                    </div>
+                    <div class="col-md-6">
+                      <select name="paket_jenis" class="form-control"></select>
+                    </div>
+                    <div class="col-md-1">
+                      <button class="btn btn-success" name="btn-filter">Filter</button>
+                    </div>
+                  </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div id="container2"></div>
+                  </div>
+               </div>
+
+
+
     </section>
-  </section>
+  
 </div>
 <script>
 
@@ -188,15 +323,11 @@
               },
               
               xAxis: {
-                  categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                  categories: [data.bulan]
               },
               yAxis: {
                   
-                  // labels: {
-                  //     formatter: function () {
-                  //         return this.value + '°';
-                  //     }
-                  // }
+                  
               },
               tooltip: {
                   crosshairs: true,
@@ -230,49 +361,116 @@
       }
     });
   </script>
-=======
-    <h1>
-      Chart
-      <small>Control panel</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Chart</li>
-    </ol>
-  </section>
 
-  <section class="content">
+  <!-- membuat bar chart -->
+  <script>
+    $(document).ready(function() {  
 
-    <div class="col-lg-3 col-xs-6">
+    getBarChart();
+    getArea();
+    getTahun();
 
-      <div class="small-box bg-red">
-        <div class="inner">
-          <?php foreach ($total_spj as $ts) {
-          ?>
-            <h3><?php echo number_format($ts->total) ?></h3>
-            <p>Total SPJ</p>
-        </div>
-        <div class="icon">
-          <i class="ion ion-pie-graph"></i>
-        </div>
-        <a href="" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-  <?php } ?>
+    $('[name="btn-filter"]').on('click', function () {
+        var area_kode = $('[name="area_kode"]').val();
+        var tahun = $('[name="tahun"]').val();
+        getBarChart(tahun, area_kode); 
+      });
 
-  <div class="col-lg-3 col-xs-6">
+      function getArea() {
+        $.ajax({
+          type: "POST",
+          url: "<?php echo base_url(); ?>/chart/getArea",
+          data: "data",
+          dataType: "JSON",
+          success: function (data) {
+            var html = '';
+            $.each(data, function (i, val) { 
+              html += '<option value="'+val.AREA_KODE+'">'+val.AREA_NAMA+'</option>';
+            });
+            $('[name="area_kode"]').html(html);
+          }
+        });
+      }
 
-    <div class="small-box bg-green">
-      <div class="inner">
-        <h3>53<sup style="font-size: 20px">%</sup></h3>
-        <p>Bounce Rate</p>
-      </div>
-      <div class="icon">
-        <i class="ion ion-stats-bars"></i>
-      </div>
-      <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
+      function getTahun(){
+        $.ajax({
+          type: "POST",
+          url: "<?php echo base_url(); ?>/chart/getTahun",
+          data: "data",
+          dataType: "JSON",
+          success: function (data) {
+            var html = '';
+            $.each(data, function (i, val) { 
+              html += '<option value="'+val.tahun+'">'+val.tahun+'</option>';
+            });
+            $('[name="tahun"]').html(html);
+          }
+        });
+      }
+
+
+    function getBarChart(tahun=null, area_kode=null) {
+      
+
+      $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>/chart/getchart",
+            data: {area_kode:area_kode, tahun:tahun},
+            dataType: "JSON",
+            success: function (data) {
+              // console.log(data);
+                var paket1 = [];
+                var paket2 = [];
+                var paket3 = [];
+                
+                for (var i in data) {
+                paket1.push(parseInt(data[i].total_spj));
+                paket2.push(parseInt(data[i].total_spj));
+                paket3.push(parseInt(data[i].total_spj));
+
+                }
+            // console.log(paket1);
+              Highcharts.chart('container2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Grafik berdasarkan Paket'
+                },
+                xAxis: {
+                    categories: [data.bulan]
+                },
+                yAxis: {
+                    
+                },
+                tooltip: {
+                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                    shared: true
+                },
+                plotOptions: {
+                    // column: {
+                    //     stacking: 'percent'
+                    // }
+                },
+                series: [{
+                    name: 'Paket 3',
+                    data: paket3
+                }, {
+                    name: 'Paket 2',
+                    data: paket2
+                }, {
+                    name: 'Paket 1',
+                    data: paket1
+                }]
+            });
+                            
+            }
+        });
+    }
+  });
+</script>
+
+
 
   <script>
     $(document).ready(function() {
@@ -306,5 +504,6 @@
       $('#modal-detail').modal('hide');
     });
   </script>
-</div>
->>>>>>> 97cf10c512a95de3a91ad6e45e458a6ea023e5c7
+
+  
+
