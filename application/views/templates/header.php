@@ -262,13 +262,13 @@
                   <img src="<?php echo base_url() ?>assets/dist/img/avatar5.png" class="img-circle" alt="User Image">
 
                   <p>
-                    Admin 
-                    
+                    Admin
+
                   </p>
                 </li>
 
                 <!-- Menu Body -->
-               
+
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">

@@ -11,13 +11,26 @@ class inp_pel_khs extends CI_Controller
 
     function index()
     {
-        $data['nomorspj'] = $this->m_inp_pel_khs->getdata();
+        //$data['nomorspj'] = $this->m_inp_pel_khs->getdata();
         $data['areaspj'] = $this->m_inp_pel_khs->getarea();
         //$data['SPJ_NO'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('inp_pel_khs', $data);
         $this->load->view('templates/footer');
+    }
+
+    function get_autocomplete()
+    {
+        if (isset($_GET['term'])) {
+            $result =  $this->m_inp_pel_khs->get_spj($_GET['term']);
+            if (count($result) > 0) {
+                foreach ($result as $row) {
+                    $result_array[] = $row->spj_no;
+                    echo json_encode($result_array);
+                }
+            }
+        }
     }
 
     public function tambah_aksi()

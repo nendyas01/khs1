@@ -114,6 +114,12 @@
                                 </div>
                             </div>
 
+                            <script>
+                                $("#title").autocomplete({
+                                    source: "<?php echo base_url('inp_pel_khs/get_autocomplete') ?>"
+                                });
+                            </script>
+
                             <!-- <script>
                                 $(document).ready(function() {
                                     $('#PAKET_JENIS').change(function() {

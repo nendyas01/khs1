@@ -22,15 +22,26 @@ class m_inp_pel_khs extends CI_Model
         return $query->result();
     } */
 
-    function getdata()
+    /* function getdata()
     {
         $query = $this->db->query("SELECT DISTINCT * FROM tb_spj ORDER BY SPJ_NO ASC");
         return $query->result();
     }
-
+ */
     function getarea()
     {
         $query = $this->db->query("SELECT  * FROM tb_area ORDER BY AREA_NAMA ASC");
         return $query->result();
+    }
+
+    public function get_spj($title)
+    {
+        $this->db->distinct('*');
+        $this->db->from('tb_spj');
+        $this->db->order_by('SPJ_NO', 'ASC');
+        return $this->db->get('spj')->result();
+
+        /* $query = $this->db->query("SELECT DISTINCT * FROM tb_spj ORDER BY SPJ_NO ASC");
+        return $query->result(); */
     }
 }
