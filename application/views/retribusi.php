@@ -21,9 +21,11 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">No Surat Ke PTSP</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="var_no_surat_ptsp">
-                                            <option>- Pilih No Surat Ke PTSP -</option>
-
+                                        <select class="form-control m-b-10" name="var_no_surat_ptsp">
+                                            <option value>-- Pilih No Surat Ke PTSP --</option>
+                                            <?php foreach ($retri as $re) : ?>
+                                                <option value="<?php echo $re->surat_ijin_no; ?>"> <?php echo $re->surat_ijin_no; ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>

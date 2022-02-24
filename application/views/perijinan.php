@@ -1,5 +1,6 @@
 <div class="content-wrapper">
     <section class="content-header">
+
         <h1>
             BA Survey
             <small>Control panel</small>
@@ -17,7 +18,7 @@
                         <font size="2" face="Arial">
                             <form class="form-horizontal tasi-form" method="post">
 
-                                <form class="form-horizontal tasi-form" method="post" action="ba_survey_submit.php" id="ba_survey">
+                                <form class="form-horizontal tasi-form" method="post" action="ba_survey_submit.php">
                                     <section class="panel">
                                         <header class="panel-heading">PERSETUJUAN SURVEY</header>
                                         <div class="panel-body">
@@ -37,10 +38,11 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 col-sm-2 control-label">No. Surat Ke PTSP</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" name="var_no_surat_ptsp" id="var_no_surat_ptsp">
-                                                        <option>- Pilih No Surat Ke PTSP -</option>
-
-                                                        <!--  <input type="text" name="AREA_KODE" class="form-control"> -->
+                                                    <select class="form-control m-b-10" name="var_no_surat_ptsp">
+                                                        <option value>-- Pilih No Surat Ke PTSP --</option>
+                                                        <?php foreach ($perijinan as $ijin) : ?>
+                                                            <option value="<?php echo $ijin->surat_ijin_no; ?>"> <?php echo $ijin->surat_ijin_no; ?></option>
+                                                        <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                             </div>

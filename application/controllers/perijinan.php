@@ -12,46 +12,29 @@ class perijinan extends CI_Controller
 
     public function index()
     {
-        $data['perijinan'] = $this->m_perijinan->survey();
+        $data['perijinan'] = $this->m_perijinan->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('perijinan', $data);
         $this->load->view('templates/footer');
     }
 
-    public function monitoring()
+    public function tambah_aksi()
     {
-        $data['monitoring'] = $this->m_perijinan->monitoring();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('monitoring', $data);
-        $this->load->view('templates/footer');
-    }
+        $surat_ijin_no = $this->input->post('surat_ijin_no');
+        $tgl_survey = $this->input->post('tgl_survey');
+        $hasil_survey = $this->input->post('hasil_survey');
 
-    public function pengajuan()
-    {
-        $data['pengajuan'] = $this->m_perijinan->pengajuan();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('pengajuan', $data);
-        $this->load->view('templates/footer');
-    }
+        $data = array();
+        foreach ($surat_ijin_no as $key => $a) {
+            array_push($data, array(
+                'surat_ijin_no' => $surat_ijin_no[$key],
+                'tgl_survey' => $tgl_survey,
+                'hasil_survey' => $hasil_survey
+            ));
 
-    public function retribusi()
-    {
-        $data['retribusi'] = $this->m_perijinan->retribusi();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('retribusi', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function skrd()
-    {
-        $data['skrd'] = $this->m_perijinan->skrd();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('skrd', $data);
-        $this->load->view('templates/footer');
+            $this->db->insert_batch('tb_ijin', $data);
+            redirect('perijinan');
+        }
     }
 }

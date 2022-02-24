@@ -1,10 +1,7 @@
 <?php
 
-class m_perijinan extends CI_Model
+class m_retribusi extends CI_Model
 {
-    public function survey()
-    {
-    }
 
     function getdata()
     {

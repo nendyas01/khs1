@@ -19,23 +19,26 @@
 
                             <div class="panel-body" onload=disableselect();>
                                 <form class="form-horizontal tasi-form" method="post" action="inp_addendum_submit.php">
+
+                                    <!-- no spj -->
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label col-lg-2">Nomor SPJ</label>
-                                        <div class="col-lg-10">
-                                            <select class="form-control m-b-10" name="SPJ_NO">
-                                                <option value="">-- SPJ --</option>
-                                                <?php foreach ($SPJ_NO as $spj_no) : ?>
-                                                    <option value="<?php echo $spj_no->ADDENDUM_NO; ?>"> <?php echo $spj_no->SPJ_NO; ?></option>
+                                        <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control m-b-10" name="spj_no" id="spj_no">
+                                                <option selected="0">-- NO SPJ --</option>
+                                                <?php foreach ($nomorspj as $n) : ?>
+                                                    <option value="<?php echo $n->SPJ_DESKRIPSI; ?>"> <?php echo $n->SPJ_NO; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label"></label>
                                         <div class="col-sm-10">
 
                                             <div class="col-md-6 form-group">
-                                                <div class="alert alert-info" id="spjdata">
+                                                <div class="alert alert-info" id="spj_data" name="spj_data">
                                                     <strong>Silahkan Memilih No SPJ!</strong>
                                                 </div>
                                             </div>
@@ -86,9 +89,25 @@
                                         <label class="col-sm-2 control-label col-lg-2">SKKI/O Tujuan</label>
                                         <div class="col-lg-10">
                                             <select class="form-control m-b-10" name="var_skki_tujuan" id="skki_tujuan">
-
                                                 <option value="-">- (Pilih Jika SKKI/O Tidak Berubah)</option>
+                                                <?php foreach ($skkio as $skk) : ?>
+                                                    <option value="<?php echo $skk->SKKI_ID; ?>"> <?php echo $skk->SKKI_NO; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Deskripsi</label>
+                                        <div class="col-sm-3">
+                                            <textarea></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                 </section>
@@ -96,19 +115,4 @@
         </div>
     </section><!-- /.content -->
     </aside><!-- /.right-side -->
-
-</div> $current_skki = $data[$i]['SKKI_NO'];
-?>
-<option value='<?php echo $current_skki ?>'><?php echo $current_skki; ?></option><?php
-
-                                                                                    ?>
-</select>
-</div>
-</div>
-
-<div class="form-group">
-    <label class="col-sm-2 col-sm-2 control-label" name="var_deskripsi">Deskripsi</label>
-    <div class="col-sm-3">
-        <textarea></textarea>
-    </div>
 </div>

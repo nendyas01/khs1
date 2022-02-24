@@ -10,8 +10,7 @@ class inp_addendum extends CI_Controller
     }
     function index()
     {
-        /* $data['SPJ_NO'] = $this->m_inp_addendum->tampil_data(); */
-        $data['SPJ_NO'] = $this->m_inp_addendum->getdata();
+        $data['nomorspj'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('inp_addendum');
@@ -27,6 +26,7 @@ class inp_addendum extends CI_Controller
 
     function tambah()
     {
+        $SPJ_NO = $this->input->post('spj_no');
         //$data['progress'] = $this->m_progress->tambah;
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');

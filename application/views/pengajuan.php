@@ -21,11 +21,11 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label">No. SPJ</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="var_no_spj">
-                                            <option>- Pilih No SPJ -</option>
-
-                                            <option value='<?php echo $current_spj_no; ?>'><?php echo $current_spj_no; ?></option>
-
+                                        <select class="form-control m-b-10" name="spj_no" id="spj_no">
+                                            <option selected="0">-- NO SPJ --</option>
+                                            <?php foreach ($nomorspj as $ns) : ?>
+                                                <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
