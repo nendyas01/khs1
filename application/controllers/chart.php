@@ -41,8 +41,8 @@ class chart extends CI_Controller
         $paket_jenis=$this->input->post('paket_jenis');
         $tahun=$this->input->post('tahun');
         $get = $this->m_chart->jml_pagu_spj($paket_jenis, $tahun);
-        print_r($get);
-        // echo json_encode($get);
+        // print_r($get);
+        echo json_encode($get);
     }
 
     function getArea()

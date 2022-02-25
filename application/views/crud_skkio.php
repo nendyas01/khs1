@@ -40,8 +40,9 @@
 
                 <tbody>
                   <?php
-                  //$no = 1;
-                  foreach ($crud_skkio as $cs) {
+                  // $no = 1;
+                  // var_dump($crud_skkio);
+                  foreach ((array)$crud_skkio as $cs) {
                   ?>
                     <tr>
                       <td> <?php echo $cs->SKKI_ID ?></td>

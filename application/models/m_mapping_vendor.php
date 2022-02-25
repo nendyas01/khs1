@@ -110,3 +110,5 @@ class m_mapping_vendor extends CI_Model
         $this->db->delete($table);
     }
 }
+
+

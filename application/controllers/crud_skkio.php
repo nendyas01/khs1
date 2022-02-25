@@ -10,13 +10,14 @@ class crud_skkio extends CI_Controller
     }
     public function index()
     {
-        $data['crud_skkio'] = $this->m_crud_skkio->tampil_data();
+        $data['crud_skkio'] = $this->m_crud_skkio->tampil_data()->result();
         $data['nama_area'] = $this->m_crud_skkio->getdata();
-
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('crud_skkio', $data);
         $this->load->view('templates/footer');
+        // print_r($data);
+        // var_dump($data['crud_skkio']);
     }
 
     public function tambah_aksi()
@@ -93,6 +94,7 @@ class crud_skkio extends CI_Controller
         $this->load->model('m_crud_skkio');
         $detail_crud_skkio = $this->m_crud_skkio->detail_data($SKKI_ID);
         $data['detail_crud_skkio'] = $detail_crud_skkio;
+        $data['crud_skkio'] = $this->m_crud_skkio->tampil_data()->result();
         $data['area'] = $detail_crud_skkio;
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
