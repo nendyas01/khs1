@@ -1,21 +1,21 @@
 <?php
 
 
-class perijinan extends CI_Controller
+class ba_survey extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('m_perijinan');
+        $this->load->model('m_ba_survey');
     }
 
     public function index()
     {
-        $data['perijinan'] = $this->m_perijinan->getdata();
+        $data['ba_survey'] = $this->m_ba_survey->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('perijinan', $data);
+        $this->load->view('ba_survey', $data);
         $this->load->view('templates/footer');
     }
 
@@ -34,7 +34,7 @@ class perijinan extends CI_Controller
             ));
 
             $this->db->insert_batch('tb_ijin', $data);
-            redirect('perijinan');
+            redirect('ba_survey');
         }
     }
 }

@@ -5,7 +5,7 @@ class m_inp_spj_fin extends CI_Model
 
     public function getdata()
     {
-        $query = $this->db->query("SELECT skki_no FROM tb_skko_i WHERE area_kode  AND flag=0");
+        $query = $this->db->query("SELECT DISTINCT * FROM tb_skko_i ORDER BY SKKI_NO ASC");
         return $query->result();
     }
 

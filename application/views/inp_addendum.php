@@ -22,29 +22,29 @@
 
                                     <!-- no spj -->
                                     <div class="form-group">
-                                        <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control m-b-10" name="spj_no" id="spj_no">
-                                                <option selected="0">-- NO SPJ --</option>
+                                        <label class="col-sm-2 control-label col-lg-2">Nomor SPJ</label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control m-b-10" name="var_no_spj" id="spj">
+                                                <option selected="">-- NO SPJ --</option>
                                                 <?php foreach ($nomorspj as $n) : ?>
                                                     <option value="<?php echo $n->SPJ_DESKRIPSI; ?>"> <?php echo $n->SPJ_NO; ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label"></label>
                                         <div class="col-sm-10">
-
                                             <div class="col-md-6 form-group">
-                                                <div class="alert alert-info" id="spj_data" name="spj_data">
+                                                <div class="alert alert-info" id="spjdata">
                                                     <strong>Silahkan Memilih No SPJ!</strong>
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
+
+                                    <!-- nomor addendum -->
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Nomor Addendum</label>
                                         <div class="col-sm-10" id="no_add">
@@ -52,6 +52,7 @@
                                         </div>
                                     </div>
 
+                                    <!--  nilai addendum -->
                                     <div class="form-group">
                                         <label class="col-sm-2 col-sm-2 control-label">Nilai Addendum (Sebelum PPN)</label>
                                         <div class="col-md-2" form-group>
@@ -61,9 +62,10 @@
                                             <input type="text" class="form-control" name="ppn" id="ppn" placeholder="ppn 10%" readonly>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" name="var_nilai_addendum" id="nilai" placeholder="nilai setelah ppn" readonly>
+                                            <input type="text" class="form-control" name="var_nilai_spj" id="nilai" placeholder="nilai setelah ppn" readonly>
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         <label class=" col-sm-2 col-sm-2 control-label">Tanggal Addendum</label>
                                         <div class="col-md-2">
@@ -110,9 +112,85 @@
                                     </div>
                                 </form>
                             </div>
+                        </form>
+                    </div>
                 </section>
             </div>
         </div>
     </section><!-- /.content -->
-    </aside><!-- /.right-side -->
 </div>
+
+<?php include("template/footer.php"); ?>
+
+<script>
+    function dateFormat(date) {
+        var d = date.getDate().toString();
+        d = d.length > 1 ? d : '0' + d;
+        var m = (date.getMonth() + 1).toString();
+        m = m.length > 1 ? m : '0' + m;
+        var y = date.getFullYear().toString();
+        return d + '-' + m + '-' + y;
+    }
+
+    $("#min_ppn").keyup(function(event) {
+        //var nilai = $("#min_ppn").val().replace(/,/g,"");
+        //alert(nilai);
+        //var ppn = (10 / 100) * nilai;
+        //var total = nilai + ppn;
+        $("#ppn").val(Math.floor($("#min_ppn").val().replace(/,/g, "") * 10 / 100).toLocaleString('en'));
+        $("#nilai").val(Math.floor($("#min_ppn").val().replace(/,/g, "") * 110 / 100).toLocaleString('en'));
+    })
+
+    $("#spj").change(function() {
+        var spj = $("#spj").val();
+        var area = "<?php echo $_SESSION['area'] ?>"
+        //alert(spj);
+        //alert(area);
+
+        if (spj == 0) {
+            $("#spjdata").html("<strong>Pilih No SPJ!</strong>");
+        } else {
+            $.getJSON('getspj.php', {
+                'no_spj': spj,
+                'area': area
+            }, function(data) {
+                var showData = "";
+                $.each(data, function(index, value) {
+                    var d_awal = new Date(value.SPJ_TANGGAL_MULAI);
+                    var d_akhir = new Date(value.SPJ_TANGGAL_AKHIR);
+                    var akhir = dateFormat(d_akhir);
+                    var awal = dateFormat(d_awal);
+                    var nilai_spj = numeral(value.SPJ_NILAI);
+                    nilai_spj = nilai_spj.format('0,0');
+                    var paket = value.PAKET_JENIS;
+                    var gangguan = value.gangguan;
+                    //alert(paket);
+                    //if (paket == 11 || paket == 9 || gangguan == 1){
+                    //if (paket == 11 || gangguan == 1){
+                    /*	if (gangguan == 1){
+                    	 document.getElementById("skki_tujuan").disabled = true;
+                    	 //$("#skki_tujuan").html("<option value="">- (Pilih Jika SKKI/O Tidak Berubah)</option>");
+                    	 $("#skki_tujuan").val("-");
+                    }*/
+
+                    //var test = $("#skki_tujuan").val();
+                    //alert (test);
+                    showData += "<table><tr><td>No SPJ</td><td>:</td><td>" + value.SPJ_NO + "</td></tr><tr><td>Nama Vendor</td><td>:</td><td>" + value.VENDOR_NAMA + "</td></tr><tr><td>Nilai SPJ</td><td>:</td><td>Rp." + nilai_spj + "</td></tr><tr><td>Tanggal Awal</td><td>:</td><td>" + awal + "</td></tr><tr><td>Tanggal Akhir</td><td>:</td><td>" + akhir + "</td></tr></table>";
+                })
+                $("#spjdata").html(showData);
+
+            })
+
+            $.getJSON('get_skki.php', {
+                'no_spj': spj
+            }, function(data) {
+
+                $.each(data, function(index, value) {
+                    var skki_awal = value.skki_no;
+                    //alert(skki_awal);
+                    document.getElementById("skki_awal").value = skki_awal;
+                })
+            })
+        }
+    })
+</script>

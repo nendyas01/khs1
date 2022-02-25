@@ -11,9 +11,10 @@ class inp_addendum extends CI_Controller
     function index()
     {
         $data['nomorspj'] = $this->m_inp_addendum->getdata();
+        $data['skkio'] = $this->m_inp_addendum->getskkio();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('inp_addendum');
+        $this->load->view('inp_addendum', $data);
         $this->load->view('templates/footer');
     }
 

@@ -9,7 +9,11 @@ class m_inp_addendum extends CI_Model
         return $query->result();
     }
 
-
+    function getskkio()
+    {
+        $query = $this->db->query("SELECT DISTINCT * FROM tb_skko_i ORDER BY SKKI_NO ASC");
+        return $query->result();
+    }
 
     public function input_data($data, $table)
     {
