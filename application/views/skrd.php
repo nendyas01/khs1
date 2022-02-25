@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?= base_url('assets/dropify/css/') . 'dropify.css'; ?>">
+</head>
+
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
@@ -45,10 +55,37 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-lg-offset-2 col-lg-10">
-                                        <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                                    <div class="row">
+                                        <label class=" col-sm-2 col-sm-2 control-label">Evidence</label>
+                                        <div class="col-md-8">
+
+                                            <?= $this->session->flashdata('message'); ?>
+                                            <form action="" method="post" enctype="multipart/form-data">
+
+                                                <div class="form-group">
+                                                    <input type="file" name="image" class="dropify">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <script src="<?= base_url('assets/bootstrap/jquery/') . 'jquery3.js'; ?>"></script>
+                                <script src="<?= base_url('assets/bootstrap/js/') . 'bootstrap.js'; ?>"></script>
+                                <script src="<?= base_url('assets/dropify/js/') . 'dropify.js'; ?>"></script>
+                                <script>
+                                    $(document).ready(function() {
+                                        $('.dropify').dropify({
+                                            messages: {
+                                                default: 'Drag and drop a file here or click',
+                                                replace: 'Ganti',
+                                                remove: 'Hapus',
+                                                error: 'error'
+                                            }
+                                        });
+                                    });
+                                </script>
 
                             </form>
                         </div>
@@ -57,3 +94,5 @@
             </div>
         </section><!-- /.content -->
 </div>
+
+</html>
