@@ -20,20 +20,41 @@
                             <table id="example" class="table table-striped table-bordered table-responsive" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Nomor SPJ</th>
-                                        <th>Nilai Addendum</th>
-                                        <th>Tanggal Akhir</th>
-                                        <th>Nama Area</th>
-                                        <th>Nama Vendor</th>
-                                        <th>Jenis Pekerjaan</th>
-                                        <th>Deskripsi Pekerjaan</th>
-                                        <th>Progress Pekerjaan</th>
-                                        <th>Target</th>
-                                        <th>Realisasi</th>
+                                        <th>No</th>
+                                        <th>No Pelanggaran</th>
+                                        <th>Tanggal</th>
+                                        <th>Vendor</th>
+                                        <th>Area</th>
+                                        <th>No SPJ</th>
+                                        <th>No KHS</th>
+                                        <th>Paket</th>
+                                        <th>Jenis Pelanggaran</th>
+                                        <th>Status</th>
+                                        <th>Ref</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($list_pelanggaran as $ap) {
+                                    ?>
+                                        <tr>
+                                            <td> <?php echo $no++ ?></td>
+                                            <td> <?php echo $ap->no_pelanggaran ?></td>
+                                            <td> <?php echo $ap->tgl_kejadian ?></td>
+                                            <td> <?php echo $ap->VENDOR_NAMA ?></td>
+                                            <td> <?php echo $ap->AREA_NAMA ?></td>
+                                            <td> <?php echo $ap->no_spj ?></td>
+                                            <td> <?php echo $ap->no_KHS ?></td>
+                                            <td> <?php echo $ap->paket ?></td>
+                                            <td> <?php echo $ap->jenis ?></td>
+                                            <td> <?php echo $ap->status ?></td>
+                                            <td> <?php echo $ap->REF ?></td>
+
+                                        </tr>
+
+                                    <?php } ?>
 
 
                                     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
