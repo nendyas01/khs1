@@ -29,8 +29,8 @@
                                         <th>No KHS</th>
                                         <th>Paket</th>
                                         <th>Jenis Pelanggaran</th>
-                                        <th>Status</th>
-                                        <th>REF</th>
+                                        <th>Evidence 1</th>
+                                        <th>Evidence 2</th>
                                     </tr>
                                 </thead>
 
@@ -47,10 +47,10 @@
                                             <td> <?php echo $ap->AREA_NAMA ?></td>
                                             <td> <?php echo $ap->no_spj ?></td>
                                             <td> <?php echo $ap->no_KHS ?></td>
-                                            <td> <?php echo $ap->paket ?></td>
-                                            <td> <?php echo $ap->jenis ?></td>
-                                            <td> <?php echo $ap->status ?></td>
-                                            <td> <?php echo $ap->REF ?></td>
+                                            <td> <?php echo $ap->PAKET_DESKRIPSI ?></td>
+                                            <td> <?php echo $ap->nama_kel_pelanggaran ?></td>
+                                            <td> <?php echo $ap->evidence2 ?></td>
+                                            <td> <?php echo $ap->evidence1 ?></td>
 
                                         </tr>
 

@@ -6,24 +6,18 @@ class m_approve_pelanggaran extends CI_Model
     {
         $this->db->select(
             '
-        
-        a.no_pelanggaran, 
-        a.tgl_kejadian, 
-        b.VENDOR_NAMA, 
-        c.AREA_NAMA, 
-        a.no_spj, 
-        a.no_KHS,
-            (SELECT d.PAKET_DESKRIPSI from tb_paket d WHERE d.PAKET_JENIS = (SELECT e.PAKET_JENIS from tb_spj e WHERE e.SPJ_NO = a.no_spj) ) as paket,
-            (SELECT f.nama_kel_pelanggaran from tb_master_kelompok_pelanggaran f WHERE f.id_kel_pelanggaran = a.id_kel_pelanggaran) as jenis,
-            (SELECT g.KETERANGAN from tb_status_pelanggaran g WHERE g.STATUS = a.status) as status,
-            "CEK" as REF,
+            a.no_pelanggaran, b.VENDOR_NAMA, a.tgl_kejadian, c.AREA_NAMA, a.no_spj, a.no_KHS, e.PAKET_DESKRIPSI, f.nama_kel_pelanggaran, a.evidence1, a.evidence2  
         '
         );
 
         $this->db->from('tb_pelanggaran_khs a');
         $this->db->from('tb_vendor b');
         $this->db->from('tb_area c');
-        $this->db->where('a.id_vendor = b.VENDOR_ID and a.area_kode = c.AREA_KODE');
+        $this->db->from('tb_spj d');
+        $this->db->from('tb_paket e');
+        $this->db->from('tb_master_kelompok_pelanggaran f');
+        $this->db->where('a.id_vendor = b.VENDOR_ID and a.area_kode = c.AREA_KODE and a.no_spj = d.SPJ_NO and d.PAKET_JENIS = e.PAKET_JENIS and a.id_kel_pelanggaran = f.id_kel_pelanggaran and a.status = 1');
+        $this->db->order_by('no_pelanggaran');
 
         $query = $this->db->get();
         $result = $query->result();
