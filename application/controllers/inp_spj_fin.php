@@ -14,7 +14,7 @@ class inp_spj_fin extends CI_Controller
         $data['jenis_paket'] = $this->m_inp_spj_fin->getpaket();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('inp_spj_fin');
+        $this->load->view('inp_spj_fin', $data);
         $this->load->view('templates/footer');
     }
 }

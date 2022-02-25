@@ -23,11 +23,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="surat_ptsp">Surat PTSP</label>
-                                    <input type="text" class="form-control" placeholder="Surat PTSP" name="no_surat_ptsp" id="no_surat_ptsp">
+                                    <input type="text" class="form-control" placeholder="No Surat PTSP" name="no_surat_ptsp" id="no_surat_ptsp">
                                 </div>
                                 <div class="form-group">
                                     <label for="surat_spj">Surat SPJ</label>
-                                    <input type="text" class="form-control" placeholder="Surat SPJ" name="no_spj" id="no_spj">
+                                    <input type="text" class="form-control" placeholder="No SPJ" name="no_spj" id="no_spj">
                                 </div>
 
                                 <button type="submit" class="btn btn-info"><a href="/khs/monitoring_perijinan.php"></a>Submit</button>

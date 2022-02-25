@@ -69,130 +69,133 @@
                                     <label class="col-sm-2 control-label col-lg-2">Nomor SKKI/O</label>
                                     <div class="col-lg-10">
                                         <select class="form-control m-b-10" name="var_no_skkio">
-                                            <option value>-- SKKI/SKKO --</option>
+                                            <option value="">-- SKKI/SKKO --</option>
                                             <?php foreach ($skk as $sk) : ?>
                                                 <option value="<?php echo $sk->SKKI_ID; ?>"> <?php echo $sk->SKKI_NO; ?></option>
                                             <?php endforeach; ?>
 
                                         </select>
                                     </div>
+
+
+                                    <!-- Textbox Jenis Pekerjaan -->
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Jenis Pekerjaan</label>
+                                        <div class="col-sm-3">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="gangguan" value="0"> Non Gangguan
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="gangguan" value="1"> Gangguan
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Textbox Paket Pekerjaan -->
+                                    <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Paket Pekerjaan</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control m-b-10" id="paket" name="var_paket_pekerjaan">
+                                            <option value="0">Pilih Paket</option>
+                                            <?php foreach ($jenis_paket as $jp) : ?>
+                                                <option value="<?php echo $jp->PAKET_JENIS; ?>"> <?php echo $jp->PAKET_DESKRIPSI; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <!-- Textbox Jenis Pekerjaan -->
+                                <!-- tahun skarang date('Y'); -->
+                                <div id="update"></div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 col-sm-2 control-label">Jenis Pekerjaan</label>
+                                    <label class="col-sm-2 col-sm-2 control-label">Vendor Yang Tersedia</label>
+                                    <div class="col-sm-10">
+                                        <table id="availablevendor" class="table table-condensed">
+                                            <tr>
+                                                <td>Pilih Paket Pekerjaan</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label" name="var_deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
                                     <div class="col-sm-3">
+                                        <textarea rows="3" cols="123" name="var_deskripsi_pekerjaan"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Nomor SPJ</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="var_no_spj">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Target Volume</label>
+                                    <div class="col-sm-2">
+                                        <div class="input-group m-b-10">
+                                            <input type="text" class="form-control" name="var_target" id="target">
+                                            <span class="input-group-addon" id="satuan"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">Metode Pembayaran</label>
+                                    <div class="col-sm-2">
                                         <label class="radio-inline">
-                                            <input type="radio" name="gangguan" value="0"> Non Gangguan
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" name="gangguan" value="1"> Gangguan
+                                            <input type="radio" name="option_bayar" id="termin" value="1" onClick="javascript:check_termin();">Termin
                                         </label>
                                     </div>
                                 </div>
 
-                                <!-- Textbox Paket Pekerjaan -->
-                                <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Paket Pekerjaan</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control m-b-10" id="paket" name="var_paket_pekerjaan">
-                                        <option value="0">Pilih Paket</option>
-
-                                </div>
-                            </div>
-
-                            <!-- tahun skarang date('Y'); -->
-                            <div id="update"></div>
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Vendor Yang Tersedia</label>
-                                <div class="col-sm-10">
-                                    <table id="availablevendor" class="table table-condensed">
-                                        <tr>
-                                            <td>Pilih Paket Pekerjaan</td>
-                                        </tr>
-
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label" name="var_deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
-                                <div class="col-sm-3">
-                                    <textarea rows="3" cols="123" name="var_deskripsi_pekerjaan"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Nomor SPJ</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="var_no_spj">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Target Volume</label>
-                                <div class="col-sm-2">
-                                    <div class="input-group m-b-10">
-                                        <input type="text" class="form-control" name="var_target" id="target">
-                                        <span class="input-group-addon" id="satuan"></span>
+                                <div class="form-group" id="termin_group" style="display:none;">
+                                    <label class="col-sm-2 col-sm-2 control-label"></label>
+                                    <div class="col-md-1" form-group>
+                                        <input type="text" class="form-control" name="var_termin_1" id="termin1">
+                                    </div>
+                                    <div class="col-md-1" form-group>
+                                        <input type="text" class="form-control" name="var_termin_2" id="termin2">
+                                    </div>
+                                    <div class="col-md-1" form-group>
+                                        <input type="text" class="form-control" name="var_termin_3" id="termin3">
+                                    </div>
+                                    <div class="col-md-1" form-group>
+                                        <input type="text" class="form-control" name="var_termin_4" id="termin4">
+                                    </div>
+                                    <div class="col-md-1" form-group>
+                                        <input type="text" class="form-control" name="var_termin_5" id="termin5">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label"></label>
+                                    <div class="col-sm-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="option_bayar" id="non_termin" value="0" onClick="javascript:check_termin();">Non Termin
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 col-sm-2 control-label">SPJ Berlaku Mulai</label>
+                                    <div class="col-md-2">
+                                        <input type="date" class="form-control" name="var_mulai_berlaku" id="var_mulai_berlaku">
+                                    </div>
+
+                                    <label class=" col-sm-2 col-sm-2 control-label">Sampai Dengan</label>
+                                    <div class="col-md-2">
+                                        <input type="date" class="form-control" name="var_akhir_berlaku" id="var_akhir_berlaku">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button type="submit" class="btn btn-info" onClick="document.getElementById('submitForm').submit()">Submit</button>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">Metode Pembayaran</label>
-                                <div class="col-sm-2">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="option_bayar" id="termin" value="1" onClick="javascript:check_termin();">Termin
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="termin_group" style="display:none;">
-                                <label class="col-sm-2 col-sm-2 control-label"></label>
-                                <div class="col-md-1" form-group>
-                                    <input type="text" class="form-control" name="var_termin_1" id="termin1">
-                                </div>
-                                <div class="col-md-1" form-group>
-                                    <input type="text" class="form-control" name="var_termin_2" id="termin2">
-                                </div>
-                                <div class="col-md-1" form-group>
-                                    <input type="text" class="form-control" name="var_termin_3" id="termin3">
-                                </div>
-                                <div class="col-md-1" form-group>
-                                    <input type="text" class="form-control" name="var_termin_4" id="termin4">
-                                </div>
-                                <div class="col-md-1" form-group>
-                                    <input type="text" class="form-control" name="var_termin_5" id="termin5">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label"></label>
-                                <div class="col-sm-2">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="option_bayar" id="non_termin" value="0" onClick="javascript:check_termin();">Non Termin
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 col-sm-2 control-label">SPJ Berlaku Mulai</label>
-                                <div class="col-md-2">
-                                    <input type="date" class="form-control" name="var_mulai_berlaku" id="var_mulai_berlaku">
-                                </div>
-
-                                <label class=" col-sm-2 col-sm-2 control-label">Sampai Dengan</label>
-                                <div class="col-md-2">
-                                    <input type="date" class="form-control" name="var_akhir_berlaku" id="var_akhir_berlaku">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
-                                    <button type="submit" class="btn btn-info" onClick="document.getElementById('submitForm').submit()">Submit</button>
-                                </div>
-                            </div>
-
                         </form>
                     </div>
 
@@ -203,3 +206,80 @@
 
     </section>
 </div>
+
+<?php include("template/footer.php"); ?>
+
+<script>
+    $("#paket").change(function() {
+        var paket = $("#paket").val();
+        var area = $("#lokasi").val();
+        var nilai = $("#nilai").val();
+        var gangguan = $('input[name=gangguan]:checked').val();
+        //alert(gangguan);
+        if (paket == 0) {
+            $("#availablevendor").html("<tr><td>Pilih Paket Pekerjaan</label></td></tr>");
+        } else {
+            $.getJSON('getdata.php', {
+                'paket_jenis': paket,
+                'area': area,
+                'nilai': nilai,
+                'gangguan': gangguan
+            }, function(data) {
+                var showData = null;
+                $.each(data, function(index, value) {
+                    var limit = numeral(value.fin_limit).format('0,0');
+                    var sisa = numeral(value.sisa).format('0,0');
+                    var kontrak = numeral(value.PAGU_KONTRAK).format('0,0');
+                    var terpakai = (value.TERPAKAI / value.PAGU_KONTRAK) * 100;
+                    showData += '<tr><td><input type="radio" name="var_vendor" id="optionsRadios1" value="' + value.vendor_id + '"></td><td>' + value.vendor_nama + '</td><td> Limit : Rp.' + limit + '</td><td> Sisa : Rp.' + sisa + '</td><td> Pagu Kontrak : Rp.' + kontrak + '</td><td> Pagu Kontrak Terpakai : ' + terpakai.toPrecision(3) + ' %</td></tr>';
+                    //showData += "<option>"+value.vendor_nama+"</option>";
+                })
+
+                if (showData == null) {
+                    showData = '<tr><td><i>TIDAK ADA VENDOR YANG TERSEDIA</i></td></tr>';
+                }
+                $("#availablevendor").html(showData);
+            })
+
+            $.getJSON('get_satuan.php', {
+                'paket_jenis': paket
+            }, function(data) {
+
+                //alert(data);
+                //$("#target").val(data);
+                span = document.getElementById("satuan");
+                var str = JSON.stringify(data);
+                var satuan_json = str.replace('[["', " ").replace('"]]', " ");
+                span.innerText = satuan_json;
+                //alert(satuan_json);
+            })
+        }
+
+
+    })
+
+    $("#min_ppn").change(function() {
+        $("#availablevendor").html("<tr><td>Pilih Paket Pekerjaan</label></td></tr>");
+    })
+
+    $("input[name=gangguan]:radio").change(function() {
+        $("#availablevendor").html("<tr><td>Pilih Paket Pekerjaan</label></td></tr>");
+    })
+
+    $("#min_ppn").keyup(function(event) {
+        //var nilai = $("#min_ppn").val().replace(/,/g,"");
+        //alert(nilai);
+        //var ppn = (10 / 100) * nilai;
+        //var total = nilai + ppn;
+        $("#ppn").val(Math.floor($("#min_ppn").val().replace(/,/g, "") * 10 / 100).toLocaleString('en'));
+        $("#nilai").val(Math.floor($("#min_ppn").val().replace(/,/g, "") * 110 / 100).toLocaleString('en'));
+    })
+
+    function check_termin() {
+        if (document.getElementById('termin').checked) {
+            document.getElementById('termin_group').style.display = 'block';
+        } else document.getElementById('termin_group').style.display = 'none';
+    }
+</script>
+
+</html>
