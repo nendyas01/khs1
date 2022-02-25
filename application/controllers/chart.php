@@ -25,6 +25,7 @@ class chart extends CI_Controller
         // $tahun=2019;
         $get = $this->m_chart->jumlah_gangguan($area_kode, $tahun);
         echo json_encode($get);
+        // echo $this->db->last_query($get);
         // print_r($get);
     }
 

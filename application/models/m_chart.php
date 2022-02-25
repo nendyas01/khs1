@@ -35,7 +35,7 @@ function getpaket(){
 
 
 function jumlah_gangguan($area_kode, $tahun){
-    $this->db->select('MONTH(SPJ_TANGGAL_MULAI) as bulan, YEAR(SPJ_TANGGAL_MULAI) as tahun');
+    $this->db->select('MONTH(SPJ_TANGGAL_MULAI) as bulan, MONTHNAME(SPJ_TANGGAL_MULAI) as nama_bulan,  YEAR(SPJ_TANGGAL_MULAI) as tahun');
     $this->db->select("count(IF(gangguan = 0, 1, NULL)) as total_gangguan"); 
     $this->db->select("count(IF(gangguan = 1, 1, NULL)) as total_tidak_gangguan"); 
     $this->db->from('tb_spj');
@@ -55,10 +55,14 @@ function jumlah_gangguan($area_kode, $tahun){
 
 function jml_paket($area_kode, $tahun){
 
-    $hasil = $this->db->query("SELECT MONTH (s.SPJ_TANGGAL_MULAI) as bulan, YEAR (s.SPJ_TANGGAL_MULAI) as tahun, 
-    s.SPJ_NILAI, count(s.SPJ_NO) as total_spj, p.PAKET_DESKRIPSI FROM
-    tb_spj s join tb_paket p on p.PAKET_JENIS=s.PAKET_JENIS where p.STATUS=1 group by p.PAKET_JENIS, bulan");
-    
+    $this->db->select('MONTH(SPJ_TANGGAL_MULAI) as bulan, MONTHNAME(SPJ_TANGGAL_MULAI) as nama_bulan,  YEAR(SPJ_TANGGAL_MULAI) as tahun, s.SPJ_NILAI');
+    $this->db->select("count(IF(p.PAKET_JENIS = 13, 1, NULL)) as paket_1"); 
+    $this->db->select("count(IF(p.PAKET_JENIS = 14, 1, NULL)) as paket_2"); 
+    $this->db->select("count(IF(p.PAKET_JENIS = 15, 1, NULL)) as paket_3"); 
+    $this->db->from('tb_spj as s');
+    $this->db->join('tb_paket as p', 'p.PAKET_JENIS=s.PAKET_JENIS', 'LEFT');
+    $this->db->where('p.status', 1);
+    $this->db->group_by(array('MONTH(s.SPJ_TANGGAL_MULAI)'));
 
     if (!empty($area_kode)) {
         $this->db->where('AREA_KODE', $area_kode);
@@ -67,7 +71,7 @@ function jml_paket($area_kode, $tahun){
     if (!empty($tahun)) {
         $this->db->where('YEAR(s.SPJ_TANGGAL_MULAI)', $tahun);
     }
-    return $hasil->result();
+    return $this->db->get()->result();
     // $this->db->group_by('bulan');
     // return $this->db->get()->result(); 
 
