@@ -78,7 +78,7 @@ function jml_paket($area_kode, $tahun){
 }
 
 function jml_pagu_spj(){
-    $this->db->select('YEAR(a.SPJ_TANGGAL_MULAI) AS tahun , c.VENDOR_NAMA, b.PAKET_JENIS,
+    $this->db->select('YEAR(a.SPJ_TANGGAL_MULAI) AS tahun , c.VENDOR_NAMA, b.PAKET_JENIS, c.VENDOR_NAMA as nama_vendor,
     SUM(a.SPJ_NILAI) AS total_spj_nilai,SUM(b.PAGU_KONTRAK) AS total_pagu');
     $this->db->from('tb_spj a');
     $this->db->join('tb_pagu_kontrak b', 'b.PAKET_JENIS=a.PAKET_JENIS');
