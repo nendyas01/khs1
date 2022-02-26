@@ -23,7 +23,7 @@ function tahun(){
 }
 
 function getpaket(){
-    $query = $this->db->query("SELECT * FROM tb_paket ORDER BY PAKET_NAMA ASC");
+    $query = $this->db->query("SELECT * FROM tb_paket ORDER BY PAKET_DESKRIPSI ASC");
     return $query->result();
 }
 // function jml(){
@@ -77,7 +77,7 @@ function jml_paket($area_kode, $tahun){
 
 }
 
-function jml_pagu_spj(){
+function jml_pagu_spj($paket_jenis, $tahun){
     $this->db->select('YEAR(a.SPJ_TANGGAL_MULAI) AS tahun , c.VENDOR_NAMA, b.PAKET_JENIS, c.VENDOR_NAMA as nama_vendor,
     SUM(a.SPJ_NILAI) AS total_spj_nilai,SUM(b.PAGU_KONTRAK) AS total_pagu');
     $this->db->from('tb_spj a');
@@ -85,7 +85,7 @@ function jml_pagu_spj(){
     $this->db->join('tb_vendor c', 'c.VENDOR_ID=a.VENDOR_ID');
 
     if (!empty($paket_jenis)) {
-        $this->db->where('PAKET_JENIS', $paket_jenis);
+        $this->db->where('b.PAKET_JENIS', $paket_jenis);
     }
 
     if (!empty($tahun)) {

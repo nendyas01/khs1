@@ -60,6 +60,7 @@ class chart extends CI_Controller
     function getPaket(){
         $get = $this->m_chart->getpaket();
         echo json_encode($get);
+        // var_dump($get);
     }
 
     

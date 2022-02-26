@@ -97,10 +97,10 @@
                     <select name="tahun" class="form-control tahun"></select>
                   </div>
                   <div class="col-md-6">
-                    <select name="paket_jenis" class="form-control paket_jenis"></select>
+                    <select name="paket_jenis" class="form-control paket"></select>
                   </div>
                   <div class="col-md-1">
-                    <button class="btn btn-success" name="btn-filters-line-chart2">Filter</button>
+                    <button class="btn btn-success" name="btn-filter-line-chart2">Filter</button>
                   </div>
                 </div>
 
@@ -126,6 +126,7 @@
       getChart();
       getArea();
       getTahun();
+      getPaket();
 
       $('[name="btn-filter"]').on('click', function () {
         var area_kode = $('[name="area_kode"]').val();
@@ -154,6 +155,7 @@
         });
       }
 
+
       function getTahun(){
         $.ajax({
           type: "POST",
@@ -168,6 +170,22 @@
             $('.tahun').html(html);
           }
         });
+      }
+
+      function getPaket(){
+          $.ajax({
+              type: "POST",
+              url: "<?php echo base_url(); ?>/chart/getPaket",
+              data: "data",
+              dataType: "JSON",
+              success: function (data) {
+                  var html = '';
+                  $.each(data, function (i, val) { 
+                  html += '<option value="'+val.PAKET_JENIS+'">'+val.PAKET_DESKRIPSI+'</option>';
+                  });
+                  $('.paket').html(html);
+              }
+          });
       }
 
       function getChart(tahun=null, area_kode=null) {
@@ -239,11 +257,11 @@
 
       getBarChart();
 
-      $('[name="btn-filter-bar-chart"]').on('click', function () {
-        var area_kode = $('[name="area_kode"]').val();
-        var tahun = $('[name="tahun"]').val();
-        getBarChart(tahun, area_kode); 
-      });
+      // $('[name="btn-filter-bar-chart"]').on('click', function () {
+      //   var area_kode = $('[name="area_kode"]').val();
+      //   var tahun = $('[name="tahun"]').val();
+      //   getBarChart(tahun, area_kode); 
+      // });
 
 
       function getBarChart(tahun=null, area_kode=null) {
@@ -312,30 +330,21 @@
       }
 
       getLineChart2();
-      getPaket();
+      // getPaket();
 
-      function getPaket(){
-          $.ajax({
-              type: "POST",
-              url: "<?php echo base_url(); ?>/chart/getPaket",
-              data: "data",
-              dataType: "JSON",
-              success: function (data) {
-                  var html = '';
-                  $.each(data, function (i, val) { 
-                  html += '<option value="'+val.PAKET_JENIS+'">'+val.PAKET_NAMA+'</option>';
-                  });
-                  $('.paket').html(html);
-              }
-          });
-      }
+      $('[name="btn-filter-line-chart2"]').on('click', function () {
+        var paket_jenis = $('[name="paket_jenis"]').val();
+        var tahun = $('[name="tahun"]').val();
+        getLineChart2(tahun, paket_jenis); 
+      });
 
-      function getLineChart2(tahun=null, paket=null){
+
+      function getLineChart2(tahun=null, paket_jenis=null){
           $.ajax({
               url: "<?php echo base_url(); ?>/chart/getLineChart2",
               method: "POST",
               async: false,
-              data:{paket:paket, tahun:tahun},
+              data:{paket_jenis:paket_jenis, tahun:tahun},
               dataType: 'JSON',
               success: function(data) {     
                   var pagu = [];
