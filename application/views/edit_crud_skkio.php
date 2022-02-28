@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content">
         <?php foreach ($crud_skkio as $cs) { ?>
-            <form action="<?php echo base_url() . 'crud_skkio/update'; ?>" method="post">
+            <form action="<?php echo base_url() . 'crud_skkio/update/'.$SKKI_ID; ?>" method="post">
                 <div class="form-group">
                     <label>No</label>
                     <input type="text" name="SKKI_ID" class="form-control" value="<?php echo $cs->SKKI_ID ?>">
@@ -32,12 +32,12 @@
 
                 <div class="form-group">
                     <label>SKKI NILAI</label>
-                    <input type="number_format" name="SKKI_NILAI" class="form-control" value="<?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?>">
+                    <input type="number_format" name="SKKI_NILAI" class="form-control" value="<?php echo $cs->SKKI_NILAI?>">
                 </div>
 
                 <div class="form-group">
                     <label>SKKI_TERPAKAI</label>
-                    <input type="number_format" name="SKKI_TERPAKAI" class="form-control" value="<?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?>">
+                    <input type="number_format" name="SKKI_TERPAKAI" class="form-control" value="<?php echo $cs->SKKI_TERPAKAI?>">
                 </div>
 
                 <div class="form-group">
