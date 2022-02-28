@@ -10,6 +10,64 @@
         </ol>
     </section>
     <section class="content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <section class="panel">
+                    <header class="panel-heading">Search Criteria</header>
+                    <div class="panel-body">
+                        <form role="form">
+
+                            <!-- <div class="form-group">
+                                <label for="lokasi_ijin">Lokasi Perijinan</label>
+                                <input type="text" class="form-control" placeholder="Lokasi Perijinan" name="lokasi_ijin" id="lokasi_ijin">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="surat_ptsp">Surat PTSP</label>
+                                <input type="text" class="form-control" placeholder="No Surat PTSP" name="no_surat_ptsp" id="no_surat_ptsp">
+                            </div> -->
+
+                            <div class="form-group">
+                                <label for="area">Area</label>
+                                <!-- <label class="col-sm-2 control-label col-lg-2">Area</label> -->
+                                <!-- <div class="col-lg-10"> -->
+                                <select class="form-control m-b-10" name="KODEAREA">
+                                    <option value>-- Area --</option>
+                                    <?php foreach ($areaspj as $na) : ?>
+                                        <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="vendor">Nama Vendor</label>
+                                <!--  <label class=" col-sm-2 col-sm-2 control-label">Nama Vendor</label> -->
+                                <!-- <div class="col-lg-10"> -->
+                                <input type="text" class="form-control" name="vendor" id="vendor" placeholder="Nama Vendor">
+                            </div>
+
+
+                            <!-- <div class="form-group">
+                                <label for="Vendor">Nama Vendor</label>
+                                <input type="text" class="form-control" placeholder="Vendor" name="vendor">
+                            </div> -->
+
+                            <!-- <div class="form-group">
+                                <div class="col-sm-2 control-label col-lg-2">
+                                    <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                                </div>
+                            </div> -->
+
+                            <button type="submit" class="btn btn-info"><a href="/khs/kecepatan_kerja.php"></a>Submit</button>
+
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-12">
                 <section class="panel">

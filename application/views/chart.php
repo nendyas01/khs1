@@ -67,7 +67,7 @@
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row mb-5 mt-5">
                   <div class="col-md-12"
                     <figure class="highcharts-figure">
                       <div id="container2"></div>
@@ -78,9 +78,9 @@
             </div>
 
             <!-- <div class="row">
-              
+            
           </div> -->
-        <div class="box box-dark">
+        <div class="box box-dark mt-5">
             <div class="box-header with-border">
               <div class="row">
                 <div class="col-md-6">
@@ -106,6 +106,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
+                  
                     <div id="container3"></div>
                   </div>
                 </div>
@@ -126,7 +127,7 @@
       getChart();
       getArea();
       getTahun();
-      getPaket();
+      // getPaket();
 
       $('[name="btn-filter"]').on('click', function () {
         var area_kode = $('[name="area_kode"]').val();
@@ -172,18 +173,22 @@
         });
       }
 
-      function getPaket(){
+      function getPaket(tahun){
           $.ajax({
-              type: "POST",
-              url: "<?php echo base_url(); ?>/chart/getPaket",
+              type: "GET",
+              url: "<?php echo base_url(); ?>/chart/getPaket?tahun="+tahun,
               data: "data",
               dataType: "JSON",
               success: function (data) {
+                console.log(data)
                   var html = '';
                   $.each(data, function (i, val) { 
                   html += '<option value="'+val.PAKET_JENIS+'">'+val.PAKET_DESKRIPSI+'</option>';
                   });
                   $('.paket').html(html);
+              },
+              error: (error) => {
+                console.log(error)
               }
           });
       }
@@ -257,11 +262,11 @@
 
       getBarChart();
 
-      // $('[name="btn-filter-bar-chart"]').on('click', function () {
-      //   var area_kode = $('[name="area_kode"]').val();
-      //   var tahun = $('[name="tahun"]').val();
-      //   getBarChart(tahun, area_kode); 
-      // });
+      $('[name="btn-filter-bar-chart"]').on('click', function () {
+        var area_kode = $('[name="area_kode"]').val();
+        var tahun = $('[name="tahun"]').val();
+        getBarChart(tahun, area_kode); 
+      });
 
 
       function getBarChart(tahun=null, area_kode=null) {
@@ -338,6 +343,9 @@
         getLineChart2(tahun, paket_jenis); 
       });
 
+      $('[name="tahun"]').on('change', ((e)=>{
+        getPaket($(e.target).val())
+      }))
 
       function getLineChart2(tahun=null, paket_jenis=null){
           $.ajax({
@@ -346,7 +354,7 @@
               async: false,
               data:{paket_jenis:paket_jenis, tahun:tahun},
               dataType: 'JSON',
-              success: function(data) {     
+              success: function(data) {   
                   var pagu = [];
                   var spj = [];
                   var vendor = [];
@@ -356,7 +364,6 @@
                   pagu.push(parseInt(data[i].total_pagu));
                   spj.push(parseInt(data[i].total_spj_nilai));
                   }
-
                   Highcharts.chart('container3', {
 
                       title: {
@@ -375,8 +382,8 @@
 
                       xAxis: {
                           accessibility: {
-                              rangeDescription: 'nama_vendor'
-                          }
+                              rangeDescription: 'Nama vendor',
+                          },
                       },
 
                       legend: {
@@ -390,7 +397,7 @@
                               label: {
                                   connectorAllowed: false
                               },
-                              // pointStart: 2010
+                              pointStart: 1
                           }
                       },
 

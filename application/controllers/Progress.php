@@ -11,6 +11,7 @@ class progress extends CI_Controller
     function index()
     {
         $data['progress'] = $this->m_progress->tampil_data();
+        $data['areaspj'] = $this->m_progress->getarea();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('progress', $data);
