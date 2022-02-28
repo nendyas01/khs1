@@ -40,4 +40,10 @@ class m_progress extends CI_Model
         $this->db->like('SPJ_NO', $keyword);
         return $this->db->get->result();
     }
+
+    public function getarea()
+    {
+        $query = $this->db->query("SELECT  * FROM tb_area ORDER BY AREA_NAMA ASC");
+        return $query->result();
+    }
 }
