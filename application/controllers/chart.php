@@ -58,9 +58,9 @@ class chart extends CI_Controller
     }
 
     function getPaket(){
-        $get = $this->m_chart->getpaket();
+        $tahun = $this->input->get('tahun');
+        $get = $this->m_chart->getpaket2($tahun);
         echo json_encode($get);
-        // var_dump($get);
     }
 
     

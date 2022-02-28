@@ -49,6 +49,12 @@ class m_crud_skkio extends CI_Model
         $this->db->update($table, $data);
     }
 
+    public function insert_hasil_edit($where, $data, $table)
+    {
+        $this->db->where($where);
+        $this->db->get_where($table, $data);
+    }
+
     public function detail_data($SKKI_ID = NULL)
     {
 

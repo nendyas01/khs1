@@ -26,6 +26,18 @@ function getpaket(){
     $query = $this->db->query("SELECT * FROM tb_paket ORDER BY PAKET_DESKRIPSI ASC");
     return $query->result();
 }
+function getpaket2($tahun){
+    $query = $this->db->query("SELECT * FROM tb_paket INNER JOIN tb_spj ON tb_spj.PAKET_JENIS = tb_paket.PAKET_JENIS
+    WHERE YEAR(tb_spj.SPJ_TANGGAL_MULAI) = '$tahun' GROUP BY tb_paket.PAKET_DESKRIPSI");
+
+    // $this->db->select('tb_paket.PAKET_DESKRIPSI');
+    // $this->db->from('tb_spj');
+    // $this->db->join('tb_paket', 'tb_paket.PAKET_JENIS = tb_spj.PAKET_JENIS');
+    // $this->db->where('tb_spj.SPJ_TANGGAL_MULAI', 2016);
+    // // $this->db->group_by('tb_paket.PAKET_DESKRIPSI');
+    // return $this->db->get()->result();
+    return $query->result();
+}
 // function jml(){
 //     $this->db->select('AREA_KODE, COUNT(SPJ_NO) as total_spj');
 //     $this->db->from('tb_spj');
@@ -83,6 +95,7 @@ function jml_pagu_spj($paket_jenis, $tahun){
     $this->db->from('tb_spj a');
     $this->db->join('tb_pagu_kontrak b', 'b.PAKET_JENIS=a.PAKET_JENIS');
     $this->db->join('tb_vendor c', 'c.VENDOR_ID=a.VENDOR_ID');
+    // $this->db->where('YEAR(a.SPJ_TANGGAL_MULAI) AS tahun');
 
     if (!empty($paket_jenis)) {
         $this->db->where('b.PAKET_JENIS', $paket_jenis);
