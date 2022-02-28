@@ -36,7 +36,25 @@
                                 </thead>
 
                                 <tbody>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($list_sanksi as $ls) {
+                                    ?>
+                                        <tr>
+                                            <td> <?php echo $no++ ?></td>
+                                            <td> <?php echo $ap->vendor ?></td>
+                                            <td> <?php echo $ap->no_khs ?></td>
+                                            <td> <?php echo $ap->paket ?></td>
+                                            <td> <?php echo $ap->ZONE ?></td>
+                                            <td> <?php echo $ap->TT1 ?></td>
+                                            <td> <?php echo $ap->TT2 ?></td>
+                                            <td> <?php echo $ap->P1 ?></td>
+                                            <td> <?php echo $ap->P2 ?></td>
+                                            <td> <?php echo $ap->P3 ?></td>
 
+                                        </tr>
+
+                                    <?php } ?>
 
                                     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
                                     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
