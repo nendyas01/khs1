@@ -54,17 +54,42 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">File Sanksi *</label>
                                 <div class="col-lg-10">
-                                    <input type="file" name="var_file_sanksi">
-                                    <p class="help-block">* : surat sudah bertanda tangan dan berstempel</p>
+                                    <?= $this->session->flashdata('message'); ?>
+                                    <form action="" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-group">
+                                            <input type="file" name="image" class="dropify">
+                                        </div>
+
+
+                                        <p class="help-block">* : surat sudah bertanda tangan dan berstempel</p>
                                 </div>
                             </div>
                             <input type="hidden" name="id_vendor" id="id_vendor">
                             <input type="hidden" name="no_spj" id="no_spj">
+
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+
+                            <script src="<?= base_url('assets/bootstrap/jquery/') . 'jquery3.js'; ?>"></script>
+                            <script src="<?= base_url('assets/bootstrap/js/') . 'bootstrap.js'; ?>"></script>
+                            <script src="<?= base_url('assets/dropify/js/') . 'dropify.js'; ?>"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    $('.dropify').dropify({
+                                        messages: {
+                                            default: 'Drag and drop a file here or click',
+                                            replace: 'Ganti',
+                                            remove: 'Hapus',
+                                            error: 'error'
+                                        }
+                                    });
+                                });
+                            </script>
+
                         </form>
                     </div>
                 </section>

@@ -54,7 +54,17 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">File Sanksi *</label>
                                 <div class="col-lg-10">
-                                    <input type="file" name="var_file_sanksi">
+                                    <!-- <input type="file" name="var_file_sanksi"> -->
+
+                                    <?= $this->session->flashdata('message'); ?>
+                                    <form action="" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-group">
+                                            <input type="file" name="image" class="dropify">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+
                                     <p class="help-block">* : surat sudah bertanda tangan dan berstempel</p>
                                 </div>
                             </div>
@@ -68,6 +78,22 @@
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+
+                            <script src="<?= base_url('assets/bootstrap/jquery/') . 'jquery3.js'; ?>"></script>
+                            <script src="<?= base_url('assets/bootstrap/js/') . 'bootstrap.js'; ?>"></script>
+                            <script src="<?= base_url('assets/dropify/js/') . 'dropify.js'; ?>"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    $('.dropify').dropify({
+                                        messages: {
+                                            default: 'Drag and drop a file here or click',
+                                            replace: 'Ganti',
+                                            remove: 'Hapus',
+                                            error: 'error'
+                                        }
+                                    });
+                                });
+                            </script>
 
                         </form>
                     </div>

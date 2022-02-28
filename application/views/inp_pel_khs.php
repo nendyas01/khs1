@@ -94,31 +94,69 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label col-lg-2">Evidence 1</label>
-                                <div class="col-lg-10">
-                                    <input type="file" name="var_eviden1" accept="image/x-png,image/jpeg,image/jpeg" required="">
+                                <div class="row">
+                                    <label class="col-sm-2 control-label col-lg-2">Evidence 1</label>
+                                    <div class="col-lg-10">
+                                        <!-- <input type="file" name="var_eviden1" accept="image/x-png,image/jpeg,image/jpeg" required=""> -->
+
+                                        <?= $this->session->flashdata('message'); ?>
+                                        <form action="" method="post" enctype="multipart/form-data">
+
+                                            <div class="form-group">
+                                                <input type="file" name="image" class="dropify">
+                                            </div>
+
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label col-lg-2">Evidence 2</label>
                                 <div class="col-lg-10">
-                                    <input type="file" name="var_eviden2" accept="image/x-png,image/jpeg,image/jpeg">
+                                    <!-- <input type="file" name="var_eviden2" accept="image/x-png,image/jpeg,image/jpeg"> -->
+
+                                    <?= $this->session->flashdata('message'); ?>
+                                    <form action="" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-group">
+                                            <input type="file" name="image" class="dropify">
+                                        </div>
+
+                                    </form>
                                 </div>
                             </div>
 
-                            <input type="hidden" name="var_paket" id="var_paket" />
+                            <!-- <input type="hidden" name="var_paket" id="var_paket" /> -->
+
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
 
+                            <script src="<?= base_url('assets/bootstrap/jquery/') . 'jquery3.js'; ?>"></script>
+                            <script src="<?= base_url('assets/bootstrap/js/') . 'bootstrap.js'; ?>"></script>
+                            <script src="<?= base_url('assets/dropify/js/') . 'dropify.js'; ?>"></script>
                             <script>
+                                $(document).ready(function() {
+                                    $('.dropify').dropify({
+                                        messages: {
+                                            default: 'Drag and drop a file here or click',
+                                            replace: 'Ganti',
+                                            remove: 'Hapus',
+                                            error: 'error'
+                                        }
+                                    });
+                                });
+                            </script>
+
+
+                            <!-- <script>
                                 $("#title").autocomplete({
                                     source: "<?php echo base_url('inp_pel_khs/get_autocomplete') ?>"
                                 });
-                            </script>
+                            </script> -->
 
                             <!-- <script>
                                 $(document).ready(function() {
