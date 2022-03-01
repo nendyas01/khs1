@@ -108,7 +108,7 @@
                       <td> <?php echo $cs->AREA_NAMA ?></td>
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
                       <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
-                      <td><?php echo $cs->DATE ?></td>
+                      <td><?php echo date("d/F/Y", strtotime($cs->DATE)) ?></td>
 
                     </tr>
                   <?php $no++;} ?>

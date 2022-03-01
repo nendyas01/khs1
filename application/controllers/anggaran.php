@@ -32,5 +32,27 @@ class anggaran extends CI_Controller
         $this->load->view('templates/footer');
 
     }
+
+    public function tambah_aksi()
+    {
+        $SPJ_NO = $this->input->post('SPJ_NO');
+        $PEMBAYARAN_NOMINAL = $this->input->post('PEMBAYARAN_NOMINAL');
+        $PEMBAYARAN_TANGGAL = $this->input->post('SKKI_NO');
+        $PEMBAYARAN_BASTP = $this->input->post('AREA_KODE');
+        $PEMBAYARAN_DESKRIPSI = $this->input->post('SKKI_NILAI');
+       
+
+        $data = array(
+            'SPJ_NO'                  => $SPJ_NO,
+            'PEMBAYARAN_NOMINAL'       =>  $PEMBAYARAN_NOMINAL,
+            'PEMBAYARAN_TANGGAL'      => $PEMBAYARAN_TANGGAL,
+            'PEMBAYARAN_BASTP'        => $PEMBAYARAN_BASTP,
+            'PEMBAYARAN_DESKRIPSI'  =>  $PEMBAYARAN_DESKRIPSI,
+            
+
+        );
+        $this->m_crud_skkio->input_data($data, 'tb_pembayaran');
+        redirect('anggaran/v_input_tagihan');
+    }
     
 }
