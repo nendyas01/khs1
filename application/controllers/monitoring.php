@@ -12,7 +12,7 @@ class monitoring extends CI_Controller
 
     public function index()
     {
-        $data['monitoring'] = $this->m_monitoring->monitoring();
+        $data['monitoring'] = $this->m_monitoring->tampil_data();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('monitoring', $data);
