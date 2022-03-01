@@ -47,10 +47,10 @@ class upl_sanksi_khs extends CI_Controller
 
     public function upload()
     {
-        $this->m_retribusi->set_rules('judul', 'Judul', 'required');
+        $this->m_upl_sanksi_khs->set_rules('judul', 'Judul', 'required');
 
-        if ($this->m_retribusi->run() == FALSE) {
-            $this->load->view('upload/retribusi');
+        if ($this->m_coba->run() == FALSE) {
+            $this->load->view('upload/upl_sanksi_khs');
         } else {
             $judul = $this->input->post('judul');
             $upload_image = $_FILES['image'];

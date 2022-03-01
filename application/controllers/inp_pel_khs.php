@@ -1,33 +1,53 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+
 
 class inp_pel_khs extends CI_Controller
 {
-    function __construct()
+
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('m_inp_pel_khs');
     }
 
-    function index()
+    public function index()
     {
-        //$data['nomorspj'] = $this->m_inp_pel_khs->getdata();
         $data['areaspj'] = $this->m_inp_pel_khs->getarea();
-        //$data['SPJ_NO'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('inp_pel_khs', $data);
         $this->load->view('templates/footer');
     }
 
-    function get_autocomplete()
+    public function upload()
     {
-        if (isset($_GET['term'])) {
-            $result =  $this->m_inp_pel_khs->get_spj($_GET['term']);
-            if (count($result) > 0) {
-                foreach ($result as $row) {
-                    $result_array[] = $row->spj_no;
-                    echo json_encode($result_array);
+        $this->m_coba->set_rules('judul', 'Judul', 'required');
+
+        if ($this->m_coba->run() == FALSE) {
+            $this->load->view('upload/inp_pel_khs');
+        } else {
+            $judul = $this->input->post('judul');
+            $upload_image = $_FILES['image'];
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = '2048';
+                $config['upload_path'] = './assets/images/';
+
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('image')) {
+                    echo "Gambar Gagal Upload. Gambar harus bertipe gif|jpg|png dan max size 2mb";
+                    die();
+                } else {
+                    $data = [
+                        'judul' => $this->input->post('judul'),
+                        'image' => $this->upload->data('file_name')
+                    ];
+
+                    $this->db->insert('tbl_galeri', $data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Image Added!</div>');
+                    redirect('upload');
                 }
             }
         }
@@ -55,40 +75,6 @@ class inp_pel_khs extends CI_Controller
 
             $this->db->insert_batch('tb_progress', $data);
             redirect('inp_progress_kerja');
-        }
-    }
-
-    public function upload()
-    {
-        $this->m_inp_pel_khs->set_rules('judul', 'Judul', 'required');
-
-        if ($this->m_inp_pel_khs->run() == FALSE) {
-            $this->load->view('upload/inp_pel_khs');
-        } else {
-            $judul = $this->input->post('judul');
-            $upload_image = $_FILES['image'];
-
-            if ($upload_image) {
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size'] = '2048';
-                $config['upload_path'] = './assets/images/';
-
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('image')) {
-                    echo "Gambar Gagal Upload. Gambar harus bertipe gif|jpg|png dan max size 2mb";
-                    die();
-                } else {
-                    $data = [
-                        'judul' => $this->input->post('judul'),
-                        'image' => $this->upload->data('file_name')
-                    ];
-
-                    $this->db->insert('tbl_galeri', $data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Image Added!</div>');
-                    redirect('upload');
-                }
-            }
         }
     }
 }
