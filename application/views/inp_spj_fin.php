@@ -59,7 +59,7 @@
                                 <!-- Textbox Lokasi Pekerjaan -->
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label col-lg-2">Lokasi Pekerjaan</label>
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-9">
                                         <select class="form-control m-b-10" name="var_lokasi" id="lokasi">
                                             <option value="54000"> KANTOR DISTRIBUSI</option>
                                         </select>

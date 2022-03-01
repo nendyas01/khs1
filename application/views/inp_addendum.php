@@ -36,6 +36,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 col-sm-2 control-label"></label>
                                             <div class="col-sm-10">
+
                                                 <div class="col-md-6 form-group">
                                                     <div class="alert alert-info" id="spjdata">
                                                         <strong>Silahkan Memilih No SPJ!</strong>
@@ -63,7 +64,7 @@
                                                 <input type="text" class="form-control" name="ppn" id="ppn" placeholder="ppn 10%" readonly>
                                             </div>
                                             <div class="col-md-2">
-                                                <input type="text" class="form-control" name="var_nilai_spj" id="nilai" placeholder="nilai setelah ppn" readonly>
+                                                <input type="text" class="form-control" name="var_nilai_addendum" id="nilai" placeholder="nilai setelah ppn" readonly>
                                             </div>
                                         </div>
 
@@ -114,6 +115,7 @@
                                     </form>
                                 </div>
                             </form>
+                        </font>
                     </div>
                 </section>
             </div>
