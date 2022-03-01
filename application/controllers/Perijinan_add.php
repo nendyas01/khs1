@@ -1,34 +1,25 @@
 <?php
 
 
-class perijinan extends CI_Controller
+class Perijinan_add extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('m_perijinan');
+        $this->load->model('m_perijinan_add');
     }
 
     public function index()
     {
-        $data['perijinan'] = $this->m_perijinan->perijinan();
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('perijinan', $data);
-        $this->load->view('templates/footer');
-    }
-
-    public function perijinan_add()
-    {
-        $this->load->model('m_perijinan');
-        $perijinan_add = $this->m_perijinan->perijinan_add();
-        $data['perijinan_add'] = $perijinan_add;
+        $data['perijinan_add'] = $this->m_perijinan_add;
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('perijinan_add', $data);
         $this->load->view('templates/footer');
     }
+
+
 
     public function tambah_aksi()
     {

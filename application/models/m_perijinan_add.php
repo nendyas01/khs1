@@ -1,11 +1,8 @@
 <?php
 
-class m_perijinan extends CI_Model
+class m_perijinan_add extends CI_Model
 {
 
-    public function perijinan()
-    {
-    }
 
     public function perijinan_add($where, $table)
     {

@@ -1,56 +1,31 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+
 
 class inp_sanksi_spj extends CI_Controller
 {
-    function __construct()
+
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('m_inp_sanksi_spj');
     }
 
-    function index()
+    public function index()
     {
         $data['nomorspj'] = $this->m_inp_sanksi_spj->getdata();
         $data['areaspj'] = $this->m_inp_sanksi_spj->getarea();
-        //$data['SPJ_NO'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('inp_sanksi_spj', $data);
         $this->load->view('templates/footer');
     }
 
-    public function tambah_aksi()
-    {
-        $SPJ_NO = $this->input->post('spj_no');
-        $PROGRESS_VALUE = $this->input->post('var_progress');
-        $REALISASI = $this->input->post('var_realisasi');
-        $INPUT_PROGRESS_DATE = $this->input->post('var_tanggal');
-        $PROGRESS_PENGAWAS = $this->input->post('var_nama_pengawas');
-        $PROGRESS_NOTES = $this->input->post('var_deskripsi');
-
-        $data = array();
-        foreach ($SPJ_NO as $key => $a) {
-            array_push($data, array(
-                'SPJ_NO' => $SPJ_NO[$key],
-                'PROGRESS_VALUE' => $PROGRESS_VALUE,
-                'REALISASI' => $REALISASI,
-                'INPUT_PROGRESS_DATE' => $INPUT_PROGRESS_DATE,
-                'PROGRESS_PENGAWAS' => $PROGRESS_PENGAWAS,
-                'PROGRESS_NOTES' => $PROGRESS_NOTES,
-            ));
-
-            $this->db->insert_batch('tb_progress', $data);
-            redirect('inp_progress_kerja');
-        }
-    }
-
     public function upload()
     {
-        $this->m_retribusi->set_rules('judul', 'Judul', 'required');
+        $this->m_coba->set_rules('judul', 'Judul', 'required');
 
-        if ($this->m_retribusi->run() == FALSE) {
-            $this->load->view('upload/retribusi');
+        if ($this->m_coba->run() == FALSE) {
+            $this->load->view('upload/inp_sanksi_spj');
         } else {
             $judul = $this->input->post('judul');
             $upload_image = $_FILES['image'];
@@ -76,6 +51,31 @@ class inp_sanksi_spj extends CI_Controller
                     redirect('upload');
                 }
             }
+        }
+    }
+
+    public function tambah_aksi()
+    {
+        $SPJ_NO = $this->input->post('spj_no');
+        $PROGRESS_VALUE = $this->input->post('var_progress');
+        $REALISASI = $this->input->post('var_realisasi');
+        $INPUT_PROGRESS_DATE = $this->input->post('var_tanggal');
+        $PROGRESS_PENGAWAS = $this->input->post('var_nama_pengawas');
+        $PROGRESS_NOTES = $this->input->post('var_deskripsi');
+
+        $data = array();
+        foreach ($SPJ_NO as $key => $a) {
+            array_push($data, array(
+                'SPJ_NO' => $SPJ_NO[$key],
+                'PROGRESS_VALUE' => $PROGRESS_VALUE,
+                'REALISASI' => $REALISASI,
+                'INPUT_PROGRESS_DATE' => $INPUT_PROGRESS_DATE,
+                'PROGRESS_PENGAWAS' => $PROGRESS_PENGAWAS,
+                'PROGRESS_NOTES' => $PROGRESS_NOTES,
+            ));
+
+            $this->db->insert_batch('tb_progress', $data);
+            redirect('inp_progress_kerja');
         }
     }
 }

@@ -1,12 +1,12 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Pengajuan Perijinan Baru
+            Pengajuan Perizinan Baru
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Pengajuan Perijinan Baru</li>
+            <li class="active">Pengajuan Perizinan Baru</li>
         </ol>
     </section>
 

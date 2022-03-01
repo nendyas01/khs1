@@ -1,12 +1,12 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Perijinan
+            Perizinan
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">PERIJINAN</li>
+            <li class="active">PERIZINAN</li>
         </ol>
     </section>
     <section class="content">
@@ -43,61 +43,42 @@
                             </thead>
 
                             <tbody>
-                                <?php
-                                $no = 1;
-                                foreach ($crud_area as $car) {
+                                <?
+                                $no_spj = $_GET['no_spj'];
+
+
+
+
+
+                                $nomor = 1;
+                                for ($i = 0; $i < count($data); $i++) {
+                                    $current_no_spj    = $data[$i][0];
+                                    $jumlah_dok        = $data[$i][1];
+                                    $jumlah_ijin    = $data[$i][2];
+
+                                    if ($jumlah_ijin == '') {
+                                        $jumlah_ijin = 0;
+                                    }
+
+                                    echo "<tr>";
+
+                                    echo "<td>" . $current_no_spj . "</td>";
+                                    echo "<td>" . $jumlah_dok . "</td>";
+                                    echo "<td>" . $jumlah_ijin . "</td>";
+                                    echo "<td>";
+                                    echo "<a href='perijinan_add'>Add</a>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
                                 ?>
-                                    <tr>
-                                        <td> <?php echo $no++ ?></td>
-                                        <td> <?php echo $car->AREA_KODE ?></td>
-                                        <td> <?php echo $car->AREA_NAMA ?></td>
-                                        <td><?php echo anchor('crud_area/detail_crud_area/' . $car->AREA_KODE, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
-                                    </tr>
-                                <?php } ?>
-
-                                <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-                                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-                                <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-
-                                <!--  Button untuk copy, csv, excel -->
-                                <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-                                <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-
-                                <script>
-                                    $(document).ready(function() {
-                                        $('#example').DataTable();
-                                    });
-                                </script>
-
-
-                                <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-                                <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-                                <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-                                <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-                                <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
-
-                                <script type="text/javascript">
-                                    $('#example').DataTable({
-                                        dom: 'lBfrtip',
-                                        buttons: [{
-                                                extend: 'copy',
-                                                oriented: 'potrait',
-                                                download: 'open',
-                                                widthX: '90px'
-                                            },
-                                            'csv', 'excel', 'pdf', 'print'
-                                        ]
-                                    });
-                                </script>
                             </tbody>
+                        </table>
 
                         </table>
                     </div>
                 </section>
             </div>
         </div>
+    </section>
 
 </div>
