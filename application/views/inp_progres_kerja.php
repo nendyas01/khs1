@@ -1,7 +1,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Input SPJ KHS
+            Pengeolaan Progres
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
