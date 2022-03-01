@@ -1,12 +1,12 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-            Perijinan
+            Perizinan
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">PERIJINAN</li>
+            <li class="active">PERIZINAN</li>
         </ol>
     </section>
     <section class="content">
@@ -66,7 +66,7 @@
                                     echo "<td>" . $jumlah_dok . "</td>";
                                     echo "<td>" . $jumlah_ijin . "</td>";
                                     echo "<td>";
-                                    echo "<a href='perijinan_add.php'>Add</a>";
+                                    echo "<a href='perijinan_add'>Add</a>";
                                     echo "</td>";
                                     echo "</tr>";
                                 }
@@ -79,5 +79,6 @@
                 </section>
             </div>
         </div>
+    </section>
 
 </div>

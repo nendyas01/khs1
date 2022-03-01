@@ -61,15 +61,15 @@
 
       <li class="treeview<?= $this->uri->segment(1) == '' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
         <a href="#">
-          <i class="fa fa-copy"></i> <span>Pengelolaan Perijinan</span>
+          <i class="fa fa-copy"></i> <span>Pengelolaan Perizinan</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
           <li><a href="<?php echo base_url('ba_survey') ?>"><i class="fa fa-circle-o"></i> BA Survey</a></li>
-          <li><a href="<?php echo base_url('monitoring') ?>"><i class="fa fa-circle-o"></i> Monitoring Perijinan</a></li>
-          <li><a href="<?php echo base_url('pengajuan') ?>"><i class="fa fa-circle-o"></i> Pengajuan Perijinan Baru</a></li>
+          <li><a href="<?php echo base_url('monitoring') ?>"><i class="fa fa-circle-o"></i> Monitoring Perizinan</a></li>
+          <li><a href="<?php echo base_url('pengajuan') ?>"><i class="fa fa-circle-o"></i> Pengajuan Perizinan Baru</a></li>
           <li><a href="<?php echo base_url('retribusi') ?>"><i class="fa fa-circle-o"></i> Retribusi</a></li>
           <li><a href="<?php echo base_url('skrd') ?>"><i class="fa fa-circle-o"></i> SKRD</a></li>
         </ul>
