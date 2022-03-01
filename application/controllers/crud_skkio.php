@@ -61,12 +61,19 @@ class crud_skkio extends CI_Controller
         $row=$key->row();
         $ID=$row->SKKI_ID;
         $kode=$row->AREA_KODE;
-        $this->db->query("insert into tb_history_skkio_baru values('','$ID','$kode',now()) ");
+        // $no_skki=$row->SKKI_NO;
+        // $jenis=$row->SKKI_JENIS;
+        // $nilai=$row->SKKI_NILAI;
+        // $terpakai=$row->SKKI_TERPAKAI;
+        // $tanggal=$row->SKKI_TANGGAL;
+
+        $this->db->query("insert into tb_history_skkio values('','$ID','$kode', now()) ");
 
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('edit_crud_skkio', $data);
         $this->load->view('templates/footer');
+        
     }
 
     public function update($SKKI_ID=null)
@@ -95,41 +102,18 @@ class crud_skkio extends CI_Controller
         
         $this->db->query("update tb_skko_i set SKKI_JENIS='$SKKI_JENIS',SKKI_NO='$SKKI_NO',AREA_KODE='$AREA_KODE',SKKI_NILAI='$SKKI_NILAI',SKKI_TERPAKAI='$SKKI_TERPAKAI',
         SKKI_TANGGAL='$SKKI_TANGGAL' where SKKI_ID='$SKKI_ID'");
-        $this->db->query("insert into tb_history_skkio values('','$SKKI_ID',now()) ");
+        $this->db->query("insert into tb_history_skkio values('','$SKKI_ID', '$AREA_KODE',now()) ");
 
         
         redirect('crud_skkio/index');
     }
 
-    // public function insert_hasiledit()
-    // {
-    //     $SKKI_ID = $this->input->post('SKKI_ID');
-    //     $SKKI_JENIS = $this->input->post('SKKI_JENIS');
-    //     $SKKI_NO = $this->input->post('SKKI_NO');
-    //     $AREA_KODE = $this->input->post('AREA_KODE');
-
-    //     $SKKI_NILAI = $this->input->post('SKKI_NILAI');
-    //     $SKKI_TERPAKAI = $this->input->post('SKKI_TERPAKAI');
-    //     $SKKI_TANGGAL = $this->input->post('SKKI_TANGGAL');
-
-    //     $data = array(
-    //         'SKKI_ID'                  => $SKKI_ID,
-    //         'SKKI_JENIS'               => $SKKI_JENIS,
-    //         'SKKI_NO'                  => $SKKI_NO,
-    //         'AREA_KODE'                => $AREA_KODE,
-    //         'SKKI_NILAI'               => $SKKI_NILAI,
-    //         'SKKI_TERPAKAI'            => $SKKI_TERPAKAI,
-    //         'SKKI_TANGGAL'             => $SKKI_TANGGAL,
-    //     );
-
-    //     $where = array('SKKI_ID' => $SKKI_ID);
-    //     $this->m_crud_skkio->insert_hasil_edit($where, $data, 'tb_skko_i');
-    //     redirect('crud_skkio/index');
-    // }
+   
 
     public function detail_crud_skkio($SKKI_ID=null)
     {
-        $this->load->model('m_crud_skkio');
+        // var_dump($SKKI_ID);
+        // die();
         // $detail_crud_skkio = $this->m_crud_skkio->detail_data($SKKI_ID);
         // $data['detail_crud_skkio'] = $detail_crud_skkio;
         // // $data['hasil_edit_crud_skkio'] = $this->m_crud_skkio->insert_hasil_edit()->result();
@@ -140,4 +124,14 @@ class crud_skkio extends CI_Controller
         $this->load->view('detail_crud_skkio', $data);
         $this->load->view('templates/footer');
     }
+
+    // public function detail_history_skki($SKKI_ID = null){
+    //     // var_dump($SKKI_ID);
+    //     // die();
+    //     $data['ID']=$SKKI_ID;
+    //     $this->load->view('templates/header');
+    //     $this->load->view('templates/sidebar');
+    //     $this->load->view('detail_history_skki', $data);
+    //     $this->load->view('templates/footer');
+    // }
 }

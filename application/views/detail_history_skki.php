@@ -42,40 +42,8 @@
 
           <div class="panel-body table-responsive">
             <font size="2" face="Arial">
-              <?php $key=$this->db->query("select * from tb_skko_i where SKKI_ID='$ID'");
-              $row = $key->row();?>
-              <table class="table table-striped">
-                <tr>
-                  <td>No</td>
-                  <td><?php echo $row->SKKI_ID ?></td>
-                </tr>
-                <tr>
-                  <td>SKKI JENIS</td>
-                  <td><?php echo $row->SKKI_JENIS ?></td>
-                </tr>
-                <tr>
-                  <td>SKKI NO</td>
-                  <td><?php echo $row->SKKI_NO ?></td>
-                </tr>
-                <tr>
-                  <td>NAMA AREA</td>
-                  <td><?php echo $row->AREA_KODE ?></td>
-                </tr>
-                <tr>
-                  <td>SKKI NILAI</td>
-                  <td><?php echo 'Rp ' . number_format($row->SKKI_NILAI, 0, ',', '.') ?></td>
-                </tr>
-                <tr>
-                  <td>SKKI TERPAKAI</td>
-                  <td><?php echo 'Rp ' . number_format($row->SKKI_TERPAKAI, 0, ',', '.') ?></td>
-                </tr>
-                <tr>
-                  <td>SKKI TANGGAL</td>
-                  <td><?php echo $row->SKKI_TANGGAL ?></td>
-                </tr>
-              </table>
-              <table id="example" class="table table-striped table-bordered table-responsive mb-5" cellspacing="0">
-                <h5>Tabel History sebelumnya</h5>
+              <table id="history" class="table table-striped table-bordered table-responsive" cellspacing="0">
+              <h5>Tabel History Terbaru</h5>
                 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button> -->
                 <thead>
                   <tr>
@@ -84,7 +52,7 @@
                     <th>SKKI NO</th>
                     <th>NAMA AREA</th>
                     <th>SKKI NILAI</th>
-                    
+                    <th>SKKI TERPAKAI</th>
                     <th>SKKI TANGGAL</th>
                     <th>TANGGAL UPDATE</th>
                   </tr>
@@ -96,9 +64,9 @@
                   $no = 1;
                   $key = $this->db->query("select tb_history_skkio.*,tb_skko_i.*,tb_area.AREA_NAMA from tb_history_skkio 
                   inner join tb_skko_i on tb_skko_i.SKKI_ID=tb_history_skkio.SKKI_ID 
-                  inner join tb_area on tb_area.AREA_KODE=tb_history_skkio.AREA_KODE
-                  WHERE tb_history_skkio.SKKI_ID='$ID' group by tb_history_skkio.AREA_KODE");
-                  // var_dump($key);die();
+                  inner join tb_area on tb_area.AREA_KODE=tb_skko_i.AREA_KODE
+                  WHERE tb_history_skkio.SKKI_ID='$ID'");
+                  // var_dump($crud_skkio);
                   foreach ($key->result() as $cs) {
                   ?>
                     <tr>
@@ -107,12 +75,17 @@
                       <td> <?php echo $cs->SKKI_NO ?></td>
                       <td> <?php echo $cs->AREA_NAMA ?></td>
                       <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
+                      <td> <?php echo 'Rp ' . number_format($cs->SKKI_TERPAKAI, 0, ',', '.') ?></td>
                       <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
                       <td><?php echo $cs->DATE ?></td>
+                      
 
                     </tr>
                   <?php $no++;} ?>
-  
+
+                  
+
+                  
                 </tbody>
               </table>
           </div>
@@ -146,3 +119,44 @@
                     });
                   </script>
 
+<!-- <div div class="content-wrapper">
+    <section class="content">
+        <h4><strong> <p style="text-align:center"> Detail Data SKKI/O</p></strong></h4>
+        
+        <table class="table" >
+
+            <tr>
+                <th>No</th>
+                <td><?php echo $detail_crud_skkio->SKKI_ID ?></td>
+            </tr>
+
+            <tr>
+                <th>SKKI JENIS</th>
+                <td><?php echo $detail_crud_skkio->SKKI_JENIS ?></td>
+            </tr>
+            <tr>
+                <th>SKKI NO</th>
+                <td><?php echo $detail_crud_skkio->SKKI_NO ?></td>
+            </tr>
+            <tr>
+                <th>NAMA AREA</th>
+                <td><?php echo $detail_crud_skkio->AREA_KODE?></td>
+            </tr>
+            <tr>
+                <th>SKKI NILAI</th>
+                <td><?php echo 'Rp ' . number_format($detail_crud_skkio->SKKI_NILAI, 0, ',', '.')?></td>
+            </tr>
+            <tr>
+                <th>SKKI TERPAKAI</th>
+                <td><?php echo 'Rp ' . number_format($detail_crud_skkio->SKKI_TERPAKAI, 0, ',', '.')?></td>
+            </tr>
+            <tr>
+                <th>SKKI TANGGAL</th>
+                <td><?php echo $detail_crud_skkio->SKKI_TANGGAL?></td>
+            </tr>
+
+        </table>
+        </section>
+
+
+</div>     

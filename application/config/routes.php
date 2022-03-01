@@ -53,6 +53,8 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['skki_history/(:any)'] = 'crud_skkio/detail_history_skki/$1';
+
 
 $route['getmapping'] = 'mapping_vendor/getmapping';
 $route['getmappingbymappingid/(:any)'] = 'mapping_vendor/getmappingbymappingid/$1';
