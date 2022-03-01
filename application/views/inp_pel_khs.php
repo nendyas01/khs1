@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Area</label>
+                                    <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
                                     <div class="col-sm-10">
                                         <select class="form-control m-b-10" name="spj_no">
                                             <option value>-- NO SPJ --</option>
@@ -107,24 +107,7 @@
 
                                 <div class="form-group">
                                     <div class="row">
-                                        <label class=" col-sm-4 col-sm-2 control-label">Evidence 1</label>
-                                        <div class="col-md-6">
-
-                                            <?= $this->session->flashdata('message'); ?>
-                                            <form action="" method="post" enctype="multipart/form-data">
-
-                                                <div class="form-group">
-                                                    <input type="file" name="image" class="dropify">
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class=" col-sm-4 col-sm-2 control-label">Evidence 2</label>
+                                        <label class=" col-sm-4 col-sm-2 control-label">Evidence</label>
                                         <div class="col-md-6">
 
                                             <?= $this->session->flashdata('message'); ?>
