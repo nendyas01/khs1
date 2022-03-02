@@ -2,17 +2,18 @@
     <section class="content">
         <?php foreach ($crud_skkio as $cs) { ?>
             <form action="<?php echo base_url() . 'crud_skkio/update/'.$SKKI_ID; ?>" method="post">
+            <input type="hidden" name="h_jenis" value="<?php echo $cs->SKKI_JENIS ?>">
+            <input type="hidden" name="h_no" value="<?php echo $cs->SKKI_NO ?>">
+            <input type="hidden" name="h_area" value="<?php echo $cs->AREA_KODE; ?>">
+            <input type="hidden" name="h_nilai" value="<?php echo $cs->SKKI_NILAI?>">
+            <input type="hidden" name="h_tanggal" value="<?php echo $cs->SKKI_TANGGAL ?>">
                 <div class="form-group">
                     <label>No</label>
                     <input type="text" name="SKKI_ID" class="form-control" value="<?php echo $cs->SKKI_ID ?>">
                 </div>
                 <div class="form_group">
                     <label>SKKI JENIS</label>
-                    <select class="form-control" name="SKKI_JENIS" id="SKKI_JENIS">
-                        <option selected="0">-Pilih Jenis-</option>
-                        <option value="SKKI">SKKI </option>
-                        <option value="SKKO">SKKO </option>
-                    </select>
+                    <input type="text" name="SKKI_JENIS" class="form-control" value="<?php echo $cs->SKKI_JENIS ?>">
                 </div>
 
                 <div class="form-group">
@@ -21,13 +22,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label>NAMA AREA</label>
-                    <select class="form-control" id="AREA_KODE" name="AREA_KODE">
-                        <option selected="0">- Pilih Nama Area -</option>
-                        <?php foreach ($area as $area) : ?>
-                            <option value="<?php echo $area->AREA_KODE; ?>"> <?php echo $area->AREA_NAMA; ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <label>KODE AREA</label>
+                    <input type="text" name="AREA_KODE" id="AREA_KODE "class="form-control" value="<?php echo $cs->AREA_KODE ?>">
+                    
                 </div>
 
                 <div class="form-group">

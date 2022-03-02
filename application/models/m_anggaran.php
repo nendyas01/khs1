@@ -26,7 +26,7 @@ class m_anggaran extends CI_Model
 
   public function v_input_tagihan()
     {
-        $query = $this->db->query("SELECT * FROM tb_SPJ ORDER BY SPJ_NO ASC");
+        $query = $this->db->query("SELECT SPJ_NO FROM tb_SPJ GROUP BY YEAR(SPJ_TANGGAL_MULAI) ASC");
         return $query->result();
     }
 

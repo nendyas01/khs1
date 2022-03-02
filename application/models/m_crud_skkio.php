@@ -49,16 +49,22 @@ class m_crud_skkio extends CI_Model
         $this->db->update($table, $data);
     }
 
-    public function insert_hasil_edit($where, $data, $table)
-    {
-        $this->db->where($where);
-        $this->db->get_where($table, $data);
-    }
-
     public function detail_data($SKKI_ID = NULL)
     {
 
         $query = $this->db->get_where('tb_skko_i', array('SKKI_ID' => $SKKI_ID))->row();
         return $query;
+    }
+
+    public function get_history($SKKI_ID)
+    {
+        $this->db->select('*, h.SKKI_ID as hid, h.SKKI_NO as hno, h.SKKI_JENIS as hjenis,h.SKKI_NILAI as hnilai')
+            ->from('tb_history_skkio h')
+            ->join('tb_skko_i sk', 'h.SKKI_ID = sk.SKKI_ID', 'left')
+            ->join('tb_area a', 'h.AREA_KODE = a.AREA_KODE', 'left')
+            // ->group_by('ID', $ID);
+            ->where('h.SKKI_ID', $SKKI_ID)
+            ->order_by('ID', $SKKI_ID);
+        return $this->db->get();
     }
 }

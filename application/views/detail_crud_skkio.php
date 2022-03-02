@@ -76,15 +76,14 @@
               </table>
               <table id="example" class="table table-striped table-bordered table-responsive mb-5" cellspacing="0">
                 <h5>Tabel History sebelumnya</h5>
-                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Tambah Data SKKI/O</button> -->
+                
                 <thead>
                   <tr>
                     <th>No</th>
                     <th>SKKI JENIS</th>
                     <th>SKKI NO</th>
                     <th>NAMA AREA</th>
-                    <th>SKKI NILAI</th>
-                    
+                    <th>SKKI NILAI</th>  
                     <th>SKKI TANGGAL</th>
                     <th>TANGGAL UPDATE</th>
                   </tr>
@@ -94,21 +93,17 @@
                 <tbody>
                   <?php
                   $no = 1;
-                  $key = $this->db->query("select tb_history_skkio.*,tb_skko_i.*,tb_area.AREA_NAMA from tb_history_skkio 
-                  inner join tb_skko_i on tb_skko_i.SKKI_ID=tb_history_skkio.SKKI_ID 
-                  inner join tb_area on tb_area.AREA_KODE=tb_history_skkio.AREA_KODE
-                  WHERE tb_history_skkio.SKKI_ID='$ID' group by tb_history_skkio.AREA_KODE");
-                  // var_dump($key);die();
-                  foreach ($key->result() as $cs) {
+                  
+                  foreach ($history->result() as $cs) {
                   ?>
                     <tr>
                       <td> <?php echo $no ?></td>
-                      <td> <?php echo $cs->SKKI_JENIS ?></td>
-                      <td> <?php echo $cs->SKKI_NO ?></td>
+                      <td> <?php echo $cs->hjenis ?></td>
+                      <td> <?php echo $cs->hno ?></td>
                       <td> <?php echo $cs->AREA_NAMA ?></td>
-                      <td> <?php echo 'Rp ' . number_format($cs->SKKI_NILAI, 0, ',', '.') ?></td>
+                      <td> <?php echo 'Rp ' . number_format($cs->hnilai, 0, ',', '.') ?></td>
                       <td> <?php echo $cs->SKKI_TANGGAL  ?></td>
-                      <td><?php echo date("d/F/Y", strtotime($cs->DATE)) ?></td>
+                      <td><?php echo date("d-M-Y G:i:s", $cs->DATE) ?></td>
 
                     </tr>
                   <?php $no++;} ?>
@@ -118,7 +113,9 @@
           </div>
         </section>
       </div>
-  </section>
+    </div>
+  </sectio>
+</div>
                   <script type="text/javascript">
                     $('#example').DataTable({
                       dom: 'lBfrtip',

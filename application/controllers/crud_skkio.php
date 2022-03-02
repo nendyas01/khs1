@@ -67,7 +67,7 @@ class crud_skkio extends CI_Controller
         // $terpakai=$row->SKKI_TERPAKAI;
         // $tanggal=$row->SKKI_TANGGAL;
 
-        $this->db->query("insert into tb_history_skkio values('','$ID','$kode', now()) ");
+        // $this->db->query("insert into tb_history_skkio values('','$ID','$kode', now()) ");
 
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
@@ -83,9 +83,23 @@ class crud_skkio extends CI_Controller
         $SKKI_NO = $this->input->post('SKKI_NO');
         $AREA_KODE = $this->input->post('AREA_KODE');
 
+    
         $SKKI_NILAI = $this->input->post('SKKI_NILAI');
         $SKKI_TERPAKAI = $this->input->post('SKKI_TERPAKAI');
         $SKKI_TANGGAL = $this->input->post('SKKI_TANGGAL');
+
+        //history
+        $input_history = $this->input->post();
+        $history = [
+            'SKKI_ID' => $input_history['SKKI_ID'],
+            'SKKI_JENIS' => $input_history['h_jenis'],
+            'SKKI_NO' => $input_history['h_no'],
+            'AREA_KODE' => $input_history['h_area'],
+            'SKKI_NILAI' => $input_history['h_nilai'],
+            'SKKI_TANGGAL' => $input_history['h_tanggal'],
+            'DATE' => time(),
+
+        ];
 
         // $data = array(
         //     'SKKI_ID'                  => $SKKI_ID,
@@ -102,8 +116,9 @@ class crud_skkio extends CI_Controller
         
         $this->db->query("update tb_skko_i set SKKI_JENIS='$SKKI_JENIS',SKKI_NO='$SKKI_NO',AREA_KODE='$AREA_KODE',SKKI_NILAI='$SKKI_NILAI',SKKI_TERPAKAI='$SKKI_TERPAKAI',
         SKKI_TANGGAL='$SKKI_TANGGAL' where SKKI_ID='$SKKI_ID'");
-        $this->db->query("insert into tb_history_skkio values('','$SKKI_ID', '$AREA_KODE',now()) ");
 
+        // $this->db->query("insert into tb_history_skkio values('','$SKKI_ID', '$AREA_KODE', '$SKKI_NILAI', '$SKKI_NO', '$SKKI_JENIS', '$SKKI_TANGGAL',now()) ");
+        $this->db->insert('tb_history_skkio', $history);
         
         redirect('crud_skkio/index');
     }
@@ -114,11 +129,17 @@ class crud_skkio extends CI_Controller
     {
         // var_dump($SKKI_ID);
         // die();
-        // $detail_crud_skkio = $this->m_crud_skkio->detail_data($SKKI_ID);
+        $detail_crud_skkio = $this->m_crud_skkio->get_history($SKKI_ID);
+       
         // $data['detail_crud_skkio'] = $detail_crud_skkio;
         // // $data['hasil_edit_crud_skkio'] = $this->m_crud_skkio->insert_hasil_edit()->result();
         // $data['area'] = $detail_crud_skkio;
-        $data['ID']=$SKKI_ID;
+
+        $data = [
+            'history' => $detail_crud_skkio,
+            'ID' => $SKKI_ID
+        ];
+        // $data['ID']=$SKKI_ID;
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('detail_crud_skkio', $data);

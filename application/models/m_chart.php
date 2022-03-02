@@ -29,22 +29,8 @@ function getpaket(){
 function getpaket2($tahun){
     $query = $this->db->query("SELECT * FROM tb_paket INNER JOIN tb_spj ON tb_spj.PAKET_JENIS = tb_paket.PAKET_JENIS
     WHERE YEAR(tb_spj.SPJ_TANGGAL_MULAI) = '$tahun' GROUP BY tb_paket.PAKET_DESKRIPSI");
-
-    // $this->db->select('tb_paket.PAKET_DESKRIPSI');
-    // $this->db->from('tb_spj');
-    // $this->db->join('tb_paket', 'tb_paket.PAKET_JENIS = tb_spj.PAKET_JENIS');
-    // $this->db->where('tb_spj.SPJ_TANGGAL_MULAI', 2016);
-    // // $this->db->group_by('tb_paket.PAKET_DESKRIPSI');
-    // return $this->db->get()->result();
     return $query->result();
 }
-// function jml(){
-//     $this->db->select('AREA_KODE, COUNT(SPJ_NO) as total_spj');
-//     $this->db->from('tb_spj');
-//     $this->db->group_by('AREA_KODE');
-//     $this->db->where('SPJ_TANGGAL_AKHIR');
-// }
-
 
 function jumlah_gangguan($area_kode, $tahun){
     $this->db->select('MONTH(SPJ_TANGGAL_MULAI) as bulan, MONTHNAME(SPJ_TANGGAL_MULAI) as nama_bulan,  YEAR(SPJ_TANGGAL_MULAI) as tahun');
