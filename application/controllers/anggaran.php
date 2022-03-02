@@ -16,14 +16,7 @@ class anggaran extends CI_Controller
         $this->load->view('templates/footer'); 
         //print_r($data);
     }
-    // public function search(){
-    //     $keyword = $this->input->post('keyword');
-    //     // $data['anggaran']=$this->m_anggaran->get_keyword($keyword);
-    //     $this->load->view('templates/header');
-    //     $this->load->view('templates/sidebar');
-    //     $this->load->view('anggaran',$data);
-    //     $this->load->view('templates/footer');
-    // }
+   
     public function v_input_tagihan(){
         $data['var_no_spj']=$this->m_anggaran->v_input_tagihan();
         $this->load->view('templates/header');
@@ -48,8 +41,6 @@ class anggaran extends CI_Controller
             'PEMBAYARAN_TANGGAL'      => $PEMBAYARAN_TANGGAL,
             'PEMBAYARAN_BASTP'        => $PEMBAYARAN_BASTP,
             'PEMBAYARAN_DESKRIPSI'  =>  $PEMBAYARAN_DESKRIPSI,
-            
-
         );
         $this->m_crud_skkio->input_data($data, 'tb_pembayaran');
         redirect('anggaran/v_input_tagihan');
