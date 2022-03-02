@@ -11,7 +11,8 @@ class m_list_amandemen extends CI_Model
         
         SPJ_NO, 
         SPJ_TANGGAL_AKHIR, 
-        SPJ_NILAI
+        SPJ_NILAI,
+
         
 
         '

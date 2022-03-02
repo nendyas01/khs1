@@ -58,9 +58,8 @@
                                 <div class="col-md-15" style="margin: 10px;">
                                     <div class="box box-solid">
 
-                                        <div class="box-body">
-                                            <label class=" col-sm-6 col-sm-6 control-label">Evidence</label>
-
+                                        <div class="text-center">
+                                            <h3 class="box-title" align="center">Evidence</h3>
                                         </div>
                                     </div>
 

@@ -13,68 +13,80 @@
         <div class="row">
             <div class="col-md-12">
                 <section class="panel">
-                    <div class="panel-body">
-                        <form role="form">
-                            <div class="form-group">
-                                <label for="no_spj">No. SPJ</label>
-                                <input type="text" class="form-control" placeholder="No. SPJ" name="no_spj">
-                            </div>
-                            <button type="submit" class="btn btn-info"><a href="/khs/list_amandemen.php"></a>Submit</button>
-                        </form>
-                    </div>
-                </section>
-            </div>
-        </div>
+                    <header class="panel-heading">List Amandemen</header>
+                    <!--  <a class="btn btn-danger" href=" <?php echo base_url('list_amandemen/print') ?>"> <i></i>
+                </a> -->
 
-        <div class="row">
-            <div class="col-md-12">
-                <section class="panel">
-                    <header class="panel-heading">Perijinan</header>
                     <div class="panel-body table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>No. SPJ</th>
-                                    <th>Surat SPJ yang telah dibuat</th>
-                                    <th>Action</th>
+                        <font size="2" face="Arial">
+                            <table id="example" class=" table-striped table-bordered " cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>No. SPJ</th>
+                                        <th>Surat SPJ yang telah dibuat</th>
+                                        <th>Action</th>
 
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <?
-                                $no_spj = $_GET['no_spj'];
+                                    </tr>
+                                </thead>
 
 
 
+                                <tbody>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($perijinan as $p) {
+                                    ?>
+                                        <tr>
+                                            <td> <?php echo $no++ ?></td>
+                                            <td> <?php echo $p->spj_no ?></td>
+                                            <td> <?php echo $p->jumlah_dok ?></td>
+                                            <td><?php echo anchor('perijinan/perijinan_add/' . $p->spj_no, '<div><a href="perijinan_add">Add</a></div>') ?></td>
 
 
-                                $nomor = 1;
-                                for ($i = 0; $i < count($data); $i++) {
-                                    $current_no_spj    = $data[$i][0];
-                                    $jumlah_dok        = $data[$i][1];
-                                    $jumlah_ijin    = $data[$i][2];
+                                        </tr>
+                                    <?php } ?>
 
-                                    if ($jumlah_ijin == '') {
-                                        $jumlah_ijin = 0;
-                                    }
+                                    <!--  Button untuk copy, csv, excel -->
+                                    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+                                    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
-                                    echo "<tr>";
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#example').DataTable();
+                                        });
+                                    </script>
 
-                                    echo "<td>" . $current_no_spj . "</td>";
-                                    echo "<td>" . $jumlah_dok . "</td>";
-                                    echo "<td>" . $jumlah_ijin . "</td>";
-                                    echo "<td>";
-                                    echo "<a href='perijinan_add'>Add</a>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
 
-                        </table>
+                                    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                                    <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+                                    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+                                    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+                                    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+                                    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+                                    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+                                    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+                                    <script type="text/javascript">
+                                        $('#example').DataTable({
+                                            dom: 'lBfrtip',
+                                            buttons: [{
+                                                    extend: 'copy',
+                                                    oriented: 'potrait',
+                                                    download: 'open',
+                                                    widthX: '90px'
+                                                },
+                                                'csv', 'excel', 'pdf', 'print'
+                                            ]
+                                        });
+                                    </script>
+
+                                </tbody>
+                            </table>
+
+
+
+                            </table>
                     </div>
                 </section>
             </div>

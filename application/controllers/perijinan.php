@@ -12,7 +12,7 @@ class perijinan extends CI_Controller
 
     public function index()
     {
-        $data['perijinan'] = $this->m_perijinan->perijinan();
+        $data['perijinan'] = $this->m_perijinan->tampil_data();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('perijinan', $data);

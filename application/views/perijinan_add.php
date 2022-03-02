@@ -6,12 +6,13 @@
                 <section class="panel">
                     <header class="panel-heading">Tambah Perijinan</header>
                     <div class="panel-body">
-                        <form class="form-horizontal tasi-form" method="post" action="perijinan_add_submit.php?id=<? echo $no_spj; ?>">
+                        <form class="form-horizontal tasi-form" method="post" action="perijinan_add_submit.php?id= <? echo $no_spj; ?> ">
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label">No. SPJ</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="var_no_spj" id="var_no_spj" disabled value="<? echo $no_spj; ?>">
+                                    <input type="text" class="form-control" name="var_no_spj" id="var_no_spj" disabled value="">
                                 </div>
+
                             </div>
 
                             <div class="form-group">
