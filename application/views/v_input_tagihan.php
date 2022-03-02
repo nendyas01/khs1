@@ -18,19 +18,18 @@
                     	<div class="panel-body">
                         	<form class="form-horizontal tasi-form" method="post">
 
-                            <!-- Textbox Nomor SPJ -->
-									<div class="form-group">
-										<label class="col-sm-2 col-sm-2 control-label">Nomor SPJ</label>
-											<div class="col-sm-10">
-												<select class="form-control m-b-10" name="var_no_spj" id="spj_no" onChange="nilai_spj_add(this.value)" >
-													<option selected="0">-- Pilih NO SPJ --</option>
-													<?php foreach($var_no_spj as $spj): ?>
-														
-														<option value="<?php echo $spj->SPJ_NO?>"><?php echo $spj->SPJ_NO ?></option>
-													<?php endforeach?>
-												</select>
+									<!-- Textbox Nomor SPJ -->
+											<div class="form-group">
+												<label class="col-sm-2 col-sm-2 control-label">Nomor SPJ</label>
+													<div class="col-sm-10">
+														<select class="form-control m-b-10" name="var_no_spj" id="spj_no" onChange="nilai_spj_add(this.value)" >
+															<option selected="0">-- Pilih NO SPJ --</option>
+															<?php foreach($var_no_spj as $spj): ?>	
+																<option value="<?php echo $spj->SPJ_NO?>"><?php echo $spj->SPJ_NO ?></option>
+															<?php endforeach?>
+														</select>
+													</div>
 											</div>
-									</div>
 
 									<!-- Textbox Nominal Tagihan -->
 									<div class="form-group">
@@ -81,6 +80,24 @@
 </div>
 
 		<script>
+				function getNoSPJ(){
+						$.ajax({
+						type: "GET",
+						url: "<?php echo base_url(); ?>/chart/getTahun",
+						data: "data",
+						dataType: "JSON",
+						success: function (data) {
+							var html = '';
+							$.each(data, function (i, val) { 
+								html += '<option value="'+val.tahun+'">'+val.tahun+'</option>';
+								});
+							$('.tahun').html(html);
+						}
+					});
+				}	
+
+				
+			
 			function nilai_spj_add(value) {
 				var spj_no = document.getElementById("spj_no").value;
 				$.getJSON('get_nilai.php',{'spj_no' : spj_no},function(data){

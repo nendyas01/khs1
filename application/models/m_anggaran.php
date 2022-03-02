@@ -24,19 +24,28 @@ class m_anggaran extends CI_Model
     return $result;
   }
 
-  public function v_input_tagihan()
-    {
-        $query = $this->db->query("SELECT SPJ_NO FROM tb_SPJ GROUP BY YEAR(SPJ_TANGGAL_MULAI) ASC");
-        return $query->result();
-    }
+  public function spj_no(){
+    $this->db->select('YEAR(SPJ_TANGGAL_MULAI) as tahun, SPJ_NO');
+    $this->db->from('tb_spj');
+    $this->db->where('tahun',(date('Y')));
+    return $this->db->get()->result();
+  }
 
+  public function getnominal($tahun){
+    $this->db->select('SPJ_ADD_NILAI, SPJ_NO, YEAR(SPJ_TANGGAL_MULAI)');
+    $this->db->from('tb_spj');
+    $this->db->where('YEAR(SPJ_TANGGAL_MULAI)', $tahun);
+    $this->db->group_by('SPJ_ADD_NILAI');
+    return $this->db->get();
+  }
 
   public function input_data($data, $table)
     {
         $this->db->insert($table, $data);
+        
     }
 
-  
+   
 }
 ?>
 

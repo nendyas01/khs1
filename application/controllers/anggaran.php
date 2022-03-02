@@ -18,10 +18,10 @@ class anggaran extends CI_Controller
     }
    
     public function v_input_tagihan(){
-        $data['var_no_spj']=$this->m_anggaran->v_input_tagihan();
+        // $data['var_no_spj']=$this->m_anggaran->v_input_tagihan();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('v_input_tagihan',$data );
+        $this->load->view('v_input_tagihan');
         $this->load->view('templates/footer');
 
     }
@@ -44,6 +44,17 @@ class anggaran extends CI_Controller
         );
         $this->m_crud_skkio->input_data($data, 'tb_pembayaran');
         redirect('anggaran/v_input_tagihan');
+    }
+
+    public function getNoSPJ(){
+        $get=$this->m_anggaran->tahun();
+        echo json_encode($get);
+    }
+
+    public function getNominal(){
+        $tahun = $this->input->get('tahun');
+        $get = $this->m_anggaran->getnominal($tahun);
+        echo json_encode($get);
     }
     
 }
