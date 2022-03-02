@@ -199,6 +199,48 @@
                                         </div>
                                     </div>
 
+                                    <link rel="stylesheet" href="//select2.github.io/select2-bootstrap-theme/css/select2-bootstrap.css">
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+                                    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                                    <style>
+                                        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+                                            background-color: blue;
+                                            border: 1px solid hsl(0, 0%, 66.7%);
+
+                                        }
+                                    </style>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#PAKET_JENIS').change(function() {
+                                                var id = $(this).val();
+                                                $.ajax({
+                                                    url: "<?php echo base_url(); ?>/inp_spj_fin/getpaket",
+                                                    method: "POST",
+                                                    data: {
+                                                        id: id
+                                                    },
+                                                    async: false,
+                                                    dataType: 'json',
+                                                    success: function(data) {
+                                                        var html = '';
+                                                        var i;
+                                                        for (i = 0; i < data.length; i++) {
+                                                            html += '<option value="' + data[i].VENDOR_ID + '">' + data[i].VENDOR_NAMA + '</option>';
+                                                        }
+                                                        $('.vendor').html(html);
+
+                                                    }
+                                                });
+                                            });
+
+                                            $('.vendor').select2();
+
+                                        });
+                                    </script>
+
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
                                             <button type="submit" class="btn btn-info" onClick="document.getElementById('submitForm').submit()">Submit</button>
