@@ -3,6 +3,22 @@
 class m_inp_addendum extends CI_Model
 {
 
+    public function tampil_data()
+    {
+        $this->db->select('SPJ_NO,
+                        ADDENDUM_NO,
+                        ADDENDUM_NILAI,
+                        TGL_ADDENDUM,
+                        ADDENDUM_TANGGAL_AKHIR,
+                        ADDENDUM_DESKRIPSI,
+                        SKKIO_NO,
+                        ');
+        $this->db->from('tb_addendum ');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result;
+    }
+
     function getdata()
     {
         $query = $this->db->query("SELECT DISTINCT * FROM tb_spj ORDER BY SPJ_NO ASC");

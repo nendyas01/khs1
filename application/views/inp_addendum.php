@@ -19,7 +19,7 @@
                             <form class="form-horizontal tasi-form" method="post">
 
                                 <div class="panel-body" onload=disableselect();>
-                                    <form class="form-horizontal tasi-form" method="post" action="inp_addendum_submit.php">
+                                    <form class="form-horizontal tasi-form" method="post" action="<?php echo base_url() . 'inp_addendum_submit.php'; ?>">
 
                                         <!-- no spj -->
                                         <div class="form-group">
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-lg-offset-2 col-lg-10">
-                                                <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
                                         </div>
                                     </form>
