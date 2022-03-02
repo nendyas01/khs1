@@ -13,7 +13,7 @@ class m_crud_skkio extends CI_Model
                         a.SKKI_TANGGAL,
                         (SELECT AREA_NAMA FROM tb_area WHERE AREA_KODE = a.AREA_KODE) AS nama_area,');
         $this->db->from('tb_skko_i a');
-       return $this->db->get(); // Tadi ga ada ininya perhatiin lagi
+        return $this->db->get(); // Tadi ga ada ininya perhatiin lagi
     }
     public function getdata()
     {

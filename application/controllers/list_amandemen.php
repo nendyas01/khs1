@@ -1,5 +1,4 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
 
 class list_amandemen extends CI_Controller
 {
@@ -25,12 +24,5 @@ class list_amandemen extends CI_Controller
         $this->load->view('templates/sidebar');
         $this->load->view('list_amandemen', $data);
         $this->load->view('templates/footer');
-    }
-
-    function edit($list_amandemen)
-    {
-        $where = array('id' => $list_amandemen);
-        $data['user'] = $this->m_data->edit_data($where, 'user')->result();
-        $this->load->view('list_amandemen', $data);
     }
 }

@@ -34,16 +34,15 @@
                                     <?php
                                     $no = 1;
                                     foreach ($list_amandemen as $la) {
-
-                                        $terpakai = 0;
                                     ?>
                                         <tr>
                                             <td> <?php echo $no++ ?></td>
-                                            <td> <?php echo $la->spj_no ?></td>
-                                            <td> <?php echo $la->no_addendum ?></td>
-                                            <td> <?php echo $la->spj_tanggal_akhir ?></td>
-                                            <td> <?php echo $la->spj_nilai ?></td>
-                                            <td><?php echo anchor('crud_user/detail_crud_user/' . $la->spj_no, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                            <td> <?php echo $la->SPJ_NO ?></td>
+                                            <td> <?php echo $la->ADDENDUM_NO ?></td>
+                                            <td> <?php echo $la->SPJ_TANGGAL_AKHIR ?></td>
+                                            <td> <?php echo $la->SPJ_NILAI ?></td>
+                                            <td><?php echo anchor('list_amandemen/' . $la->SPJ_NO, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+
                                         </tr>
                                     <?php } ?>
 
@@ -83,8 +82,10 @@
 
                                 </tbody>
                             </table>
+                        </font>
                     </div>
                 </section>
             </div>
         </div>
+    </section>
 </div>
