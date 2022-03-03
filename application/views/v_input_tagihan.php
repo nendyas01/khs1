@@ -17,14 +17,14 @@
                     <header class="panel-heading"></header>
                     	<div class="panel-body">
                         	<form class="form-horizontal tasi-form" method="post">
-
+										
 									<!-- Textbox Nomor SPJ -->
 											<div class="form-group">
 												<label class="col-sm-2 col-sm-2 control-label">Nomor SPJ</label>
 													<div class="col-sm-10">
 														<select class="form-control m-b-10" name="var_no_spj" id="spj_no" onChange="nilai_spj_add(this.value)" >
 															<option selected="0">-- Pilih NO SPJ --</option>
-															<?php foreach($var_no_spj as $spj): ?>	
+															<?php foreach($no_spj as $spj): ?>	
 																<option value="<?php echo $spj->SPJ_NO?>"><?php echo $spj->SPJ_NO ?></option>
 															<?php endforeach?>
 														</select>
@@ -80,7 +80,24 @@
 </div>
 
 		<script>
-				function getNoSPJ(){
+			window.onload = () => {
+				$('#spj_no').change(function(){
+					var val = this.value;
+					$.ajax({
+						type: "POST",
+						url: "<?= base_url('anggaran/getNilai/'); ?>"+val,
+						data:{nilai:nilai},
+						dataType: "JSON",
+						success:function(data){ 
+							alert(data.nilai);
+						}
+					})
+				})
+			}
+				
+			
+
+				function getNoSPJ(){ //ini jalan gk? engga, tdnya ini mau buat ambil no spj nya tp td udh berhasil wkwk
 						$.ajax({
 						type: "GET",
 						url: "<?php echo base_url(); ?>/chart/getTahun",

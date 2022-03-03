@@ -19,11 +19,18 @@ class anggaran extends CI_Controller
    
     public function v_input_tagihan(){
         // $data['var_no_spj']=$this->m_anggaran->v_input_tagihan();
+        $data['no_spj']=$this->m_anggaran->spj_no();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('v_input_tagihan');
+        $this->load->view('v_input_tagihan',$data);
         $this->load->view('templates/footer');
 
+    }
+
+    public function getNilai($nilai = null){
+        // $nilai = $this->input->post("nilai");
+        $this->m_anggaran->getnominal($nilai);
+        echo json_encode(["status" => true]);
     }
 
     public function tambah_aksi()

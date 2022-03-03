@@ -25,18 +25,25 @@ class m_anggaran extends CI_Model
   }
 
   public function spj_no(){
-    $this->db->select('YEAR(SPJ_TANGGAL_MULAI) as tahun, SPJ_NO');
+    $this->db->select('SPJ_NO');
     $this->db->from('tb_spj');
-    $this->db->where('tahun',(date('Y')));
+    $this->db->like('SPJ_TANGGAL_MULAI',(date('Y')));
     return $this->db->get()->result();
   }
 
-  public function getnominal($tahun){
-    $this->db->select('SPJ_ADD_NILAI, SPJ_NO, YEAR(SPJ_TANGGAL_MULAI)');
+  // public function getnominal($tahun){
+  //   $this->db->select('SPJ_ADD_NILAI, SPJ_NO, YEAR(SPJ_TANGGAL_MULAI)');
+  //   $this->db->from('tb_spj');
+  //   $this->db->where('YEAR(SPJ_TANGGAL_MULAI)', $tahun);
+  //   $this->db->group_by('SPJ_ADD_NILAI');
+  //   return $this->db->get();
+  // }
+
+  public function getnominal($nilai){
+    $this->db->select('SPJ_ADD_NILAI');
     $this->db->from('tb_spj');
-    $this->db->where('YEAR(SPJ_TANGGAL_MULAI)', $tahun);
-    $this->db->group_by('SPJ_ADD_NILAI');
-    return $this->db->get();
+    $this->db->where('SPJ_NO', $nilai);
+    return $this->db->get()->row();
   }
 
   public function input_data($data, $table)
