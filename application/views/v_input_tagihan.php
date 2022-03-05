@@ -22,7 +22,8 @@
 											<div class="form-group">
 												<label class="col-sm-2 col-sm-2 control-label">Nomor SPJ</label>
 													<div class="col-sm-10">
-														<select class="form-control m-b-10" name="var_no_spj" id="spj_no" onChange="nilai_spj_add(this.value)" >
+														<!-- <select class="form-control m-b-10" name="var_no_spj" id="spj_no" onChange="nilai_spj_add(this.value)" > -->
+														<select class="form-control m-b-10" name="var_no_spj" id="spj_no" >
 															<option selected="0">-- Pilih NO SPJ --</option>
 															<?php foreach($no_spj as $spj): ?>	
 																<option value="<?php echo $spj->SPJ_NO?>"><?php echo $spj->SPJ_NO ?></option>
@@ -35,7 +36,7 @@
 									<div class="form-group">
 										<label class="col-sm-2 col-sm-2 control-label">Nominal Tagihan</label>
 											<div class="col-sm-10">
-												<input type="text" class="form-control" name="var_nominal_tagihan" id="nilai" placeholder="Nominal Tagihan">
+												<input type="text" class="form-control" name="var_nominal_tagihan" id="nilai" placeholder="Nominal Tagihan" readonly>
 											</div>
 									</div>
 
@@ -82,49 +83,24 @@
 		<script>
 			window.onload = () => {
 				$('#spj_no').change(function(){
-					var val = this.value;
+					var id = this.value;
+					// console.log(id);
 					$.ajax({
 						type: "POST",
-						url: "<?= base_url('anggaran/getNilai/'); ?>"+val,
-						data:{nilai:nilai},
+						url: "<?= base_url('anggaran/getNilai/'); ?>",
+						data:{id:id},
 						dataType: "JSON",
 						success:function(data){ 
-							alert(data.nilai);
+							// console.log(data.nilai);
+							$('#nilai').val(data.nilai);
 						}
 					})
 				})
-			}
-				
-			
 
-				function getNoSPJ(){ //ini jalan gk? engga, tdnya ini mau buat ambil no spj nya tp td udh berhasil wkwk
-						$.ajax({
-						type: "GET",
-						url: "<?php echo base_url(); ?>/chart/getTahun",
-						data: "data",
-						dataType: "JSON",
-						success: function (data) {
-							var html = '';
-							$.each(data, function (i, val) { 
-								html += '<option value="'+val.tahun+'">'+val.tahun+'</option>';
-								});
-							$('.tahun').html(html);
-						}
-					});
-				}	
-
-				
-			
-			function nilai_spj_add(value) {
-				var spj_no = document.getElementById("spj_no").value;
-				$.getJSON('get_nilai.php',{'spj_no' : spj_no},function(data){
-				$("#nilai").val(data);
-				})
-
-				$.getJSON('get_termin.php',{'spj_no' : spj_no},function(data){
+				$.getJSON('get_termin',{'spj_no' : spj_no},function(data){
 					if(data == 0) //non termin
 					{//alert("non termin");
-						$.getJSON('get_val.php',{'spj_no' : spj_no},function(data)
+						$.getJSON('get_val',{'spj_no' : spj_no},function(data)
 						{
 							if(data < 100)
 							{
@@ -139,9 +115,9 @@
 
 					if(data == 1) // termin
 					{//alert(" termin");
-						$.getJSON('get_val.php',{'spj_no' : spj_no},function(data_progress)
+						$.getJSON('get_val',{'spj_no' : spj_no},function(data_progress)
 						{
-							$.getJSON('get_nilai_termin1.php',{'spj_no' : spj_no},function(data_termin)
+							$.getJSON('get_nilai_termin1',{'spj_no' : spj_no},function(data_termin)
 							{
 								if(data_progress <= data_termin)
 								{
@@ -156,5 +132,8 @@
 					
 				})		
 
-				}
+
+				 
+			}
+				
 		</script>

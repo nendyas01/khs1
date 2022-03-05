@@ -19,18 +19,37 @@ class anggaran extends CI_Controller
    
     public function v_input_tagihan(){
         // $data['var_no_spj']=$this->m_anggaran->v_input_tagihan();
-        $data['no_spj']=$this->m_anggaran->spj_no();
+        $current_spj_no['no_spj']=$this->m_anggaran->spj_no();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('v_input_tagihan',$data);
+        $this->load->view('v_input_tagihan',$current_spj_no);
         $this->load->view('templates/footer');
 
     }
 
-    public function getNilai($nilai = null){
-        // $nilai = $this->input->post("nilai");
-        $this->m_anggaran->getnominal($nilai);
-        echo json_encode(["status" => true]);
+    public function getNilai(){
+        $id = $this->input->post("id");
+        $nilai = $this->m_anggaran->getnominal($id);
+        $data = [
+            'status' => true,
+            'nilai' => $nilai->nilai
+        ];
+        echo json_encode($data);
+    }
+
+    public function getNilaiTermin(){
+        $get_nilai_termin1=$this->m_anggaran->get_nilai_termin1();
+        echo json_encode($get_nilai_termin1);
+    }
+
+    public function getTermin(){
+        $get_termin=$this->m_anggaran->get_termin();
+        echo json_encode($get_termin);
+    }
+
+    public function get_val(){
+         $get_val=$this->m_anggaran->get_val();
+         echo json_encode($get_val);
     }
 
     public function tambah_aksi()
@@ -53,15 +72,15 @@ class anggaran extends CI_Controller
         redirect('anggaran/v_input_tagihan');
     }
 
-    public function getNoSPJ(){
-        $get=$this->m_anggaran->tahun();
-        echo json_encode($get);
-    }
+    // public function getNoSPJ(){
+    //     $get=$this->m_anggaran->tahun();
+    //     echo json_encode($get);
+    // }
 
-    public function getNominal(){
-        $tahun = $this->input->get('tahun');
-        $get = $this->m_anggaran->getnominal($tahun);
-        echo json_encode($get);
-    }
+    // public function getNominal(){
+    //     $tahun = $this->input->get('tahun');
+    //     $get = $this->m_anggaran->getnominal($tahun);
+    //     echo json_encode($get);
+    // }
     
 }

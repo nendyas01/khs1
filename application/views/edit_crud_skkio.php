@@ -13,7 +13,7 @@
                 </div>
                 <div class="form_group">
                     <label>SKKI JENIS</label>
-                    <input type="text" name="SKKI_JENIS" class="form-control" value="<?php echo $cs->SKKI_JENIS ?>">
+                    <input type="text" name="SKKI_JENIS" class="form-control" value="<?php echo $cs->SKKI_JENIS ?>" readonly>
                 </div>
 
                 <div class="form-group">
@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     <label>KODE AREA</label>
-                    <input type="text" name="AREA_KODE" id="AREA_KODE "class="form-control" value="<?php echo $cs->AREA_KODE ?>">
+                    <input type="text" name="AREA_KODE" id="AREA_KODE "class="form-control" value="<?php echo $cs->AREA_KODE ?>" readonly>
                     
                 </div>
 
