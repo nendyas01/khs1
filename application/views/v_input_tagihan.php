@@ -16,7 +16,18 @@
                 <section class="panel">
                     <header class="panel-heading"></header>
                     	<div class="panel-body">
-                        	<form class="form-horizontal tasi-form" method="post">
+						<?php if($this->session->flashdata('sukses')) : ?>
+							<div class="callout callout-success">
+								<h4>Sukses!</h4>
+								<?= $this->session->flashdata('sukses'); ?>
+							</div>
+						<?php elseif($this->session->flashdata('gagal')) : ?>
+							<div class="callout callout-danger">
+								<h4>Warning!</h4>
+								<?= $this->session->flashdata('gagal'); ?>
+							</div>
+						<?php endif; ?>
+						<form action="<?= site_url('anggaran/tambah_data') ?>" class="form-horizontal tasi-form" method="post">
 										
 									<!-- Textbox Nomor SPJ -->
 											<div class="form-group">
@@ -24,11 +35,12 @@
 													<div class="col-sm-10">
 														<!-- <select class="form-control m-b-10" name="var_no_spj" id="spj_no" onChange="nilai_spj_add(this.value)" > -->
 														<select class="form-control m-b-10" name="var_no_spj" id="spj_no" >
-															<option selected="0">-- Pilih NO SPJ --</option>
+															<option value="">-- Pilih NO SPJ --</option>
 															<?php foreach($no_spj as $spj): ?>	
 																<option value="<?php echo $spj->SPJ_NO?>"><?php echo $spj->SPJ_NO ?></option>
 															<?php endforeach?>
 														</select>
+														<?= form_error('var_no_spj', '<small class="text-danger">', '</small>'); ?>
 													</div>
 											</div>
 
@@ -37,6 +49,7 @@
 										<label class="col-sm-2 col-sm-2 control-label">Nominal Tagihan</label>
 											<div class="col-sm-10">
 												<input type="text" class="form-control" name="var_nominal_tagihan" id="nilai" placeholder="Nominal Tagihan" readonly>
+												<?= form_error('var_nominal_tagihan', '<small class="text-danger">', '</small>'); ?>
 											</div>
 									</div>
 
@@ -45,6 +58,7 @@
 											<label class=" col-sm-2 col-sm-2 control-label">Tanggal Bayar</label>
 											<div class="col-md-2">
 												<input type="date" class="form-control" name="var_tanggal_bayar" id="tgl_tagihan">
+												<?= form_error('var_tanggal_bayar', '<small class="text-danger">', '</small>'); ?>
 											</div>
 									</div>
 
@@ -53,6 +67,7 @@
 											<label class="col-sm-2 col-sm-2 control-label">Nomor BASTP</label>
 											<div class="col-sm-10">
 												<input type="text" class="form-control" name="var_no_bastp" placeholder="Nomor BASTP">
+												<?= form_error('var_no_bastp', '<small class="text-danger">', '</small>'); ?>
 											</div>
 									</div>
 
@@ -61,15 +76,17 @@
 											<label class="col-sm-2 col-sm-2 control-label">Deskripsi</label>
 											<div class="col-sm-10">
 												<textarea rows="2" cols="125" name="var_deskripsi" placeholder="Nomor SAP"></textarea>
+												<?= form_error('var_deskripsi', '<small class="text-danger">', '</small>'); ?>
 											</div>
-									</div>
-
-												
+									</div>	
+									
+									
 										<div class="form-group">
 											<div class="col-lg-offset-2 col-lg-10">
-											<button type="submit" id="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
+											<button type="submit" id="submit" class="btn btn-info" >Submit</button>
 											</div>
 										</div>
+
                        	 	</form>
                     	</div>
 					</header>
@@ -91,7 +108,7 @@
 						data:{id:id},
 						dataType: "JSON",
 						success:function(data){ 
-							// console.log(data.nilai);
+							console.log(data.nilai);
 							$('#nilai').val(data.nilai);
 						}
 					})
@@ -110,8 +127,8 @@
 							else
 							{document.getElementById("submit").disabled = false;}
 						})
+						
 					}
-
 
 					if(data == 1) // termin
 					{//alert(" termin");
