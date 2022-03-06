@@ -10,7 +10,9 @@
 <script src="jquery.chained.min.js"></script>
 
 <!-- jQuery 2.0.2 -->
-<script src="js/jquery.min.js" type="text/javascript"></script>
+<!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+
 
 <!-- jQuery UI 1.10.3 -->
 

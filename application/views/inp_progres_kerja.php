@@ -9,6 +9,7 @@
             <li class="active">Progress Pekerjaan</li>
         </ol>
     </section>
+
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -21,14 +22,25 @@
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control m-b-10" name="spj_no" id="spj_no">
+
+
+                                    <input type="text" name="spj" id="spj" placeholder="Masukan nama SPJ" class="form-control">
+
+                                    <!-- <select class="form-control m-b-10" name="spj_no" id="spj_no">
                                         <option selected="0">-- NO SPJ --</option>
                                         <?php foreach ($nomorspj as $ns) : ?>
                                             <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
                                         <?php endforeach; ?>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
+
+                            <!-- <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Nama Pengawas</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="var_nama_pengawas" id="var_nama_pengawas">
+                                </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label class="col-sm-2 col-sm-2 control-label"></label>
@@ -95,6 +107,15 @@
                                     <button type="submit" class="btn btn-info" onclick="document.getElementById('submitForm').submit()">Submit</button>
                                 </div>
                             </div>
+
+                            <script type='text/javascript'>
+                                $(document).ready(function() {
+                                    $('#spj').autocomplete({
+                                        source: "<?php echo site_url('inp_progres_kerja/get_autofill/?') ?>",
+
+                                    });
+                                });
+                            </script>
 
                             <!-- <script>
                                 $(document).ready(function() {

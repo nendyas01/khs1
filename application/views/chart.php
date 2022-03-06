@@ -173,6 +173,8 @@
         });
       }
 
+
+
       function getPaket(tahun){
           $.ajax({
               type: "GET",
@@ -282,8 +284,10 @@
                 var paket2 = [];
                 var paket3 = [];
                 var bulan = [];
+                // var spj_nilai=[];
                 
                 for (var i in data) {
+                  // spj_nilai.push(data[i].nilai_spj);
                   bulan.push(data[i].nama_bulan);
                   paket1.push(parseInt(data[i].paket_1));
                   paket2.push(parseInt(data[i].paket_2));
@@ -305,6 +309,7 @@
                     categories: bulan
                 },
                 yAxis: {
+                    // categories: spj_nilai
                     
                 },
                 tooltip: {
@@ -367,7 +372,7 @@
                   Highcharts.chart('container3', {
 
                       title: {
-                          text: 'Grafik perbandingan pgu dan spj'
+                          text: 'Grafik perbandingan pagu dan spj'
                       },
 
                       // subtitle: {
@@ -381,9 +386,10 @@
                       },
 
                       xAxis: {
-                          accessibility: {
-                              rangeDescription: 'Nama vendor',
-                          },
+                          categories:vendor,
+                          // accessibility: {
+                          //     rangeDescription: 'Nama vendor',
+                          // },
                       },
 
                       legend: {

@@ -11,12 +11,25 @@ class inp_progres_kerja extends CI_Controller
 
     function index()
     {
-        $data['nomorspj'] = $this->m_inp_progres_kerja->getdata();
+        //$data['nomorspj'] = $this->m_inp_progres_kerja->getdata();
         //$data['SPJ_NO'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('inp_progres_kerja', $data);
+        $this->load->view('inp_progres_kerja');
         $this->load->view('templates/footer');
+    }
+
+    function get_autofill()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->m_inp_progres_kerja->search_spj($_GET['term']);
+            if (count($result) > 0) {
+                foreach ($result as $row)
+                    $arr_result[] = $row->SPJ_NO;
+
+                echo json_encode($arr_result);
+            }
+        }
     }
 
     public function tambah_aksi()

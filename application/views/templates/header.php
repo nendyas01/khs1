@@ -29,6 +29,17 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+  <!-- autocomplete -->
+  <!-- <link rel="stylesheet" type=text/css href="<?php echo base_url() ?>assets/css/bootstrap.css"> -->
+  <link rel="stylesheet" type=text/css href="<?php echo base_url() ?>assets/css/jquery-ui.css">
+
+  <!-- drop and drag -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,600italic"> -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/basic.min.css">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -76,23 +87,32 @@
   <!-- AdminLTE for demo purposes -->
   <script src="<?php echo base_url() ?>assets/dist/js/demo.js"></script>
 
+  <!-- autocomplete -->
+  <!-- <script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.js"></script>
+  <script src="<?php echo base_url() ?>assets/js/bootstrap.js"></script>-->
+  <script src="<?php echo base_url() ?>assets/js/jquery-ui.js"></script>
+
+  <!-- drop and drag -->
+  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+
+
   <!-- <link href="https://code.highcharts.com/css/highcharts.css" rel="stylesheet"> -->
   <style>
-
-
-  /* membuat bar chart */
-  #container2 {
+    /* membuat bar chart */
+    #container2 {
       height: 400px;
-  }
+    }
 
-  .highcharts-figure,
-  .highcharts-data-table table {
+    .highcharts-figure,
+    .highcharts-data-table table {
       min-width: 310px;
       max-width: 800px;
       margin: 1em auto;
-  }
+    }
 
-  .highcharts-data-table table {
+    .highcharts-data-table table {
       font-family: Verdana, sans-serif;
       border-collapse: collapse;
       border: 1px solid #ebebeb;
@@ -100,34 +120,33 @@
       text-align: center;
       width: 100%;
       max-width: 500px;
-  }
+    }
 
-  .highcharts-data-table caption {
+    .highcharts-data-table caption {
       padding: 1em 0;
       font-size: 1.2em;
       color: #555;
-  }
+    }
 
-  .highcharts-data-table th {
+    .highcharts-data-table th {
       font-weight: 600;
       padding: 0.5em;
-  }
+    }
 
-  .highcharts-data-table td,
-  .highcharts-data-table th,
-  .highcharts-data-table caption {
+    .highcharts-data-table td,
+    .highcharts-data-table th,
+    .highcharts-data-table caption {
       padding: 0.5em;
-  }
+    }
 
-  .highcharts-data-table thead tr,
-  .highcharts-data-table tr:nth-child(even) {
+    .highcharts-data-table thead tr,
+    .highcharts-data-table tr:nth-child(even) {
       background: #f8f8f8;
-  }
+    }
 
-  .highcharts-data-table tr:hover {
+    .highcharts-data-table tr:hover {
       background: #f1f7ff;
-  }
-
+    }
   </style>
 </head>
 
