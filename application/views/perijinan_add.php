@@ -2,9 +2,21 @@
     <section class="content">
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 ">
                 <section class="panel">
-                    <header class="panel-heading">Tambah Perijinan</header>
+                    <div class="form-group">
+                        <div class="col-lg-offset-1 col-lg-10">
+                            <button onclick="goBack() " class="btn btn-info">Kembali</button>
+                            <script>
+                                function goBack() {
+                                    window.history.back();
+                                }
+                            </script>
+
+                        </div>
+                    </div>
+
+
                     <div class="panel-body">
                         <form class="form-horizontal tasi-form" method="post" action="perijinan_add_submit.php?id= <? echo $no_spj; ?> ">
                             <div class="form-group">
@@ -59,11 +71,12 @@
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button name="Submit" type="submit" class="btn btn-info">Submit</button>
+
                                 </div>
                             </div>
-
                         </form>
                     </div>
+
                 </section>
             </div>
         </div>

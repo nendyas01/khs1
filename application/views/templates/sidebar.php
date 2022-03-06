@@ -70,6 +70,7 @@
           <li><a href="<?php echo base_url('ba_survey') ?>"><i class="fa fa-circle-o"></i> BA Survey</a></li>
           <li><a href="<?php echo base_url('monitoring') ?>"><i class="fa fa-circle-o"></i> Monitoring Perizinan</a></li>
           <li><a href="<?php echo base_url('pengajuan') ?>"><i class="fa fa-circle-o"></i> Pengajuan Perizinan Baru</a></li>
+          <li><a href="<?php echo base_url('perijinan') ?>"><i class="fa fa-circle-o"></i> Perizinan</a></li>
           <li><a href="<?php echo base_url('retribusi') ?>"><i class="fa fa-circle-o"></i> Retribusi</a></li>
           <li><a href="<?php echo base_url('skrd') ?>"><i class="fa fa-circle-o"></i> SKRD</a></li>
         </ul>
