@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?= base_url('assets/dropify/css/') . 'dropify.css'; ?>">
+    <!-- <link rel="stylesheet" href="<?= base_url('assets/dropify/css/') . 'dropify.css'; ?>"> -->
+
 </head>
 
 <div class="content-wrapper">
@@ -33,24 +34,31 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Area</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control m-b-10" name="KODEAREA">
+
+                                        <input type="text" name="area" id="area" placeholder="Masukan Nama Area" class="form-control">
+
+                                        <!-- <select class="form-control m-b-10" name="KODEAREA">
                                             <option value>-- Area --</option>
                                             <?php foreach ($areaspj as $na) : ?>
                                                 <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
                                             <?php endforeach; ?>
-                                        </select>
+                                        </select> -->
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-2 col-sm-2 control-label" for="inputSuccess">Nomor SPJ</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control m-b-10" name="spj_no">
-                                            <option value>-- NO SPJ --</option>
-                                            <?php foreach ($nomorspj as $ns) : ?>
-                                                <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+
+
+                                        <input type="text" name="spj" id="spj" placeholder="Masukan Nomor SPJ" class="form-control">
+
+                                        <!-- <select class="form-control m-b-10" name="spj_no" id="spj_no">
+                                        <option selected="0">-- NO SPJ --</option>
+                                        <?php foreach ($nomorspj as $ns) : ?>
+                                            <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
+                                        <?php endforeach; ?>
+                                    </select> -->
                                     </div>
                                 </div>
 
@@ -108,16 +116,12 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <label class=" col-sm-4 col-sm-2 control-label">Evidence</label>
-                                        <div class="col-md-6">
-
-                                            <?= $this->session->flashdata('message'); ?>
-                                            <form action="" method="post" enctype="multipart/form-data">
-
-                                                <div class="form-group">
-                                                    <input type="file" name="image" class="dropify">
+                                        <div class="col-sm-8">
+                                            <div class="dropzone">
+                                                <div class="dz-message">
+                                                    <h3>Drop dan Drag Disini untuk upload</h3>
                                                 </div>
-
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -128,12 +132,68 @@
                                     </div>
                                 </div>
 
-                                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 
-                                <script src="<?= base_url('assets/bootstrap/jquery/') . 'jquery3.js'; ?>"></script>
-                                <script src="<?= base_url('assets/bootstrap/js/') . 'bootstrap.js'; ?>"></script>
-                                <script src="<?= base_url('assets/dropify/js/') . 'dropify.js'; ?>"></script>
+
+                                <script type='text/javascript'>
+                                    $(document).ready(function() {
+                                        $('#spj').autocomplete({
+                                            source: "<?php echo site_url('inp_pel_khs/get_autofill/?') ?>",
+
+                                        });
+                                    });
+                                </script>
+
+                                <script type='text/javascript'>
+                                    $(document).ready(function() {
+                                        $('#area').autocomplete({
+                                            source: "<?php echo site_url('inp_pel_khs/get_autocomplete') ?>",
+
+                                        });
+                                    });
+                                </script>
+
                                 <script>
+                                    Dropzone.autoDiscover = false;
+                                    var file_upload = new Dropzone('.dropzone', {
+                                        url: "<?= base_url('inp_pel_khs/proses_upload') ?>",
+                                        method: "post",
+                                        paramName: "userFile",
+                                        maxFiles: 5,
+                                        dictMaxFilesExceeded: "Maximum upload file adalah 5",
+                                        acceptedFiles: "application/pdf",
+                                        dictInvalidFileType: "File ini tidak diizinkan",
+                                        maxFilesize: 1, //MB
+                                        dictFileTooBig: "File size terlalu besar, upload minimal 1 MB",
+                                        addRemoveLinks: true,
+                                    });
+
+                                    file_upload.on('sending', function(a, b, c) {
+                                        a.token = Math.random();
+                                        c.append('token', a.token);
+                                        console.log(file_upload);
+                                    });
+
+                                    file_upload.on('removedfile', function(a) {
+                                        var token = a.token;
+                                        $.ajax({
+                                            type: "post",
+                                            data: {
+                                                token: token
+                                            },
+                                            url: "<?= base_url('inp_pel_khs/remove_file'); ?>",
+                                            cache: false,
+                                            success: function() {
+                                                console.log('file berhasil dihapus');
+                                            },
+                                            error: function() {
+                                                console.log('gagal dihapus')
+                                            }
+                                        })
+                                    })
+                                </script>
+
+
+                                <!-- <script>
                                     $(document).ready(function() {
                                         $('.dropify').dropify({
                                             messages: {
@@ -144,9 +204,7 @@
                                             }
                                         });
                                     });
-                                </script>
-
-
+                                </script>  -->
                             </form>
                         </div>
                     </section>
