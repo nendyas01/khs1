@@ -39,23 +39,23 @@ class anggaran extends CI_Controller
         echo json_encode($data);
     }
 
-    public function getNilaiTermin()
-    {
-        $get_nilai_termin1 = $this->m_anggaran->get_nilai_termin1();
-        echo json_encode($get_nilai_termin1);
-    }
+    // public function getNilaiTermin()
+    // {
+    //     $get_nilai_termin1 = $this->m_anggaran->get_nilai_termin1();
+    //     echo json_encode($get_nilai_termin1);
+    // }
 
-    public function getTermin()
-    {
-        $get_termin = $this->m_anggaran->get_termin();
-        echo json_encode($get_termin);
-    }
+    // public function getTermin()
+    // {
+    //     $get_termin = $this->m_anggaran->get_termin();
+    //     echo json_encode($get_termin);
+    // }
 
-    public function get_val()
-    {
-        $get_val = $this->m_anggaran->getval();
-        echo json_encode($get_val);
-    }
+    // public function get_val()
+    // {
+    //     $get_val = $this->m_anggaran->getval();
+    //     echo json_encode($get_val);
+    // }
 
     public function tambah_data()
     {
@@ -100,6 +100,7 @@ class anggaran extends CI_Controller
         };
     }
 
+<<<<<<< HEAD
     public function tambah_aksi()
     {
         $SPJ_NO = $this->input->post('SPJ_NO');
@@ -118,3 +119,8 @@ class anggaran extends CI_Controller
         redirect('anggaran/v_input_tagihan');
     }
 }
+=======
+    
+}
+
+>>>>>>> 0ad1ace1bc56dc13717288b9f1f2d0c992f5d460
