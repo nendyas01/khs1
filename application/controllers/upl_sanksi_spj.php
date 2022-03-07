@@ -11,13 +11,70 @@ class upl_sanksi_spj extends CI_Controller
 
     function index()
     {
-        //$data[''] = $this->m_upl_sanksi_spj->getdata();
-        $data['areaspj'] = $this->m_upl_sanksi_spj->getarea();
-        //$data['SPJ_NO'] = $this->m_inp_addendum->getdata();
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('upl_sanksi_spj', $data);
+        $this->load->view('upl_sanksi_spj');
         $this->load->view('templates/footer');
+    }
+
+    function get_autofill()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->m_upl_sanksi_spj->search_spj($_GET['term']);
+            if (count($result) > 0) {
+                foreach ($result as $row)
+                    $arr_result[] = $row->id_sanksi_spj;
+
+                echo json_encode($arr_result);
+            }
+        }
+    }
+
+    function get_autocomplete()
+    {
+        if (isset($_GET['term'])) {
+            $result = $this->m_upl_sanksi_spj->get_prov($_GET['term']);
+            if (count($result) > 0) {
+                foreach ($result as $row)
+                    $result_array[] = $row->AREA_NAMA;
+                echo json_encode($result_array);
+            }
+        }
+    }
+
+    public function proses_upload()
+    {
+        $config['upload_path'] = FCPATH . './uploads/file';
+        $config['allowed_types'] = 'pdf';
+        $config['encrypt_name'] = TRUE;
+        /* $config['max_size'] = '100';
+        $config['max_width'] = '1024';
+        $config['max_height'] = '768'; */
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('userFile')) {
+            $token = $this->input->post('token');
+            $name = $this->upload->data('file_name');
+            $this->db->insert('upload', ['file' => $name, 'token' => $token]);
+        }
+    }
+
+    public function remove_file()
+    {
+        $token = $this->input->post('token');
+        $data = $this->db->get_where('upload', ['token' => $token]);
+        if ($data->num_rows() > 0) {
+            $row = $data->row();
+            $berkas = $row->file;
+            if (file_exists($path = FCPATH . "/uploads/file/" . $berkas)) {
+                unlink($path);
+            }
+
+            $this->db->delete('upload', ['token' => $token]);
+        }
+
+        $this->output->append_output("()");
     }
 
     public function tambah_aksi()
@@ -45,7 +102,7 @@ class upl_sanksi_spj extends CI_Controller
         }
     }
 
-    public function upload()
+    /* public function upload()
     {
         $this->m_upl_sanksi_spj->set_rules('judul', 'Judul', 'required');
 
@@ -77,5 +134,5 @@ class upl_sanksi_spj extends CI_Controller
                 }
             }
         }
-    }
+    } */
 }

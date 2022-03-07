@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="<?= base_url('assets/dropify/css/') . 'dropify.css'; ?>"> -->
 
 </head>
 
@@ -37,12 +36,6 @@
 
                                         <input type="text" name="area" id="area" placeholder="Masukan Nama Area" class="form-control">
 
-                                        <!-- <select class="form-control m-b-10" name="KODEAREA">
-                                            <option value>-- Area --</option>
-                                            <?php foreach ($areaspj as $na) : ?>
-                                                <option value="<?php echo $na->AREA_KODE; ?>"> <?php echo $na->AREA_NAMA; ?></option>
-                                            <?php endforeach; ?>
-                                        </select> -->
                                     </div>
                                 </div>
 
@@ -53,12 +46,6 @@
 
                                         <input type="text" name="spj" id="spj" placeholder="Masukan Nomor SPJ" class="form-control">
 
-                                        <!-- <select class="form-control m-b-10" name="spj_no" id="spj_no">
-                                        <option selected="0">-- NO SPJ --</option>
-                                        <?php foreach ($nomorspj as $ns) : ?>
-                                            <option value="<?php echo $ns->SPJ_DESKRIPSI; ?>"> <?php echo $ns->SPJ_NO; ?></option>
-                                        <?php endforeach; ?>
-                                    </select> -->
                                     </div>
                                 </div>
 
@@ -132,22 +119,27 @@
                                     </div>
                                 </div>
 
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+                                <!-- <script type='text/javascript' src='<?php echo base_url() . 'assets/js/jquery-3.3.1.js' ?>'></script> -->
+                                <script type='text/javascript' src='<?php echo base_url() . 'assets/js/bootstrap.js' ?>'></script>
+                                <script type='text/javascript' src='<?php echo base_url() . 'assets/js/jquery-ui.js' ?>'></script>
 
                                 <script type='text/javascript'>
                                     $(document).ready(function() {
-                                        $('#spj').autocomplete({
-                                            source: "<?php echo site_url('inp_pel_khs/get_autofill/?') ?>",
+                                        $('#area').autocomplete({
+                                            source: "<?php echo site_url('inp_pel_khs/get_autocomplete/?') ?>",
 
                                         });
+
                                     });
                                 </script>
 
                                 <script type='text/javascript'>
                                     $(document).ready(function() {
-                                        $('#area').autocomplete({
-                                            source: "<?php echo site_url('inp_pel_khs/get_autocomplete') ?>",
-
+                                        $('#spj').autocomplete({
+                                            source: "<?php echo site_url('inp_pel_khs/get_autofill/?') ?>",
                                         });
                                     });
                                 </script>
@@ -191,20 +183,6 @@
                                         })
                                     })
                                 </script>
-
-
-                                <!-- <script>
-                                    $(document).ready(function() {
-                                        $('.dropify').dropify({
-                                            messages: {
-                                                default: 'Drag and drop a file here or click',
-                                                replace: 'Ganti',
-                                                remove: 'Hapus',
-                                                error: 'error'
-                                            }
-                                        });
-                                    });
-                                </script>  -->
                             </form>
                         </div>
                     </section>

@@ -79,41 +79,6 @@ class inp_pel_khs extends CI_Controller
         $this->output->append_output("()");
     }
 
-
-    /* public function upload()
-    {
-        $this->m_coba->set_rules('judul', 'Judul', 'required');
-
-        if ($this->m_coba->run() == FALSE) {
-            $this->load->view('upload/inp_pel_khs');
-        } else {
-            $judul = $this->input->post('judul');
-            $upload_image = $_FILES['image'];
-
-            if ($upload_image) {
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size'] = '2048';
-                $config['upload_path'] = './assets/images/';
-
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('image')) {
-                    echo "Gambar Gagal Upload. Gambar harus bertipe gif|jpg|png dan max size 2mb";
-                    die();
-                } else {
-                    $data = [
-                        'judul' => $this->input->post('judul'),
-                        'image' => $this->upload->data('file_name')
-                    ];
-
-                    $this->db->insert('tbl_galeri', $data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New Image Added!</div>');
-                    redirect('upload');
-                }
-            }
-        }
-    } */
-
     public function tambah_aksi()
     {
         $SPJ_NO = $this->input->post('spj_no');
