@@ -117,4 +117,8 @@ class anggaran extends CI_Controller
         $this->m_crud_skkio->input_data($data, 'tb_pembayaran');
         redirect('anggaran/v_input_tagihan');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d5ec1e75e32f9ee0317f233e28a74fe419023e7c
