@@ -30,4 +30,9 @@ class m_perijinan extends CI_Model
     {
         return $this->db->get_where($table, $where);
     }
+
+    public function edit($where, $table)
+    {
+        return $this->db->get_where($table, $where);
+    }
 }

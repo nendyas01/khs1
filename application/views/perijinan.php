@@ -42,8 +42,6 @@
                                             <td> <?php echo $p->spj_no ?></td>
                                             <td> <?php echo $p->jumlah_dok ?></td>
                                             <td><?php echo anchor('perijinan/perijinan_add/' . $p->spj_no, '<div><a href="perijinan_add">Add</a></div>') ?></td>
-
-
                                         </tr>
                                     <?php } ?>
 

@@ -24,7 +24,8 @@ class m_anggaran extends CI_Model
     return $result;
   }
 
-  public function spj_no(){
+  public function spj_no()
+  {
     $this->db->select('SPJ_NO');
     $this->db->from('tb_spj');
     $this->db->like('SPJ_TANGGAL_MULAI');
@@ -44,7 +45,8 @@ class m_anggaran extends CI_Model
   //   return $this->db->get();
   // }
 
-  public function getnominal($id){
+  public function getnominal($id)
+  {
     $this->db->select('a.SPJ_ADD_NILAI AS nilai');
     $this->db->from('tb_spj a');
     $this->db->join('tb_progress b', 'a.SPJ_NO = b.SPJ_NO', 'left');
@@ -53,29 +55,26 @@ class m_anggaran extends CI_Model
     return $this->db->get()->row();
   }
 
-  public function get_termin_by_no_spj($no_spj) 
-  { 
-  $this->db->select('*'); 
-  $this->db->from('tb_termin'); 
-  $this->db->where('spj_no', $no_spj); 
-  return $this->db->get()->row(); 
-  } 
-  
-  public function get_progress_by_no_spj($no_spj) 
-  { 
-  $this->db->select('*'); 
-  $this->db->from('tb_progress'); 
-  $this->db->where('spj_no', $no_spj); 
-  return $this->db->get()->row(); 
+  public function get_termin_by_no_spj($no_spj)
+  {
+    $this->db->select('*');
+    $this->db->from('tb_termin');
+    $this->db->where('spj_no', $no_spj);
+    return $this->db->get()->row();
   }
 
- 
+  public function get_progress_by_no_spj($no_spj)
+  {
+    $this->db->select('*');
+    $this->db->from('tb_progress');
+    $this->db->where('spj_no', $no_spj);
+    return $this->db->get()->row();
+  }
+
+
 
   public function input_data($data, $table)
-    {
-        $this->db->insert($table, $data);
-        
-    }
-
-   
+  {
+    $this->db->insert($table, $data);
+  }
 }

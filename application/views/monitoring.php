@@ -100,6 +100,3 @@
     </section>
     </section>
 </div>
-</div>
-</section>
-</div>
