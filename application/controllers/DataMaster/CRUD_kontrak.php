@@ -1,6 +1,6 @@
 <?php
 
-class crud_kontrak extends CI_Controller
+class CRUD_kontrak extends CI_Controller
 {
 
     public function __construct()

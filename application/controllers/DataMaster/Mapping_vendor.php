@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
 
-class mapping_vendor extends CI_Controller
+class Mapping_vendor extends CI_Controller
 {
 
     public function __construct()

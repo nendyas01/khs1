@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class auto_complete extends CI_Controller
+class Auto_complete extends CI_Controller
 {
     function __construct()
     {

@@ -1,6 +1,6 @@
 <?php
 
-class crud_user extends CI_Controller
+class CRUD_user extends CI_Controller
 {
 
     public function __construct()

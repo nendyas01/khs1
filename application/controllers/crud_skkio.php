@@ -1,6 +1,6 @@
 <?php
 
-class crud_skkio extends CI_Controller
+class CRUD_skkio extends CI_Controller
 {
 
     public function __construct()

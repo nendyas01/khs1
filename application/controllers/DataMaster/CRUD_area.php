@@ -1,6 +1,6 @@
 <?php
 
-class crud_area extends CI_Controller
+class CRUD_area extends CI_Controller
 {
 
     public function __construct()

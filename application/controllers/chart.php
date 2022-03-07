@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class chart extends CI_Controller
+class Chart extends CI_Controller
 { 
     function __construct(){ 
         parent::__construct(); 

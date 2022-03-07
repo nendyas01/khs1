@@ -22,8 +22,8 @@
         </a>
       </li>
 
-      <li class="treeview <?= $this->uri->segment(1) == 'crud_area' || $this->uri->segment(1) == 'crud_kontrak' || $this->uri->segment(1) == 'crud_paket'
-                            || $this->uri->segment(1) == 'crud_user' || $this->uri->segment(1) == 'crud_vendor' ? 'active' : '' ?>">
+      <li class="treeview <?= $this->uri->segment(1) == 'CRUD_area' || $this->uri->segment(1) == 'CRUD_kontrak' || $this->uri->segment(1) == 'CRUD_paket'
+                            || $this->uri->segment(1) == 'CRUD_user' || $this->uri->segment(1) == 'CRUD_vendor' ? 'active' : '' ?>">
         <a href="#">
           <i class=" fa fa-edit"></i> <span>Pengelolaan Data Master</span>
           <span class="pull-right-container">
@@ -31,12 +31,12 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li <?= $this->uri->segment(1) == 'crud_area' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_area') ?>"><i class="fa fa-circle-o"></i> Add/Edit Area</a></li>
-          <li <?= $this->uri->segment(1) == 'crud_kontrak' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_kontrak') ?>"><i class="fa fa-circle-o"></i> Add/Edit Pagu Kontrak</a></li>
-          <li <?= $this->uri->segment(1) == 'crud_paket' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_paket') ?>"><i class="fa fa-circle-o"></i> Add/Edit Paket</a></li>
-          <li <?= $this->uri->segment(1) == 'crud_user' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_user') ?>"><i class="fa fa-circle-o"></i> Add/Edit User</a></li>
-          <li <?= $this->uri->segment(1) == 'crud_vendor' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_vendor') ?>"><i class="fa fa-circle-o"></i> Add/Edit Vendor</a></li>
-          <li <?= $this->uri->segment(1) == 'mapping_vendor' ? 'class="active"' : '' ?>><a href="<?php echo base_url('mapping_vendor') ?>"><i class="fa fa-circle-o"></i> Add/Edit Mapping Vendor</a></li>
+          <li <?= $this->uri->segment(1) == 'CRUD_area' ? 'class="active"' : '' ?>><a href="<?php echo base_url('DataMaster/CRUD_area') ?>"><i class="fa fa-circle-o"></i> Add/Edit Area</a></li>
+          <li <?= $this->uri->segment(1) == 'CRUD_kontrak' ? 'class="active"' : '' ?>><a href="<?php echo base_url('DataMaster/CRUD_kontrak') ?>"><i class="fa fa-circle-o"></i> Add/Edit Pagu Kontrak</a></li>
+          <li <?= $this->uri->segment(1) == 'CRUD_paket' ? 'class="active"' : '' ?>><a href="<?php echo base_url('DataMaster/CRUD_paket') ?>"><i class="fa fa-circle-o"></i> Add/Edit Paket</a></li>
+          <li <?= $this->uri->segment(1) == 'CRUD_user' ? 'class="active"' : '' ?>><a href="<?php echo base_url('DataMaster/CRUD_user') ?>"><i class="fa fa-circle-o"></i> Add/Edit User</a></li>
+          <li <?= $this->uri->segment(1) == 'CRUD_vendor' ? 'class="active"' : '' ?>><a href="<?php echo base_url('DataMaster/CRUD_vendor') ?>"><i class="fa fa-circle-o"></i> Add/Edit Vendor</a></li>
+          <li <?= $this->uri->segment(1) == 'mapping_vendor' ? 'class="active"' : '' ?>><a href="<?php echo base_url('DataMaster/Mapping_vendor') ?>"><i class="fa fa-circle-o"></i> Add/Edit Mapping Vendor</a></li>
         </ul>
       </li>
 
@@ -114,7 +114,7 @@
       </li>
 
       <li class="treeview <?= $this->uri->segment(1) == 'anggaran' || $this->uri->segment(1) == 'anggaran/v_input_tagihan'
-                            || $this->uri->segment(1) == 'crud_skkio' ? 'active' : '' ?>">
+                            || $this->uri->segment(1) == 'CRUD_skkio' ? 'active' : '' ?>">
         <a href="#">
           <i class="fa fa-money"></i> <span>Pengelolaan Anggaran</span>
           <span class="pull-right-container">
@@ -124,7 +124,7 @@
         <ul class="treeview-menu">
           <li <?= $this->uri->segment(1) == 'anggaran' ? 'class="active"' : '' ?>><a href="<?php echo base_url('anggaran') ?>"><i class="fa fa-circle-o"></i> Penyerapan Anggaran</a></li>
           <li <?= $this->uri->segment(1) == 'anggaran/v_input_tagihan' ? 'class="active"' : '' ?>><a href="<?php echo base_url('anggaran/tambah_data') ?>"><i class="fa fa-circle-o"></i> Input Tagihan</a></li>
-          <li <?= $this->uri->segment(1) == 'crud_skkio' ? 'class="active"' : '' ?>><a href="<?php echo base_url('crud_skkio') ?>"><i class="fa fa-circle-o"></i> Add/Edit SKKO_I</a></li>
+          <li <?= $this->uri->segment(1) == 'CRUD_skkio' ? 'class="active"' : '' ?>><a href="<?php echo base_url('CRUD_skkio') ?>"><i class="fa fa-circle-o"></i> Add/Edit SKKO_I</a></li>
         </ul>
       </li>
 

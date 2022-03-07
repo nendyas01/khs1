@@ -1,6 +1,6 @@
 <?php
 
-class crud_vendor extends CI_Controller
+class CRUD_vendor extends CI_Controller
 {
 
     public function __construct()

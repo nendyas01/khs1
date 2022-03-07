@@ -1,7 +1,7 @@
 <?php
 
 
-class ba_survey extends CI_Controller
+class BA_survey extends CI_Controller
 {
 
     public function __construct()
