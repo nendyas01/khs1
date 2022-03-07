@@ -4,17 +4,7 @@
         <div class="row">
             <div class="col-md-12 ">
                 <section class="panel">
-                    <div class="form-group">
-                        <div class="col-lg-offset-1 col-lg-10">
-                            <button onclick="goBack() " class="btn btn-info">Kembali</button>
-                            <script>
-                                function goBack() {
-                                    window.history.back();
-                                }
-                            </script>
 
-                        </div>
-                    </div>
 
 
                     <div class="panel-body">
@@ -80,8 +70,21 @@
 
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-1 col-lg-10">
+                                    <button onclick="goBack() " class="btn btn-info">Kembali</button>
+                                    <script>
+                                        function goBack() {
+                                            window.history.back();
+                                        }
+                                    </script>
+
+                                </div>
+                            </div>
                         </form>
                     </div>
+
                 </section>
             </div>
         </div>

@@ -100,7 +100,7 @@
                     });
                   </script>
                 </tbody>
-              </table>      
+              </table>
         </section>
       </div>
     </div>
