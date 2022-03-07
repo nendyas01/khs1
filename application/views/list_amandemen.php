@@ -41,7 +41,7 @@
                                             <td> <?php echo $la->ADDENDUM_NO ?></td>
                                             <td> <?php echo $la->SPJ_TANGGAL_AKHIR ?></td>
                                             <td> <?php echo $la->SPJ_NILAI ?></td>
-                                            <td><?php echo anchor('list_amandemen/' . $la->SPJ_NO, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
+                                            <td> <?php echo $la->ADDENDUM_DESKRIPSI ?></td>
 
                                         </tr>
                                     <?php } ?>

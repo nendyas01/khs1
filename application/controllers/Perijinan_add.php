@@ -1,7 +1,7 @@
 <?php
 
 
-class Perijinan_add extends CI_Controller
+class perijinan_add extends CI_Controller
 {
 
     public function __construct()
@@ -12,28 +12,30 @@ class Perijinan_add extends CI_Controller
 
     public function index()
     {
-        $data['perijinan_add'] = $this->m_perijinan_add;
+        /* $where = array('spj_no' => $spj_no); */
+        $data['perijinan_add'] = $this->m_perijinan_add->edit('tb_ijin')->result();
+
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('perijinan_add', $data);
         $this->load->view('templates/footer');
     }
 
-
-
-    public function tambah_aksi()
+    public function update()
     {
-        $AREA_KODE = $this->input->post('AREA_KODE');
-        $AREA_NAMA = $this->input->post('AREA_NAMA');
-        $AREA_ZONE = $this->input->post('AREA_ZONE');
+
+        $spj_no = $this->input->post('spj_no', true);
+        $surat_ijin_no = $this->input->post('surat_ijin_no', true);
+        $tgl_surat = $this->input->post('tgl_surat', true);
 
         $data = array(
-            'AREA_KODE'               => $AREA_KODE,
-            'AREA_NAMA'               => $AREA_NAMA,
-            'AREA_ZONE'               => $AREA_ZONE,
+            'spj_no'               => $spj_no,
+            'surat_ijin_no'               => $surat_ijin_no,
+            'tgl_surat'               => $tgl_surat,
         );
 
-        $this->m_perijinan->input_data($data, 'tb_area');
+        $where = array('spj_no' => $spj_no);
+        $this->m_perijinan_add->update_data($where, $data, 'tb_ijin');
         redirect('perijinan_add/index');
     }
 }

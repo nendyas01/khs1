@@ -9,16 +9,18 @@ class m_list_amandemen extends CI_Model
         $this->db->select(
             '
         
-        SPJ_NO, 
-        SPJ_TANGGAL_AKHIR, 
-        SPJ_NILAI,
-
-        
-
+        a.SPJ_NO, 
+        a.SPJ_TANGGAL_AKHIR, 
+        a.SPJ_NILAI,
+        b.ADDENDUM_NO,
+        b.ADDENDUM_DESKRIPSI
         '
         );
 
         $this->db->from('tb_spj a');
+        $this->db->from('tb_addendum b');
+        $this->db->where('a.SPJ_NO = b.SPJ_NO ');
+        $this->db->order_by('SPJ_NO');
 
         $query = $this->db->get();
         $result = $query->result();

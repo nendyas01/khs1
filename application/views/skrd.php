@@ -54,38 +54,32 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label class=" col-sm-2 col-sm-2 control-label">Evidence</label>
-                                        <div class="col-md-8">
+                                <div class="col-md-15" style="margin: 10px;">
+                                    <div class="box box-solid">
 
-                                            <?= $this->session->flashdata('message'); ?>
-                                            <form action="" method="post" enctype="multipart/form-data">
+                                        <div class="text-center">
+                                            <h3 class="box-title" align="center">Evidence</h3>
+                                        </div>
+                                    </div>
 
-                                                <div class="form-group">
-                                                    <input type="file" name="image" class="dropify">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </form>
+                                    <div class="dropzone">
+                                        <div class="dz-message">
+                                            <h3>Drag and drop a file here or click</h3>
                                         </div>
                                     </div>
                                 </div>
 
+                                <form action="" method="post" enctype="multipart/form-data">
+
+                                    <div class="form-group">
+
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+
                                 <script src="<?= base_url('assets/bootstrap/jquery/') . 'jquery3.js'; ?>"></script>
                                 <script src="<?= base_url('assets/bootstrap/js/') . 'bootstrap.js'; ?>"></script>
                                 <script src="<?= base_url('assets/dropify/js/') . 'dropify.js'; ?>"></script>
-                                <script>
-                                    $(document).ready(function() {
-                                        $('.dropify').dropify({
-                                            messages: {
-                                                default: 'Drag and drop a file here or click',
-                                                replace: 'Ganti',
-                                                remove: 'Hapus',
-                                                error: 'error'
-                                            }
-                                        });
-                                    });
-                                </script>
 
                             </form>
                         </div>
