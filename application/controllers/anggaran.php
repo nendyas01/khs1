@@ -39,23 +39,23 @@ class anggaran extends CI_Controller
         echo json_encode($data);
     }
 
-    public function getNilaiTermin()
-    {
-        $get_nilai_termin1 = $this->m_anggaran->get_nilai_termin1();
-        echo json_encode($get_nilai_termin1);
-    }
+    // public function getNilaiTermin()
+    // {
+    //     $get_nilai_termin1 = $this->m_anggaran->get_nilai_termin1();
+    //     echo json_encode($get_nilai_termin1);
+    // }
 
-    public function getTermin()
-    {
-        $get_termin = $this->m_anggaran->get_termin();
-        echo json_encode($get_termin);
-    }
+    // public function getTermin()
+    // {
+    //     $get_termin = $this->m_anggaran->get_termin();
+    //     echo json_encode($get_termin);
+    // }
 
-    public function get_val()
-    {
-        $get_val = $this->m_anggaran->getval();
-        echo json_encode($get_val);
-    }
+    // public function get_val()
+    // {
+    //     $get_val = $this->m_anggaran->getval();
+    //     echo json_encode($get_val);
+    // }
 
     public function tambah_data()
     {
@@ -100,25 +100,6 @@ class anggaran extends CI_Controller
         };
     }
 
-    public function tambah_aksi()
-    {
-        $SPJ_NO = $this->input->post('SPJ_NO');
-        $PEMBAYARAN_NOMINAL = $this->input->post('PEMBAYARAN_NOMINAL');
-        $PEMBAYARAN_TANGGAL = $this->input->post('SKKI_NO');
-        $PEMBAYARAN_BASTP = $this->input->post('AREA_KODE');
-        $PEMBAYARAN_DESKRIPSI = $this->input->post('SKKI_NILAI');
-        $data = array(
-            'SPJ_NO'                  => $SPJ_NO,
-            'PEMBAYARAN_NOMINAL'       =>  $PEMBAYARAN_NOMINAL,
-            'PEMBAYARAN_TANGGAL'      => $PEMBAYARAN_TANGGAL,
-            'PEMBAYARAN_BASTP'        => $PEMBAYARAN_BASTP,
-            'PEMBAYARAN_DESKRIPSI'  =>  $PEMBAYARAN_DESKRIPSI,
-        );
-        $this->m_crud_skkio->input_data($data, 'tb_pembayaran');
-        redirect('anggaran/v_input_tagihan');
-    }
-<<<<<<< HEAD
+    
 }
-=======
-}
->>>>>>> d5ec1e75e32f9ee0317f233e28a74fe419023e7c
+
