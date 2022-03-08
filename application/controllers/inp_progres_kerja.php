@@ -34,24 +34,23 @@ class inp_progres_kerja extends CI_Controller
 
     public function tambah_data()
     {
-        $this->form_validation->set_rules('var_no_spj', 'Nomor SPJ', 'trim|required');
-        $this->form_validation->set_rules('progress_persen', 'Progres Pekerjaan', 'trim|required');
-        $this->form_validation->set_rules('realisasi', 'Realisasi', 'trim|required');
-        $this->form_validation->set_rules('tanggal_spj', 'Tanggal', 'trim|required');
-        $this->form_validation->set_rules('nama_pengawas', 'Nama Pengawas', 'trim|required');
-        $this->form_validation->set_rules('komentar_progres', 'Komentar', 'trim|required');
+        $this->form_validation->set_rules('spj', 'Nomor SPJ', 'trim|required');
+        $this->form_validation->set_rules('var_progress', 'Progres Pekerjaan', 'trim|required');
+        $this->form_validation->set_rules('var_realisasi', 'Realisasi', 'trim|required');
+        $this->form_validation->set_rules('var_tanggal', 'Tanggal', 'trim|required');
+        $this->form_validation->set_rules('var_nama_pengawas', 'Nama Pengawas', 'trim|required');
+        $this->form_validation->set_rules('var_keterangan', 'Komentar', 'trim|required');
 
         if ($this->form_validation->run()) {
             $data = array(
-                'SPJ_NO'                 => $this->input->post('var_no_spj'),
-                'PROGRESS_VALUE'     => $this->input->post('progress_persen'),
-                'REALISASI'     => $this->input->post('realisasi'),
-                'PROGRESS_DATE'       => $this->input->post('tanggal_spj'),
-                'PROGRESS_PENGAWAS'     => $this->input->post('nama_pengawas'),
-                'PROGRESS_NOTES'   => $this->input->post('komentar_progres'),
-                'PEMBAYARAN_INPUT_USER'  => $this->session->userdata('username'),
-                'INPUT_PROGRESS_DATE' => $this->session->userdata(),
-                'PROGRESS_INPUT_USER' => date('Y-m-d H:i:s')
+                'SPJ_NO'                 => $this->input->post('spj'),
+                'PROGRESS_VALUE'     => $this->input->post('var_progress'),
+                'REALISASI'     => $this->input->post('var_realisasi'),
+                'PROGRESS_DATE'       => $this->input->post('var_tanggal'),
+                'PROGRESS_PENGAWAS'     => $this->input->post('var_nama_pengawas'),
+                'PROGRESS_NOTES'   => $this->input->post('var_keterangan'),
+                //'INPUT_PROGRESS_DATE' => $this->session->userdata(),
+                //'PROGRESS_INPUT_USER' => date('Y-m-d H:i:s')
             );
             $this->m_inp_progres_kerja->insert_pembayaran($data);
             $this->session->set_flashdata('sukses', 'Data berhasil disimpan!');
@@ -64,14 +63,39 @@ class inp_progres_kerja extends CI_Controller
         };
     }
 
-    public function tambah_aksi()
+    /* public function tambah_aksi()
     {
         $SPJ_NO = $this->input->post('spj_no');
-        $PROGRESS_VALUE = $this->input->post('progres_pek');
-        $REALISASI = $this->input->post('realisasi_no');
-        $PROGRESS_DATE = $this->input->post('tanggal_no');
-        $PROGRESS_PENGAWAS = $this->input->post('n_pengawas');
-        $PROGRESS_NOTES = $this->input->post('komentar_p');
+        $PROGRESS_VALUE = $this->input->post('var_progress');
+        $REALISASI = $this->input->post('var_realisasi');
+        $INPUT_PROGRESS_DATE = $this->input->post('var_tanggal');
+        $PROGRESS_PENGAWAS = $this->input->post('var_nama_pengawas');
+        $PROGRESS_NOTES = $this->input->post('var_deskripsi');
+
+        $data = array();
+        foreach ($SPJ_NO as $key => $a) {
+            array_push($data, array(
+                'SPJ_NO' => $SPJ_NO[$key],
+                'PROGRESS_VALUE' => $PROGRESS_VALUE,
+                'REALISASI' => $REALISASI,
+                'INPUT_PROGRESS_DATE' => $INPUT_PROGRESS_DATE,
+                'PROGRESS_PENGAWAS' => $PROGRESS_PENGAWAS,
+                'PROGRESS_NOTES' => $PROGRESS_NOTES,
+            ));
+
+            $this->db->insert_batch('tb_progress', $data);
+            redirect('inp_progress_kerja');
+        }
+    } */
+
+    public function tambah_aksi()
+    {
+        $SPJ_NO = $this->input->post('spj');
+        $PROGRESS_VALUE = $this->input->post('var_progress');
+        $REALISASI = $this->input->post('var_realisasi');
+        $PROGRESS_DATE = $this->input->post('var_tanggal');
+        $PROGRESS_PENGAWAS = $this->input->post('var_nama_pengawas');
+        $PROGRESS_NOTES = $this->input->post('var_keterangan');
 
         $data = array(
             'SPJ_NO' => $SPJ_NO,

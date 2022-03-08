@@ -10,7 +10,7 @@ class m_inp_progres_kerja extends CI_Model
         return $this->db->get('tb_spj')->result();
     }
 
-    public function insert_pembayaran($data)
+    public function insert_progress($data)
     {
         $this->db->insert('tb_progress', $data);
     }
