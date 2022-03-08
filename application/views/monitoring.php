@@ -53,7 +53,7 @@
                                             <td> <?php echo $m->tgl_survey ?> </td>
                                             <td> <?php echo $m->tgl_terbit_skrd ?></td>
                                             <td> <?php echo $m->biaya_retribusi ?></td>
-                                            <td> <?php echo anchor('monitoring/' . $m->spj_no, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>') ?></td>
+                                            <td> <?php echo $m->izin_terbit ?></td>
                                         </tr>
                                     <?php } ?>
 

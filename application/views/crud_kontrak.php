@@ -129,6 +129,7 @@
                     </div>
                 </section>
             </div>
+        </div>
     </section>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -218,6 +219,7 @@
 
                             <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
                     </form>
                 </div>
             </div>
