@@ -100,7 +100,6 @@ class anggaran extends CI_Controller
         };
     }
 
-<<<<<<< HEAD
     public function tambah_aksi()
     {
         $SPJ_NO = $this->input->post('SPJ_NO');
@@ -119,8 +118,3 @@ class anggaran extends CI_Controller
         redirect('anggaran/v_input_tagihan');
     }
 }
-=======
-    
-}
-
->>>>>>> 0ad1ace1bc56dc13717288b9f1f2d0c992f5d460
