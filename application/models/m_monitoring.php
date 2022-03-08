@@ -12,7 +12,8 @@ class m_monitoring extends CI_Model
                         tgl_survey,
                         hasil_survey,
                         tgl_terbit_skrd,
-                        biaya_retribusi');
+                        biaya_retribusi,
+                        izin_terbit');
         $this->db->from('tb_ijin');
         $query = $this->db->get();
         $result = $query->result();
